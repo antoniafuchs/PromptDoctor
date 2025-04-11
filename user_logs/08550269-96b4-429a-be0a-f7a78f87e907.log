@@ -1,0 +1,21 @@
+2025-04-11 11:50:48,208 ; INFO ; 
+=== Interaction at 2025-04-11T11:50:48.208855 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 11:50:51,046 ; INFO ; Interaction: Iteration 1: Hi
+2025-04-11 11:50:59,938 ; INFO ; User Prompt: Hi
+2025-04-11 11:50:59,938 ; INFO ; Model Output: As a PromptDoctor AI model, I'm here to assist you with analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the clinical note or patient data for me to process.
+2025-04-11 11:50:59,938 ; INFO ; Ground Truth: Not provided
+2025-04-11 11:50:59,938 ; INFO ; -----
+2025-04-11 11:50:59,941 ; INFO ; 
+=== Interaction at 2025-04-11T11:50:59.940999 ===
+Type: CHAT
+User Prompt: Hi
+Model: Ollama
+Model Output: As a PromptDoctor AI model, I'm here to assist you with analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the clinical note or patient data for me to process.
+Duration: 8.89 seconds
+==================================================
+2025-04-11 11:50:59,941 ; INFO ; User Prompt: Hi
+2025-04-11 11:50:59,941 ; INFO ; Task Duration: 8.894576 seconds
+2025-04-11 11:50:59,941 ; INFO ; -----
