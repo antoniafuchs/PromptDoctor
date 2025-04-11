@@ -1,0 +1,33 @@
+2025-04-11 12:25:23,504 ; INFO ; 
+=== Interaction at 2025-04-11T12:25:23.504764 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 12:26:36,038 ; INFO ; Interaction: Iteration 0: hi (typing time: 3.15s)
+2025-04-11 12:26:47,510 ; INFO ; User Prompt: hi
+2025-04-11 12:26:47,513 ; INFO ; Model Output: Hello! As a PromptDoctor AI, I am here to assist you with analyzing clinical notes and providing relevant insights. Please share the patient's note or any specific details you'd like me to focus on, so I can help you better.
+2025-04-11 12:26:47,513 ; INFO ; Ground Truth: Not provided
+2025-04-11 12:26:47,513 ; INFO ; -----
+2025-04-11 12:26:47,513 ; INFO ; 
+=== Interaction at 2025-04-11T12:26:47.513807 ===
+Type: CHAT
+User Prompt: hi
+Model: Ollama
+Model Output: Hello! As a PromptDoctor AI, I am here to assist you with analyzing clinical notes and providing relevant insights. Please share the patient's note or any specific details you'd like me to focus on, so I can help you better.
+Typing Duration: 3.15 seconds
+Generation Duration: 11.47 seconds
+==================================================
+2025-04-11 12:27:46,177 ; INFO ; Interaction: Iteration 0: hey (typing time: 4.24s)
+2025-04-11 12:27:49,762 ; INFO ; User Prompt: hey
+2025-04-11 12:27:49,763 ; INFO ; Model Output: Hi again! Since you didn't provide any information about a clinical note or patient data, I'm unable to assist you effectively at this time. Please share the necessary details so I can provide insights and support for your healthcare needs.
+2025-04-11 12:27:49,765 ; INFO ; Ground Truth: Not provided
+2025-04-11 12:27:49,765 ; INFO ; -----
+2025-04-11 12:27:49,765 ; INFO ; 
+=== Interaction at 2025-04-11T12:27:49.765822 ===
+Type: CHAT
+User Prompt: hey
+Model: Ollama
+Model Output: Hi again! Since you didn't provide any information about a clinical note or patient data, I'm unable to assist you effectively at this time. Please share the necessary details so I can provide insights and support for your healthcare needs.
+Typing Duration: 4.24 seconds
+Generation Duration: 3.58 seconds
+==================================================
