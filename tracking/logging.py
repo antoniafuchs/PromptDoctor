@@ -51,8 +51,12 @@ def log_chat_interaction(
     user_prompt: str = None,
     model_output: str = None,
     model_type: str = None,
-    duration: dict = None
+    duration: dict = None,
+    feedback: str = None
 ) -> None:
+    """
+    Log a chat interaction including possible feedback
+    """
     logger = get_user_logger(user_id)
     timestamp = datetime.now().isoformat()
     
@@ -71,6 +75,8 @@ def log_chat_interaction(
                 log_entry += f"{timing_type.title()} Duration: {value:.2f} seconds\n"
         else:
             log_entry += f"Duration: {duration:.2f} seconds\n"
+    if feedback:
+        log_entry += f"Feedback: {feedback}\n"
     
     log_entry += "=" * 50
     logger.info(log_entry)

@@ -47,11 +47,39 @@ if "pdf_text" not in st.session_state:
     st.session_state.pdf_text = None
 if "medical_processor" not in st.session_state:
     st.session_state.medical_processor = MedicalTermProcessor()
+if "message_feedback" not in st.session_state:
+    st.session_state.message_feedback = {}
+
 
 # Remove JavaScript section and replace with input focus handler
 def on_input_focus():
     if st.session_state.input_start_time is None:
         st.session_state.input_start_time = datetime.datetime.now()
+
+def save_feedback(index):
+    """Save feedback for a specific message with timing"""
+    feedback_value = st.session_state[f"feedback_{index}"]
+    current_time = datetime.datetime.now()
+    
+    # Map thumbs to feedback values (1 for thumbs up, 0 for neutral, -1 for thumbs down)
+    feedback_text = {
+        1: "positive",
+        -1: "negative",
+        0: "neutral"
+    }.get(feedback_value, "neutral")
+    
+    st.session_state.message_feedback[index] = feedback_value  # Store original numeric value
+    
+    # Log the feedback with timing
+    message = st.session_state.messages[index]
+    log_chat_interaction(
+        user_id=st.session_state.user_id,
+        interaction_type="FEEDBACK",
+        model_type=st.session_state.selected_model_type,
+        user_prompt=message.get("raw_content", message.get("content")),
+        model_output=message.get("content"),
+        feedback=feedback_text
+    )
 
 # Login page
 if st.session_state.user_id is None:
@@ -134,10 +162,21 @@ else:
     # System prompt
     system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
 
-    # Display chat history
-    for message in st.session_state.messages:
+    # Display chat history with proper feedback handling
+    for i, message in enumerate(st.session_state.messages):
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
+            if message["role"] == "assistant":
+                feedback = st.session_state.message_feedback.get(i)
+                if feedback is None:
+                    st.session_state.feedback_start_time[i] = datetime.datetime.now()
+                st.feedback(
+                    "thumbs",
+                    key=f"feedback_{i}",
+                    disabled=feedback is not None,
+                    on_change=save_feedback,
+                    args=[i],
+                )
 
     # Handle chat input
     if prompt := st.chat_input("How can I help?"):
@@ -277,6 +316,15 @@ else:
             "iteration": st.session_state.iteration_count
         }
         st.session_state.messages.append(assistant_message)
+        
+        # Add feedback for new message
+        current_message_index = len(st.session_state.messages) - 1
+        st.feedback(
+            "thumbs",
+            key=f"feedback_{current_message_index}",
+            on_change=save_feedback,
+            args=[current_message_index],
+        )
 
         # Update the interaction summary logging with separate durations
         with open("user_logs.txt", "a") as f:
