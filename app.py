@@ -15,6 +15,15 @@ from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 st.set_page_config(page_title="PromptDoctor", layout="wide")
 st.header("PromptDoctor")
 
+# Add custom CSS for sidebar width detection
+st.markdown("""
+<style>
+    [data-testid="stSidebar"] > div:first-child {
+        width: var(--sidebar-width, 100%);
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Initialize session state variables
 if "user_id" not in st.session_state:
     st.session_state.user_id = None
@@ -32,6 +41,8 @@ if "pdf_file" not in st.session_state:
     st.session_state.pdf_file = None
 if "pdf_upload_time" not in st.session_state:
     st.session_state.pdf_upload_time = None
+if "pdf_text" not in st.session_state:
+    st.session_state.pdf_text = None
 
 # Remove JavaScript section and replace with input focus handler
 def on_input_focus():
@@ -79,22 +90,33 @@ else:
             help="Only PDF files are supported"
         )
         
+        # Handle initial PDF upload
         if uploaded_file and uploaded_file != st.session_state.pdf_file:
             st.session_state.pdf_file = uploaded_file
             st.session_state.pdf_upload_time = datetime.datetime.now()
             
             # Process and log PDF upload
-            pdf_data = handle_pdf_upload(
+            pdf_data, extracted_text = handle_pdf_upload(
                 uploaded_file,
                 st.session_state.user_id,
                 log_chat_interaction
             )
-            
-            # Display PDF in a new container with fixed width
+            st.session_state.pdf_text = extracted_text
+        
+        # Always display PDF if one is loaded
+        if st.session_state.pdf_file:
             st.markdown("### Document Preview")
             pdf_container = st.container()
             with pdf_container:
-                displayPDF(uploaded_file, 800)  # Use fixed width of 800px
+                displayPDF(st.session_state.pdf_file, "100%")
+            
+            st.markdown("### Extracted Text")
+            st.text_area(
+                "Document Content",
+                value=st.session_state.pdf_text,
+                height=400,
+                disabled=True
+            )
 
     # System prompt
     system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."

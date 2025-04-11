@@ -1,0 +1,47 @@
+2025-04-11 15:45:53,541 ; INFO ; 
+=== Interaction at 2025-04-11T15:45:53.541768 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 15:45:58,659 ; INFO ; 
+=== Interaction at 2025-04-11T15:45:58.659464 ===
+Type: PDF_UPLOAD
+User Prompt: Uploaded file: test.pdf
+Model Output: {'filename': 'test.pdf', 'size': 16003, 'type': 'application/pdf'}
+Processing Duration: 0.00 seconds
+==================================================
+2025-04-11 15:46:56,004 ; INFO ; Interaction: Iteration 1: Hi (typing time: 64.23s)
+2025-04-11 15:47:06,285 ; INFO ; User Prompt: Hi
+2025-04-11 15:47:06,286 ; INFO ; Model Output: Hello! I'm PromptDoctor, your medical AI assistant. How may I assist you today in analyzing clinical notes or providing insights?
+2025-04-11 15:47:06,286 ; INFO ; Ground Truth: Not provided
+2025-04-11 15:47:06,286 ; INFO ; -----
+2025-04-11 15:47:06,286 ; INFO ; 
+=== Interaction at 2025-04-11T15:47:06.286873 ===
+Type: CHAT
+User Prompt: Hi
+Model: Ollama
+Model Output: Hello! I'm PromptDoctor, your medical AI assistant. How may I assist you today in analyzing clinical notes or providing insights?
+Typing Duration: 64.23 seconds
+Generation Duration: 10.28 seconds
+==================================================
+2025-04-11 15:47:35,705 ; INFO ; 
+=== Interaction at 2025-04-11T15:47:35.705917 ===
+Type: PDF_UPLOAD
+User Prompt: Uploaded file: test.pdf
+Model Output: {'filename': 'test.pdf', 'size': 16003, 'type': 'application/pdf'}
+Processing Duration: 0.00 seconds
+==================================================
+2025-04-11 15:47:51,290 ; INFO ; Interaction: Iteration 2: what (typing time: 55.29s)
+2025-04-11 15:47:54,370 ; INFO ; User Prompt: what
+2025-04-11 15:47:54,371 ; INFO ; Model Output: It seems like the input provided is incomplete or unclear. Please rephrase or provide more information about what you need help with, such as a specific patient case or inquiry regarding clinical note analysis and insights.
+2025-04-11 15:47:54,371 ; INFO ; Ground Truth: Not provided
+2025-04-11 15:47:54,371 ; INFO ; -----
+2025-04-11 15:47:54,371 ; INFO ; 
+=== Interaction at 2025-04-11T15:47:54.371498 ===
+Type: CHAT
+User Prompt: what
+Model: Ollama
+Model Output: It seems like the input provided is incomplete or unclear. Please rephrase or provide more information about what you need help with, such as a specific patient case or inquiry regarding clinical note analysis and insights.
+Typing Duration: 55.29 seconds
+Generation Duration: 3.08 seconds
+==================================================

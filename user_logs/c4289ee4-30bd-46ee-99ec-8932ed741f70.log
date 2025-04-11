@@ -1,0 +1,26 @@
+2025-04-11 15:52:00,604 ; INFO ; 
+=== Interaction at 2025-04-11T15:52:00.604771 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 15:52:05,658 ; INFO ; 
+=== Interaction at 2025-04-11T15:52:05.658941 ===
+Type: PDF_UPLOAD
+User Prompt: Uploaded file: test.pdf
+Model Output: {'filename': 'test.pdf', 'size': 16003, 'type': 'application/pdf'}
+Processing Duration: 0.01 seconds
+==================================================
+2025-04-11 15:52:22,403 ; INFO ; Interaction: Iteration 1: This is a test document.  (typing time: 23.58s)
+2025-04-11 15:52:29,205 ; INFO ; User Prompt: This is a test document. 
+2025-04-11 15:52:29,212 ; INFO ; Model Output: As this is a test document, I cannot provide any specific medical insights or analysis. If you would like assistance with an actual clinical note, please share it, and I will be happy to help.
+2025-04-11 15:52:29,212 ; INFO ; Ground Truth: Not provided
+2025-04-11 15:52:29,212 ; INFO ; -----
+2025-04-11 15:52:29,212 ; INFO ; 
+=== Interaction at 2025-04-11T15:52:29.212529 ===
+Type: CHAT
+User Prompt: This is a test document. 
+Model: Ollama
+Model Output: As this is a test document, I cannot provide any specific medical insights or analysis. If you would like assistance with an actual clinical note, please share it, and I will be happy to help.
+Typing Duration: 23.58 seconds
+Generation Duration: 6.80 seconds
+==================================================
