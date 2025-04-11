@@ -1,0 +1,30 @@
+2025-04-11 16:07:46,962 ; INFO ; 
+=== Interaction at 2025-04-11T16:07:46.962188 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 16:08:02,461 ; INFO ; User Prompt: i have a headache
+2025-04-11 16:08:02,463 ; INFO ; Model Output: A headache can be caused by various factors such as stress, dehydration, sinus pressure, or underlying conditions like migraines or tension-type headaches. To better understand your symptoms, please provide more details: 
+1) What type of pain do you experience (throbbing, dull ache, sharp)?
+2) Is the pain on one side, both sides, or all over your head?
+3) Are there any associated symptoms like nausea, sensitivity to light or sound, or aura?
+4) Have you recently changed medications or experienced new stressors?
+
+As a medical AI assistant, I cannot provide a diagnosis or treatment plan directly. Please consult a healthcare professional for personalized advice based on your specific situation.
+2025-04-11 16:08:02,463 ; INFO ; Ground Truth: Not provided
+2025-04-11 16:08:02,463 ; INFO ; -----
+2025-04-11 16:08:02,464 ; INFO ; 
+=== Interaction at 2025-04-11T16:08:02.464078 ===
+Type: CHAT
+User Prompt: i have a headache
+Model: Ollama
+Model Output: A headache can be caused by various factors such as stress, dehydration, sinus pressure, or underlying conditions like migraines or tension-type headaches. To better understand your symptoms, please provide more details: 
+1) What type of pain do you experience (throbbing, dull ache, sharp)?
+2) Is the pain on one side, both sides, or all over your head?
+3) Are there any associated symptoms like nausea, sensitivity to light or sound, or aura?
+4) Have you recently changed medications or experienced new stressors?
+
+As a medical AI assistant, I cannot provide a diagnosis or treatment plan directly. Please consult a healthcare professional for personalized advice based on your specific situation.
+Typing Duration: 13.30 seconds
+Generation Duration: 9.38 seconds
+==================================================

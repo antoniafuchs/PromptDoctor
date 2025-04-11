@@ -12,6 +12,7 @@ from tracking.logging import (
     log_chat_interaction
 )
 from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
+from utils.medical_processor import MedicalTermProcessor
 
 st.set_page_config(page_title="PromptDoctor", layout="wide")
 st.header("PromptDoctor")
@@ -44,6 +45,8 @@ if "pdf_upload_time" not in st.session_state:
     st.session_state.pdf_upload_time = None
 if "pdf_text" not in st.session_state:
     st.session_state.pdf_text = None
+if "medical_processor" not in st.session_state:
+    st.session_state.medical_processor = MedicalTermProcessor()
 
 # Remove JavaScript section and replace with input focus handler
 def on_input_focus():
@@ -138,26 +141,23 @@ else:
 
     # Handle chat input
     if prompt := st.chat_input("How can I help?"):
-        # Calculate typing duration for this interaction
+        # Process medical terms in prompt
+        highlighted_prompt = st.session_state.medical_processor.highlight_medical_terms(prompt)
+        
+        # Display user message with highlighted terms
+        with st.chat_message("user"):
+            st.markdown(highlighted_prompt)
+        
+        # Calculate typing duration and update message history
         current_time = datetime.datetime.now()
         typing_duration = (current_time - st.session_state.last_input_time).total_seconds()
         st.session_state.last_input_time = current_time
-        
         st.session_state.iteration_count += 1
-
-        # Log user interaction with typing duration
-        log_user_interaction(
-            st.session_state.user_id,
-            f"Iteration {st.session_state.iteration_count}: {prompt} (typing time: {typing_duration:.2f}s)"
-        )
-        
-        # Display user message and add to history
-        with st.chat_message("user"):
-            st.markdown(prompt)
         
         message = {
             "role": "user",
-            "content": prompt,
+            "content": highlighted_prompt,  # Store highlighted version
+            "raw_content": prompt,  # Store original prompt
             "user_id": st.session_state.user_id,
             "timestamp": datetime.datetime.now().isoformat(),
             "iteration": st.session_state.iteration_count
