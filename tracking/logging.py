@@ -54,9 +54,7 @@ def log_chat_interaction(
     duration: dict = None,
     feedback: str = None
 ) -> None:
-    """
-    Log a chat interaction including possible feedback
-    """
+    """Log a chat interaction"""
     logger = get_user_logger(user_id)
     timestamp = datetime.now().isoformat()
     
