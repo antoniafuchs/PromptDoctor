@@ -67,11 +67,10 @@ def log_chat_interaction(
         log_entry += f"Model Output: {model_output}\n"
     if duration:
         if isinstance(duration, dict):
-            log_entry += f"Typing Duration: {duration.get('typing', 0):.2f} seconds\n"
-            log_entry += f"Generation Duration: {duration.get('generation', 0):.2f} seconds\n"
+            for timing_type, value in duration.items():
+                log_entry += f"{timing_type.title()} Duration: {value:.2f} seconds\n"
         else:
             log_entry += f"Duration: {duration:.2f} seconds\n"
     
     log_entry += "=" * 50
-    
     logger.info(log_entry)

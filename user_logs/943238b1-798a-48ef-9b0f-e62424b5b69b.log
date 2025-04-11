@@ -1,0 +1,12 @@
+2025-04-11 15:25:41,738 ; INFO ; 
+=== Interaction at 2025-04-11T15:25:41.738702 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 15:25:45,866 ; INFO ; 
+=== Interaction at 2025-04-11T15:25:45.866839 ===
+Type: PDF_UPLOAD
+User Prompt: Uploaded file: test.pdf
+Model Output: {'filename': 'test.pdf', 'size': 16003, 'type': 'application/pdf'}
+Processing Duration: 0.00 seconds
+==================================================

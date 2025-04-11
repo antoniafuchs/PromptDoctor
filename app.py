@@ -10,8 +10,10 @@ from tracking.logging import (
     log_task_duration,
     log_chat_interaction
 )
+from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 
-st.title("PromptDoctor")
+st.set_page_config(page_title="PromptDoctor", layout="wide")
+st.header("PromptDoctor")
 
 # Initialize session state variables
 if "user_id" not in st.session_state:
@@ -26,6 +28,10 @@ if "iteration_count" not in st.session_state:
     st.session_state.iteration_count = 0
 if "last_input_time" not in st.session_state:
     st.session_state.last_input_time = datetime.datetime.now()
+if "pdf_file" not in st.session_state:
+    st.session_state.pdf_file = None
+if "pdf_upload_time" not in st.session_state:
+    st.session_state.pdf_upload_time = None
 
 # Remove JavaScript section and replace with input focus handler
 def on_input_focus():
@@ -64,6 +70,31 @@ else:
         if st.button("Logout"):
             st.session_state.clear()
             st.rerun()
+        
+        # Add PDF upload section
+        st.markdown("### Document Upload")
+        uploaded_file = st.file_uploader(
+            "Upload PDF file",
+            type=["pdf"],
+            help="Only PDF files are supported"
+        )
+        
+        if uploaded_file and uploaded_file != st.session_state.pdf_file:
+            st.session_state.pdf_file = uploaded_file
+            st.session_state.pdf_upload_time = datetime.datetime.now()
+            
+            # Process and log PDF upload
+            pdf_data = handle_pdf_upload(
+                uploaded_file,
+                st.session_state.user_id,
+                log_chat_interaction
+            )
+            
+            # Display PDF in a new container with fixed width
+            st.markdown("### Document Preview")
+            pdf_container = st.container()
+            with pdf_container:
+                displayPDF(uploaded_file, 800)  # Use fixed width of 800px
 
     # System prompt
     system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
