@@ -24,14 +24,8 @@ if "model_timer" not in st.session_state:
     st.session_state.model_timer = Timer()
 if "iteration_count" not in st.session_state:
     st.session_state.iteration_count = 0
-if "input_start_time" not in st.session_state:
-    st.session_state.input_start_time = None
-if "first_render" not in st.session_state:
-    st.session_state.first_render = True
-if "input_active" not in st.session_state:
-    st.session_state.input_active = False
-if "input_start_time" not in st.session_state:
-    st.session_state.input_start_time = None
+if "last_input_time" not in st.session_state:
+    st.session_state.last_input_time = datetime.datetime.now()
 
 # Remove JavaScript section and replace with input focus handler
 def on_input_focus():
@@ -79,27 +73,15 @@ else:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    # Handle chat input timing
-    chat_input_key = f"chat_input_{st.session_state.iteration_count}"
-    
-    # Start timing when the component is first rendered
-    if st.session_state.first_render:
-        st.session_state.input_start_time = datetime.datetime.now()
-        st.session_state.first_render = False
-        st.session_state.input_active = True
-
-    # Handle chat input with focus tracking
-    if prompt := st.chat_input("How can I help?", key=chat_input_key):
-        # Calculate typing duration
-        typing_duration = 0.0
-        if st.session_state.input_start_time and st.session_state.input_active:
-            typing_duration = (datetime.datetime.now() - st.session_state.input_start_time).total_seconds()
+    # Handle chat input
+    if prompt := st.chat_input("How can I help?"):
+        # Calculate typing duration for this interaction
+        current_time = datetime.datetime.now()
+        typing_duration = (current_time - st.session_state.last_input_time).total_seconds()
+        st.session_state.last_input_time = current_time
         
-        # Reset timing for next input
-        st.session_state.input_start_time = datetime.datetime.now()
-        st.session_state.input_active = True
         st.session_state.iteration_count += 1
-        
+
         # Log user interaction with typing duration
         log_user_interaction(
             st.session_state.user_id,
@@ -119,106 +101,109 @@ else:
         }
         st.session_state.messages.append(message)
 
-
-        # Handle different model types
-        with st.chat_message("assistant"):
-            with st.spinner("Generating response..."):
-                if st.session_state.selected_model_type == "Ollama":
-                    # Start model timer
-                    st.session_state.model_timer.start()
-                    
+        # Create single message container for assistant
+        with st.spinner("Generating response..."):
+            # Show assistant message container
+            assistant_container = st.chat_message("assistant")
+            response_placeholder = assistant_container.empty()
+            
+            if st.session_state.selected_model_type == "Ollama":
+                st.session_state.model_timer.start()
+                
+                try:
                     payload = {
                         "model": "llama3-med42-8b",
                         "messages": [
                             {"role": "system", "content": system_prompt}
                         ] + [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
                     }
-                    try:
-                        response = requests.post("http://localhost:11434/api/chat", json=payload, stream=True)
-                        final_response = ""
-                        for line in response.iter_lines(decode_unicode=True):
-                            if line:
-                                try:
-                                    data = json.loads(line)
-                                    content = data.get("message", {}).get("content", "")
-                                    final_response += content
-                                    if data.get("done", False):
-                                        break
-                                except json.JSONDecodeError:
-                                    continue
-                        st.markdown(final_response.strip())
-                    except Exception as e:
-                        st.markdown(f"Error: {e}")
-                        final_response = str(e)
+                    response = requests.post("http://localhost:11434/api/chat", json=payload, stream=True)
+                    final_response = ""
+                    
+                    for line in response.iter_lines(decode_unicode=True):
+                        if line:
+                            try:
+                                data = json.loads(line)
+                                content = data.get("message", {}).get("content", "")
+                                final_response += content
+                                response_placeholder.markdown(final_response)
+                                if data.get("done", False):
+                                    break
+                            except json.JSONDecodeError:
+                                continue
+                                
+                except Exception as e:
+                    final_response = f"Error: {e}"
+                    response_placeholder.markdown(final_response)
 
-                    # Stop model timer and get generation duration
-                    generation_duration = st.session_state.model_timer.stop()
+                # Stop model timer and get generation duration
+                generation_duration = st.session_state.model_timer.stop()
 
-                    # Log model output
-                    log_model_output(
-                        prompt,
-                        final_response,
-                        st.session_state.user_id
-                    )
+                # Log model output
+                log_model_output(
+                    prompt,
+                    final_response,
+                    st.session_state.user_id
+                )
 
-                    # Log complete interaction with both durations
-                    log_chat_interaction(
-                        st.session_state.user_id,
-                        "CHAT",
-                        user_prompt=prompt,
-                        model_output=final_response,
-                        model_type=st.session_state.selected_model_type,
-                        duration={
-                            "typing": typing_duration,
-                            "generation": generation_duration
-                        }
-                    )
+                # Log complete interaction with both durations
+                log_chat_interaction(
+                    st.session_state.user_id,
+                    "CHAT",
+                    user_prompt=prompt,
+                    model_output=final_response,
+                    model_type=st.session_state.selected_model_type,
+                    duration={
+                        "typing": typing_duration,
+                        "generation": generation_duration
+                    }
+                )
 
-                elif st.session_state.selected_model_type == "GPT":
-                    # Start model timer
-                    st.session_state.model_timer.start()
-                    
-                    st.markdown("GPT integration not implemented yet")
-                    final_response = "GPT integration not implemented yet"
-                    
-                    # Stop model timer and get generation duration
-                    generation_duration = st.session_state.model_timer.stop()
-                    
-                    # Log complete interaction with both durations
-                    log_chat_interaction(
-                        st.session_state.user_id,
-                        "CHAT",
-                        user_prompt=prompt,
-                        model_output=final_response,
-                        model_type=st.session_state.selected_model_type,
-                        duration={
-                            "typing": typing_duration,
-                            "generation": generation_duration
-                        }
-                    )
+            elif st.session_state.selected_model_type == "GPT":
+                # Start model timer
+                st.session_state.model_timer.start()
+                
+                st.markdown("GPT integration not implemented yet")
+                final_response = "GPT integration not implemented yet"
+                
+                # Stop model timer and get generation duration
+                generation_duration = st.session_state.model_timer.stop()
+                
+                # Log complete interaction with both durations
+                log_chat_interaction(
+                    st.session_state.user_id,
+                    "CHAT",
+                    user_prompt=prompt,
+                    model_output=final_response,
+                    model_type=st.session_state.selected_model_type,
+                    duration={
+                        "typing": typing_duration,
+                        "generation": generation_duration
+                    }
+                )
 
-                else:  # HuggingFace
-                    # Start model timer
-                    st.session_state.model_timer.start()
-                    
-                    st.markdown("HuggingFace integration not implemented yet")
-                    final_response = "HuggingFace integration not implemented yet"
-                    
-                    # Stop model timer and get generation duration
-                    generation_duration = st.session_state.model_timer.stop()
-                    
-                    # Log complete interaction with both durations
-                    log_chat_interaction(
-                        st.session_state.user_id,
-                        "CHAT",
-                        user_prompt=prompt,
-                        model_output=final_response,
-                        model_type=st.session_state.selected_model_type,
-                        duration={
-                            "typing": typing_duration,
-                            "generation": generation_duration
-                        }
-                    )
+            else:  # HuggingFace
+                # Start model timer
+                st.session_state.model_timer.start()
+                
+                st.markdown("HuggingFace integration not implemented yet")
+                final_response = "HuggingFace integration not implemented yet"
+                
+                # Stop model timer and get generation duration
+                generation_duration = st.session_state.model_timer.stop()
+                
+                # Log complete interaction with both durations
+                log_chat_interaction(
+                    st.session_state.user_id,
+                    "CHAT",
+                    user_prompt=prompt,
+                    model_output=final_response,
+                    model_type=st.session_state.selected_model_type,
+                    duration={
+                        "typing": typing_duration,
+                        "generation": generation_duration
+                    }
+                )
 
         # Save assistant's reply with iteration info
         assistant_message = {

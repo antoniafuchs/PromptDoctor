@@ -1,0 +1,61 @@
+2025-04-11 14:52:18,662 ; INFO ; 
+=== Interaction at 2025-04-11T14:52:18.662369 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 14:52:22,757 ; INFO ; Interaction: Iteration 1: 123456789 (typing time: 5.11s)
+2025-04-11 14:52:27,161 ; INFO ; User Prompt: 123456789
+2025-04-11 14:52:27,162 ; INFO ; Model Output: I'm sorry, but the input provided (123456789) doesn't contain any clinical note or patient data for me to analyze. Please provide an actual clinical note or relevant information for me to assist you.
+2025-04-11 14:52:27,163 ; INFO ; Ground Truth: Not provided
+2025-04-11 14:52:27,163 ; INFO ; -----
+2025-04-11 14:52:27,163 ; INFO ; 
+=== Interaction at 2025-04-11T14:52:27.163503 ===
+Type: CHAT
+User Prompt: 123456789
+Model: Ollama
+Model Output: I'm sorry, but the input provided (123456789) doesn't contain any clinical note or patient data for me to analyze. Please provide an actual clinical note or relevant information for me to assist you.
+Typing Duration: 5.11 seconds
+Generation Duration: 4.40 seconds
+==================================================
+2025-04-11 14:52:28,902 ; INFO ; Interaction: Iteration 2: hi (typing time: 6.15s)
+2025-04-11 14:52:31,751 ; INFO ; User Prompt: hi
+2025-04-11 14:52:31,752 ; INFO ; Model Output: Hello! As a medical AI assistant, I'm here to help with analyzing clinical notes and extracting medically relevant insights. If you could please provide the necessary clinical note or patient data, I'll be more than happy to assist you in any way possible.
+2025-04-11 14:52:31,753 ; INFO ; Ground Truth: Not provided
+2025-04-11 14:52:31,753 ; INFO ; -----
+2025-04-11 14:52:31,753 ; INFO ; 
+=== Interaction at 2025-04-11T14:52:31.753645 ===
+Type: CHAT
+User Prompt: hi
+Model: Ollama
+Model Output: Hello! As a medical AI assistant, I'm here to help with analyzing clinical notes and extracting medically relevant insights. If you could please provide the necessary clinical note or patient data, I'll be more than happy to assist you in any way possible.
+Typing Duration: 6.15 seconds
+Generation Duration: 2.85 seconds
+==================================================
+2025-04-11 14:52:44,506 ; INFO ; Interaction: Iteration 3: I am a patient a need help can you help me? (typing time: 15.60s)
+2025-04-11 14:52:49,836 ; INFO ; User Prompt: I am a patient a need help can you help me?
+2025-04-11 14:52:49,836 ; INFO ; Model Output: As an AI-powered medical assistant, my capabilities are limited to analyzing and extracting information from clinical notes and providing relevant insights for healthcare professionals. I cannot directly provide medical advice or treatment recommendations for individual patients. For personalized care, please consult your primary healthcare provider or seek immediate medical attention if necessary. However, I can assist you in organizing your medical history and symptoms by asking a few questions or guiding you through an intake form. Please let me know how I can best support you.
+2025-04-11 14:52:49,837 ; INFO ; Ground Truth: Not provided
+2025-04-11 14:52:49,837 ; INFO ; -----
+2025-04-11 14:52:49,838 ; INFO ; 
+=== Interaction at 2025-04-11T14:52:49.837903 ===
+Type: CHAT
+User Prompt: I am a patient a need help can you help me?
+Model: Ollama
+Model Output: As an AI-powered medical assistant, my capabilities are limited to analyzing and extracting information from clinical notes and providing relevant insights for healthcare professionals. I cannot directly provide medical advice or treatment recommendations for individual patients. For personalized care, please consult your primary healthcare provider or seek immediate medical attention if necessary. However, I can assist you in organizing your medical history and symptoms by asking a few questions or guiding you through an intake form. Please let me know how I can best support you.
+Typing Duration: 15.60 seconds
+Generation Duration: 5.33 seconds
+==================================================
+2025-04-11 14:52:58,325 ; INFO ; Interaction: Iteration 4: 1 (typing time: 13.82s)
+2025-04-11 14:53:01,548 ; INFO ; User Prompt: 1
+2025-04-11 14:53:01,548 ; INFO ; Model Output: I'm unable to understand the significance of "1" in this context as it doesn't provide any clinical note or patient data for analysis or relevant information for assisting healthcare professionals. If there's anything else I can help you with, please feel free to ask.
+2025-04-11 14:53:01,549 ; INFO ; Ground Truth: Not provided
+2025-04-11 14:53:01,549 ; INFO ; -----
+2025-04-11 14:53:01,549 ; INFO ; 
+=== Interaction at 2025-04-11T14:53:01.549327 ===
+Type: CHAT
+User Prompt: 1
+Model: Ollama
+Model Output: I'm unable to understand the significance of "1" in this context as it doesn't provide any clinical note or patient data for analysis or relevant information for assisting healthcare professionals. If there's anything else I can help you with, please feel free to ask.
+Typing Duration: 13.82 seconds
+Generation Duration: 3.22 seconds
+==================================================

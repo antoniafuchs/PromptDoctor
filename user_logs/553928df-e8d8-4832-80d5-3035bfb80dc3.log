@@ -1,0 +1,47 @@
+2025-04-11 14:29:29,144 ; INFO ; 
+=== Interaction at 2025-04-11T14:29:29.144617 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 14:29:31,497 ; INFO ; Interaction: Iteration 1: Hi (typing time: 2.34s)
+2025-04-11 14:29:36,547 ; INFO ; User Prompt: Hi
+2025-04-11 14:29:36,548 ; INFO ; Model Output: Hello! As a PromptDoctor, I am ready to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the text or context you'd like me to analyze, and I will respond with key findings and insights.
+2025-04-11 14:29:36,548 ; INFO ; Ground Truth: Not provided
+2025-04-11 14:29:36,548 ; INFO ; -----
+2025-04-11 14:29:36,548 ; INFO ; 
+=== Interaction at 2025-04-11T14:29:36.548914 ===
+Type: CHAT
+User Prompt: Hi
+Model: Ollama
+Model Output: Hello! As a PromptDoctor, I am ready to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the text or context you'd like me to analyze, and I will respond with key findings and insights.
+Typing Duration: 2.34 seconds
+Generation Duration: 5.05 seconds
+==================================================
+2025-04-11 14:29:42,128 ; INFO ; Interaction: Iteration 2: Who are you? (typing time: 10.63s)
+2025-04-11 14:29:45,651 ; INFO ; User Prompt: Who are you?
+2025-04-11 14:29:45,651 ; INFO ; Model Output: I'm an AI-powered medical assistant called PromptDoctor. My purpose is to help healthcare professionals by analyzing clinical notes, extracting relevant information, and generating insightful summaries. I am not a human doctor, but rather an advanced software designed to assist in the diagnostic process and facilitate patient care through data analysis.
+2025-04-11 14:29:45,651 ; INFO ; Ground Truth: Not provided
+2025-04-11 14:29:45,652 ; INFO ; -----
+2025-04-11 14:29:45,654 ; INFO ; 
+=== Interaction at 2025-04-11T14:29:45.654816 ===
+Type: CHAT
+User Prompt: Who are you?
+Model: Ollama
+Model Output: I'm an AI-powered medical assistant called PromptDoctor. My purpose is to help healthcare professionals by analyzing clinical notes, extracting relevant information, and generating insightful summaries. I am not a human doctor, but rather an advanced software designed to assist in the diagnostic process and facilitate patient care through data analysis.
+Typing Duration: 10.63 seconds
+Generation Duration: 3.52 seconds
+==================================================
+2025-04-11 14:29:53,259 ; INFO ; Interaction: Iteration 3: can you please tell again? (typing time: 11.13s)
+2025-04-11 14:29:57,701 ; INFO ; User Prompt: can you please tell again?
+2025-04-11 14:29:57,703 ; INFO ; Model Output: Certainly. PromptDoctor is an AI-based medical assistant, designed to support healthcare professionals by analyzing clinical notes, identifying key information, and providing concise summaries. I do not replace human doctors but help them in diagnosing conditions, developing treatment plans, and improving patient care through data-driven insights. My responses are based on advanced algorithms and trained models that mimic physician-level language processing capabilities.
+2025-04-11 14:29:57,703 ; INFO ; Ground Truth: Not provided
+2025-04-11 14:29:57,703 ; INFO ; -----
+2025-04-11 14:29:57,705 ; INFO ; 
+=== Interaction at 2025-04-11T14:29:57.705421 ===
+Type: CHAT
+User Prompt: can you please tell again?
+Model: Ollama
+Model Output: Certainly. PromptDoctor is an AI-based medical assistant, designed to support healthcare professionals by analyzing clinical notes, identifying key information, and providing concise summaries. I do not replace human doctors but help them in diagnosing conditions, developing treatment plans, and improving patient care through data-driven insights. My responses are based on advanced algorithms and trained models that mimic physician-level language processing capabilities.
+Typing Duration: 11.13 seconds
+Generation Duration: 4.44 seconds
+==================================================
