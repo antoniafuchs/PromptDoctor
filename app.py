@@ -3,6 +3,7 @@ import requests
 import json
 import uuid
 import datetime
+import pyperclip
 from tracking.timer import Timer
 from tracking.logging import (
     log_model_output,
@@ -111,12 +112,21 @@ else:
                 displayPDF(st.session_state.pdf_file, "100%")
             
             st.markdown("### Extracted Text")
-            st.text_area(
-                "Document Content",
-                value=st.session_state.pdf_text,
-                height=400,
-                disabled=True
-            )
+            col1, col2 = st.columns([4, 1])
+            with col1:
+                text_area = st.text_area(
+                    "Document Content",
+                    value=st.session_state.pdf_text,
+                    height=400,
+                    disabled=True
+                )
+            with col2:
+                if st.button("Copy", help="Copy text to clipboard"):
+                    try:
+                        pyperclip.copy(st.session_state.pdf_text)
+                        st.success("Text copied")
+                    except Exception as e:
+                        st.error(f"Failed to copy: {str(e)}")
 
     # System prompt
     system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
