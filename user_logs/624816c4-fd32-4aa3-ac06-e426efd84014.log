@@ -1,0 +1,28 @@
+2025-04-11 17:07:32,157 ; INFO ; 
+=== Interaction at 2025-04-11T17:07:32.157514 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-11 17:07:49,829 ; INFO ; 
+=== Interaction at 2025-04-11T17:07:49.828852 ===
+Type: CHAT
+User Prompt: Hi
+Model: Ollama
+Model Output: As a doctor AI, my response would be: The patient presents with severe chest pain radiating to the back, lasting for over 30 minutes. Medical history includes hypertension and type 2 diabetes mellitus, managed with losartan and metformin respectively. Physical examination shows tachycardia (110 bpm), hypotension (90/60 mm Hg), diaphoresis, and faint systolic murmur in the left parasternal area. ECG reveals inferior ST-segment elevation myocardial infarction (STEMI). Immediate treatment with aspirin 325 mg, nitroglycerine SL 0.4 mg, and heparin 5000 units IV is initiated. Cardiology team consultation is advised due to severity of presentation.
+Typing Duration: 10.99 seconds
+Generation Duration: 10.55 seconds
+==================================================
+2025-04-11 17:08:53,422 ; INFO ; 
+=== Interaction at 2025-04-11T17:08:53.422520 ===
+Type: CHAT
+User Prompt: I have headache
+Model: Ollama
+Typing Duration: 72.12 seconds
+Generation Duration: 2.03 seconds
+==================================================
+2025-04-11 17:08:57,118 ; INFO ; 
+=== Interaction at 2025-04-11T17:08:57.118319 ===
+Type: FEEDBACK
+Model: Ollama
+Feedback: neutral
+==================================================

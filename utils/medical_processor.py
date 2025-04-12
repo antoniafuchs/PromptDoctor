@@ -23,7 +23,7 @@ class MedicalTermProcessor:
             print(f"Warning: Using fallback medical terms. Error: {e}")
 
     def highlight_medical_terms(self, text: str) -> str:
-        """Highlights medical terms in the text"""
+        """Highlights medical terms in the text using Streamlit color syntax"""
         if not text:
             return text
 
@@ -35,7 +35,8 @@ class MedicalTermProcessor:
             clean_word = ''.join(c for c in word.lower() if c.isalnum() or c in ['-', "'"])
             
             if clean_word in self.medical_terms:
-                highlighted_words.append(f'**{word}**')
+                # Updated highlighting syntax to match the example
+                highlighted_words.append(f":red[:red-background[{word}]]")
             else:
                 highlighted_words.append(word)
         

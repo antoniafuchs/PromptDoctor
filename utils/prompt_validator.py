@@ -16,15 +16,14 @@ def validate_prompt(prompt: str, medical_processor):
     
     # Check if each sentence has medical terms
     has_medical_terms = [
-        "**" in sentence for sentence in highlighted_sentences
+        ":red-background" in sentence for sentence in highlighted_sentences
     ]
     
     return prompt_sentences, highlighted_sentences, has_medical_terms
 
-def add_highlights(sentences, validation_list, bg="red", text="black"):
-    """Add visual highlights to sentences"""
+def add_highlights(sentences, validation_list, bg="red", text="red"):
+    """Add visual highlights to sentences with customizable colors"""
     return [
-        f'<span style="background-color: {bg}; color: {text};">{sentence}</span>' 
-        if not is_valid else sentence
+        f":{text}[:{bg}-background[{sentence}]]" if not is_valid else sentence
         for sentence, is_valid in zip(sentences, validation_list)
     ]
