@@ -13,11 +13,11 @@ class MedicalTermProcessor:
         
         try:
             dataset = datasets.load_dataset("gamino/wiki_medical_terms", split="train")
-            # Update to use correct column name 'page_title' instead of 'term'
-            self.medical_terms.update(
+            # Only store complete page titles
+            self.medical_terms = {
                 term.lower() for term in dataset["page_title"] 
-                if isinstance(term, str)  # Ensure term is a string
-            )
+                if isinstance(term, str)
+            }
             print(f"Loaded {len(self.medical_terms)} medical terms")
         except Exception as e:
             print(f"Warning: Using fallback medical terms. Error: {e}")
@@ -27,17 +27,30 @@ class MedicalTermProcessor:
         if not text:
             return text
 
-        words = text.split()
-        highlighted_words = []
+        # Convert text to lowercase for matching
+        text_lower = text.lower()
+        result = text
+        matches = []
+
+        # Find matches for complete terms only
+        for term in self.medical_terms:
+            start = 0
+            while True:
+                pos = text_lower.find(term, start)
+                if pos == -1:
+                    break
+                # Verify it's a complete word/phrase
+                before = pos == 0 or not text_lower[pos-1].isalnum()
+                after = pos + len(term) == len(text_lower) or not text_lower[pos + len(term)].isalnum()
+                if before and after:
+                    matches.append((pos, pos + len(term), text[pos:pos + len(term)]))
+                start = pos + 1
+
+        # Sort matches by position
+        matches.sort(key=lambda x: x[0])
         
-        for word in words:
-            # Clean the word for matching but keep original for display
-            clean_word = ''.join(c for c in word.lower() if c.isalnum() or c in ['-', "'"])
-            
-            if clean_word in self.medical_terms:
-                # Updated highlighting syntax to match the example
-                highlighted_words.append(f":red[:red-background[{word}]]")
-            else:
-                highlighted_words.append(word)
-        
-        return ' '.join(highlighted_words)
+        # Apply highlighting in reverse to preserve positions
+        for start, end, term in reversed(matches):
+            result = result[:start] + f":red[:red-background[{term}]]" + result[end:]
+
+        return result

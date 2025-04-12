@@ -215,8 +215,11 @@ def process_prompt_and_get_response(prompt):
                     "model": "llama3-med42-8b",
                     "messages": [
                         {"role": "system", "content": system_prompt}
-                    ] + [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
+                    ] + [{"role": m["role"], "content": m.get("raw_content", m.get("content"))} for m in st.session_state.messages]
                 }
+                # Add the current prompt
+                payload["messages"].append({"role": "user", "content": prompt})
+                
                 response = requests.post("http://localhost:11434/api/chat", json=payload, stream=True)
                 final_response = ""
                 
