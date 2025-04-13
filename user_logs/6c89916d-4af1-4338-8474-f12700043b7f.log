@@ -1,0 +1,21 @@
+2025-04-13 17:43:25,036 ; INFO ; 
+=== Interaction at 2025-04-13T17:43:25.035975 ===
+Type: LOGIN
+Model: Ollama/Med42 8B
+==================================================
+2025-04-13 17:43:48,703 ; INFO ; 
+=== Interaction at 2025-04-13T17:43:48.703217 ===
+Type: CHAT_WITH_EXPLANATION
+User Prompt: I have a headache
+Model: Ollama
+Model Output: As a digital health tool, I cannot directly diagnose your condition or prescribe treatment. However, given that you've reported having a headache, it is essential to assess the following factors:
+
+1. Duration: How long have you been experiencing headaches?
+2. Characteristics: Are they sharp and stabbing, dull and throbbing, or constant and pressure-like?
+3. Triggers: Have there been any recent changes in sleep patterns, diet, stress levels, or environmental factors that might be contributing to your headache?
+4. Associated symptoms: Do you have any other symptoms like fever, neck stiffness, or sensitivity to light and sound?
+
+If headaches persist or worsen despite over-the-counter pain relief or are accompanied by additional concerning symptoms such as nausea, vomiting, confusion, difficulty speaking, or sudden vision changes, please seek immediate medical attention from a healthcare professional.
+Typing Duration: 11.16 seconds
+Generation Duration: 17.03 seconds
+==================================================

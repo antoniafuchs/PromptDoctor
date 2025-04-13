@@ -15,6 +15,7 @@ from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 from utils.medical_processor import MedicalTermProcessor
 from utils.prompt_validator import validate_prompt, add_highlights
 from utils.model_config import ModelConfig
+from utils.xai import LIMEMedicalExplainer
 
 st.set_page_config(page_title="PromptDoctor", layout="wide")
 st.header("PromptDoctor")
@@ -65,6 +66,8 @@ if "hf_model" not in st.session_state:
     st.session_state.hf_model = None
 if "hf_tokenizer" not in st.session_state:
     st.session_state.hf_tokenizer = None
+if "lime_explainer" not in st.session_state:
+    st.session_state.lime_explainer = LIMEMedicalExplainer()
 
 
 # Remove JavaScript section and replace with input focus handler
@@ -449,7 +452,7 @@ else:
         st.markdown(" ".join(highlighted))
         st.divider()
         
-        cols = st.columns(3)
+        cols = st.columns(4)  # Changed from 3 to 4 columns
         if cols[0].button("Edit", type="primary", key="edit_button"):
             st.session_state.validation = {
                 "sentences": sentences,
@@ -501,7 +504,84 @@ else:
             st.session_state.pending_prompt = None
             st.rerun()
         
-        if cols[2].button("Rewrite", type="tertiary", key="rewrite_button"):
+        if cols[2].button("Accept & Explain", type="secondary", key="explain_button"):
+            print("[APP] Starting explanation process...")
+            
+            # Get model response first
+            highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(
+                st.session_state.pending_prompt
+            )
+            
+            print(f"[APP] Got model response: {final_response[:100]}...")
+            
+            # Create explanation container
+            explanation_container = st.empty()
+            explanation_container.info("Generating explanation...")
+            
+            # Generate LIME explanation
+            with st.spinner("Generating explanation..."):
+                print("[APP] Generating LIME explanation...")
+                explanation = st.session_state.lime_explainer.explain_prediction(
+                    final_response,
+                    st.session_state.pending_prompt
+                )
+                print("[APP] Explanation generated")
+            
+            # Display explanation in dedicated section
+            st.markdown("### Response Analysis")
+            st.write("Model Response:")
+            st.markdown(final_response)
+            st.divider()
+            st.write("LIME Explanation:")
+            explanation_container.markdown(explanation)
+            
+            # Create expandable technical details
+            with st.expander("Technical Details"):
+                st.write("Explanation weights show how each word/phrase influenced the model's response:")
+                st.write("- :red[Red] indicates positive influence")
+                st.write("- :blue[Blue] indicates negative influence")
+                st.write("- Numbers in parentheses show the strength of influence")
+            
+            # Add messages to history with explanation
+            print("[APP] Adding messages to history...")
+            user_message = {
+                "role": "user",
+                "content": highlighted_prompt,
+                "raw_content": st.session_state.pending_prompt,
+                "timestamp": datetime.datetime.now().isoformat(),
+                "iteration": st.session_state.iteration_count
+            }
+            st.session_state.messages.append(user_message)
+            
+            assistant_message = {
+                "role": "assistant", 
+                "content": final_response,
+                "explanation": explanation,
+                "timestamp": datetime.datetime.now().isoformat(),
+                "iteration": st.session_state.iteration_count
+            }
+            st.session_state.messages.append(assistant_message)
+            
+            # Log interactions
+            print("[APP] Logging interaction...")
+            log_chat_interaction(
+                st.session_state.user_id,
+                "CHAT_WITH_EXPLANATION",
+                user_prompt=st.session_state.pending_prompt,
+                model_output=final_response,
+                model_type=st.session_state.selected_model_type,
+                duration={
+                    "typing": typing_duration,
+                    "generation": generation_duration
+                }
+            )
+            
+            print("[APP] Explanation process complete")
+            
+            # Don't rerun immediately - let user see the explanation
+            st.session_state.stage = "viewing_explanation"
+
+        if cols[3].button("Rewrite", type="tertiary", key="rewrite_button"):
             st.session_state.stage = "rewrite"
             st.rerun()
 
@@ -536,3 +616,9 @@ else:
                 st.session_state.pending_prompt = new_prompt
                 st.session_state.stage = "validate"
                 st.rerun()
+
+    elif st.session_state.stage == "viewing_explanation":
+        if st.button("Continue", type="primary"):
+            st.session_state.stage = "user"
+            st.session_state.pending_prompt = None
+            st.rerun()
