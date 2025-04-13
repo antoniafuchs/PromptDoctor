@@ -1,0 +1,14 @@
+2025-04-13 16:38:19,366 ; INFO ; 
+=== Interaction at 2025-04-13T16:38:19.366142 ===
+Type: LOGIN
+Model: Ollama/Med42 8B
+==================================================
+2025-04-13 16:38:22,814 ; INFO ; 
+=== Interaction at 2025-04-13T16:38:22.814104 ===
+Type: CHAT
+User Prompt: Hi
+Model: Ollama
+Model Output: Cannot connect to Ollama server - please start it with 'ollama serve'
+Typing Duration: 7.57 seconds
+Generation Duration: 0.00 seconds
+==================================================

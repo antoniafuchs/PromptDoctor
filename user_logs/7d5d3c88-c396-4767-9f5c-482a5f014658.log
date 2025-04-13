@@ -1,0 +1,15 @@
+2025-04-13 16:20:53,143 ; INFO ; 
+=== Interaction at 2025-04-13T16:20:53.143055 ===
+Type: LOGIN
+Model: HuggingFace/BioGPT Base (Faster)
+==================================================
+2025-04-13 16:20:57,311 ; INFO ; 
+=== Interaction at 2025-04-13T16:20:57.311162 ===
+Type: CHAT
+User Prompt: sf
+Model: HuggingFace
+Model Output: Error with HuggingFace model: microsoft/BioGPT-base is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+Typing Duration: 12.23 seconds
+Generation Duration: 0.43 seconds
+==================================================

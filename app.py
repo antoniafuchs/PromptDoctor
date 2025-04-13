@@ -14,6 +14,7 @@ from tracking.logging import (
 from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 from utils.medical_processor import MedicalTermProcessor
 from utils.prompt_validator import validate_prompt, add_highlights
+from utils.model_config import ModelConfig
 
 st.set_page_config(page_title="PromptDoctor", layout="wide")
 st.header("PromptDoctor")
@@ -54,6 +55,16 @@ if "stage" not in st.session_state:
     st.session_state.stage = "user"
     st.session_state.pending_prompt = None
     st.session_state.validation = {}
+if "model_handler" in st.session_state:
+    del st.session_state.model_handler
+if "available_models" in st.session_state:
+    del st.session_state.available_models
+if "selected_model_name" not in st.session_state:
+    st.session_state.selected_model_name = None
+if "hf_model" not in st.session_state:
+    st.session_state.hf_model = None
+if "hf_tokenizer" not in st.session_state:
+    st.session_state.hf_tokenizer = None
 
 
 # Remove JavaScript section and replace with input focus handler
@@ -202,50 +213,108 @@ def process_prompt_and_get_response(prompt):
     st.session_state.last_input_time = current_time
     st.session_state.iteration_count += 1
     
-    # Process prompt for highlighting
     highlighted_prompt = st.session_state.medical_processor.highlight_medical_terms(prompt)
     final_response = ""
     generation_duration = 0.0
 
     with st.spinner("Generating response..."):
+        st.session_state.model_timer.start()
+        
         if st.session_state.selected_model_type == "Ollama":
-            st.session_state.model_timer.start()
+            # Combine all messages including system prompt and new user prompt
+            all_messages = [{"role": "system", "content": system_prompt}]
+            for m in st.session_state.messages:
+                all_messages.append({
+                    "role": m["role"],
+                    "content": m.get("raw_content", m.get("content"))
+                })
+            all_messages.append({"role": "user", "content": prompt})
+            
+            # Make API call
             try:
                 payload = {
-                    "model": "llama3-med42-8b",
-                    "messages": [
-                        {"role": "system", "content": system_prompt}
-                    ] + [{"role": m["role"], "content": m.get("raw_content", m.get("content"))} for m in st.session_state.messages]
+                    "model": st.session_state.selected_model_name,
+                    "messages": all_messages
                 }
-                # Add the current prompt
-                payload["messages"].append({"role": "user", "content": prompt})
                 
-                response = requests.post("http://localhost:11434/api/chat", json=payload, stream=True)
+                with st.spinner("Calling model..."):
+                    response = requests.post(
+                        "http://localhost:11434/api/chat", 
+                        json=payload,
+                        stream=True,
+                        timeout=30  # Add timeout
+                    )
+                    
                 final_response = ""
-                
                 for line in response.iter_lines(decode_unicode=True):
-                    if line:
-                        try:
-                            data = json.loads(line)
-                            content = data.get("message", {}).get("content", "")
+                    if not line:
+                        continue
+                    try:
+                        data = json.loads(line)
+                        if not data or "error" in data:
+                            raise Exception(data.get("error", "Unknown error"))
+                        content = data.get("message", {}).get("content", "")
+                        if content:
                             final_response += content
-                            if data.get("done", False):
-                                break
-                        except json.JSONDecodeError:
-                            continue
-                            
+                        if data.get("done", False):
+                            break
+                    except json.JSONDecodeError:
+                        continue
+                        
+                if not final_response:
+                    final_response = "No response generated"
+                    
+            except requests.exceptions.ConnectionError:
+                final_response = "Cannot connect to Ollama server - please start it with 'ollama serve'"
             except Exception as e:
-                final_response = f"Error: {e}"
-
-            generation_duration = st.session_state.model_timer.stop()
-            
-        elif st.session_state.selected_model_type == "GPT":
-            # ...existing GPT code...
-            pass
-            
-        else:  # HuggingFace
-            # ...existing HuggingFace code...
-            pass
+                final_response = f"Error: {str(e)}"
+        elif st.session_state.selected_model_type == "HuggingFace":
+            try:
+                if st.session_state.hf_model is None:
+                    with st.spinner("Loading HuggingFace model..."):
+                        from transformers import AutoModelForCausalLM, AutoTokenizer
+                        st.session_state.hf_model = AutoModelForCausalLM.from_pretrained(
+                            st.session_state.selected_model_name
+                        )
+                        st.session_state.hf_tokenizer = AutoTokenizer.from_pretrained(
+                            st.session_state.selected_model_name
+                        )
+                
+                # Combine all messages into a prompt
+                prompt_text = f"{system_prompt}\n\n"
+                for msg in st.session_state.messages:
+                    content = msg.get("raw_content", msg.get("content", ""))
+                    prompt_text += f"{msg['role']}: {content}\n"
+                prompt_text += f"user: {prompt}\nassistant:"
+                
+                inputs = st.session_state.hf_tokenizer(
+                    prompt_text, 
+                    return_tensors="pt",
+                    padding=True,
+                    truncation=True,
+                    max_length=512
+                )
+                
+                outputs = st.session_state.hf_model.generate(
+                    **inputs,
+                    max_length=1024,
+                    num_return_sequences=1,
+                    temperature=0.7,
+                    do_sample=True,
+                    pad_token_id=st.session_state.hf_tokenizer.eos_token_id
+                )
+                
+                final_response = st.session_state.hf_tokenizer.decode(
+                    outputs[0], 
+                    skip_special_tokens=True
+                ).split("assistant:")[-1].strip()
+                
+            except Exception as e:
+                final_response = f"Error with HuggingFace model: {str(e)}"
+        else:
+            final_response = "Model type not implemented"
+        
+        generation_duration = st.session_state.model_timer.stop()
 
     return highlighted_prompt, final_response, typing_duration, generation_duration
 
@@ -254,21 +323,37 @@ if st.session_state.user_id is None:
     st.markdown("### Welcome to PromptDoctor")
     st.markdown("Please login and select your preferred model")
     
-    # Model selection
+    # Model type selection
     model_type = st.selectbox(
         "Select Model Type",
         ["Ollama", "GPT", "HuggingFace"],
         key="model_selection"
     )
     
+    # Get available models for selected type
+    available_models = ModelConfig.DEFAULT_CONFIGS.get(model_type, [])
+    model_options = {m["display_name"]: m["name"] for m in available_models}
+    
+    # Model selection
+    selected_model_display = st.selectbox(
+        f"Select {model_type} Model",
+        options=list(model_options.keys()),
+        key="specific_model_selection"
+    )
+    
+    selected_model = model_options[selected_model_display]
+    
     if st.button("Login"):
         st.session_state.user_id = str(uuid.uuid4())
         st.session_state.selected_model_type = model_type
+        st.session_state.selected_model_name = selected_model
+        if model_type == "HuggingFace":
+            st.warning("Note: First response may take a while as the model is being loaded.")
         # Log login event
         log_chat_interaction(
             st.session_state.user_id,
             "LOGIN",
-            model_type=model_type
+            model_type=f"{model_type}/{selected_model_display}"
         )
         st.rerun()
 

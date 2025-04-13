@@ -1,0 +1,14 @@
+2025-04-13 16:05:57,459 ; INFO ; 
+=== Interaction at 2025-04-13T16:05:57.459732 ===
+Type: LOGIN
+Model: HuggingFace/Asclepius-7B
+==================================================
+2025-04-13 16:06:02,529 ; INFO ; 
+=== Interaction at 2025-04-13T16:06:02.529807 ===
+Type: CHAT
+User Prompt: hi
+Model: HuggingFace
+Model Output: HuggingFace model starmpcc/Asclepius-7B not implemented yet
+Typing Duration: 14.89 seconds
+Generation Duration: 0.00 seconds
+==================================================

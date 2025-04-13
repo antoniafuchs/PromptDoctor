@@ -1,0 +1,14 @@
+2025-04-12 20:38:49,988 ; INFO ; 
+=== Interaction at 2025-04-12T20:38:49.988009 ===
+Type: LOGIN
+Model: Ollama
+==================================================
+2025-04-12 20:39:16,283 ; INFO ; 
+=== Interaction at 2025-04-12T20:39:16.282773 ===
+Type: CHAT
+User Prompt: headache
+Model: Ollama
+Model Output: A headache is a symptom characterized by pain or discomfort in the head region. It can be classified as primary (tension-type, migraine, cluster) or secondary (caused by another medical condition). Common triggers include stress, fatigue, alcohol consumption, and certain foods. Treatment options vary depending on the underlying cause but may include over-the-counter pain relievers, prescription medications for specific types of headaches, lifestyle modifications such as stress management and regular sleep patterns, and avoiding headache-inducing substances.
+Typing Duration: 15.12 seconds
+Generation Duration: 14.16 seconds
+==================================================

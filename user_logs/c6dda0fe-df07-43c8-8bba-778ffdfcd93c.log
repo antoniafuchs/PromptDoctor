@@ -1,0 +1,21 @@
+2025-04-13 14:19:10,975 ; INFO ; 
+=== Interaction at 2025-04-13T14:19:10.975919 ===
+Type: LOGIN
+Model: Ollama/llama3-med42-8b:latest
+==================================================
+2025-04-13 14:22:16,592 ; INFO ; 
+=== Interaction at 2025-04-13T14:22:16.592454 ===
+Type: PDF_UPLOAD
+User Prompt: Uploaded file: test.pdf
+Model Output: {'filename': 'test.pdf', 'size': 16003, 'type': 'application/pdf'}
+Processing Duration: 0.02 seconds
+==================================================
+2025-04-13 14:50:45,802 ; INFO ; 
+=== Interaction at 2025-04-13T14:50:45.802318 ===
+Type: CHAT
+User Prompt: A 35-year-old male presents with fever, cough, and shortness of breath. What are the possible diagnoses?
+Model: Ollama
+Model Output: Error: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10271e110>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Typing Duration: 1907.98 seconds
+Generation Duration: 0.00 seconds
+==================================================
