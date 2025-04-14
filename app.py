@@ -19,8 +19,11 @@ from utils.medical_processor import MedicalTermProcessor
 from utils.prompt_validator import validate_prompt, add_highlights
 from utils.model_config import ModelConfig
 from utils.xai import LIMEMedicalExplainer
+from utils.xai.processing import XAIProcessor
 import os
 import glob
+from threading import Thread
+import pandas as pd
 
 st.set_page_config(page_title="PromptDoctor", layout="wide")
 st.header("PromptDoctor")
@@ -73,7 +76,14 @@ if "hf_tokenizer" not in st.session_state:
     st.session_state.hf_tokenizer = None
 if "lime_explainer" not in st.session_state:
     st.session_state.lime_explainer = LIMEMedicalExplainer()
-
+if "xai_queue" not in st.session_state:
+    st.session_state.xai_queue = []
+if "xai_processing" not in st.session_state:
+    st.session_state.xai_processing = False
+if "xai_results" not in st.session_state:
+    st.session_state.xai_results = {}
+if "xai_processor" not in st.session_state:
+    st.session_state.xai_processor = XAIProcessor()
 
 # Remove JavaScript section and replace with input focus handler
 def on_input_focus():
@@ -486,6 +496,26 @@ else:
                         st.success("Text copied")
                     except Exception as e:
                         st.error(f"Failed to copy: {str(e)}")
+        
+        # Add XAI results section
+        st.markdown("### Analysis Queue")
+        if st.session_state.xai_processing:
+            st.info("🔄 Processing explanation...")
+            st.session_state.xai_processor.process_queue()
+        
+        if st.session_state.xai_results:
+            st.markdown("### Latest Analyses")
+            for prompt, result in list(st.session_state.xai_results.items())[-3:]:
+                with st.expander(f"Analysis for: {prompt[:30]}..."):
+                    st.text(f"Timestamp: {result['timestamp']}")
+                    st.markdown("#### Model Response")
+                    st.write(result["response"])
+                    st.markdown("#### Explanation")
+                    st.write(result["explanation"])
+                    
+                    if st.button("Remove", key=f"remove_{prompt[:10]}", type="tertiary"):
+                        del st.session_state.xai_results[prompt]
+                        st.rerun()
 
     # System prompt
     system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
@@ -603,7 +633,7 @@ else:
                 st.session_state.pending_prompt
             )
             
-            print("[APP] Starting explanation process...")
+            print("\n[APP] Starting explanation process with debug...")
             start_time = datetime.datetime.now()
             
             # Get model response first
@@ -611,57 +641,18 @@ else:
                 st.session_state.pending_prompt
             )
             
-            print(f"[APP] Got model response: {final_response[:100]}...")
-            
-            # Create explanation container
-            explanation_container = st.empty()
-            explanation_container.info("Generating explanation...")
-            
-            # Generate LIME explanation
-            with st.spinner("Generating explanation..."):
-                print("[APP] Generating LIME explanation...")
-                feature_importance, explanation = st.session_state.lime_explainer.explain_prediction(
-                    st.session_state.pending_prompt,
-                    st.session_state.medical_processor.medical_terms
-                )
-                print("[APP] Explanation generated")
-            
-            # Calculate explanation duration
-            explanation_duration = (datetime.datetime.now() - start_time).total_seconds()
-            
-            # Log LIME explanation
-            explanation_features = [(word.strip(':[]'), float(weight.strip('()'))) 
-                                  for word, weight in (item.split('(') 
-                                  for item in explanation.split(')') if '(' in item)]
-            
-            log_lime_explanation(
-                st.session_state.user_id,
+            # Queue XAI processing
+            print("[APP] Queueing XAI request...")
+            st.session_state.xai_processor.queue_xai_request(
                 st.session_state.pending_prompt,
                 final_response,
-                explanation_features,
-                explanation_duration
+                st.session_state.selected_model_type
             )
             
-            # Display explanation in dedicated section
-            st.markdown("### Response Analysis")
-            st.write("Model Response:")
-            st.markdown(final_response)
-            st.divider()
-            st.write("Feature Importance:")
-            importance_df = pd.DataFrame(feature_importance, columns=['Feature', 'Importance'])
-            st.dataframe(importance_df)
-            st.write("LIME Explanation:")
-            st.markdown(explanation)
+            # Process queue once
+            st.session_state.xai_processor.process_queue()
             
-            # Create expandable technical details
-            with st.expander("Technical Details"):
-                st.write("Explanation weights show how each word/phrase influenced the model's response:")
-                st.write("- :red[Red] indicates positive influence")
-                st.write("- :blue[Blue] indicates negative influence")
-                st.write("- Numbers in parentheses show the strength of influence")
-            
-            # Add messages to history with explanation
-            print("[APP] Adding messages to history...")
+            # Add messages to history immediately
             user_message = {
                 "role": "user",
                 "content": highlighted_prompt,
@@ -672,9 +663,8 @@ else:
             st.session_state.messages.append(user_message)
             
             assistant_message = {
-                "role": "assistant", 
+                "role": "assistant",
                 "content": final_response,
-                "explanation": explanation,
                 "timestamp": datetime.datetime.now().isoformat(),
                 "iteration": st.session_state.iteration_count
             }
@@ -684,20 +674,23 @@ else:
             print("[APP] Logging interaction...")
             log_chat_interaction(
                 st.session_state.user_id,
-                "CHAT_WITH_EXPLANATION",
+                "CHAT_WITH_EXPLANATION_QUEUED",
                 user_prompt=st.session_state.pending_prompt,
                 model_output=final_response,
                 model_type=st.session_state.selected_model_type,
                 duration={
                     "typing": typing_duration,
-                    "generation": generation_duration
+                    "generation": generation_duration,
+                    "queue_time": (datetime.datetime.now() - start_time).total_seconds()
                 }
             )
             
-            print("[APP] Explanation process complete")
+            print("[APP] Chat message added, XAI processing queued")
             
-            # Don't rerun immediately - let user see the explanation
-            st.session_state.stage = "viewing_explanation"
+            # Reset state and continue
+            st.session_state.stage = "user"
+            st.session_state.pending_prompt = None
+            st.rerun()
 
         if cols[3].button("Rewrite", type="tertiary", key="rewrite_button"):
             st.session_state.stage = "rewrite"
