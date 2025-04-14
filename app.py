@@ -4,18 +4,23 @@ import json
 import uuid
 import datetime
 import pyperclip
+from typing import List
 from tracking.timer import Timer
 from tracking.logging import (
     log_model_output,
     log_user_interaction,
     log_task_duration,
-    log_chat_interaction
+    log_chat_interaction,
+    log_validation_action,
+    log_lime_explanation
 )
 from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 from utils.medical_processor import MedicalTermProcessor
 from utils.prompt_validator import validate_prompt, add_highlights
 from utils.model_config import ModelConfig
 from utils.xai import LIMEMedicalExplainer
+import os
+import glob
 
 st.set_page_config(page_title="PromptDoctor", layout="wide")
 st.header("PromptDoctor")
@@ -233,14 +238,21 @@ def process_prompt_and_get_response(prompt):
                 })
             all_messages.append({"role": "user", "content": prompt})
             
-            # Make API call
+            # Verify model exists locally
+            local_models = get_local_ollama_models()
+            model_names = [m["name"] for m in local_models]
+            
+            if st.session_state.selected_model_name not in model_names:
+                return highlighted_prompt, "Error: Selected model not found locally", 0, 0
+            
+            # Make API call with selected model
             try:
                 payload = {
                     "model": st.session_state.selected_model_name,
                     "messages": all_messages
                 }
                 
-                with st.spinner("Calling model..."):
+                with st.spinner(f"Calling {st.session_state.selected_model_name}..."):
                     response = requests.post(
                         "http://localhost:11434/api/chat", 
                         json=payload,
@@ -270,7 +282,7 @@ def process_prompt_and_get_response(prompt):
             except requests.exceptions.ConnectionError:
                 final_response = "Cannot connect to Ollama server - please start it with 'ollama serve'"
             except Exception as e:
-                final_response = f"Error: {str(e)}"
+                final_response = f"Error with model {st.session_state.selected_model_name}: {str(e)}"
         elif st.session_state.selected_model_type == "HuggingFace":
             try:
                 if st.session_state.hf_model is None:
@@ -321,6 +333,54 @@ def process_prompt_and_get_response(prompt):
 
     return highlighted_prompt, final_response, typing_duration, generation_duration
 
+def get_medical_terms(text: str, medical_processor) -> List[str]:
+    """Extract medical terms from text"""
+    words = text.lower().split()
+    return [word for word in words if word in medical_processor.medical_terms]
+
+def get_local_ollama_models():
+    """Get list of locally available Ollama models"""
+    models_path = os.path.expanduser("~/.ollama/models/manifests/registry.ollama.ai/library/")
+    if not os.path.exists(models_path):
+        return []
+    
+    model_entries = glob.glob(os.path.join(models_path, "*"))
+    models = []
+    
+    for entry in model_entries:
+        model_name = os.path.basename(entry)
+        
+        # Check if it's a directory
+        if os.path.isdir(entry):
+            # Try to find a manifest.json inside the directory
+            manifest_path = os.path.join(entry, "manifest.json")
+            if os.path.exists(manifest_path):
+                try:
+                    with open(manifest_path, 'r') as f:
+                        manifest = json.load(f)
+                        display_name = f"{model_name} ({manifest.get('version', 'unknown')})"
+                except:
+                    display_name = f"{model_name} (custom)"
+            else:
+                display_name = f"{model_name} (custom)"
+                
+        # If it's a file
+        else:
+            try:
+                with open(entry, 'r') as f:
+                    manifest = json.load(f)
+                    display_name = f"{model_name} ({manifest.get('version', 'unknown')})"
+            except:
+                display_name = model_name
+        
+        models.append({
+            "name": model_name,
+            "display_name": display_name,
+            "path": entry
+        })
+    
+    return models
+
 # Login page
 if st.session_state.user_id is None:
     st.markdown("### Welcome to PromptDoctor")
@@ -334,9 +394,21 @@ if st.session_state.user_id is None:
     )
     
     # Get available models for selected type
-    available_models = ModelConfig.DEFAULT_CONFIGS.get(model_type, [])
+    if model_type == "Ollama":
+        local_models = get_local_ollama_models()
+        if local_models:
+            available_models = local_models
+        else:
+            available_models = ModelConfig.DEFAULT_CONFIGS.get(model_type, [])
+    else:
+        available_models = ModelConfig.DEFAULT_CONFIGS.get(model_type, [])
+    
     model_options = {m["display_name"]: m["name"] for m in available_models}
     
+    if not model_options:
+        st.warning("No models found. For Ollama, please ensure models are installed in ~/.ollama/models/")
+        model_options = {"No models available": "none"}
+
     # Model selection
     selected_model_display = st.selectbox(
         f"Select {model_type} Model",
@@ -452,8 +524,23 @@ else:
         st.markdown(" ".join(highlighted))
         st.divider()
         
+        # Log validation display
+        medical_terms = get_medical_terms(st.session_state.pending_prompt, st.session_state.medical_processor)
+        log_validation_action(
+            st.session_state.user_id,
+            "VALIDATION_VIEW",
+            st.session_state.pending_prompt,
+            medical_terms,
+            medical_term_count=len(medical_terms)
+        )
+        
         cols = st.columns(4)  # Changed from 3 to 4 columns
         if cols[0].button("Edit", type="primary", key="edit_button"):
+            log_validation_action(
+                st.session_state.user_id,
+                "EDIT_CLICK",
+                st.session_state.pending_prompt
+            )
             st.session_state.validation = {
                 "sentences": sentences,
                 "highlighted": highlighted,
@@ -463,6 +550,11 @@ else:
             st.rerun()
         
         if cols[1].button("Accept", key="accept_button"):
+            log_validation_action(
+                st.session_state.user_id,
+                "ACCEPT_CLICK",
+                st.session_state.pending_prompt
+            )
             # Get response first
             highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(
                 st.session_state.pending_prompt
@@ -505,7 +597,14 @@ else:
             st.rerun()
         
         if cols[2].button("Accept & Explain", type="secondary", key="explain_button"):
+            log_validation_action(
+                st.session_state.user_id,
+                "EXPLAIN_CLICK",
+                st.session_state.pending_prompt
+            )
+            
             print("[APP] Starting explanation process...")
+            start_time = datetime.datetime.now()
             
             # Get model response first
             highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(
@@ -521,19 +620,38 @@ else:
             # Generate LIME explanation
             with st.spinner("Generating explanation..."):
                 print("[APP] Generating LIME explanation...")
-                explanation = st.session_state.lime_explainer.explain_prediction(
-                    final_response,
-                    st.session_state.pending_prompt
+                feature_importance, explanation = st.session_state.lime_explainer.explain_prediction(
+                    st.session_state.pending_prompt,
+                    st.session_state.medical_processor.medical_terms
                 )
                 print("[APP] Explanation generated")
+            
+            # Calculate explanation duration
+            explanation_duration = (datetime.datetime.now() - start_time).total_seconds()
+            
+            # Log LIME explanation
+            explanation_features = [(word.strip(':[]'), float(weight.strip('()'))) 
+                                  for word, weight in (item.split('(') 
+                                  for item in explanation.split(')') if '(' in item)]
+            
+            log_lime_explanation(
+                st.session_state.user_id,
+                st.session_state.pending_prompt,
+                final_response,
+                explanation_features,
+                explanation_duration
+            )
             
             # Display explanation in dedicated section
             st.markdown("### Response Analysis")
             st.write("Model Response:")
             st.markdown(final_response)
             st.divider()
+            st.write("Feature Importance:")
+            importance_df = pd.DataFrame(feature_importance, columns=['Feature', 'Importance'])
+            st.dataframe(importance_df)
             st.write("LIME Explanation:")
-            explanation_container.markdown(explanation)
+            st.markdown(explanation)
             
             # Create expandable technical details
             with st.expander("Technical Details"):
@@ -597,6 +715,13 @@ else:
             
             cols = st.columns(2)
             if cols[0].button("Update", type="primary"):
+                log_validation_action(
+                    st.session_state.user_id,
+                    "EDIT_UPDATE",
+                    st.session_state.pending_prompt,
+                    modified_prompt=new_prompt,
+                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor)
+                )
                 st.session_state.pending_prompt = new_prompt
                 st.session_state.stage = "validate"
                 st.rerun()
@@ -613,6 +738,13 @@ else:
             )
             
             if st.button("Update", type="primary"):
+                log_validation_action(
+                    st.session_state.user_id,
+                    "REWRITE_UPDATE",
+                    st.session_state.pending_prompt,
+                    modified_prompt=new_prompt,
+                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor)
+                )
                 st.session_state.pending_prompt = new_prompt
                 st.session_state.stage = "validate"
                 st.rerun()
