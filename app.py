@@ -25,6 +25,14 @@ import glob
 from threading import Thread
 import pandas as pd
 
+# Try to import ollama, fallback to requests if not available
+try:
+    from ollama import Client
+    OLLAMA_CLIENT_AVAILABLE = True
+except ImportError:
+    print("[WARNING] Ollama client package not installed. Falling back to direct API calls.")
+    OLLAMA_CLIENT_AVAILABLE = False
+
 st.set_page_config(page_title="PromptDoctor", layout="wide")
 st.header("PromptDoctor")
 
@@ -33,6 +41,18 @@ st.markdown("""
 <style>
     [data-testid="stSidebar"] > div:first-child {
         width: var(--sidebar-width, 100%);
+    }
+    /* Add XAI visualization styling */
+    .word-span {
+        transition: transform 0.1s ease-in-out;
+    }
+    .word-span:hover {
+        transform: scale(1.05);
+    }
+    iframe.xai-frame {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -255,44 +275,55 @@ def process_prompt_and_get_response(prompt):
             if st.session_state.selected_model_name not in model_names:
                 return highlighted_prompt, "Error: Selected model not found locally", 0, 0
             
-            # Make API call with selected model
             try:
-                payload = {
-                    "model": st.session_state.selected_model_name,
-                    "messages": all_messages
-                }
-                
-                with st.spinner(f"Calling {st.session_state.selected_model_name}..."):
+                if OLLAMA_CLIENT_AVAILABLE:
+                    # Try client first
+                    try:
+                        client = Client(host='http://localhost:11434')
+                        response = client.chat(
+                            model=st.session_state.selected_model_name,
+                            messages=all_messages
+                        )
+                        final_response = response['message']['content']
+                    except Exception as client_error:
+                        print(f"[Ollama] Client error, falling back to API: {str(client_error)}")
+                        raise  # Trigger fallback
+                else:
+                    raise ImportError("Ollama client not available")
+                    
+            except Exception as e:
+                # Fallback to direct API call
+                try:
+                    payload = {
+                        "model": st.session_state.selected_model_name,
+                        "messages": all_messages
+                    }
+                    
                     response = requests.post(
-                        "http://localhost:11434/api/chat", 
+                        "http://localhost:11434/api/chat",
                         json=payload,
                         stream=True,
-                        timeout=30  # Add timeout
+                        timeout=30
                     )
                     
-                final_response = ""
-                for line in response.iter_lines(decode_unicode=True):
-                    if not line:
-                        continue
-                    try:
-                        data = json.loads(line)
-                        if not data or "error" in data:
-                            raise Exception(data.get("error", "Unknown error"))
-                        content = data.get("message", {}).get("content", "")
-                        if content:
-                            final_response += content
-                        if data.get("done", False):
-                            break
-                    except json.JSONDecodeError:
-                        continue
-                        
-                if not final_response:
-                    final_response = "No response generated"
-                    
-            except requests.exceptions.ConnectionError:
-                final_response = "Cannot connect to Ollama server - please start it with 'ollama serve'"
-            except Exception as e:
-                final_response = f"Error with model {st.session_state.selected_model_name}: {str(e)}"
+                    final_response = ""
+                    for line in response.iter_lines(decode_unicode=True):
+                        if not line:
+                            continue
+                        try:
+                            data = json.loads(line)
+                            if data.get("error"):
+                                raise Exception(data["error"])
+                            content = data.get("message", {}).get("content", "")
+                            if content:
+                                final_response += content
+                            if data.get("done", False):
+                                break
+                        except json.JSONDecodeError:
+                            continue
+                            
+                except Exception as api_error:
+                    final_response = f"Error with Ollama: {str(api_error)}"
         elif st.session_state.selected_model_type == "HuggingFace":
             try:
                 if st.session_state.hf_model is None:
@@ -407,7 +438,7 @@ if st.session_state.user_id is None:
     if model_type == "Ollama":
         local_models = get_local_ollama_models()
         if local_models:
-            available_models = local_models
+            available_models = ModelConfig.merge_with_local_models(local_models)
         else:
             available_models = ModelConfig.DEFAULT_CONFIGS.get(model_type, [])
     else:
@@ -508,11 +539,25 @@ else:
             for prompt, result in list(st.session_state.xai_results.items())[-3:]:
                 with st.expander(f"Analysis for: {prompt[:30]}..."):
                     st.text(f"Timestamp: {result['timestamp']}")
-                    st.markdown("#### Model Response")
+                    st.markdown("#### Word Impact Analysis")
+                    # Use iframe to properly render HTML with styles
+                    st.components.v1.html(
+                        result["html"],
+                        height=180,
+                        scrolling=True
+                    )
+                    st.markdown("#### Response")
                     st.write(result["response"])
-                    st.markdown("#### Explanation")
-                    st.write(result["explanation"])
                     
+                    # Add explanation of colors
+                    st.markdown("""
+                        <small>
+                        🔴 Red: Higher positive impact<br>
+                        🔵 Blue: Higher negative impact<br>
+                        Hover over words to see exact values
+                        </small>
+                    """, unsafe_allow_html=True)
+
                     if st.button("Remove", key=f"remove_{prompt[:10]}", type="tertiary"):
                         del st.session_state.xai_results[prompt]
                         st.rerun()

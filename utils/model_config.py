@@ -24,3 +24,15 @@ class ModelConfig:
     def get_models_for_type(model_type: str) -> List[Dict]:
         """Get available models for given type"""
         return ModelConfig.DEFAULT_CONFIGS.get(model_type, [])
+
+    @staticmethod
+    def merge_with_local_models(local_models: List[Dict]) -> List[Dict]:
+        """Merge local models with default models"""
+        default_names = {m["name"] for m in ModelConfig.DEFAULT_CONFIGS["Ollama"]}
+        merged = ModelConfig.DEFAULT_CONFIGS["Ollama"].copy()
+        
+        for model in local_models:
+            if model["name"] not in default_names:
+                merged.append(model)
+        
+        return merged
