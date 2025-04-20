@@ -2,6 +2,9 @@ import os
 from pathlib import Path
 from typing import Dict, List
 import json
+from transformers import AutoModelForCausalLM, AutoModelForSeq2SeqLM, BertLMHeadModel, AutoTokenizer, PreTrainedModel, GenerationConfig
+import re
+import torch
 
 class ModelConfig:
     DEFAULT_CONFIGS = {
@@ -11,6 +14,7 @@ class ModelConfig:
         ],
         "HuggingFace": [
             {"name": "starmpcc/Asclepius-7B", "display_name": "starmpcc/Asclepius-7B"},
+            {"name": "tiiuae/falcon-rw-1b", "display_name": "tiiuae/falcon-rw-1b"},
             {"name": "microsoft/BiomedNLP-BioGPT-Large", "display_name": "BioGPT Large"},
             {"name": "facebook/opt-350m", "display_name": "OPT 350M (Faster)"}
         ],
@@ -36,3 +40,49 @@ class ModelConfig:
                 merged.append(model)
         
         return merged
+
+    @staticmethod
+    def initialize_hf_model(model_name: str):
+        """Initialize HuggingFace model with proper configuration"""
+        try:
+            # Initialize tokenizer first
+            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            
+            # Set up basic generation config
+            gen_config = GenerationConfig(
+                max_new_tokens=512,
+                do_sample=True,
+                temperature=0.7,
+                top_k=50,
+                top_p=0.9,
+                num_return_sequences=1,
+                pad_token_id=tokenizer.eos_token_id,
+                eos_token_id=tokenizer.eos_token_id
+            )
+            
+            # Set up tokenizer padding
+            if tokenizer.pad_token is None:
+                tokenizer.pad_token = tokenizer.eos_token
+                print(f"[MODEL] Using eos_token as pad_token: {tokenizer.pad_token}")
+            
+            # Initialize model with basic config
+            model = (BertLMHeadModel if "bert" in model_name.lower() else AutoModelForCausalLM).from_pretrained(
+                model_name,
+                torch_dtype=torch.float32
+            )
+            
+            # Set generation config and ensure padding is properly set
+            model.generation_config = gen_config
+            model.config.pad_token_id = tokenizer.pad_token_id
+            model.config.eos_token_id = tokenizer.eos_token_id
+            
+            model.eval()
+            
+            print(f"[MODEL] Initialized {model_name}")
+            print(f"[MODEL] Padding token: {tokenizer.pad_token} (id: {tokenizer.pad_token_id})")
+            
+            return model, tokenizer
+            
+        except Exception as e:
+            print(f"[ERROR] Failed to initialize model: {str(e)}")
+            raise

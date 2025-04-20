@@ -1,0 +1,58 @@
+2025-04-19 12:34:50,915 ; INFO ; 
+=== Interaction at 2025-04-19T12:34:50.915325 ===
+Type: LOGIN
+Model: Ollama/Med42 8B
+==================================================
+2025-04-19 12:34:53,415 ; INFO ; 
+=== Validation Action at 2025-04-19T12:34:53.415121 ===
+Action: VALIDATION_VIEW
+Original Prompt: Hi
+==================================================
+2025-04-19 12:34:54,590 ; INFO ; 
+=== Validation Action at 2025-04-19T12:34:54.590854 ===
+Action: VALIDATION_VIEW
+Original Prompt: Hi
+==================================================
+2025-04-19 12:34:54,592 ; INFO ; 
+=== Validation Action at 2025-04-19T12:34:54.592640 ===
+Action: ACCEPT_CLICK
+Original Prompt: Hi
+==================================================
+2025-04-19 12:35:04,547 ; INFO ; 
+=== Interaction at 2025-04-19T12:35:04.547799 ===
+Type: CHAT
+User Prompt: Hi
+Model: Ollama
+Model Output: Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Are you looking for insights from a specific patient's clinical note or would you like general information on a particular disease or topic? Please let me know so I can provide you with the most accurate and helpful response.
+Typing Duration: 21.92 seconds
+Generation Duration: 9.95 seconds
+==================================================
+2025-04-19 12:35:10,884 ; INFO ; 
+=== Validation Action at 2025-04-19T12:35:10.884292 ===
+Action: VALIDATION_VIEW
+Original Prompt: I have a headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-04-19 12:35:12,490 ; INFO ; 
+=== Validation Action at 2025-04-19T12:35:12.490451 ===
+Action: VALIDATION_VIEW
+Original Prompt: I have a headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-04-19 12:35:12,491 ; INFO ; 
+=== Validation Action at 2025-04-19T12:35:12.491310 ===
+Action: EXPLAIN_CLICK
+Original Prompt: I have a headache
+==================================================
+2025-04-19 12:43:58,503 ; INFO ; 
+=== Interaction at 2025-04-19T12:43:58.503024 ===
+Type: CHAT_WITH_EXPLANATION_QUEUED
+User Prompt: I have a headache
+Model: Ollama
+Model Output: Sorry to hear that. Can you please specify more details about your headache, such as its duration, location, severity, associated symptoms (e.g., sensitivity to light or nausea), or any recent activities or events that may have triggered it? This will help me provide better guidance.
+Typing Duration: 17.90 seconds
+Generation Duration: 3.72 seconds
+Queue_Time Duration: 526.01 seconds
+==================================================

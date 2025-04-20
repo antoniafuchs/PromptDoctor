@@ -1,0 +1,34 @@
+2025-04-19 12:33:28,549 ; INFO ; 
+=== Interaction at 2025-04-19T12:33:28.549739 ===
+Type: LOGIN
+Model: HuggingFace/DistilGPT2 (Test)
+==================================================
+2025-04-19 12:33:33,331 ; INFO ; 
+=== Validation Action at 2025-04-19T12:33:33.331883 ===
+Action: VALIDATION_VIEW
+Original Prompt: I have a headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-04-19 12:33:34,389 ; INFO ; 
+=== Validation Action at 2025-04-19T12:33:34.389511 ===
+Action: VALIDATION_VIEW
+Original Prompt: I have a headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-04-19 12:33:34,390 ; INFO ; 
+=== Validation Action at 2025-04-19T12:33:34.390878 ===
+Action: SHAP_EXPLAIN_CLICK
+Original Prompt: I have a headache
+==================================================
+2025-04-19 12:33:37,092 ; INFO ; 
+=== Interaction at 2025-04-19T12:33:37.092445 ===
+Type: CHAT_WITH_EXPLANATION_QUEUED
+User Prompt: I have a headache
+Model: HuggingFace
+Model Output: Error with HuggingFace model: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Typing Duration: 12.04 seconds
+Generation Duration: 1.26 seconds
+Queue_Time Duration: 2.70 seconds
+==================================================

@@ -1,0 +1,29 @@
+2025-04-20 13:27:54,987 ; INFO ; 
+=== Interaction at 2025-04-20T13:27:54.987295 ===
+Type: LOGIN
+Model: HuggingFace/distilbert/distilgpt2
+==================================================
+2025-04-20 13:27:57,663 ; INFO ; 
+=== Validation Action at 2025-04-20T13:27:57.663314 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-04-20 13:27:58,713 ; INFO ; 
+=== Validation Action at 2025-04-20T13:27:58.712964 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-04-20 13:27:58,715 ; INFO ; 
+=== Validation Action at 2025-04-20T13:27:58.715566 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi
+==================================================
+2025-04-20 13:27:59,329 ; INFO ; 
+=== Interaction at 2025-04-20T13:27:59.329677 ===
+Type: CHAT
+User Prompt: hi
+Model: HuggingFace
+Model Output: Error with HuggingFace model: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+Typing Duration: 12.67 seconds
+Generation Duration: 0.61 seconds
+==================================================

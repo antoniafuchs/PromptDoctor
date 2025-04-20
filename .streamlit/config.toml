@@ -1,0 +1,6 @@
+[server]
+# Ignore torch modules in file watcher
+watcher.ignore_modules = ["torch"]
+
+[logger]
+level = "info"

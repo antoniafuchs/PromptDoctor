@@ -1,0 +1,30 @@
+2025-04-17 12:26:26,861 ; INFO ; 
+=== Interaction at 2025-04-17T12:26:26.861692 ===
+Type: LOGIN
+Model: HuggingFace/CoderMed Small
+==================================================
+2025-04-17 12:26:30,241 ; INFO ; 
+=== Validation Action at 2025-04-17T12:26:30.241723 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-04-17 12:26:31,700 ; INFO ; 
+=== Validation Action at 2025-04-17T12:26:31.700216 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-04-17 12:26:31,702 ; INFO ; 
+=== Validation Action at 2025-04-17T12:26:31.702486 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi
+==================================================
+2025-04-17 12:26:32,972 ; INFO ; 
+=== Interaction at 2025-04-17T12:26:32.972436 ===
+Type: CHAT
+User Prompt: hi
+Model: HuggingFace
+Model Output: Error with HuggingFace model: GanjinZero/coder_med_small is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+Typing Duration: 11.61 seconds
+Generation Duration: 1.27 seconds
+==================================================

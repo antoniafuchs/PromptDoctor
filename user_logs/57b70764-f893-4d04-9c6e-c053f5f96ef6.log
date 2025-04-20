@@ -1,0 +1,30 @@
+2025-04-17 11:01:32,576 ; INFO ; 
+=== Interaction at 2025-04-17T11:01:32.576712 ===
+Type: LOGIN
+Model: HuggingFace/BioGPT Large
+==================================================
+2025-04-17 11:01:35,277 ; INFO ; 
+=== Validation Action at 2025-04-17T11:01:35.277829 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-04-17 11:01:36,507 ; INFO ; 
+=== Validation Action at 2025-04-17T11:01:36.507352 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-04-17 11:01:36,509 ; INFO ; 
+=== Validation Action at 2025-04-17T11:01:36.509350 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi
+==================================================
+2025-04-17 11:01:40,599 ; INFO ; 
+=== Interaction at 2025-04-17T11:01:40.599636 ===
+Type: CHAT
+User Prompt: hi
+Model: HuggingFace
+Model Output: Error with HuggingFace model: microsoft/BiomedNLP-BioGPT-Large is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `huggingface-cli login` or by passing `token=<your_token>`
+Typing Duration: 13.66 seconds
+Generation Duration: 4.09 seconds
+==================================================

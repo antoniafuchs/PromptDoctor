@@ -24,6 +24,10 @@ import os
 import glob
 from threading import Thread
 import pandas as pd
+from utils.ml_utils import init_torch
+
+# Initialize PyTorch with basic settings
+init_torch()
 
 # Try to import ollama, fallback to requests if not available
 try:
@@ -328,36 +332,33 @@ def process_prompt_and_get_response(prompt):
             try:
                 if st.session_state.hf_model is None:
                     with st.spinner("Loading HuggingFace model..."):
-                        from transformers import AutoModelForCausalLM, AutoTokenizer
-                        st.session_state.hf_model = AutoModelForCausalLM.from_pretrained(
-                            st.session_state.selected_model_name
-                        )
-                        st.session_state.hf_tokenizer = AutoTokenizer.from_pretrained(
-                            st.session_state.selected_model_name
-                        )
+                        model, tokenizer = ModelConfig.initialize_hf_model(st.session_state.selected_model_name)
+                        st.session_state.hf_model = model
+                        st.session_state.hf_tokenizer = tokenizer
                 
-                # Combine all messages into a prompt
+                # Prepare prompt
                 prompt_text = f"{system_prompt}\n\n"
-                for msg in st.session_state.messages:
+                for msg in st.session_state.messages[-5:]:  # Limit context window
                     content = msg.get("raw_content", msg.get("content", ""))
                     prompt_text += f"{msg['role']}: {content}\n"
                 prompt_text += f"user: {prompt}\nassistant:"
                 
+                # Tokenize
                 inputs = st.session_state.hf_tokenizer(
-                    prompt_text, 
+                    prompt_text,
                     return_tensors="pt",
                     padding=True,
                     truncation=True,
                     max_length=512
                 )
                 
+                # Generate using model's generation config
                 outputs = st.session_state.hf_model.generate(
                     **inputs,
-                    max_length=1024,
-                    num_return_sequences=1,
-                    temperature=0.7,
-                    do_sample=True,
-                    pad_token_id=st.session_state.hf_tokenizer.eos_token_id
+                    min_length=10,
+                    repetition_penalty=1.2,
+                    no_repeat_ngram_size=3,
+                    early_stopping=True
                 )
                 
                 final_response = st.session_state.hf_tokenizer.decode(
