@@ -36,34 +36,34 @@ class LIMEMedicalExplainer:
 
     def _predictor_fn(self, texts: List[str], medical_terms: Set[str]) -> np.ndarray:
         """Predict medical relevance for multiple texts"""
-        predictions = []
-        print(f"[LIME] Processing {len(texts)} samples...")
-        
-        for text in texts:
-            try:
-                # Get model response for text
-                response = self._get_model_response(text)
+        try:
+            predictions = []
+            for text in texts:
+                # Use model handler to get predictions
+                if st.session_state.model_handler is None:
+                    raise ValueError("Model handler not initialized")
                 
-                # Convert text and response to word sets
-                text_words = set(text.lower().split())
+                response = st.session_state.model_handler.generate_response(
+                    [{"role": "user", "content": text}],
+                    system_prompt="You are a medical assistant."
+                )
+                
+                # Calculate prediction scores
+                words = set(text.lower().split())
                 resp_words = set(response.lower().split())
+                medical_overlap = len((words | resp_words) & medical_terms)
                 
-                # Calculate medical term overlap
-                medical_overlap = len((text_words | resp_words) & medical_terms)
+                # Convert to binary classification probabilities
+                score = min(0.1 + (medical_overlap * 0.2), 0.9)
+                predictions.append([1 - score, score])
                 
-                # Calculate relevance probability
-                if medical_overlap > 0:
-                    relevance = min(0.5 + (medical_overlap * 0.1), 0.9)
-                else:
-                    relevance = 0.1
-                    
-                predictions.append([1 - relevance, relevance])
-                
-            except Exception as e:
-                print(f"[LIME] Prediction error: {e}")
-                predictions.append([0.5, 0.5])  # Default to uncertain prediction
-                
-        return np.array(predictions)
+            return np.array(predictions)
+            
+        except Exception as e:
+            print(f"[LIME] HF Prediction error: {str(e)}")
+            print("[LIME] Debug info:")
+            print(f"Original text words: {[word for word in texts[0].split()]}")
+            return np.array([[0.5, 0.5] for _ in texts])  # Return neutral predictions on error
 
     def explain_prediction(
         self, 

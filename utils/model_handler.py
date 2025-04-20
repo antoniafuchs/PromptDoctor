@@ -14,10 +14,7 @@ class ModelHandler:
         self.current_model = model_name
         
         if model_type == "HuggingFace" and model_name:
-            # Lazy import and initialize HuggingFace handler
-            from .huggingface_handler import HuggingFaceHandler
-            self.hf_handler = HuggingFaceHandler()
-            self.hf_handler.initialize_model(model_name)
+            self._initialize_huggingface(model_name)
 
     def generate_response(self, messages, system_prompt, stream_handler=None):
         """Generate response based on model type"""
@@ -97,15 +94,29 @@ class ModelHandler:
 
     def _generate_huggingface(self, messages, system_prompt):
         """Handle HuggingFace model generation"""
+        try:
+            if not self.hf_handler:
+                self.hf_handler = HuggingFaceHandler()
+                if self.current_model:
+                    self.hf_handler.initialize_model(self.current_model)
+                else:
+                    raise ValueError("No HuggingFace model specified")
+            
+            # Combine messages into a single prompt
+            prompt = system_prompt + "\n\n"
+            for msg in messages:
+                content = msg.get("content", "")
+                prompt += f"{content}\n"
+                
+            return self.hf_handler.generate_response(prompt)
+        except Exception as e:
+            print(f"[Model] HuggingFace generation error: {str(e)}")
+            return f"Error generating response: {str(e)}"
+
+    def _initialize_huggingface(self, model_name: str) -> None:
+        """Initialize HuggingFace model with proper settings"""
         if not self.hf_handler:
-            return "HuggingFace model not initialized"
-        
-        # Combine messages into a single prompt
-        prompt = system_prompt + "\n\n"
-        for msg in messages:
-            role = msg["role"]
-            content = msg.get("raw_content", msg.get("content", ""))
-            prompt += f"{role}: {content}\n"
-        prompt += "assistant:"
-        
-        return self.hf_handler.generate_response(prompt)
+            from .huggingface_handler import HuggingFaceHandler
+            self.hf_handler = HuggingFaceHandler()
+        self.hf_handler.initialize_model(model_name)
+        print(f"[Model] HuggingFace model {model_name} initialized")

@@ -25,6 +25,7 @@ import glob
 from threading import Thread
 import pandas as pd
 from utils.ml_utils import init_torch
+from utils.model_handler import ModelHandler
 
 # Initialize PyTorch with basic settings
 init_torch()
@@ -88,8 +89,8 @@ if "stage" not in st.session_state:
     st.session_state.stage = "user"
     st.session_state.pending_prompt = None
     st.session_state.validation = {}
-if "model_handler" in st.session_state:
-    del st.session_state.model_handler
+if "model_handler" not in st.session_state:
+    st.session_state.model_handler = ModelHandler()
 if "available_models" in st.session_state:
     del st.session_state.available_models
 if "selected_model_name" not in st.session_state:
@@ -464,6 +465,8 @@ if st.session_state.user_id is None:
         st.session_state.user_id = str(uuid.uuid4())
         st.session_state.selected_model_type = model_type
         st.session_state.selected_model_name = selected_model
+        # Initialize the model handler
+        st.session_state.model_handler.initialize_model(model_type, selected_model)
         if model_type == "HuggingFace":
             st.warning("Note: First response may take a while as the model is being loaded.")
         # Log login event

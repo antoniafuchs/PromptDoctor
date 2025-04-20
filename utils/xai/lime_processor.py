@@ -18,6 +18,8 @@ class LIMEProcessor:
         """Create model-specific prediction function"""
         if model_type == "Ollama":
             return self._ollama_predictor
+        elif model_type == "HuggingFace":
+            return self._huggingface_predictor
         elif model_type == "GPT":
             return self._gpt_predictor
         else:
@@ -55,6 +57,30 @@ class LIMEProcessor:
                 probs.append([0.5, 0.5])
                 
         return np.array(probs)
+    
+    def _huggingface_predictor(self, texts: List[str]) -> np.ndarray:
+        """Prediction function for HuggingFace models"""
+        predictions = []
+        
+        for text in texts:
+            try:
+                # Get model response using HF model
+                response = st.session_state.model_handler.hf_handler.generate_response(text)
+                
+                # Calculate relevance score based on words
+                text_words = set(text.lower().split())
+                resp_words = set(response.lower().split())
+                word_overlap = len(text_words.intersection(resp_words))
+                
+                # Normalize confidence score
+                confidence = min((word_overlap / len(text_words) if text_words else 0.5) + 0.2, 1.0)
+                predictions.append([1 - confidence, confidence])
+                
+            except Exception as e:
+                print(f"[LIME] HF Prediction error: {e}")
+                predictions.append([0.5, 0.5])
+        
+        return np.array(predictions)
     
     def _gpt_predictor(self, texts: List[str]) -> np.ndarray:
         """Placeholder for GPT models"""
