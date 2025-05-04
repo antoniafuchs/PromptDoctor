@@ -1,0 +1,92 @@
+2025-05-04 14:28:00,630 ; INFO ; 
+=== Interaction at 2025-05-04T14:28:00.630575 ===
+Type: LOGIN
+Model: Ollama/Med42 8B
+==================================================
+2025-05-04 14:28:07,099 ; INFO ; 
+=== Validation Action at 2025-05-04T14:28:07.099285 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-04 14:28:11,874 ; INFO ; 
+=== Validation Action at 2025-05-04T14:28:11.874397 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-04 14:28:11,875 ; INFO ; 
+=== Validation Action at 2025-05-04T14:28:11.875946 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi
+==================================================
+2025-05-04 14:28:25,501 ; INFO ; 
+=== Interaction at 2025-05-04T14:28:25.501205 ===
+Type: CHAT
+User Prompt: hi
+Model: Ollama
+Model Output: Hello! As PromptDoctor, I'm here to assist you with analyzing clinical notes and providing meaningful insights. Please feel free to share the notes or a brief summary, so I can help you identify important medical details and answer any related questions.
+Typing Duration: 9.47 seconds
+Generation Duration: 13.62 seconds
+==================================================
+2025-05-04 14:59:11,364 ; INFO ; 
+=== Validation Action at 2025-05-04T14:59:11.364735 ===
+Action: VALIDATION_VIEW
+Original Prompt: Who are you?
+==================================================
+2025-05-04 14:59:12,541 ; INFO ; 
+=== Validation Action at 2025-05-04T14:59:12.541171 ===
+Action: VALIDATION_VIEW
+Original Prompt: Who are you?
+==================================================
+2025-05-04 14:59:12,543 ; INFO ; 
+=== Validation Action at 2025-05-04T14:59:12.543760 ===
+Action: ACCEPT_CLICK
+Original Prompt: Who are you?
+==================================================
+2025-05-04 14:59:19,743 ; INFO ; 
+=== Interaction at 2025-05-04T14:59:19.742876 ===
+Type: CHAT
+User Prompt: Who are you?
+Model: Ollama
+Model Output: I am PromptDoctor, an AI-powered medical assistant designed to analyze clinical notes, extract relevant information, and provide medically informed insights for healthcare professionals. My objective is to enhance diagnostic accuracy and support evidence-based decision-making in patient care.
+Typing Duration: 1860.67 seconds
+Generation Duration: 7.19 seconds
+==================================================
+2025-05-04 15:01:11,383 ; INFO ; 
+=== Validation Action at 2025-05-04T15:01:11.383163 ===
+Action: VALIDATION_VIEW
+Original Prompt: I have a headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-05-04 15:01:15,113 ; INFO ; 
+=== Validation Action at 2025-05-04T15:01:15.113654 ===
+Action: VALIDATION_VIEW
+Original Prompt: I have a headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-05-04 15:01:15,117 ; INFO ; 
+=== Validation Action at 2025-05-04T15:01:15.117330 ===
+Action: EXPLAIN_CLICK
+Original Prompt: I have a headache
+==================================================
+2025-05-04 15:11:22,942 ; INFO ; 
+=== Interaction at 2025-05-04T15:11:22.942092 ===
+Type: CHAT_WITH_EXPLANATION_QUEUED
+User Prompt: I have a headache
+Model: Ollama
+Model Output: As a medical assistant, I cannot diagnose or treat your condition based on this statement alone. However, I can guide you through a process to help identify the underlying cause of your headache.
+
+To better assist you, could you please provide more information about your symptoms? For example:
+- Is your headache unilateral (one-sided) or bilateral (both sides)?
+- What is the quality of the pain (throbbing, sharp, dull, etc.)?
+- Are there any associated symptoms such as nausea, vomiting, sensitivity to light, or visual disturbances?
+- Do you have a history of migraines or other recurrent headaches?
+- Have you recently experienced any stressors, sleep disturbances, or changes in your diet or environment?
+- Are you taking any medications that could be contributing to the headache?
+
+Once I have more information about your symptoms and medical history, I can provide insights on possible causes and potential treatment options.
+Typing Duration: 122.57 seconds
+Generation Duration: 10.68 seconds
+Queue_Time Duration: 607.82 seconds
+==================================================

@@ -1,6 +1,7 @@
 import requests
 import json
 from .model_config import ModelConfig
+from .huggingface_handler import HuggingFaceHandler
 
 class ModelHandler:
     def __init__(self):

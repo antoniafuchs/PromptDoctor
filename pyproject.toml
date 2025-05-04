@@ -15,7 +15,9 @@ dependencies = [
     "transformers (>=4.51.2,<5.0.0)",
     "torch (>=2.6.0,<3.0.0)",
     "lime (>=0.2.0.1,<0.3.0.0)",
-    "ollama (>=0.4.7,<0.5.0)"
+    "ollama (>=0.4.7,<0.5.0)",
+    "streamlit-survey (>=1.0.2,<2.0.0)",
+    "streamlit-extras (>=0.6.0,<0.7.0)"
 ]
 
 [build-system]

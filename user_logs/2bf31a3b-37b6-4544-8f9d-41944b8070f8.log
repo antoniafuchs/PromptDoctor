@@ -1,0 +1,41 @@
+2025-04-28 09:47:14,395 ; INFO ; 
+=== Interaction at 2025-04-28T09:47:14.395545 ===
+Type: LOGIN
+Model: Ollama/Med42 8B
+==================================================
+2025-04-28 09:47:19,101 ; INFO ; 
+=== Validation Action at 2025-04-28T09:47:19.101847 ===
+Action: VALIDATION_VIEW
+Original Prompt: i have a headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-04-28 09:47:20,619 ; INFO ; 
+=== Validation Action at 2025-04-28T09:47:20.619165 ===
+Action: VALIDATION_VIEW
+Original Prompt: i have a headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-04-28 09:47:20,620 ; INFO ; 
+=== Validation Action at 2025-04-28T09:47:20.620891 ===
+Action: EXPLAIN_CLICK
+Original Prompt: i have a headache
+==================================================
+2025-04-28 09:55:44,298 ; INFO ; 
+=== Interaction at 2025-04-28T09:55:44.298449 ===
+Type: CHAT_WITH_EXPLANATION_QUEUED
+User Prompt: i have a headache
+Model: Ollama
+Model Output: As your medical AI assistant, I'm not capable of physically diagnosing or treating conditions. However, based on the provided information, you've reported experiencing a headache. It's essential to determine if this is due to a primary headache disorder (e.g., tension-type or migraine) or an underlying condition (e.g., sinusitis, infection). To clarify your symptoms and provide appropriate guidance, please answer the following questions:
+
+1. Describe the severity of your headache - mild, moderate, or severe.
+2. What are any associated symptoms? For example, fever, photophobia, nausea, vomiting.
+3. Is this a new or recurring headache?
+4. Are there any potential triggers that you've identified?
+
+Once I have more information about your headache, I can help identify possible causes and recommend appropriate steps for management.
+Typing Duration: 19.11 seconds
+Generation Duration: 10.87 seconds
+Queue_Time Duration: 503.68 seconds
+==================================================

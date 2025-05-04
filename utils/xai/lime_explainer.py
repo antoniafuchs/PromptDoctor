@@ -1,8 +1,10 @@
 import numpy as np
 from lime.lime_text import LimeTextExplainer
 from typing import List, Tuple, Set
+import streamlit as st
 import requests
 import json
+import torch
 
 class LIMEMedicalExplainer:
     def __init__(self):
@@ -39,31 +41,52 @@ class LIMEMedicalExplainer:
         try:
             predictions = []
             for text in texts:
-                # Use model handler to get predictions
                 if st.session_state.model_handler is None:
                     raise ValueError("Model handler not initialized")
                 
-                response = st.session_state.model_handler.generate_response(
-                    [{"role": "user", "content": text}],
-                    system_prompt="You are a medical assistant."
-                )
-                
-                # Calculate prediction scores
-                words = set(text.lower().split())
-                resp_words = set(response.lower().split())
-                medical_overlap = len((words | resp_words) & medical_terms)
-                
-                # Convert to binary classification probabilities
-                score = min(0.1 + (medical_overlap * 0.2), 0.9)
-                predictions.append([1 - score, score])
+                if st.session_state.selected_model_type == "HuggingFace":
+                    # Use HuggingFace model's confidence scores
+                    if not st.session_state.hf_model:
+                        raise ValueError("HuggingFace model not initialized")
+                        
+                    # Tokenize input
+                    inputs = st.session_state.hf_tokenizer(
+                        text,
+                        return_tensors="pt",
+                        padding=True,
+                        truncation=True,
+                        max_length=128
+                    )
+                    
+                    # Get logits from model
+                    with torch.no_grad():
+                        outputs = st.session_state.hf_model(**inputs)
+                        logits = outputs.logits
+                        
+                        # Calculate confidence score using softmax
+                        probs = torch.nn.functional.softmax(logits[:, -1], dim=-1)
+                        confidence = float(probs.mean())
+                        predictions.append([1 - confidence, confidence])
+                else:
+                    # Fallback to basic medical term overlap for other models
+                    response = st.session_state.model_handler.generate_response(
+                        [{"role": "user", "content": text}],
+                        system_prompt="You are a medical assistant."
+                    )
+                    
+                    words = set(text.lower().split())
+                    resp_words = set(response.lower().split())
+                    medical_overlap = len((words | resp_words) & medical_terms)
+                    score = min(0.1 + (medical_overlap * 0.2), 0.9)
+                    predictions.append([1 - score, score])
                 
             return np.array(predictions)
             
         except Exception as e:
-            print(f"[LIME] HF Prediction error: {str(e)}")
+            print(f"[LIME] Prediction error: {str(e)}")
             print("[LIME] Debug info:")
             print(f"Original text words: {[word for word in texts[0].split()]}")
-            return np.array([[0.5, 0.5] for _ in texts])  # Return neutral predictions on error
+            return np.array([[0.5, 0.5] for _ in texts])
 
     def explain_prediction(
         self, 

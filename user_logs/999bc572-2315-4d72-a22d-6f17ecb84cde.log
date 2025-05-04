@@ -1,0 +1,101 @@
+2025-05-03 10:22:42,298 ; INFO ; 
+=== Interaction at 2025-05-03T10:22:42.298362 ===
+Type: LOGIN
+Model: Ollama/Med42 8B
+==================================================
+2025-05-03 10:22:48,924 ; INFO ; 
+=== Validation Action at 2025-05-03T10:22:48.924705 ===
+Action: VALIDATION_VIEW
+Original Prompt: Sprichst du deutsch?
+==================================================
+2025-05-03 10:22:50,879 ; INFO ; 
+=== Validation Action at 2025-05-03T10:22:50.879033 ===
+Action: VALIDATION_VIEW
+Original Prompt: Sprichst du deutsch?
+==================================================
+2025-05-03 10:22:50,882 ; INFO ; 
+=== Validation Action at 2025-05-03T10:22:50.882170 ===
+Action: ACCEPT_CLICK
+Original Prompt: Sprichst du deutsch?
+==================================================
+2025-05-03 10:23:01,822 ; INFO ; 
+=== Interaction at 2025-05-03T10:23:01.822452 ===
+Type: CHAT
+User Prompt: Sprichst du deutsch?
+Model: Ollama
+Model Output: Nein, ich bin nur ein englischsprachiger AI-Asistent für die Analyse von medizinischen Notizen und keine natürliche Sprachverarbeitung, um auf Deutsch zu sprechen oder zu verstehen. Es tut mir leid.
+Typing Duration: 12.48 seconds
+Generation Duration: 10.93 seconds
+==================================================
+2025-05-03 10:23:18,796 ; INFO ; 
+=== Validation Action at 2025-05-03T10:23:18.796469 ===
+Action: VALIDATION_VIEW
+Original Prompt: Ich habe Kopfschmerzen
+==================================================
+2025-05-03 10:23:20,048 ; INFO ; 
+=== Validation Action at 2025-05-03T10:23:20.048154 ===
+Action: VALIDATION_VIEW
+Original Prompt: Ich habe Kopfschmerzen
+==================================================
+2025-05-03 10:23:20,050 ; INFO ; 
+=== Validation Action at 2025-05-03T10:23:20.050183 ===
+Action: ACCEPT_CLICK
+Original Prompt: Ich habe Kopfschmerzen
+==================================================
+2025-05-03 10:23:28,244 ; INFO ; 
+=== Interaction at 2025-05-03T10:23:28.244397 ===
+Type: CHAT
+User Prompt: Ich habe Kopfschmerzen
+Model: Ollama
+Model Output: Tut mir leid zu hören. Als eine medizinische Hilfsmaschine kann ich dir jedoch helfen, die Erkrankung oder Ursache möglicherweise zu identifizieren, indem ich aufgrund der Analyse von Notizen aus früheren Untersuchungen und Behandlungen Vorschläge machen kann. Wenn du mir Informationen über deine Kopfschmerzen gibst - wie oft auftreten sie, sind sie heftig oder leicht, ist es ein dumpfer Schmerz oder ein Pulsieren, sowie ob die Schmerzen durch Licht, Geräusche oder Übelkeit ausgelöst werden - kann ich versuchen, mögliche Verursacher zu identifizieren.
+Typing Duration: 29.17 seconds
+Generation Duration: 8.19 seconds
+==================================================
+2025-05-03 10:24:11,812 ; INFO ; 
+=== Validation Action at 2025-05-03T10:24:11.812041 ===
+Action: VALIDATION_VIEW
+Original Prompt: Was sind die Symptome von einem Herzinfarkt?
+==================================================
+2025-05-03 10:24:13,137 ; INFO ; 
+=== Validation Action at 2025-05-03T10:24:13.137122 ===
+Action: VALIDATION_VIEW
+Original Prompt: Was sind die Symptome von einem Herzinfarkt?
+==================================================
+2025-05-03 10:24:13,139 ; INFO ; 
+=== Validation Action at 2025-05-03T10:24:13.138988 ===
+Action: ACCEPT_CLICK
+Original Prompt: Was sind die Symptome von einem Herzinfarkt?
+==================================================
+2025-05-03 10:24:22,545 ; INFO ; 
+=== Interaction at 2025-05-03T10:24:22.545335 ===
+Type: CHAT
+User Prompt: Was sind die Symptome von einem Herzinfarkt?
+Model: Ollama
+Model Output: Ein Herzinfarkt ist ein medizinisches Notfallereignis und es wichtig, dass du aufsuchst, wenn du denkst, dass du eines erlitten hast oder wenn deine Beschwerden nicht länger zu ignorieren sind. Symptome können variieren, aber typische Anzeichen für einen Herzinfarkt sind starke drückende Schmerzen im Brustbereich, die oft auf eine Seite beschränkt sind und sich in den Armen oder dem Rücken ausbreiten können; Übelkeit und Erbrechen, kalte Schweißausbrüche, Schwitzen, plötzliche Erschöpfung. Es ist wichtig zu betonen, dass Frauen möglicherweise andere Symptome haben als Männer und nicht immer Brustschmerzen zeigen werden.
+Typing Duration: 53.09 seconds
+Generation Duration: 9.40 seconds
+==================================================
+2025-05-03 10:24:57,895 ; INFO ; 
+=== Validation Action at 2025-05-03T10:24:57.895075 ===
+Action: VALIDATION_VIEW
+Original Prompt: what are the symptoms of an heart attack?
+==================================================
+2025-05-03 10:24:59,085 ; INFO ; 
+=== Validation Action at 2025-05-03T10:24:59.085232 ===
+Action: VALIDATION_VIEW
+Original Prompt: what are the symptoms of an heart attack?
+==================================================
+2025-05-03 10:24:59,087 ; INFO ; 
+=== Validation Action at 2025-05-03T10:24:59.087271 ===
+Action: ACCEPT_CLICK
+Original Prompt: what are the symptoms of an heart attack?
+==================================================
+2025-05-03 10:25:02,807 ; INFO ; 
+=== Interaction at 2025-05-03T10:25:02.807128 ===
+Type: CHAT
+User Prompt: what are the symptoms of an heart attack?
+Model: Ollama
+Model Output: Symptoms may vary but typical signs of a heart attack include strong pressing chest pain often restricted to one side and radiating to arms or back; nausea and vomiting, cold sweats, sudden fatigue. Important to emphasize that women might not always present with chest pain and other symptoms can occur.
+Typing Duration: 45.95 seconds
+Generation Duration: 3.71 seconds
+==================================================
