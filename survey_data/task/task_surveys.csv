@@ -1,0 +1,4 @@
+timestamp,user_id,task_number,difficulty,usefulness,comments,duration
+2025-05-08T14:27:16.494730,e9e7a47c-3bf4-4494-ac08-170cdcbb0c92,1,3,4,1 thump up,
+2025-05-08T14:28:11.917191,e9e7a47c-3bf4-4494-ac08-170cdcbb0c92,2,3,3,"2 edit, thumbs didn't work",
+2025-05-08T14:28:55.415782,e9e7a47c-3bf4-4494-ac08-170cdcbb0c92,3,3,3,3 rewrite thus did not work,

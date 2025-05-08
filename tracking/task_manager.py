@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional
 import streamlit as st
 from datetime import datetime
+from utils.survey_storage import SurveyStorage
+from utils.id_manager import get_or_create_unique_id
 
 @dataclass
 class TaskState:
@@ -107,57 +109,74 @@ class TaskManager:
                 st.rerun()
 
     def show_task_survey(self, task_number: int) -> Optional[Dict]:
-        """Show feedback survey in chat UI"""
-        print(f"[DEBUG] Showing survey for task {task_number}")
-        print(f"[DEBUG] show_feedback: {st.session_state.get('show_feedback')}")
-        print(f"[DEBUG] task_complete_clicked: {st.session_state.get('task_complete_clicked')}")
-        
+        """Show feedback survey in main UI"""
         if not st.session_state.get('show_feedback', False):
-            print("[DEBUG] Survey not shown - show_feedback is False")
             return None
-        
+
+        # Use consistent user ID
+        user_id = get_or_create_unique_id()
+        if not user_id:
+            print("[ERROR] No user ID found")
+            return None
+
+        # Only show survey if task was marked complete
         if not st.session_state.get('task_complete_clicked', False):
-            print("[DEBUG] Survey not shown - task_complete_clicked is False")
             return None
-            
-        # Show survey form
-        with st.container():
+
+        # Create form container
+        with st.form(key=f"task_{task_number}_feedback_form"):
             st.write(f"### Task {task_number} Feedback")
-            difficulty = st.slider("Task difficulty", 1, 5, 3)
-            usefulness = st.slider("Assistant helpfulness", 1, 5, 3)
-            comments = st.text_area("Additional comments")
             
-            if st.button("Submit & Continue", type="primary"):
-                print("[DEBUG] Submit button clicked")
+            # Get survey responses
+            difficulty = st.slider(
+                "Task difficulty", 
+                min_value=1, 
+                max_value=5, 
+                value=3,
+                help="1 = Very Easy, 5 = Very Difficult"
+            )
+            
+            usefulness = st.slider(
+                "Assistant helpfulness",
+                min_value=1,
+                max_value=5,
+                value=3,
+                help="1 = Not helpful, 5 = Very helpful"
+            )
+            
+            comments = st.text_area(
+                "Additional comments",
+                placeholder="Share your thoughts about this task..."
+            )
+            
+            # Submit button must be inside form
+            submitted = st.form_submit_button("Submit & Continue", type="primary")
+            
+            if submitted:
                 survey_data = {
                     "difficulty": difficulty,
                     "usefulness": usefulness,
                     "comments": comments,
                     "timestamp": datetime.now().isoformat()
                 }
+
+                # Save survey data
+                survey_storage = SurveyStorage()
+                survey_storage.save_task_survey(user_id, task_number, survey_data)
                 
-                # Update current task state
-                print("[DEBUG] Completing current task...")
-                current_task = st.session_state.task_states[task_number - 1]
-                current_task.completed = True
-                current_task.completed_at = datetime.now()
-                current_task.survey_data = survey_data
+                # Complete current task
+                self.complete_task(task_number, survey_data)
                 
-                # Setup next task
-                next_task = task_number + 1
-                print(f"[DEBUG] Setting up next task {next_task}")
+                # Reset states and advance task
+                st.session_state.show_feedback = False
+                st.session_state.task_complete_clicked = False
                 
-                if next_task <= len(st.session_state.task_states):
-                    # Reset states for next task
-                    st.session_state.current_task = next_task
+                if task_number < len(st.session_state.task_states):
+                    st.session_state.current_task = task_number + 1
                     st.session_state.show_task_intro = True
-                    st.session_state.show_feedback = False
-                    st.session_state.task_complete_clicked = False
                     st.session_state.messages = []
-                    print(f"[DEBUG] States reset for task {next_task}")
                 else:
-                    print("[DEBUG] All tasks completed")
-                    st.success("🎉 All tasks completed!")
+                    st.switch_page("pages/4_Logout.py")
                 
                 st.rerun()
                 return survey_data

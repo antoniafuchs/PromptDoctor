@@ -1,0 +1,202 @@
+2025-05-08 13:06:54,827 ; INFO ; 
+=== Interaction at 2025-05-08T13:06:54.827953 ===
+Type: LOGIN
+Model: Ollama/Med42 8B
+==================================================
+2025-05-08 13:07:07,707 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:07.707122 ===
+Action: VALIDATION_VIEW
+Original Prompt: 1 hello
+Medical Terms: 1
+Term Count: 1
+==================================================
+2025-05-08 13:07:09,288 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:09.288557 ===
+Action: VALIDATION_VIEW
+Original Prompt: 1 hello
+Medical Terms: 1
+Term Count: 1
+==================================================
+2025-05-08 13:07:09,290 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:09.290486 ===
+Action: ACCEPT_CLICK
+Original Prompt: 1 hello
+==================================================
+2025-05-08 13:07:14,719 ; INFO ; 
+=== Interaction at 2025-05-08T13:07:14.719326 ===
+Type: CHAT
+User Prompt: 1 hello
+Model: Ollama
+Model Output: As a medical AI, I'm unable to engage in casual conversations starting with "hello." Please provide a clinical note or query for me to assist you with.
+Typing Duration: 9.86 seconds
+Generation Duration: 5.42 seconds
+==================================================
+2025-05-08 13:07:17,105 ; INFO ; 
+=== Interaction at 2025-05-08T13:07:17.105527 ===
+Type: FEEDBACK
+User Prompt: As a medical AI, I'm unable to engage in casual conversations starting with "hello." Please provide a clinical note or query for me to assist you with.
+Model: Ollama
+Model Output: As a medical AI, I'm unable to engage in casual conversations starting with "hello." Please provide a clinical note or query for me to assist you with.
+Feedback: positive
+==================================================
+2025-05-08 13:07:31,910 ; INFO ; 
+=== Interaction at 2025-05-08T13:07:31.910752 ===
+Type: FEEDBACK
+User Prompt: As a medical AI, I'm unable to engage in casual conversations starting with "hello." Please provide a clinical note or query for me to assist you with.
+Model: Ollama
+Model Output: As a medical AI, I'm unable to engage in casual conversations starting with "hello." Please provide a clinical note or query for me to assist you with.
+Feedback: positive
+==================================================
+2025-05-08 13:07:37,056 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:37.056614 ===
+Action: VALIDATION_VIEW
+Original Prompt: 2 hi
+Medical Terms: 2
+Term Count: 1
+==================================================
+2025-05-08 13:07:39,600 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:39.600243 ===
+Action: VALIDATION_VIEW
+Original Prompt: 2 hi
+Medical Terms: 2
+Term Count: 1
+==================================================
+2025-05-08 13:07:39,601 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:39.601836 ===
+Action: EDIT_CLICK
+Original Prompt: 2 hi
+==================================================
+2025-05-08 13:07:44,061 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:44.061659 ===
+Action: EDIT_UPDATE
+Original Prompt: 2 hi
+Medical Terms: 2
+Term Count: 0
+Modified Prompt: 2 edited
+Prompt Changes (diff):
+- 2 hi+ 2 edited==================================================
+2025-05-08 13:07:44,141 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:44.141695 ===
+Action: VALIDATION_VIEW
+Original Prompt: 2 edited
+Medical Terms: 2
+Term Count: 1
+==================================================
+2025-05-08 13:07:45,218 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:45.218281 ===
+Action: VALIDATION_VIEW
+Original Prompt: 2 edited
+Medical Terms: 2
+Term Count: 1
+==================================================
+2025-05-08 13:07:45,220 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:45.220104 ===
+Action: ACCEPT_CLICK
+Original Prompt: 2 edited
+==================================================
+2025-05-08 13:07:48,625 ; INFO ; 
+=== Interaction at 2025-05-08T13:07:48.625216 ===
+Type: CHAT
+User Prompt: 2 edited
+Model: Ollama
+Model Output: As a medical AI assistant, I am unable to provide a response based on the given input "2 edited." Please provide more context or clarify what you would like me to assist with.
+Typing Duration: 35.93 seconds
+Generation Duration: 3.40 seconds
+==================================================
+2025-05-08 13:07:53,499 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:53.499174 ===
+Action: VALIDATION_VIEW
+Original Prompt: second input
+==================================================
+2025-05-08 13:07:55,984 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:55.984842 ===
+Action: VALIDATION_VIEW
+Original Prompt: second input
+==================================================
+2025-05-08 13:07:55,986 ; INFO ; 
+=== Validation Action at 2025-05-08T13:07:55.986753 ===
+Action: ACCEPT_CLICK
+Original Prompt: second input
+==================================================
+2025-05-08 13:07:58,523 ; INFO ; 
+=== Interaction at 2025-05-08T13:07:58.523429 ===
+Type: CHAT
+User Prompt: second input
+Model: Ollama
+Model Output: I am unable to respond to the given input "second input" as it lacks specificity and context. If you could provide more information about what you are requesting assistance for, I will be happy to help.
+Typing Duration: 10.77 seconds
+Generation Duration: 2.53 seconds
+==================================================
+2025-05-08 13:08:05,575 ; INFO ; 
+=== Interaction at 2025-05-08T13:08:05.575442 ===
+Type: FEEDBACK
+User Prompt: I am unable to respond to the given input "second input" as it lacks specificity and context. If you could provide more information about what you are requesting assistance for, I will be happy to help.
+Model: Ollama
+Model Output: I am unable to respond to the given input "second input" as it lacks specificity and context. If you could provide more information about what you are requesting assistance for, I will be happy to help.
+Feedback: neutral
+==================================================
+2025-05-08 13:08:24,936 ; INFO ; 
+=== Interaction at 2025-05-08T13:08:24.936701 ===
+Type: FEEDBACK
+User Prompt: I am unable to respond to the given input "second input" as it lacks specificity and context. If you could provide more information about what you are requesting assistance for, I will be happy to help.
+Model: Ollama
+Model Output: I am unable to respond to the given input "second input" as it lacks specificity and context. If you could provide more information about what you are requesting assistance for, I will be happy to help.
+Feedback: neutral
+==================================================
+2025-05-08 13:08:31,143 ; INFO ; 
+=== Validation Action at 2025-05-08T13:08:31.143852 ===
+Action: VALIDATION_VIEW
+Original Prompt: 3 hello 
+Medical Terms: 3
+Term Count: 1
+==================================================
+2025-05-08 13:08:32,532 ; INFO ; 
+=== Validation Action at 2025-05-08T13:08:32.532712 ===
+Action: VALIDATION_VIEW
+Original Prompt: 3 hello 
+Medical Terms: 3
+Term Count: 1
+==================================================
+2025-05-08 13:08:37,760 ; INFO ; 
+=== Validation Action at 2025-05-08T13:08:37.760451 ===
+Action: REWRITE_UPDATE
+Original Prompt: 3 hello 
+Medical Terms: 3
+Term Count: 0
+Modified Prompt: 3 hello you
+Prompt Changes (diff):
+- 3 hello + 3 hello you?         +++
+==================================================
+2025-05-08 13:08:37,840 ; INFO ; 
+=== Validation Action at 2025-05-08T13:08:37.840358 ===
+Action: VALIDATION_VIEW
+Original Prompt: 3 hello you
+Medical Terms: 3
+Term Count: 1
+==================================================
+2025-05-08 13:08:39,286 ; INFO ; 
+=== Validation Action at 2025-05-08T13:08:39.285991 ===
+Action: VALIDATION_VIEW
+Original Prompt: 3 hello you
+Medical Terms: 3
+Term Count: 1
+==================================================
+2025-05-08 13:08:39,287 ; INFO ; 
+=== Validation Action at 2025-05-08T13:08:39.287580 ===
+Action: ACCEPT_CLICK
+Original Prompt: 3 hello you
+==================================================
+2025-05-08 13:08:42,617 ; INFO ; 
+=== Interaction at 2025-05-08T13:08:42.617196 ===
+Type: CHAT
+User Prompt: 3 hello you
+Model: Ollama
+Model Output: As a biomedical AI model, I am unable to engage in casual greetings or respond to non-medical phrases like "hello" or "you." Please provide a clinical note or medical question for me to assist with.
+Typing Duration: 43.30 seconds
+Generation Duration: 3.32 seconds
+==================================================
+2025-05-08 13:09:16,436 ; INFO ; 
+=== Interaction at 2025-05-08T13:09:16.436936 ===
+Type: FINAL_SURVEY
+Additional Data: {'satisfaction': 4, 'feedback': 'final survey', 'tasks_completed': 3}
+==================================================
