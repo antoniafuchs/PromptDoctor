@@ -1,0 +1,67 @@
+2025-05-05 12:53:11,604 ; INFO ; 
+=== Interaction at 2025-05-05T12:53:11.604726 ===
+Type: LOGIN
+Model: Ollama/Med42 8B
+==================================================
+2025-05-05 12:53:30,513 ; INFO ; 
+=== Validation Action at 2025-05-05T12:53:30.513107 ===
+Action: VALIDATION_VIEW
+Original Prompt: headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-05-05 12:53:33,979 ; INFO ; 
+=== Validation Action at 2025-05-05T12:53:33.979788 ===
+Action: VALIDATION_VIEW
+Original Prompt: headache
+Medical Terms: headache
+Term Count: 1
+==================================================
+2025-05-05 12:53:33,982 ; INFO ; 
+=== Validation Action at 2025-05-05T12:53:33.982318 ===
+Action: EXPLAIN_CLICK
+Original Prompt: headache
+==================================================
+2025-05-05 12:53:49,539 ; INFO ; 
+=== Interaction at 2025-05-05T12:53:49.538897 ===
+Type: CHAT_WITH_EXPLANATION_QUEUED
+User Prompt: headache
+Model: Ollama
+Model Output: Patient presents with a headache. Medical Assistant: To better assess this symptom, please specify the following details:
+1. Severity (mild, moderate, severe)
+2. Duration (how long has the patient experienced headaches?)
+3. Characteristics (throbbing, sharp, dull, constant, intermittent, unilateral/bilateral)
+4. Associated symptoms (nausea, vomiting, sensitivity to light or sound, fever)
+5. Any recent trauma or infections
+6. Previous history of headaches (migraines, tension-type, cluster) and any treatments tried.
+
+With this information, Medical Assistant can assist in determining the possible causes and appropriate management strategies for the headache.
+Typing Duration: 20.27 seconds
+Generation Duration: 15.54 seconds
+Queue_Time Duration: 15.56 seconds
+==================================================
+2025-05-05 12:54:58,523 ; INFO ; 
+=== Validation Action at 2025-05-05T12:54:58.523228 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-05 12:54:59,699 ; INFO ; 
+=== Validation Action at 2025-05-05T12:54:59.699003 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-05 12:54:59,700 ; INFO ; 
+=== Validation Action at 2025-05-05T12:54:59.700646 ===
+Action: EXPLAIN_CLICK
+Original Prompt: hi
+==================================================
+2025-05-05 12:55:04,309 ; INFO ; 
+=== Interaction at 2025-05-05T12:55:04.309701 ===
+Type: CHAT_WITH_EXPLANATION_QUEUED
+User Prompt: hi
+Model: Ollama
+Model Output: Hello! As a medical AI assistant, I'm here to help you with any healthcare-related queries or concerns you might have. If you could provide more details about your question or topic, I would be happy to assist you better.
+Typing Duration: 85.72 seconds
+Generation Duration: 4.60 seconds
+Queue_Time Duration: 4.61 seconds
+==================================================

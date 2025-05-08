@@ -53,7 +53,8 @@ def log_chat_interaction(
     model_output: str = None,
     model_type: str = None,
     duration: dict = None,
-    feedback: str = None
+    feedback: str = None,
+    additional_data: dict = None
 ) -> None:
     """Log a chat interaction"""
     logger = get_user_logger(user_id)
@@ -76,6 +77,8 @@ def log_chat_interaction(
             log_entry += f"Duration: {duration:.2f} seconds\n"
     if feedback:
         log_entry += f"Feedback: {feedback}\n"
+    if additional_data:
+        log_entry += f"Additional Data: {additional_data}\n"
     
     log_entry += "=" * 50
     logger.info(log_entry)
@@ -136,3 +139,31 @@ def log_lime_explanation(
     
     log_entry += "=" * 50
     logger.info(log_entry)
+
+def log_task_start(user_id: str, task_number: int) -> None:
+    """Log when a user starts a task"""
+    log_chat_interaction(
+        user_id=user_id,
+        interaction_type=f"TASK_{task_number}_START",
+        additional_data={"timestamp": datetime.now().isoformat()}
+    )
+
+def log_task_completion(user_id: str, task_number: int, survey_data: dict, duration: float):
+    """Log task completion and survey results"""
+    log_chat_interaction(
+        user_id=user_id,
+        interaction_type=f"TASK_{task_number}_COMPLETE",
+        additional_data={
+            "survey_data": survey_data,
+            "duration_seconds": duration,
+            "timestamp": datetime.now().isoformat()
+        }
+    )
+
+def log_final_survey(user_id: str, survey_data: dict):
+    """Log final survey results"""
+    log_chat_interaction(
+        user_id=user_id,
+        interaction_type="FINAL_SURVEY",
+        additional_data=survey_data
+    )

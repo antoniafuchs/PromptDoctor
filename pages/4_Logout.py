@@ -5,7 +5,7 @@ from streamlit_extras.switch_page_button import switch_page
 
 def show_logout_survey():
     if "user_id" not in st.session_state or st.session_state.user_id is None:
-        st.switch_page("pages/Login")
+        st.switch_page("pages/1_Login.py")
         return
 
     st.set_page_config(
@@ -47,6 +47,6 @@ def show_logout_survey():
             
             # Clear session state and switch to login
             st.session_state.clear()
-            st.switch_page("pages/Login.py")
+            st.switch_page("pages/1_Login.py")
 
 show_logout_survey()

@@ -21,6 +21,7 @@ from tracking.logging import (
     log_validation_action,
     log_lime_explanation
 )
+from tracking.task_manager import TaskManager  # Add this import
 from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 from utils.medical_processor import MedicalTermProcessor
 from utils.prompt_validator import validate_prompt, add_highlights
@@ -114,6 +115,14 @@ if "xai_results" not in st.session_state:
     st.session_state.xai_results = {}
 if "xai_processor" not in st.session_state:
     st.session_state.xai_processor = XAIProcessor()
+if "current_task" not in st.session_state:
+    st.session_state.current_task = 1
+if "task_completed" not in st.session_state:
+    st.session_state.task_completed = []
+
+# Initialize TaskManager in session state
+if "task_manager" not in st.session_state:
+    st.session_state.task_manager = TaskManager(total_tasks=3)
 
 # Define the system prompt
 system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
@@ -435,8 +444,13 @@ def get_local_ollama_models():
 
 def show_chatbot():
     if "user_id" not in st.session_state or st.session_state.user_id is None:
-        st.switch_page("pages/Login")
+        st.switch_page("pages/1_Login.py")
         return
+
+    # Initialize task intro on first login
+    if "first_login" not in st.session_state:
+        st.session_state.first_login = True
+        st.session_state.show_task_intro = True
 
     st.header("PromptDoctor")
     
@@ -462,10 +476,16 @@ def show_chatbot():
 
     # Sidebar
     with st.sidebar:
+        # Show progress tracking in sidebar
+        st.session_state.task_manager.render_progress_sidebar()
+        
+        st.divider()
+        
+        # Show other sidebar content
         st.text(f"User ID: {st.session_state.user_id}")
         st.text(f"Model: {st.session_state.selected_model_type}")
         if st.button("Logout"):
-            st.switch_page("pages/Logout.py")
+            st.switch_page("pages/4_Logout.py")
             
         # Add PDF upload section
         st.markdown("### Document Upload")
@@ -545,6 +565,17 @@ def show_chatbot():
                     if st.button("Remove", key=f"remove_{prompt[:10]}", type="tertiary"):
                         del st.session_state.xai_results[prompt]
                         st.rerun()
+
+    # Show task controls in main UI
+    st.session_state.task_manager.render_task_controls()
+    
+    # Show survey if needed
+    current_task = st.session_state.current_task
+    survey_data = st.session_state.task_manager.show_task_survey(current_task)
+    if survey_data:
+        log_task_completion(st.session_state.user_id, current_task, survey_data)
+        st.session_state.task_manager.complete_task(current_task, survey_data)
+        st.rerun()
 
     # Display chat history with proper feedback handling
     for i, message in enumerate(st.session_state.messages):
