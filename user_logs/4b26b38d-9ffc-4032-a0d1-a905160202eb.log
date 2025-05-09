@@ -1,0 +1,133 @@
+2025-05-09 15:45:10,836 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:10.835869 ===
+Type: SURVEY_COMPLETE
+Additional Data: {'experience': 'None', 'role': 'Medical Student', 'group': 'A'}
+==================================================
+2025-05-09 15:45:17,793 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:17.793161 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 15:45:19,331 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:19.331503 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 15:45:19,334 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:19.334023 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi
+==================================================
+2025-05-09 15:45:28,508 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:28.501377 ===
+Type: CHAT
+User Prompt: hi
+Model: Ollama
+Model Output: Hello! As PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the clinical note or specific details you'd like me to review so that I can offer insights and answer your queries accurately.
+Typing Duration: 8.09 seconds
+Generation Duration: 9.15 seconds
+==================================================
+2025-05-09 15:45:30,595 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:30.594592 ===
+Type: FEEDBACK
+User Prompt: Hello! As PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the clinical note or specific details you'd like me to review so that I can offer insights and answer your queries accurately.
+Model: Ollama
+Model Output: Hello! As PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the clinical note or specific details you'd like me to review so that I can offer insights and answer your queries accurately.
+Feedback: positive
+==================================================
+2025-05-09 15:45:33,531 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:33.530895 ===
+Type: FEEDBACK
+User Prompt: Hello! As PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the clinical note or specific details you'd like me to review so that I can offer insights and answer your queries accurately.
+Model: Ollama
+Model Output: Hello! As PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the clinical note or specific details you'd like me to review so that I can offer insights and answer your queries accurately.
+Feedback: positive
+==================================================
+2025-05-09 15:45:33,562 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:33.562144 ===
+Type: TASK_1_COMPLETE
+Additional Data: {'survey_data': {'difficulty': 3, 'usefulness': 3, 'comments': '', 'timestamp': '2025-05-09T15:45:33.537524'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T15:45:33.562080'}
+==================================================
+2025-05-09 15:45:35,704 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:35.704721 ===
+Action: VALIDATION_VIEW
+Original Prompt: h
+Medical Terms: h
+Term Count: 1
+==================================================
+2025-05-09 15:45:37,402 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:37.402052 ===
+Action: VALIDATION_VIEW
+Original Prompt: h
+Medical Terms: h
+Term Count: 1
+==================================================
+2025-05-09 15:45:37,403 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:37.403751 ===
+Action: ACCEPT_CLICK
+Original Prompt: h
+==================================================
+2025-05-09 15:45:41,173 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:41.171855 ===
+Type: CHAT
+User Prompt: h
+Model: Ollama
+Model Output: As a medical AI model, I'm unable to provide any specific information based on the input 'h'. Please provide a complete clinical note or relevant context so that I can accurately analyze and offer medically relevant insights.
+Typing Duration: 18.07 seconds
+Generation Duration: 3.76 seconds
+==================================================
+2025-05-09 15:45:45,128 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:45.128030 ===
+Type: TASK_2_COMPLETE
+Additional Data: {'survey_data': {'difficulty': 3, 'usefulness': 3, 'comments': '', 'timestamp': '2025-05-09T15:45:45.118955'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T15:45:45.127890'}
+==================================================
+2025-05-09 15:45:50,753 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:50.753809 ===
+Action: VALIDATION_VIEW
+Original Prompt: to
+==================================================
+2025-05-09 15:45:52,163 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:52.163233 ===
+Action: VALIDATION_VIEW
+Original Prompt: to
+==================================================
+2025-05-09 15:45:52,165 ; INFO ; 
+=== Validation Action at 2025-05-09T15:45:52.165520 ===
+Action: ACCEPT_CLICK
+Original Prompt: to
+==================================================
+2025-05-09 15:45:54,858 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:54.857869 ===
+Type: CHAT
+User Prompt: to
+Model: Ollama
+Model Output: As a medical AI language model, I cannot provide a response based solely on the input "to." Please provide a complete sentence or question for me to assist you.
+Typing Duration: 14.76 seconds
+Generation Duration: 2.69 seconds
+==================================================
+2025-05-09 15:45:56,884 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:56.881989 ===
+Type: FEEDBACK
+User Prompt: As a medical AI language model, I cannot provide a response based solely on the input "to." Please provide a complete sentence or question for me to assist you.
+Model: Ollama
+Model Output: As a medical AI language model, I cannot provide a response based solely on the input "to." Please provide a complete sentence or question for me to assist you.
+Feedback: neutral
+==================================================
+2025-05-09 15:45:59,737 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:59.735608 ===
+Type: FEEDBACK
+User Prompt: As a medical AI language model, I cannot provide a response based solely on the input "to." Please provide a complete sentence or question for me to assist you.
+Model: Ollama
+Model Output: As a medical AI language model, I cannot provide a response based solely on the input "to." Please provide a complete sentence or question for me to assist you.
+Feedback: neutral
+==================================================
+2025-05-09 15:45:59,761 ; INFO ; 
+=== Interaction at 2025-05-09 15:45:59.761098 ===
+Type: TASK_3_COMPLETE
+Additional Data: {'survey_data': {'difficulty': 3, 'usefulness': 3, 'comments': '', 'timestamp': '2025-05-09T15:45:59.744419'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T15:45:59.761052'}
+==================================================
+2025-05-09 15:46:02,048 ; INFO ; 
+=== Interaction at 2025-05-09 15:46:02.048466 ===
+Type: FINAL_SURVEY
+Additional Data: {'satisfaction': 3, 'feedback': '', 'tasks_completed': 3, 'survey_duration_seconds': 54.153067, 'login_time': '2025-05-09T15:45:07.870573', 'logout_time': '2025-05-09T15:46:02.023640', 'group': 'A'}
+==================================================

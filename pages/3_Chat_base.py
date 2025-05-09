@@ -453,7 +453,7 @@ def show_chatbot():
         st.session_state.first_login = True
         st.session_state.show_task_intro = True
 
-    st.header("PromptDoctor")
+    st.header("PromptDoctor Base")
     
     # Add custom CSS
     st.markdown("""
@@ -580,7 +580,7 @@ def show_chatbot():
             duration = (datetime.datetime.now() - task.started_at).total_seconds()
         else:
             duration = 0.0
-            
+
         # Log completion with duration
         log_task_completion(
             st.session_state.user_id, 

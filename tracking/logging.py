@@ -3,6 +3,7 @@ import logging
 import os
 from typing import List
 import difflib
+import csv
 
 def get_user_logger(user_id: str) -> logging.Logger:
     # Create a directory for logs if it doesn't exist
@@ -37,8 +38,14 @@ def log_model_output(user_prompt: str, model_output: str, user_id: str, ground_t
     logger.info("-----")
 
 def log_user_interaction(user_id: str, interaction: str) -> None:
+    """Log user interactions with the application."""
     logger = get_user_logger(user_id)
-    logger.info(f"Interaction: {interaction}")
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+    
+    # Write to CSV with semicolon delimiter
+    with open('user_logs.txt', 'a', newline='') as f:
+        writer = csv.writer(f, delimiter=';')
+        writer.writerow([timestamp, user_id, interaction])
 
 def log_task_duration(user_prompt: str, duration: float, user_id: str) -> None:
     logger = get_user_logger(user_id)
@@ -58,8 +65,21 @@ def log_chat_interaction(
 ) -> None:
     """Log a chat interaction"""
     logger = get_user_logger(user_id)
-    timestamp = datetime.now().isoformat()
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
     
+    # Write to CSV with semicolon delimiter
+    with open('user_logs.txt', 'a', newline='') as f:
+        writer = csv.writer(f, delimiter=';')
+        row = [timestamp, user_id, interaction_type]
+        if model_type:
+            row.append(model_type)
+        if duration:
+            for timing_type, value in duration.items():
+                row.append(f"{value:.2f}")
+        if feedback:
+            row.append(feedback)
+        writer.writerow(row)
+
     log_entry = f"\n=== Interaction at {timestamp} ===\n"
     log_entry += f"Type: {interaction_type}\n"
     

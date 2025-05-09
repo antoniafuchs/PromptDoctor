@@ -8,7 +8,7 @@ def show_login_survey():
         st.switch_page("pages/Login")
         return
         
-    st.set_page_config(page_title="PromptDoctor - Survey", page_icon="📋")
+    st.set_page_config(page_title="PromptDoctor")
     st.header("Quick Survey")
 
     # Initialize model handler if not done
@@ -22,14 +22,35 @@ def show_login_survey():
     # Initialize the survey
     survey = ss.StreamlitSurvey("Survey")
 
-    survey.radio("Thumbs up/down:", options=["NA", "👍", "👎"], horizontal=True)
+    # Collect basic information
+    experience = survey.radio(
+        "How much experience do you have with medical AI tools?",
+        options=["None", "Some", "Moderate", "Extensive"],
+        index=0
+    )
+
+    role = survey.radio(
+        "What is your primary role?",
+        options=["Medical Student", "Resident", "Physician", "Specialist", "Other"],
+        index=0
+    )
 
     if st.button("Continue to App"):
+        # Log survey responses
+        log_chat_interaction(
+            st.session_state.user_id,
+            "SURVEY_COMPLETE",
+            additional_data={
+                "experience": experience,
+                "role": role,
+                "group": st.session_state.get('group', 'unknown')  # Add fallback
+            }
+        )
         
-            
-        if st.session_state.selected_model_type == "HuggingFace":
-            st.warning("Note: First response may take a while as the model is being loaded.")
-        
-        st.switch_page("pages/3_Chat.py")
+        # Route to appropriate chat page based on group
+        if st.session_state.group == "A":
+            st.switch_page("pages/3_Chat_base.py")
+        else:
+            st.switch_page("pages/3_Chat.py")
 
 show_login_survey()

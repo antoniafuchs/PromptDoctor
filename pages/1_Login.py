@@ -10,6 +10,8 @@ from tracking.logging import log_chat_interaction
 from utils.model_config import ModelConfig
 from utils.survey_storage import SurveyStorage
 from utils.id_manager import get_or_create_unique_id
+from utils.db_utils import DBManager
+from utils.session_manager import SessionManager
 
 def get_local_ollama_models():
     """Get list of locally available Ollama models"""
@@ -55,10 +57,23 @@ def get_local_ollama_models():
     return models
 
 def show_login_page():
+    # Check if already logged in
+    if all(key in st.session_state for key in ["user_id", "selected_model_type", "selected_model_name", "group", "login_complete"]):
+        st.switch_page("pages/2_Survey.py")
+        return
+
+    # Create user ID first if not exists
     if "user_id" not in st.session_state:
-        st.session_state.user_id = None
-        
-    st.set_page_config(page_title="PromptDoctor - Login", page_icon="🔑")
+        st.session_state.user_id = str(uuid.uuid4())
+        st.session_state.login_time = datetime.datetime.now().isoformat()
+
+    # Get or assign group for user
+    if "group" not in st.session_state:
+        db_manager = DBManager()
+        group = db_manager.assign_group_to_user(st.session_state.user_id)
+        st.session_state.group = group
+
+    st.set_page_config(page_title="PromptDoctor")
     st.header("Login")
     st.markdown("### Welcome to PromptDoctor")
     st.markdown("Please login and select your preferred model")
@@ -95,14 +110,9 @@ def show_login_page():
     selected_model = model_options[selected_model_display]
 
     if st.button("Login"):
-        # Create new user ID if none exists
-        if not get_or_create_unique_id():
-            st.session_state.unique_user_id = str(uuid.uuid4())
-        
-        st.session_state.user_id = st.session_state.unique_user_id
-        st.session_state.login_time = datetime.datetime.now().isoformat()  # Track login time
         st.session_state.selected_model_type = model_type
         st.session_state.selected_model_name = selected_model
+        st.session_state.login_complete = True
         
         # Save login data
         survey_storage = SurveyStorage()
@@ -111,16 +121,9 @@ def show_login_page():
             {
                 "model_type": model_type,
                 "model_name": selected_model,
-                "model_display_name": selected_model_display
+                "model_display_name": selected_model_display,
+                "group": st.session_state.group
             }
-        )
-        
-        # Log login event with timestamp
-        log_chat_interaction(
-            st.session_state.user_id,
-            "LOGIN",
-            model_type=f"{model_type}/{selected_model_display}",
-            additional_data={"login_time": st.session_state.login_time}
         )
         
         st.switch_page("pages/2_Survey.py")

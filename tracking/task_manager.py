@@ -39,10 +39,25 @@ class TaskManager:
         st.session_state.current_task = task_number
     
     def complete_task(self, task_number: int, survey_data: Dict) -> None:
+        """Complete task and handle state transition"""
         task = st.session_state.task_states[task_number - 1]
-        task.completed = True
+        task.completed = True 
         task.completed_at = datetime.now()
         task.survey_data = survey_data
+        
+        # Move to next task if not the last one
+        if task_number < len(st.session_state.task_states):
+            st.session_state.current_task = task_number + 1
+            # Reset states for next task
+            st.session_state.messages = []
+            st.session_state.message_feedback = {}
+            st.session_state.show_task_intro = True
+            st.session_state.show_feedback = False
+            st.session_state.task_complete_clicked = False
+            st.session_state.stage = "user"
+            st.session_state.pending_prompt = None
+        else:
+            st.switch_page("pages/4_Logout.py")
     
     def can_proceed_to_next(self) -> bool:
         """Check if user can proceed to next task"""
@@ -109,17 +124,19 @@ class TaskManager:
                 st.rerun()
 
     def show_task_survey(self, task_number: int) -> Optional[Dict]:
-        """Show feedback survey in main UI"""
-        if not st.session_state.get('show_feedback', False):
+        """Show task survey and handle completion"""
+        # Get user_id from session state
+        if "user_id" not in st.session_state:
+            print("[ERROR] No user ID in session state")
             return None
-
-        # Use consistent user ID
-        user_id = get_or_create_unique_id()
-        if not user_id:
-            print("[ERROR] No user ID found")
+            
+        task = st.session_state.task_states[task_number - 1]
+        if task.completed:
             return None
-
-        # Only show survey if task was marked complete
+            
+        if len(st.session_state.messages) < 2:
+            return None
+            
         if not st.session_state.get('task_complete_clicked', False):
             return None
 
@@ -160,25 +177,14 @@ class TaskManager:
                     "timestamp": datetime.now().isoformat()
                 }
 
-                # Save survey data
+                # Save survey data with user_id from session state
                 survey_storage = SurveyStorage()
-                survey_storage.save_task_survey(user_id, task_number, survey_data)
+                survey_storage.save_task_survey(
+                    st.session_state.user_id,  # Use session state user_id
+                    task_number,
+                    survey_data
+                )
                 
-                # Complete current task
-                self.complete_task(task_number, survey_data)
-                
-                # Reset states and advance task
-                st.session_state.show_feedback = False
-                st.session_state.task_complete_clicked = False
-                
-                if task_number < len(st.session_state.task_states):
-                    st.session_state.current_task = task_number + 1
-                    st.session_state.show_task_intro = True
-                    st.session_state.messages = []
-                else:
-                    st.switch_page("pages/4_Logout.py")
-                
-                st.rerun()
                 return survey_data
-        
+                
         return None

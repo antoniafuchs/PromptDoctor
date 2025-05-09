@@ -1,0 +1,135 @@
+2025-05-09 12:05:44,187 ; INFO ; 
+=== Interaction at 2025-05-09 12:05:44.186409 ===
+Type: SURVEY_COMPLETE
+Additional Data: {'experience': 'None', 'role': 'Medical Student', 'group': 'A'}
+==================================================
+2025-05-09 12:05:50,216 ; INFO ; 
+=== Validation Action at 2025-05-09T12:05:50.216463 ===
+Action: VALIDATION_VIEW
+Original Prompt: hello
+==================================================
+2025-05-09 12:05:51,458 ; INFO ; 
+=== Validation Action at 2025-05-09T12:05:51.458741 ===
+Action: VALIDATION_VIEW
+Original Prompt: hello
+==================================================
+2025-05-09 12:05:51,460 ; INFO ; 
+=== Validation Action at 2025-05-09T12:05:51.460217 ===
+Action: ACCEPT_CLICK
+Original Prompt: hello
+==================================================
+2025-05-09 12:05:55,417 ; INFO ; 
+=== Interaction at 2025-05-09 12:05:55.414401 ===
+Type: CHAT
+User Prompt: hello
+Model: Ollama
+Model Output: Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Are there any specific clinical notes or inquiries you'd like me to help with?
+Typing Duration: 6.82 seconds
+Generation Duration: 3.95 seconds
+==================================================
+2025-05-09 12:05:58,719 ; INFO ; 
+=== Interaction at 2025-05-09 12:05:58.719291 ===
+Type: TASK_1_COMPLETE
+Additional Data: {'survey_data': {'difficulty': 3, 'usefulness': 3, 'comments': '', 'timestamp': '2025-05-09T12:05:58.701729'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T12:05:58.719209'}
+==================================================
+2025-05-09 12:06:01,245 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:01.245223 ===
+Action: VALIDATION_VIEW
+Original Prompt: d
+==================================================
+2025-05-09 12:06:02,801 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:02.801517 ===
+Action: VALIDATION_VIEW
+Original Prompt: d
+==================================================
+2025-05-09 12:06:02,803 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:02.803377 ===
+Action: ACCEPT_CLICK
+Original Prompt: d
+==================================================
+2025-05-09 12:06:05,599 ; INFO ; 
+=== Interaction at 2025-05-09 12:06:05.596706 ===
+Type: CHAT
+User Prompt: d
+Model: Ollama
+Model Output: As a PromptDoctor, I am unable to respond with the given input "d." Please provide a complete sentence or a question regarding patient care or clinical notes for me to assist you accurately.
+Typing Duration: 11.34 seconds
+Generation Duration: 2.78 seconds
+==================================================
+2025-05-09 12:06:09,104 ; INFO ; 
+=== Interaction at 2025-05-09 12:06:09.103690 ===
+Type: TASK_2_COMPLETE
+Additional Data: {'survey_data': {'difficulty': 3, 'usefulness': 3, 'comments': '', 'timestamp': '2025-05-09T12:06:09.088837'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T12:06:09.103491'}
+==================================================
+2025-05-09 12:06:14,547 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:14.547854 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 12:06:15,635 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:15.635426 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 12:06:15,637 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:15.637240 ===
+Action: EDIT_CLICK
+Original Prompt: hi
+==================================================
+2025-05-09 12:06:18,093 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:18.093702 ===
+Action: EDIT_UPDATE
+Original Prompt: hi
+Modified Prompt: hi feg
+Prompt Changes (diff):
+- hi+ hi feg==================================================
+2025-05-09 12:06:18,173 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:18.173656 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi feg
+==================================================
+2025-05-09 12:06:19,641 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:19.641215 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi feg
+==================================================
+2025-05-09 12:06:19,643 ; INFO ; 
+=== Validation Action at 2025-05-09T12:06:19.643644 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi feg
+==================================================
+2025-05-09 12:06:22,957 ; INFO ; 
+=== Interaction at 2025-05-09 12:06:22.956043 ===
+Type: CHAT
+User Prompt: hi feg
+Model: Ollama
+Model Output: As a medical AI model, I'm unable to have informal conversations or recognize specific users with abbreviations like "feg." Instead, please provide me with a clinical note or question so that I can assist you as your medical AI assistant.
+Typing Duration: 16.84 seconds
+Generation Duration: 3.31 seconds
+==================================================
+2025-05-09 12:06:25,144 ; INFO ; 
+=== Interaction at 2025-05-09 12:06:25.142151 ===
+Type: FEEDBACK
+User Prompt: As a medical AI model, I'm unable to have informal conversations or recognize specific users with abbreviations like "feg." Instead, please provide me with a clinical note or question so that I can assist you as your medical AI assistant.
+Model: Ollama
+Model Output: As a medical AI model, I'm unable to have informal conversations or recognize specific users with abbreviations like "feg." Instead, please provide me with a clinical note or question so that I can assist you as your medical AI assistant.
+Feedback: neutral
+==================================================
+2025-05-09 12:06:27,912 ; INFO ; 
+=== Interaction at 2025-05-09 12:06:27.910833 ===
+Type: FEEDBACK
+User Prompt: As a medical AI model, I'm unable to have informal conversations or recognize specific users with abbreviations like "feg." Instead, please provide me with a clinical note or question so that I can assist you as your medical AI assistant.
+Model: Ollama
+Model Output: As a medical AI model, I'm unable to have informal conversations or recognize specific users with abbreviations like "feg." Instead, please provide me with a clinical note or question so that I can assist you as your medical AI assistant.
+Feedback: neutral
+==================================================
+2025-05-09 12:06:27,935 ; INFO ; 
+=== Interaction at 2025-05-09 12:06:27.935501 ===
+Type: TASK_3_COMPLETE
+Additional Data: {'survey_data': {'difficulty': 3, 'usefulness': 3, 'comments': '', 'timestamp': '2025-05-09T12:06:27.920437'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T12:06:27.935394'}
+==================================================
+2025-05-09 12:06:29,492 ; INFO ; 
+=== Interaction at 2025-05-09 12:06:29.491870 ===
+Type: FINAL_SURVEY
+Additional Data: {'satisfaction': 3, 'feedback': '', 'tasks_completed': 3, 'survey_duration_seconds': 47.509488, 'login_time': '2025-05-09T12:05:41.959020', 'logout_time': '2025-05-09T12:06:29.468508', 'group': 'A'}
+==================================================

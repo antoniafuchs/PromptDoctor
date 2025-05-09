@@ -31,8 +31,8 @@ class SurveyStorage:
         
         df = pd.DataFrame([survey_data])
         if os.path.exists(filename):
-            df = pd.concat([pd.read_csv(filename), df], ignore_index=True)
-        df.to_csv(filename, index=False)
+            df = pd.concat([pd.read_csv(filename, sep=';'), df], ignore_index=True)
+        df.to_csv(filename, sep=';', index=False)
 
     def save_login_data(self, user_id: str, data: Dict[str, Any]):
         """Save login data"""
@@ -67,8 +67,8 @@ class SurveyStorage:
         
         df = pd.DataFrame([survey_data])
         if os.path.exists(filename):
-            df = pd.concat([pd.read_csv(filename), df], ignore_index=True)
-        df.to_csv(filename, index=False)
+            df = pd.concat([pd.read_csv(filename, sep=';'), df], ignore_index=True)
+        df.to_csv(filename, sep=';', index=False)
 
     def save_logout_survey(self, user_id: str, data: Dict[str, Any]):
         """Save logout survey data"""
@@ -77,12 +77,16 @@ class SurveyStorage:
         survey_data = {
             'timestamp': datetime.now().isoformat(),
             'user_id': user_id,
+            'group': data.get('group', 'unknown'),  # Get group from data instead of session state
             'satisfaction': data.get('satisfaction', ''),
             'feedback': data.get('feedback', ''),
-            'tasks_completed': data.get('tasks_completed', 0)
+            'tasks_completed': data.get('tasks_completed', 0),
+            'survey_duration_seconds': data.get('survey_duration_seconds', 0),
+            'login_time': data.get('login_time', ''),
+            'logout_time': data.get('logout_time', '')
         }
         
         df = pd.DataFrame([survey_data])
         if os.path.exists(filename):
-            df = pd.concat([pd.read_csv(filename), df], ignore_index=True)
-        df.to_csv(filename, index=False)
+            df = pd.concat([pd.read_csv(filename, sep=';'), df], ignore_index=True)
+        df.to_csv(filename, sep=';', index=False)
