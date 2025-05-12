@@ -36,6 +36,7 @@ import pandas as pd
 from utils.ml_utils import init_torch
 from utils.model_handler import ModelHandler
 from streamlit_extras.switch_page_button import switch_page
+import streamlit_survey as ss  # Add this import
 
 # Initialize PyTorch with basic settings
 init_torch()
@@ -656,6 +657,10 @@ def show_chatbot():
                 "ACCEPT_CLICK",
                 st.session_state.pending_prompt
             )
+
+            # Hide task intro
+            st.session_state.show_task_intro = False
+            
             # Get response first
             highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(
                 st.session_state.pending_prompt

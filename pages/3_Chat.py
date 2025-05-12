@@ -20,9 +20,9 @@ from tracking.logging import (
     log_chat_interaction,
     log_validation_action,
     log_lime_explanation,
-    log_task_completion  # Add this import
+    log_task_completion
 )
-from tracking.task_manager import TaskManager  # Add this import
+from tracking.task_manager import TaskManager 
 from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 from utils.medical_processor import MedicalTermProcessor
 from utils.prompt_validator import validate_prompt, add_highlights
@@ -36,6 +36,7 @@ import pandas as pd
 from utils.ml_utils import init_torch
 from utils.model_handler import ModelHandler
 from streamlit_extras.switch_page_button import switch_page
+import streamlit_survey as ss  # Add this import
 
 # Initialize PyTorch with basic settings
 init_torch()
@@ -656,6 +657,9 @@ def show_chatbot():
                 "ACCEPT_CLICK",
                 st.session_state.pending_prompt
             )
+            # Hide task intro
+            st.session_state.show_task_intro = False
+            
             # Get response first
             highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(
                 st.session_state.pending_prompt

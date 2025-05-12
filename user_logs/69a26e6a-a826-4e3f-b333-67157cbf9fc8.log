@@ -1,0 +1,92 @@
+2025-05-09 21:39:01,525 ; INFO ; 
+=== Interaction at 2025-05-09 21:39:01.523781 ===
+Type: SURVEY_COMPLETE
+Additional Data: {'training_level': 'Medical Student (Pre-clinical)', 'other_training': None, 'patient_records_exp': 'Yes', 'clinical_training': 'Yes', 'ai_familiarity': 'Not at all', 'llm_used': 'Yes', 'llm_frequency': 'Rarely', 'llm_confidence': '3', 'llm_uses': [], 'other_llm_use': None, 'confidence_level': '3', 'group': 'A'}
+==================================================
+2025-05-09 21:39:07,748 ; INFO ; 
+=== Validation Action at 2025-05-09T21:39:07.748140 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 21:39:09,810 ; INFO ; 
+=== Validation Action at 2025-05-09T21:39:09.810765 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 21:39:09,812 ; INFO ; 
+=== Validation Action at 2025-05-09T21:39:09.812484 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi
+==================================================
+2025-05-09 21:39:24,696 ; INFO ; 
+=== Interaction at 2025-05-09 21:39:24.692968 ===
+Type: CHAT
+User Prompt: hi
+Model: Ollama
+Model Output: Hello! As a medical AI assistant, I'm here to support you in analyzing clinical notes and providing valuable insights. Please share the note you'd like me to review or specify any particular concern you have, so I can better assist you.
+Typing Duration: 7.72 seconds
+Generation Duration: 14.87 seconds
+==================================================
+2025-05-09 21:40:07,714 ; INFO ; 
+=== Interaction at 2025-05-09 21:40:07.713756 ===
+Type: TASK_1_COMPLETE
+Additional Data: {'survey_data': {'mental_demand': 5, 'temporal_demand': 3, 'effort': 2, 'performance': 4, 'frustration': 4, 'medical_accuracy': 2, 'professional_match': 2, 'clinical_usefulness': 3, 'inaccuracies': '', 'timestamp': '2025-05-09T21:40:07.685788'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T21:40:07.713686'}
+==================================================
+2025-05-09 21:40:11,581 ; INFO ; 
+=== Validation Action at 2025-05-09T21:40:11.581140 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 21:40:12,916 ; INFO ; 
+=== Validation Action at 2025-05-09T21:40:12.916209 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 21:40:12,918 ; INFO ; 
+=== Validation Action at 2025-05-09T21:40:12.918106 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi
+==================================================
+2025-05-09 21:40:16,464 ; INFO ; 
+=== Interaction at 2025-05-09 21:40:16.461911 ===
+Type: CHAT
+User Prompt: hi
+Model: Ollama
+Model Output: Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and providing medically relevant insights based on the extracted information. Please share the clinical note or specify any particular query, and I will do my best to help you.
+Typing Duration: 63.11 seconds
+Generation Duration: 3.54 seconds
+==================================================
+2025-05-09 21:40:21,302 ; INFO ; 
+=== Interaction at 2025-05-09 21:40:21.302609 ===
+Type: TASK_2_COMPLETE
+Additional Data: {'survey_data': {'mental_demand': 4, 'temporal_demand': 4, 'effort': 4, 'performance': 4, 'frustration': 4, 'medical_accuracy': 3, 'professional_match': 3, 'clinical_usefulness': 3, 'inaccuracies': '', 'timestamp': '2025-05-09T21:40:21.295107'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T21:40:21.302527'}
+==================================================
+2025-05-09 21:40:24,421 ; INFO ; 
+=== Validation Action at 2025-05-09T21:40:24.421376 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 21:40:25,684 ; INFO ; 
+=== Validation Action at 2025-05-09T21:40:25.684792 ===
+Action: VALIDATION_VIEW
+Original Prompt: hi
+==================================================
+2025-05-09 21:40:25,686 ; INFO ; 
+=== Validation Action at 2025-05-09T21:40:25.686276 ===
+Action: ACCEPT_CLICK
+Original Prompt: hi
+==================================================
+2025-05-09 21:40:29,985 ; INFO ; 
+=== Interaction at 2025-05-09 21:40:29.983764 ===
+Type: CHAT
+User Prompt: hi
+Model: Ollama
+Model Output: Hello! As PromptDoctor, I am here to assist you in analyzing clinical notes and providing relevant medical insights. Please feel free to share the text or a summary of the patient's case, and I will help you extract important information and suggest potential next steps.
+Typing Duration: 12.77 seconds
+Generation Duration: 4.29 seconds
+==================================================
+2025-05-09 21:40:34,711 ; INFO ; 
+=== Interaction at 2025-05-09 21:40:34.711128 ===
+Type: TASK_3_COMPLETE
+Additional Data: {'survey_data': {'mental_demand': 4, 'temporal_demand': 4, 'effort': 4, 'performance': 4, 'frustration': 4, 'medical_accuracy': 3, 'professional_match': 3, 'clinical_usefulness': 3, 'inaccuracies': '', 'timestamp': '2025-05-09T21:40:34.700831'}, 'duration_seconds': 0.0, 'timestamp': '2025-05-09T21:40:34.711067'}
+==================================================

@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import Dict, List, Optional
 import streamlit as st
+import streamlit_survey as ss
 from datetime import datetime
 from utils.survey_storage import SurveyStorage
 from utils.id_manager import get_or_create_unique_id
@@ -16,9 +17,26 @@ class TaskState:
 
 class TaskManager:
     TASK_DESCRIPTIONS = {
-        1: "Analyze a patient's medical history and identify key symptoms",
-        2: "Generate a differential diagnosis based on clinical findings",
-        3: "Recommend appropriate follow-up tests and treatment plan"
+        1: """Task 1: Symptom Diagnosis
+
+Based on the clinical note, use PromptDoctor to determine the most likely diagnosis for the patient. Mark the task as completed as soon as you are content with the output of the tool.
+
+Clinical Note:
+The Patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.""",
+
+        2: """Task 2: Treatment Recommendation
+
+Based on the clinical note, use PromptDoctor to obtain adequate treatment options for the patient. Mark the task as completed as soon as you are content with the output of the tool.
+
+Clinical Note:
+The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.""",
+
+        3: """Task 3: Clinical Record Analysis
+
+Use PromptDoctor to analyze the following clinical record to obtain a concise summary of key findings and recommendations for future management. Mark the task as completed as soon as you are content with the output of the tool.
+
+Clinical Note:
+The patient, a 50-year-old female, has been followed in the cardiology clinic for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three years. Her history includes controlled hypertension and hyperlipidemia. She now presents with new onset of palpitations and shortness of breath."""
     }
 
     def __init__(self, total_tasks: int):
@@ -37,6 +55,8 @@ class TaskManager:
         if not task.started_at:
             task.started_at = datetime.now()
         st.session_state.current_task = task_number
+        # Reset survey page for new task
+        st.session_state[f"task_{task_number}_survey_page"] = 0
     
     def complete_task(self, task_number: int, survey_data: Dict) -> None:
         """Complete task and handle state transition"""
@@ -124,67 +144,159 @@ class TaskManager:
                 st.rerun()
 
     def show_task_survey(self, task_number: int) -> Optional[Dict]:
-        """Show task survey and handle completion"""
-        # Get user_id from session state
         if "user_id" not in st.session_state:
             print("[ERROR] No user ID in session state")
             return None
             
         task = st.session_state.task_states[task_number - 1]
-        if task.completed:
-            return None
-            
-        if len(st.session_state.messages) < 2:
-            return None
-            
-        if not st.session_state.get('task_complete_clicked', False):
+        if task.completed or len(st.session_state.messages) < 2 or not st.session_state.get('task_complete_clicked', False):
             return None
 
-        # Create form container
-        with st.form(key=f"task_{task_number}_feedback_form"):
-            st.write(f"### Task {task_number} Feedback")
-            
-            # Get survey responses
-            difficulty = st.slider(
-                "Task difficulty", 
-                min_value=1, 
-                max_value=5, 
-                value=3,
-                help="1 = Very Easy, 5 = Very Difficult"
-            )
-            
-            usefulness = st.slider(
-                "Assistant helpfulness",
-                min_value=1,
-                max_value=5,
-                value=3,
-                help="1 = Not helpful, 5 = Very helpful"
-            )
-            
-            comments = st.text_area(
-                "Additional comments",
-                placeholder="Share your thoughts about this task..."
-            )
-            
-            # Submit button must be inside form
-            submitted = st.form_submit_button("Submit & Continue", type="primary")
-            
-            if submitted:
-                survey_data = {
-                    "difficulty": difficulty,
-                    "usefulness": usefulness,
-                    "comments": comments,
-                    "timestamp": datetime.now().isoformat()
-                }
+        # Initialize survey page state if not exists
+        if f"task_{task_number}_survey_page" not in st.session_state:
+            st.session_state[f"task_{task_number}_survey_page"] = 0
 
-                # Save survey data with user_id from session state
-                survey_storage = SurveyStorage()
-                survey_storage.save_task_survey(
-                    st.session_state.user_id,  # Use session state user_id
-                    task_number,
-                    survey_data
-                )
-                
-                return survey_data
-                
+        # Initialize survey with correct starting page
+        survey = ss.StreamlitSurvey("TaskSurvey")
+        pages = survey.pages(3, on_submit=lambda: None, current_page=st.session_state[f"task_{task_number}_survey_page"])
+        
+        # Update the page state when navigation occurs
+        st.session_state[f"task_{task_number}_survey_page"] = pages.current
+
+        st.write(f"### Task {task_number} Feedback")
+        st.progress((pages.current + 1) / 3, text=f"Page {pages.current + 1} of 3")
+        
+        survey_data = {}
+
+        # Handle each page content
+        # Page 1: Prompting Experience
+        if pages.current == 0:
+            st.write("#### Section A: Prompting Experience")
+            
+            q1a_difficulty = st.radio(
+                "How difficult was it to write or refine your prompt to get an satisfying output?",
+                options=["1 - Very easy", "2 - Somewhat easy", "3 - Moderate", "4 - Somewhat difficult", "5 - Very difficult"],
+                horizontal=True
+            ).split(" - ")[0]
+            
+            q1b_satisfaction = st.radio(
+                "How satisfied are you with the AI's final output?",
+                options=["1 - Not at all satisfied", "2 - Slightly satisfied", "3 - Moderately satisfied", "4 - Very satisfied", "5 - Extremely satisfied"],
+                horizontal=True
+            ).split(" - ")[0]
+            
+            q1c_understanding = st.radio(
+                "How confident are you that the AI understood your request?",
+                options=["1 - Not at all confident", "2 - Slightly confident", "3 - Moderately confident", "4 - Very confident", "5 - Extremely confident"],
+                horizontal=True
+            ).split(" - ")[0]
+
+            survey_data.update({
+                "q1a_difficulty": int(q1a_difficulty),
+                "q1b_satisfaction": int(q1b_satisfaction),
+                "q1c_understanding": int(q1c_understanding)
+            })
+
+        # Page 2: Cognitive Load
+        elif pages.current == 1:
+            st.write("#### Section B: Cognitive Load")
+            st.write("Please rate the following aspects of your task experience:")
+            
+            q2a_mental = st.slider(
+                "Mental Demand – How mentally demanding was the task?",
+                min_value=1, max_value=7, value=4,
+                help="1 = Very Low Mental Demand, 4 = Moderate, 7 = Very High Mental Demand"
+            )
+            
+            q2b_temporal = st.slider(
+                "Temporal Demand – How hurried or rushed did you feel?",
+                min_value=1, max_value=7, value=4,
+                help="1 = Very Relaxed Pace, 4 = Moderate Pace, 7 = Very Rushed"
+            )
+            
+            q2c_effort = st.slider(
+                "Effort – How hard did you have to work?",
+                min_value=1, max_value=7, value=4,
+                help="1 = Very Little Effort, 4 = Moderate Effort, 7 = Maximum Effort"
+            )
+            
+            q2d_performance = st.slider(
+                "Performance – How successful were you in completing the task?",
+                min_value=1, max_value=7, value=4,
+                help="1 = Poor Performance, 4 = Average Performance, 7 = Perfect Performance"
+            )
+            
+            q2e_frustration = st.slider(
+                "Frustration Level – How insecure, discouraged, stressed or annoyed were you?",
+                min_value=1, max_value=7, value=4,
+                help="1 = Very Low Frustration, 4 = Moderate Frustration, 7 = Very High Frustration"
+            )
+
+            survey_data.update({
+                "q2a_mental": q2a_mental,
+                "q2b_temporal": q2b_temporal,
+                "q2c_effort": q2c_effort,
+                "q2d_performance": q2d_performance,
+                "q2e_frustration": q2e_frustration
+            })
+
+        # Page 3: Perceived Medical Quality
+        else:
+            st.write("#### Section C: Perceived Medical Quality")
+            st.write("Please rate your agreement with the following statements:")
+            
+            q3a_accuracy = st.radio(
+                "The model's output was medically accurate.",
+                options=["1 - Strongly Disagree", "2 - Somewhat Disagree", "3 - Neutral", "4 - Somewhat Agree", "5 - Strongly Agree"],
+                horizontal=True
+            ).split(" - ")[0]
+            
+            q3b_professional = st.radio(
+                "The model's output resembled advice from a medical professional.",
+                options=["1 - Strongly Disagree", "2 - Somewhat Disagree", "3 - Neutral", "4 - Somewhat Agree", "5 - Strongly Agree"],
+                horizontal=True
+            ).split(" - ")[0]
+            
+            q3c_usefulness = st.radio(
+                "The model's response was clinically useful.",
+                options=["1 - Strongly Disagree", "2 - Somewhat Disagree", "3 - Neutral", "4 - Somewhat Agree", "5 - Strongly Agree"],
+                horizontal=True
+            ).split(" - ")[0]
+            
+            q3d_inaccuracies = st.text_area(
+                "If any, what parts of the output were medically inaccurate?",
+                placeholder="Optional: Describe any medical inaccuracies you noticed..."
+            )
+
+            survey_data.update({
+                "q3a_accuracy": int(q3a_accuracy),
+                "q3b_professional": int(q3b_professional),
+                "q3c_usefulness": int(q3c_usefulness),
+                "q3d_inaccuracies": q3d_inaccuracies
+            })
+
+        # Navigation buttons at bottom with equal width
+        st.write("")  # Add spacing
+        col1, col2 = st.columns(2)
+        with col1:
+            if pages.current > 0:
+                if st.button("← Previous", use_container_width=True):
+                    pages.previous()
+                    st.rerun()
+        with col2:
+            if pages.current < 2:  # Not last page
+                if st.button("Next →", type="primary", use_container_width=True):
+                    pages.next()
+                    st.rerun()
+            else:  # Last page
+                if st.button("Submit & Continue", type="primary", use_container_width=True):
+                    survey_data["timestamp"] = datetime.now().isoformat()
+                    survey_storage = SurveyStorage()
+                    survey_storage.save_task_survey(
+                        st.session_state.user_id,
+                        task_number,
+                        survey_data
+                    )
+                    return survey_data
+
         return None
