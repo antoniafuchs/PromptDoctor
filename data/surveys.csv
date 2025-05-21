@@ -1,0 +1,2 @@
+user_id;timestamp;group;login_time;logout_time;US_ease;US_clarity;US_reuse;TR_model_trust;TR_understanding;TR_current_trust;TR_explanations;FB_likes;FB_improvements;FB_clinical_yn;FB_clinical;FB_other
+372313c0-4622-40e4-a58e-be4f741b3fc6;2025-05-20T22:17:16.751660;A;2025-05-20T22:12:00.853523;2025-05-20T22:17:16.751689;3;3;3;3;3;3;None;;;Unsure;;

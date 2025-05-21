@@ -1,0 +1,202 @@
+user_id;task_id;action_type;timestamp;original_prompt;modified_prompt;model_response;highlighted_terms;term_count;diff_type;feedback;feedback_timestamp;model_type;duration_typing;duration_generation;duration_queue_time;message_id
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;
+;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-19T17:49:16.908278;;;;;;;;;;;;;
+d5f6a4db-5527-4974-9092-f73f5f034d22;0;SURVEY_COMPLETE;2025-05-19T17:59:58.148726;;;;;;;;;Ollama;;;;
+d5f6a4db-5527-4974-9092-f73f5f034d22;;CHAT;2025-05-19T18:03:53.375082;"I would like to know what are potential diagnosis for this:
+
+The Patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";;Error with Ollama: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x30ce8b520>: Failed to establish a new connection: [Errno 61] Connection refused'));;;;;;Ollama;233.035891;0.003384;;
+d5f6a4db-5527-4974-9092-f73f5f034d22;;CHAT;2025-05-19T19:45:02.427043;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen;;"therapy due to COPD.
+
+Key Findings:
+1. Community-acquired pneumonia in an 82-year-old male.
+2. Complicated by chronic obstructive pulmonary disease (COPD).
+3. Reports moderate dyspnea, no fever, and no recent upper respiratory tract infections.
+4. Previous hospitalization for CAP and current long-term oxygen therapy due to COPD.
+
+Recommendations:
+1. Initiate appropriate antibiotic therapy targeting common causes of community-acquired pneumonia in an elderly patient with COPD (e.g., ampicillin-sulbactam or a fluoroquinolone).
+2. Consider adding coverage for atypical pathogens like Mycoplasma pneumoniae, Chlamydophila pneumoniae, and Legionella pneumophila if indicated by local resistance patterns and clinical judgment.
+3. Monitor oxygen saturation and adjust supplemental oxygen as needed to maintain optimal levels.
+4. Provide pulmonary rehabilitation guidance to address dyspnea and overall respiratory function.
+5. Ensure follow-up within one week or sooner if symptoms worsen or new symptoms develop.
+
+Note: Consider consultation with a pulmonologist for complex management of COPD exacerbation and CAP in an elderly patient with multiple comorbidities.";;;;;;Ollama;6040.055294;28.996001;;
+d5f6a4db-5527-4974-9092-f73f5f034d22;;CHAT;2025-05-19T19:48:41.637083;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;"The 82-year-old male presents with community-acquired pneumonia (CAP) complicated by chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, absence of fever, and no recent upper respiratory tract infections. Previously hospitalized for CAP, the patient is currently on long-term oxygen therapy due to COPD.
+
+Key findings include:
+1. Community-acquired pneumonia.
+2. Complicated by COPD.
+3. Reports moderate dyspnea without fever or recent URI.
+4. Previous hospitalization for CAP and current use of supplemental oxygen.
+
+Recommendations:
+1. Initiate appropriate antibiotic therapy targeting common causes of community-acquired pneumonia in an elderly patient with COPD (e.g., ampicillin-sulbactam or a fluoroquinolone).
+2. Consider adding coverage for atypical pathogens if indicated by local resistance patterns and clinical judgment.
+3. Monitor oxygen saturation closely, adjusting supplemental oxygen as needed to maintain optimal levels.
+4. Provide guidance on pulmonary rehabilitation for addressing dyspnea and overall respiratory function.
+
+Note: Consultation with a pulmonologist may be warranted for complex management of COPD exacerbation and CAP in an elderly patient with multiple comorbidities.";;;;;;Ollama;233.694362;14.514323;;
+anonymous;;CONSENT_GIVEN;2025-05-19T19:52:15.746861;;;;;;;;;;;;;
+34b7db57-422e-44e7-b727-5a3c3ba8eb35;0;SURVEY_COMPLETE;2025-05-19T19:52:30.590790;;;;;;;;;Ollama;;;;
+34b7db57-422e-44e7-b727-5a3c3ba8eb35;;CHAT;2025-05-19T19:52:48.836416;hi;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How can I assist you in analyzing clinical notes or providing insightful information today? Please let me know the specific details or context so that I may better serve you.;;;;;;Ollama;11.598443;4.958046;;
+34b7db57-422e-44e7-b727-5a3c3ba8eb35;;CHAT;2025-05-19T19:54:46.810441;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;This 82-year-old male with a history of COPD presents with community-acquired pneumonia characterized by moderate dyspnea but no fever or recent upper respiratory infections. He has experienced previous hospitalizations for CAP and requires ongoing long-term oxygen therapy, suggesting chronic respiratory compromise. These factors warrant close monitoring in the management of this recurrent infection.;;;;;;Ollama;4.713168;8.736634;;
+34b7db57-422e-44e7-b727-5a3c3ba8eb35;;CHAT;2025-05-19T19:57:08.686893;presents with community-acquired pneumonia-background[pneumonia]];;This 82-year-old male presents with community-acquired pneumonia as a complication of his underlying chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. His history includes previous hospitalizations for CAP and ongoing long-term oxygen therapy due to chronic respiratory compromise. Close monitoring and appropriate antibiotic therapy are necessary considering his recurrent infections and comorbidities.;;;;;;Ollama;140.400502;5.499319;;
+anonymous;;CONSENT_GIVEN;2025-05-19T19:59:08.341079;;;;;;;;;;;;;
+9a884d23-c1f1-4cca-988a-c3b2372f98d7;0;SURVEY_COMPLETE;2025-05-19T19:59:22.345102;;;;;;;;;Ollama;;;;
+9a884d23-c1f1-4cca-988a-c3b2372f98d7;;CHAT;2025-05-19T19:59:58.663118;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;Based on the provided clinical information, this 45-year-old male patient's chief complaints include right-sided chest pain described as sharp and intermittent, worsened with movement or deep inspiration, accompanied by shortness of breath and persistent fatigue for two weeks without associated fever, cough, or recent travel history. This symptomatology could suggest an acute thoracic condition such as pleurisy or pulmonary embolism. Further diagnostic evaluation is needed to confirm the diagnosis.;;;;;;Ollama;27.637811;6.8421;;
+9a884d23-c1f1-4cca-988a-c3b2372f98d7;;CHAT;2025-05-19T20:00:24.688473;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;The 82-year-old male with known COPD now presents with community-acquired pneumonia (CAP), characterized by moderate dyspnea but no fever or recent upper respiratory tract infections. His history includes a prior hospitalization for CAP and he is currently on long-term supplemental oxygen therapy, suggesting recurrent respiratory issues.;;;;;;Ollama;28.932822;3.936914;;
+anonymous;;CONSENT_GIVEN;2025-05-19T21:53:04.674947;;;;;;;;;;;;;
+7dcfd33d-e5d9-4835-af42-f8009eaa416e;0;SURVEY_COMPLETE;2025-05-19T21:54:23.603014;;;;;;;;;Ollama;;;;
+anonymous;;CONSENT_GIVEN;2025-05-19T22:03:22.119575;;;;;;;;;;;;;
+007238e0-9559-4995-89dd-f0d3c265a41b;0;SURVEY_COMPLETE;2025-05-19T22:03:33.766351;;;;;;;;;Ollama;;;;
+007238e0-9559-4995-89dd-f0d3c265a41b;;CHAT;2025-05-19T22:04:20.868086;"hi patient
+";;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;;;;;Ollama;29.311219;15.048319;;
+007238e0-9559-4995-89dd-f0d3c265a41b;1;FEEDBACK;2025-05-19T22:04:24.388636;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;;;1.0;;;;;;
+007238e0-9559-4995-89dd-f0d3c265a41b;;CHAT;2025-05-19T22:06:18.431006;hi;;Hello! I'm PromptDoctor, a medical AI assistant here to support healthcare professionals by analyzing clinical notes and extracting critical information for enhanced patient care. Please feel free to share the clinical note you'd like me to assess or provide guidance on.;;;;;;Ollama;129.07522;3.53884;;
+anonymous;;CONSENT_GIVEN;2025-05-20T11:36:28.509137;;;;;;;;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;0;SURVEY_COMPLETE;2025-05-20T11:38:09.260455;;;;;;;;;Ollama;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;;CHAT;2025-05-20T11:39:00.087821;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;;;;;Ollama;33.347189;15.46845;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;1;FEEDBACK;2025-05-20T11:39:03.878220;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;;;0.0;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;;CHAT;2025-05-20T11:39:20.767785;What could be the diagnosis?;;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;;;;;Ollama;31.940371;4.224491;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;1;FEEDBACK;2025-05-20T11:39:39.623145;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;;;1.0;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;;CHAT;2025-05-20T13:10:56.023027;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Do you have a specific question or would you like me to help with analyzing clinical notes? Please let me know how I can support you.;;;;;;Ollama;5484.995744;14.483328;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:17:06.685669;;;;;;;;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:20:14.599389;;;;;;;;;;;;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;0;SURVEY_COMPLETE;2025-05-20T14:21:41.615581;;;;;;;;;Ollama;;;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;;CHAT;2025-05-20T14:23:34.347441;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;;;;;Ollama;94.077363;16.44341;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;;CHAT;2025-05-20T14:23:52.547724;what could be the diagnosis?;;"Based on the symptoms provided, potential diagnoses include:
+
+1) Costochondritis: Inflammation of cartilages connecting ribs to sternum, causing sharp, intermittent chest pain exacerbated by movement or deep inspiration.
+2) Pulmonary Embolism (PE): A blood clot in the lung arteries leading to chest pain and shortness of breath. Differential diagnosis includes musculoskeletal conditions due to similar presentation but lack of respiratory symptoms.
+3) Musculoskeletal issues: Strained muscles, intercostal nerve involvement, or rib injury mimicking costochondritis or PE.
+
+Further diagnostic tests such as ECG, chest X-ray, D-dimer assay (for PE), blood tests for inflammatory markers, and possibly imaging studies for musculoskeletal conditions are recommended to establish an accurate diagnosis.";;;;;;Ollama;26.348476;8.297087;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;1;FEEDBACK;2025-05-20T14:24:15.999617;"Based on the symptoms provided, potential diagnoses include:
+
+1) Costochondritis: Inflammation of cartilages connecting ribs to sternum, causing sharp, intermittent chest pain exacerbated by movement or deep inspiration.
+2) Pulmonary Embolism (PE): A blood clot in the lung arteries leading to chest pain and shortness of breath. Differential diagnosis includes musculoskeletal conditions due to similar presentation but lack of respiratory symptoms.
+3) Musculoskeletal issues: Strained muscles, intercostal nerve involvement, or rib injury mimicking costochondritis or PE.
+
+Further diagnostic tests such as ECG, chest X-ray, D-dimer assay (for PE), blood tests for inflammatory markers, and possibly imaging studies for musculoskeletal conditions are recommended to establish an accurate diagnosis.";;"Based on the symptoms provided, potential diagnoses include:
+
+1) Costochondritis: Inflammation of cartilages connecting ribs to sternum, causing sharp, intermittent chest pain exacerbated by movement or deep inspiration.
+2) Pulmonary Embolism (PE): A blood clot in the lung arteries leading to chest pain and shortness of breath. Differential diagnosis includes musculoskeletal conditions due to similar presentation but lack of respiratory symptoms.
+3) Musculoskeletal issues: Strained muscles, intercostal nerve involvement, or rib injury mimicking costochondritis or PE.
+
+Further diagnostic tests such as ECG, chest X-ray, D-dimer assay (for PE), blood tests for inflammatory markers, and possibly imaging studies for musculoskeletal conditions are recommended to establish an accurate diagnosis.";;;;1.0;;;;;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;1;FEEDBACK;2025-05-20T14:24:17.483589;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;;;0.0;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:26:43.928270;;;;;;;;;;;;;
+e192f6ba-e2d1-4fc8-89e8-0a8ca09b7d09;0;SURVEY_COMPLETE;2025-05-20T14:26:58.223697;;;;;;;;;Ollama;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:29:26.407420;;;;;;;;;;;;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;0;SURVEY_COMPLETE;2025-05-20T14:29:36.884402;;;;;;;;;Ollama;;;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;;CHAT;2025-05-20T14:30:18.542702;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;;;;;Ollama;23.244139;16.764213;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;;CHAT;2025-05-20T14:31:08.728673;What could be the diagnosis?;;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;;;;;Ollama;63.611897;3.366798;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;1;FEEDBACK;2025-05-20T14:31:16.110880;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;;;1.0;;;;;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;1;FEEDBACK;2025-05-20T14:31:17.380069;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;;;0.0;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:33:50.176560;;;;;;;;;;;;;
+cc2469e8-aac0-4dbc-9589-2544d376654f;0;SURVEY_COMPLETE;2025-05-20T14:34:00.599797;;;;;;;;;Ollama;;;;
+cc2469e8-aac0-4dbc-9589-2544d376654f;;CHAT;2025-05-20T14:34:17.915795;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;;;;;Ollama;9.315541;6.178006;;
+cc2469e8-aac0-4dbc-9589-2544d376654f;1;FEEDBACK;2025-05-20T14:34:19.595099;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;;;1.0;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:36:08.141219;;;;;;;;;;;;;
+0aeded05-81d5-4e9a-acc8-977a0b60934c;0;SURVEY_COMPLETE;2025-05-20T14:36:19.140267;;;;;;;;;Ollama;;;;
+0aeded05-81d5-4e9a-acc8-977a0b60934c;;CHAT;2025-05-20T14:36:35.014358;hi;;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;;;;;Ollama;7.362767;6.594421;;
+0aeded05-81d5-4e9a-acc8-977a0b60934c;1;FEEDBACK;2025-05-20T14:36:38.012157;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;;;1.0;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:38:41.108339;;;;;;;;;;;;;
+178d181b-add6-4541-afc5-1a8c6a459886;0;SURVEY_COMPLETE;2025-05-20T14:38:57.246995;;;;;;;;;Ollama;;;;
+178d181b-add6-4541-afc5-1a8c6a459886;;CHAT;2025-05-20T14:39:17.054612;hi;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;;;;;Ollama;12.071781;5.850458;;
+178d181b-add6-4541-afc5-1a8c6a459886;1;FEEDBACK;2025-05-20T14:39:18.896080;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;;;1.0;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:40:17.960925;;;;;;;;;;;;;
+822a1d99-2d13-47d4-a118-8480d6ea7d34;0;SURVEY_COMPLETE;2025-05-20T14:40:29.239580;;;;;;;;;Ollama;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:53:48.787590;;;;;;;;;;;;;
+89776072-4268-4027-bab7-fe979192e5f0;0;SURVEY_COMPLETE;2025-05-20T14:54:00.491313;;;;;;;;;Ollama;;;;
+89776072-4268-4027-bab7-fe979192e5f0;;CHAT;2025-05-20T14:54:32.979847;hi;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;;;;;Ollama;17.895594;12.932673;;
+89776072-4268-4027-bab7-fe979192e5f0;1;FEEDBACK;2025-05-20T14:54:35.214675;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;;;1.0;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T14:56:00.158645;;;;;;;;;;;;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;0;SURVEY_COMPLETE;2025-05-20T14:56:10.966644;;;;;;;;;Ollama;;;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;;CHAT;2025-05-20T14:56:26.086658;hu;;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;;;;;Ollama;8.761437;4.502336;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;1;FEEDBACK;2025-05-20T14:56:27.907424;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;;;1.0;;;;;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;;CHAT;2025-05-20T14:56:44.385800;hello;;Hello! As a clinical note analysis tool, I am here to assist you in understanding and extracting key medical information from patient records. Please provide the specific clinical note or details about the case you'd like me to analyze, so I can offer relevant insights.;;;;;;Ollama;19.419676;3.370211;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;;CHAT;2025-05-20T14:58:05.414595;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to analyze a specific clinical note or provide general healthcare information? Please let me know, so I can tailor my response for maximum usefulness.;;;;;;Ollama;80.417432;3.982916;;
+anonymous;;CONSENT_GIVEN;2025-05-20T15:38:57.986557;;;;;;;;;;;;;
+846177f0-045d-425d-8973-3095af3f907a;0;SURVEY_COMPLETE;2025-05-20T15:39:14.023897;;;;;;;;;Ollama;;;;
+846177f0-045d-425d-8973-3095af3f907a;;CHAT;2025-05-20T15:39:42.450360;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;;;;;Ollama;11.395457;14.932816;;
+846177f0-045d-425d-8973-3095af3f907a;1;FEEDBACK;2025-05-20T15:42:41.125909;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;;;1.0;;;;;;
+846177f0-045d-425d-8973-3095af3f907a;;CHAT;2025-05-20T15:46:24.376409;hi;;Hello! As a PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the text of the note or ask a specific question related to it, and I'll do my best to help.;;;;;;Ollama;405.282201;11.577987;;
+846177f0-045d-425d-8973-3095af3f907a;;CHAT;2025-05-20T15:49:58.648584;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today in analyzing clinical notes or providing relevant medical insights? Please let me know the specific request or question you have.;;;;;;Ollama;220.79202;5.057297;;
+anonymous;;CONSENT_GIVEN;2025-05-20T16:11:36.592506;;;;;;;;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T22:11:27.106884;;;;;;;;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T22:11:57.654429;;;;;;;;;;;;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;0;SURVEY_COMPLETE;2025-05-20T22:13:25.216757;;;;;;;;;Ollama;;;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;;CHAT;2025-05-20T22:13:53.543642;hi this is a test;;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;;;;;Ollama;11.376363;15.016248;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;1;FEEDBACK;2025-05-20T22:13:58.656511;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;;;1.0;;;;;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;;CHAT;2025-05-20T22:14:15.348253;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Please feel free to share any clinical notes or patient data for me to analyze, or specify the type of insight you need (e.g., medication review, diagnosis summary, etc.).;;;;;;Ollama;33.573168;3.236983;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;;CHAT;2025-05-20T22:15:13.240421;hello;;Hello! I am PromptDoctor, your AI medical assistant. How may I assist you today? Please let me know if you have any clinical notes or questions for analysis.;;;;;;Ollama;58.268447;2.872694;;
+anonymous;;CONSENT_GIVEN;2025-05-20T22:18:35.084972;;;;;;;;;;;;;
+726b8603-289e-41aa-b871-01f147852f69;0;SURVEY_COMPLETE;2025-05-20T22:18:46.793066;;;;;;;;;Ollama;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T22:19:16.733458;;;;;;;;;;;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;0;SURVEY_COMPLETE;2025-05-20T22:19:27.707967;;;;;;;;;Ollama;;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;;CHAT;2025-05-20T22:19:57.578939;hi;;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;;;;;Ollama;21.684357;6.543061;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;1;FEEDBACK;2025-05-20T22:20:02.604385;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;;;1.0;;;;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;;CHAT;2025-05-20T22:20:19.104222;hello;;Hello! As a medical AI, I am here to assist you in analyzing clinical notes and providing insights based on the extracted information. Please provide me with the text or context of the note you would like help with, and I'll do my best to summarize key findings and suggest potential next steps for the patient's care.;;;;;;Ollama;23.906628;4.157608;;
+anonymous;;CONSENT_GIVEN;2025-05-20T22:28:13.922411;;;;;;;;;;;;;
+772d7eea-c505-4d14-90fc-e9ff693b0037;0;SURVEY_COMPLETE;2025-05-20T22:28:25.403334;;;;;;;;;Ollama;;;;
+anonymous;;CONSENT_GIVEN;2025-05-20T22:31:32.957254;;;;;;;;;;;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;0;SURVEY_COMPLETE;2025-05-20T22:32:22.455216;;;;;;;;;Ollama;;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;;CHAT;2025-05-20T22:32:49.852453;hi;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;;;;;Ollama;12.077971;13.655199;;
+d558eb9b-df76-4c27-a939-e3a24517772f;1;FEEDBACK;2025-05-20T22:32:52.223765;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;;;0.0;;;;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;;CHAT;2025-05-20T22:33:08.142367;hello;;Hello! As a medical assistant, I'm here to assist you in analyzing clinical notes and extracting important medical information for decision-making purposes. Please provide the text of the notes or any specific questions you'd like me to focus on, and I'll do my best to help you.;;;;;;Ollama;27.592791;4.357333;;
+anonymous;;CONSENT_GIVEN;2025-05-20T22:40:18.234963;;;;;;;;;;;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;0;SURVEY_COMPLETE;2025-05-20T22:40:33.032842;;;;;;;;;Ollama;;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;;CHAT;2025-05-20T22:40:58.471902;hi;;Hello! As a PromptDoctor, I'm here to assist you in analyzing clinical notes and providing relevant medical insights. Please share the text or context of the note you'd like me to review, so I can extract key information and give you concise feedback.;;;;;;Ollama;9.792039;13.828172;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;;CHAT;2025-05-20T22:41:45.285207;hi;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;;;;;Ollama;55.814082;4.828342;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;2;FEEDBACK;2025-05-20T22:41:52.727484;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;;;0.0;;;;;;
+anonymous;;CONSENT_GIVEN;2025-05-21T09:29:06.843147;;;;;;;;;;;;;
+c94351d5-2cbe-466a-9f32-fc886501b959;0;SURVEY_COMPLETE;2025-05-21T09:29:17.740591;;;;;;;;;Ollama;;;;
+c94351d5-2cbe-466a-9f32-fc886501b959;;CHAT;2025-05-21T09:29:44.886677;hi;;As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing medically relevant insights. If you'd like to proceed, kindly provide the clinical note(s) you'd like me to examine or describe the specific information you're seeking.;;;;;;Ollama;7.94294;17.241297;;

@@ -8,10 +8,14 @@ import glob
 import json
 from tracking.logging import log_chat_interaction
 from utils.model_config import ModelConfig
-from utils.survey_storage import SurveyStorage
 from utils.id_manager import get_or_create_unique_id
 from utils.db_utils import DBManager
 from utils.session_manager import SessionManager
+from utils.style_loader import load_styles
+from utils.data_storage import DataStorage
+
+
+
 
 def get_local_ollama_models():
     """Get list of locally available Ollama models"""
@@ -77,6 +81,8 @@ def show_login_page():
     st.header("Login")
     st.markdown("### Welcome to PromptDoctor")
     st.markdown("Please login and select your preferred model")
+    # Load shared styles
+    load_styles()
 
     # Model type selection
     model_type = st.selectbox(
@@ -115,8 +121,8 @@ def show_login_page():
         st.session_state.login_complete = True
         
         # Save login data
-        survey_storage = SurveyStorage()
-        survey_storage.save_login_data(
+        storage = DataStorage()
+        storage.save_login_data(
             st.session_state.user_id,
             {
                 "model_type": model_type,

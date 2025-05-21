@@ -10,9 +10,9 @@ class LIMEMedicalExplainer:
     def __init__(self):
         print("[LIME] Initializing explainer...")
         self.explainer = LimeTextExplainer(
-            class_names=['not_relevant', 'relevant'],
-            verbose=True,
-            split_expression='\s+'  # Split on whitespace
+            class_names=['impact'],
+            split_expression='\W+',  # Split on non-word characters
+            bow=False  # Don't use bag of words
         )
         
     def _get_model_response(self, text: str, model_name: str = "llama3-med42-8b") -> str:
@@ -106,9 +106,9 @@ class LIMEMedicalExplainer:
             exp = self.explainer.explain_instance(
                 text,
                 predictor,
-                num_features=min(num_features, len(text.split())),
-                num_samples=num_samples,
-                labels=(1,)  # Only explain 'relevant' class
+                num_features=50,  # Match the num_features above
+                num_samples=5000,  # Match the num_samples above
+                top_labels=1
             )
             
             # Get feature importance list
@@ -128,3 +128,9 @@ class LIMEMedicalExplainer:
             error_msg = f"[LIME] Error: {str(e)}\n{traceback.format_exc()}"
             print(error_msg)
             return [], f"Error generating explanation: {str(e)}"
+
+    def _create_html(self, explanation, text):
+        """Create HTML visualization with more words highlighted"""
+        # Increase number of features shown
+        word_importances = explanation.as_list()[:50]  # Show more features
+        # ...existing code...

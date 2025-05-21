@@ -1,0 +1,157 @@
+<div style="
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        ">
+            <div style="
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #333;
+                font-size: 14px;
+            ">Prompt Impact Analysis</div>
+            
+            <!-- Highlighted text section -->
+            <div style="
+                line-height: 1.6;
+                font-size: 14px;
+                margin-bottom: 15px;
+                padding: 10px;
+                background-color: white;
+                border-radius: 4px;
+            ">The patient, a 50-year-old <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.37375955338310174);color: black;font-weight: 500;" title="Impact: +0.125">female,</span> has been followed <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.22868554915771322);color: black;font-weight: 500;" title="Impact: -0.076">in</span> the cardiology <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.10112662731052524);color: black;font-weight: 500;" title="Impact: -0.034">clinic</span> for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.45459364952792947);color: black;font-weight: 500;" title="Impact: -0.152">years.</span> Her history <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.3049525619103348);color: black;font-weight: 500;" title="Impact: +0.102">includes</span> controlled hypertension and <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.3583348392132456);color: black;font-weight: 500;" title="Impact: +0.119">hyperlipidemia.</span> <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.4564232324870227);color: black;font-weight: 500;" title="Impact: -0.152">She</span> now presents with new onset of <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.488831710170352);color: black;font-weight: 500;" title="Impact: +0.163">palpitations</span> and <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.5329125002532673);color: black;font-weight: 500;" title="Impact: +0.178">shortness</span> of <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.31794982770331226);color: black;font-weight: 500;" title="Impact: +0.106">breath.</span></div>
+            
+            <!-- Stats section -->
+            <div style="
+                display: flex;
+                justify-content: space-between;
+                margin: 15px 0;
+                gap: 10px;
+            ">
+                
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Average Impact</div>
+                <div style="font-size: 14px; font-weight: 500;">0.121</div>
+            </div>
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Positive Impact %</div>
+                <div style="font-size: 14px; font-weight: 500;">60.0%</div>
+            </div>
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Max Impact</div>
+                <div style="font-size: 14px; font-weight: 500;">0.178</div>
+            </div>
+        
+            </div>
+            
+            <!-- Table section -->
+            <div style="
+                margin-top: 15px;
+                background-color: white;
+                border-radius: 4px;
+                overflow: hidden;
+            ">
+                
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                <thead>
+                    <tr style="background-color: #f8f9fa;">
+                        <th style="padding: 8px; text-align: left;">Word</th>
+                        <th style="padding: 8px; text-align: right;">Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">shortness</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.178
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">palpitations</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.163
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">She</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.152
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">years.</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.152
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">female,</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.125
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">hyperlipidemia.</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.119
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">breath.</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.106
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">includes</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.102
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">in</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.076
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">clinic</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.034
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        
+            </div>
+        </div>

@@ -48,8 +48,8 @@ class SurveyStorage:
         
         df = pd.DataFrame([login_data])
         if os.path.exists(filename):
-            df = pd.concat([pd.read_csv(filename), df], ignore_index=True)
-        df.to_csv(filename, index=False)
+            df = pd.concat([pd.read_csv(filename, sep=';'), df], ignore_index=True)
+        df.to_csv(filename, sep=';', index=False)
 
     def save_task_survey(self, user_id: str, task_number: int, data: Dict[str, Any]):
         """Save task survey data with question code columns"""
@@ -77,59 +77,29 @@ class SurveyStorage:
             'MQ_inaccuracies': data.get('q3d_inaccuracies')
         }
         
-        # Save to CSV
+        # Save to CSV with semicolon delimiter
         filepath = os.path.join(task_dir, 'task_survey.csv')
         df = pd.DataFrame([survey_data])
         if os.path.exists(filepath):
-            df = pd.concat([pd.read_csv(filepath), df], ignore_index=True)
-        df.to_csv(filepath, index=False)
+            df = pd.concat([pd.read_csv(filepath, sep=';'), df], ignore_index=True)
+        df.to_csv(filepath, sep=';', index=False)
 
     def save_logout_survey(self, user_id: str, data: Dict[str, Any]):
         """Save logout survey data with question code columns"""
+        # Data is already flattened, use it directly
         survey_data = {
             'user_id': user_id,
             'timestamp': datetime.now().isoformat(),
             'group': data.get('group', 'unknown'),
-            # Usability questions
-            'US_ease': data['usability'].get('q1a_ease'),
-            'US_clarity': data['usability'].get('q1b_clarity'),
-            'US_reuse': data['usability'].get('q1c_reuse'),
-            'US_prior_exp': data['usability'].get('q1d_prior_exp'),
-            'US_exp_affect': data['usability'].get('q1e_exp_affect'),
-            'US_exp_how': data['usability'].get('q1f_exp_how'),
-            'US_understanding': data['usability'].get('q1g_understanding'),
-            # Trust questions
-            'TR_model_trust': data['trust'].get('q2a_trust'),
-            'TR_understanding': data['trust'].get('q2b_understanding'),
-            'TR_explanations': data['trust'].get('q2c_explanations'),
-            # Feedback questions
-            'FB_likes': data['feedback'].get('q3a_likes'),
-            'FB_improvements': data['feedback'].get('q3b_improvements'),
-            'FB_clinical': data['feedback'].get('q3c_clinical'),
-            'FB_other': data['feedback'].get('q3d_other'),
-            # Metadata
-            'login_time': data.get('login_time'),
-            'logout_time': data.get('logout_time')
+            **data  # Include all flattened fields
         }
-
-        # Add explainability data if present
-        if data.get('explainability'):
-            exp_data = {
-                'EX_helpful': data['explainability'].get('q4a_helpful'),
-                'EX_refinement': data['explainability'].get('q4b_refinement'),
-                'EX_comment': data['explainability'].get('q4c_comment'),
-                'EX_understanding': data['explainability'].get('q4d_understanding'),
-                'EX_expectations': data['explainability'].get('q4e_expectations'),
-                'EX_trust': data['explainability'].get('q4f_trust')
-            }
-            survey_data.update(exp_data)
 
         # Save to CSV
         filepath = os.path.join(self.base_path, 'logout', 'logout_surveys.csv')
         df = pd.DataFrame([survey_data])
         if os.path.exists(filepath):
-            df = pd.concat([pd.read_csv(filepath), df], ignore_index=True)
-        df.to_csv(filepath, index=False)
+            df = pd.concat([pd.read_csv(filepath, sep=';'), df], ignore_index=True)
+        df.to_csv(filepath, sep=';', index=False)
 
     def merge_survey_data(self, user_id: str) -> pd.DataFrame:
         """Merge all survey data with logging data"""

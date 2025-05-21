@@ -13,6 +13,7 @@ class ModelConfig:
             {"name": "gpt-3.5-turbo", "display_name": "GPT-3.5 Turbo"}
         ],
         "HuggingFace": [
+            {"name": "m42-health/Llama3-Med42-8B", "display_name": "Med42 8B"},
             {"name": "starmpcc/Asclepius-7B", "display_name": "starmpcc/Asclepius-7B"},
             {"name": "tiiuae/falcon-rw-1b", "display_name": "tiiuae/falcon-rw-1b"},
             {"name": "microsoft/BiomedNLP-BioGPT-Large", "display_name": "BioGPT Large"},

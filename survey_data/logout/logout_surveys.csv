@@ -1,2 +1,0 @@
-timestamp,user_id,satisfaction,feedback,tasks_completed,group,survey_duration_seconds,login_time,logout_time;timestamp;user_id;group;satisfaction;feedback;tasks_completed;survey_duration_seconds;login_time;logout_time,US_ease,US_clarity,US_reuse,US_prior_exp,US_exp_affect,US_exp_how,US_understanding,TR_model_trust,TR_understanding,TR_explanations,FB_likes,FB_improvements,FB_clinical,FB_other,logout_time,EX_helpful,EX_refinement,EX_comment,EX_understanding,EX_expectations,EX_trust
-

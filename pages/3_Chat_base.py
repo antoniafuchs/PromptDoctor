@@ -1,4 +1,36 @@
 import streamlit as st
+import asyncio
+import os
+import glob
+import json
+import uuid
+import datetime
+import pyperclip
+import requests
+import pandas as pd
+from typing import List
+
+# Set event loop policy for thread safety
+try:
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+except AttributeError:
+    # Not on Windows, use default policy
+    pass
+
+# Initialize event loop
+try:
+    loop = asyncio.get_event_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+# Try to import ollama
+try:
+    from langchain.llms import Ollama
+    OLLAMA_CLIENT_AVAILABLE = True
+except ImportError:
+    print("[WARNING] Ollama client package not installed. Falling back to direct API calls.")
+    OLLAMA_CLIENT_AVAILABLE = False
 
 # Page config must be first Streamlit command
 st.set_page_config(
@@ -6,6 +38,9 @@ st.set_page_config(
     layout="wide"
 )
 
+
+# Import remaining modules
+from utils.style_loader import load_styles
 import requests
 import json
 import uuid
@@ -14,15 +49,15 @@ import pyperclip
 from typing import List
 from tracking.timer import Timer
 from tracking.logging import (
-    log_model_output,
-    log_user_interaction,
-    log_task_duration,
     log_chat_interaction,
     log_validation_action,
+    log_task_completion,
+    log_feedback,
+    log_task_duration,
     log_lime_explanation,
-    log_task_completion  # Add this import
+    log_model_output
 )
-from tracking.task_manager import TaskManager  # Add this import
+from tracking.task_manager import TaskManager 
 from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 from utils.medical_processor import MedicalTermProcessor
 from utils.prompt_validator import validate_prompt, add_highlights
@@ -36,18 +71,13 @@ import pandas as pd
 from utils.ml_utils import init_torch
 from utils.model_handler import ModelHandler
 from streamlit_extras.switch_page_button import switch_page
-import streamlit_survey as ss  # Add this import
+import streamlit_survey as ss 
 
 # Initialize PyTorch with basic settings
 init_torch()
 
-# Try to import ollama, fallback to requests if not available
-try:
-    OLLAMA_CLIENT_AVAILABLE = True
-except ImportError:
-    print("[WARNING] Ollama client package not installed. Falling back to direct API calls.")
-    OLLAMA_CLIENT_AVAILABLE = False
-
+# Load shared styles
+load_styles()
 
 # Add custom CSS for sidebar width detection
 st.markdown("""
@@ -93,10 +123,6 @@ if "medical_processor" not in st.session_state:
     st.session_state.medical_processor = MedicalTermProcessor()
 if "message_feedback" not in st.session_state:
     st.session_state.message_feedback = {}
-if "stage" not in st.session_state:
-    st.session_state.stage = "user"
-    st.session_state.pending_prompt = None
-    st.session_state.validation = {}
 if "model_handler" not in st.session_state:
     st.session_state.model_handler = ModelHandler()
 if "available_models" in st.session_state:
@@ -136,7 +162,14 @@ def on_input_focus():
 
 def save_feedback(index):
     """Save feedback for a specific message"""
+    # Check if feedback already exists for this message
+    if (index in st.session_state.message_feedback or 
+        st.session_state.get(f"feedback_{index}_submitted", False)):
+        return
+        
     feedback_value = st.session_state[f"feedback_{index}"]
+    message = st.session_state.messages[index]
+    message_id = f"msg_{index}"
     
     # Map thumbs to feedback values (1 for thumbs up, -1 for thumbs down)
     feedback_text = {
@@ -146,16 +179,16 @@ def save_feedback(index):
     }.get(feedback_value, "neutral")
     
     st.session_state.message_feedback[index] = feedback_value
+    st.session_state[f"feedback_{index}_submitted"] = True
     
     # Log the feedback
-    message = st.session_state.messages[index]
-    log_chat_interaction(
+    log_feedback(
         user_id=st.session_state.user_id,
-        interaction_type="FEEDBACK",
-        model_type=st.session_state.selected_model_type,
-        user_prompt=message.get("raw_content", message.get("content")),
-        model_output=message.get("content"),
-        feedback=feedback_text
+        task_id=st.session_state.current_task,
+        message_id=message_id,
+        feedback_value=feedback_value,
+        prompt=message.get("raw_content", message.get("content")),
+        response=message.get("content")
     )
 
 def process_prompt(prompt, response_placeholder):
@@ -240,10 +273,9 @@ def process_prompt(prompt, response_placeholder):
         st.session_state.messages.append(assistant_message)
         
         # Log interactions
-        log_model_output(prompt, final_response, st.session_state.user_id)
         log_chat_interaction(
-            st.session_state.user_id,
-            "CHAT",
+            user_id=st.session_state.user_id,
+            action_type="MODEL_OUTPUT",
             user_prompt=prompt,
             model_output=final_response,
             model_type=st.session_state.selected_model_type,
@@ -262,10 +294,8 @@ def process_prompt(prompt, response_placeholder):
             args=[current_message_index],
         )
 
-        # Update the interaction summary logging
-        with open("user_logs.txt", "a") as f:
-            f.write(f"{datetime.datetime.now()},{st.session_state.user_id},INTERACTION,{st.session_state.selected_model_type},iteration_{st.session_state.iteration_count},{typing_duration:.2f},{generation_duration:.2f}\n")
-
+        # Remove obsolete logging to user_logs.txt
+        
     return highlighted_prompt, final_response
 
 def process_prompt_and_get_response(prompt):
@@ -454,7 +484,7 @@ def show_chatbot():
         st.session_state.first_login = True
         st.session_state.show_task_intro = True
 
-    st.header("PromptDoctor Base")
+    st.header("PromptDoctor")
     
     # Add custom CSS
     st.markdown("""
@@ -483,91 +513,6 @@ def show_chatbot():
         
         st.divider()
         
-        # Show other sidebar content
-        st.text(f"User ID: {st.session_state.user_id}")
-        st.text(f"Model: {st.session_state.selected_model_type}")
-        if st.button("Logout"):
-            st.switch_page("pages/4_Logout.py")
-            
-        # Add PDF upload section
-        st.markdown("### Document Upload")
-        uploaded_file = st.file_uploader(
-            "Upload PDF file",
-            type=["pdf"],
-            help="Only PDF files are supported"
-        )
-        
-        # Handle initial PDF upload
-        if uploaded_file and uploaded_file != st.session_state.pdf_file:
-            st.session_state.pdf_file = uploaded_file
-            st.session_state.pdf_upload_time = datetime.datetime.now()
-            
-            # Process and log PDF upload
-            pdf_data, extracted_text = handle_pdf_upload(
-                uploaded_file,
-                st.session_state.user_id,
-                log_chat_interaction
-            )
-            st.session_state.pdf_text = extracted_text
-        
-        # Always display PDF if one is loaded
-        if st.session_state.pdf_file:
-            st.markdown("### Document Preview")
-            pdf_container = st.container()
-            with pdf_container:
-                displayPDF(st.session_state.pdf_file, "100%")
-            
-            st.markdown("### Extracted Text")
-            col1, col2 = st.columns([4, 1])
-            with col1:
-                text_area = st.text_area(
-                    "Document Content",
-                    value=st.session_state.pdf_text,
-                    height=400,
-                    disabled=True
-                )
-            with col2:
-                if st.button("Copy", help="Copy text to clipboard"):
-                    try:
-                        pyperclip.copy(st.session_state.pdf_text)
-                        st.success("Text copied")
-                    except Exception as e:
-                        st.error(f"Failed to copy: {str(e)}")
-        
-        # Add XAI results section
-        st.markdown("### Analysis Queue")
-        if st.session_state.xai_processing:
-            st.info("🔄 Processing explanation...")
-            st.session_state.xai_processor.process_queue()
-        
-        if st.session_state.xai_results:
-            st.markdown("### Latest Analyses")
-            for prompt, result in list(st.session_state.xai_results.items())[-3:]:
-                with st.expander(f"Analysis for: {prompt[:30]}..."):
-                    st.text(f"Timestamp: {result['timestamp']}")
-                    st.markdown("#### Word Impact Analysis")
-                    # Use iframe to properly render HTML with styles
-                    st.components.v1.html(
-                        result["html"],
-                        height=180,
-                        scrolling=True
-                    )
-                    st.markdown("#### Response")
-                    st.write(result["response"])
-                    
-                    # Add explanation of colors
-                    st.markdown("""
-                        <small>
-                        🔴 Red: Higher positive impact<br>
-                        🔵 Blue: Higher negative impact<br>
-                        Hover over words to see exact values
-                        </small>
-                    """, unsafe_allow_html=True)
-
-                    if st.button("Remove", key=f"remove_{prompt[:10]}", type="tertiary"):
-                        del st.session_state.xai_results[prompt]
-                        st.rerun()
-
     # Show task controls in main UI
     st.session_state.task_manager.render_task_controls()
     
@@ -581,7 +526,7 @@ def show_chatbot():
             duration = (datetime.datetime.now() - task.started_at).total_seconds()
         else:
             duration = 0.0
-
+            
         # Log completion with duration
         log_task_completion(
             st.session_state.user_id, 
@@ -601,227 +546,61 @@ def show_chatbot():
                 st.feedback(
                     "thumbs",
                     key=f"feedback_{i}",
+                    # Only disable if feedback already given for this specific message
                     disabled=feedback is not None,
                     on_change=save_feedback,
                     args=[i],
                 )
 
-    # Single chat input handler with validation flow
+    # Direct chat input handling without validation
     if prompt := st.chat_input("How can I help?", key="main_chat_input"):
-        if st.session_state.stage == "user":
-            # Store prompt and show validation
-            st.session_state.pending_prompt = prompt
-            st.session_state.stage = "validate"
-            st.rerun()
-    
-    # Handle validation stages
-    if st.session_state.stage == "validate":
-        # Validate and highlight prompt
-        sentences, highlighted, has_terms = validate_prompt(
-            st.session_state.pending_prompt,
-            st.session_state.medical_processor
-        )
+        # Hide task intro
+        st.session_state.show_task_intro = False
         
-        # Display validation UI
-        st.markdown(" ".join(highlighted))
-        st.divider()
+        # Immediately show user message
+        with st.chat_message("user"):
+            st.markdown(prompt)
         
-        # Log validation display
-        medical_terms = get_medical_terms(st.session_state.pending_prompt, st.session_state.medical_processor)
-        log_validation_action(
+        # Get response
+        highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(prompt)
+        
+        # Add messages to history (user message was already displayed)
+        user_message = {
+            "role": "user",
+            "content": prompt,
+            "raw_content": prompt,
+            "timestamp": datetime.datetime.now().isoformat(),
+            "iteration": st.session_state.iteration_count
+        }
+        st.session_state.messages.append(user_message)
+        
+        # Show assistant message with streaming effect
+        with st.chat_message("assistant"):
+            message_placeholder = st.empty()
+            for i in range(len(final_response)):
+                message_placeholder.markdown(final_response[:i+1])
+        
+        # Add assistant message to history
+        assistant_message = {
+            "role": "assistant",
+            "content": final_response,
+            "timestamp": datetime.datetime.now().isoformat(),
+            "iteration": st.session_state.iteration_count
+        }
+        st.session_state.messages.append(assistant_message)
+        
+        # Log interactions
+        log_chat_interaction(
             st.session_state.user_id,
-            "VALIDATION_VIEW",
-            st.session_state.pending_prompt,
-            medical_terms,
-            medical_term_count=len(medical_terms)
+            "CHAT",
+            user_prompt=prompt,
+            model_output=final_response,
+            model_type=st.session_state.selected_model_type,
+            duration={
+                "typing": typing_duration,
+                "generation": generation_duration
+            }
         )
-        
-        cols = st.columns(4)  # Changed from 3 to 4 columns
-        if cols[0].button("Edit", type="primary", key="edit_button"):
-            log_validation_action(
-                st.session_state.user_id,
-                "EDIT_CLICK",
-                st.session_state.pending_prompt
-            )
-            st.session_state.validation = {
-                "sentences": sentences,
-                "highlighted": highlighted,
-                "has_terms": has_terms
-            }
-            st.session_state.stage = "edit"
-            st.rerun()
-        
-        if cols[1].button("Accept", key="accept_button"):
-            log_validation_action(
-                st.session_state.user_id,
-                "ACCEPT_CLICK",
-                st.session_state.pending_prompt
-            )
-
-            # Hide task intro
-            st.session_state.show_task_intro = False
-            
-            # Get response first
-            highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(
-                st.session_state.pending_prompt
-            )
-            
-            # Add messages to history
-            user_message = {
-                "role": "user",
-                "content": highlighted_prompt,
-                "raw_content": st.session_state.pending_prompt,
-                "timestamp": datetime.datetime.now().isoformat(),
-                "iteration": st.session_state.iteration_count
-            }
-            st.session_state.messages.append(user_message)
-            
-            assistant_message = {
-                "role": "assistant",
-                "content": final_response,
-                "timestamp": datetime.datetime.now().isoformat(),
-                "iteration": st.session_state.iteration_count
-            }
-            st.session_state.messages.append(assistant_message)
-            
-            # Log interactions
-            log_chat_interaction(
-                st.session_state.user_id,
-                "CHAT",
-                user_prompt=st.session_state.pending_prompt,
-                model_output=final_response,
-                model_type=st.session_state.selected_model_type,
-                duration={
-                    "typing": typing_duration,
-                    "generation": generation_duration
-                }
-            )
-            
-            # Reset state and rerun
-            st.session_state.stage = "user"
-            st.session_state.pending_prompt = None
-            st.rerun()
-        
-        if cols[2].button("Accept & Explain", type="secondary", key="explain_button"):
-            log_validation_action(
-                st.session_state.user_id,
-                "EXPLAIN_CLICK",
-                st.session_state.pending_prompt
-            )
-            
-            print("\n[APP] Starting explanation process with debug...")
-            start_time = datetime.datetime.now()
-            
-            # Get model response first
-            highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(
-                st.session_state.pending_prompt
-            )
-            
-            # Queue XAI processing
-            print("[APP] Queueing XAI request...")
-            st.session_state.xai_processor.queue_xai_request(
-                st.session_state.pending_prompt,
-                final_response,
-                st.session_state.selected_model_type
-            )
-            
-            # Process queue once
-            st.session_state.xai_processor.process_queue()
-            
-            # Add messages to history immediately
-            user_message = {
-                "role": "user",
-                "content": highlighted_prompt,
-                "raw_content": st.session_state.pending_prompt,
-                "timestamp": datetime.datetime.now().isoformat(),
-                "iteration": st.session_state.iteration_count
-            }
-            st.session_state.messages.append(user_message)
-            
-            assistant_message = {
-                "role": "assistant",
-                "content": final_response,
-                "timestamp": datetime.datetime.now().isoformat(),
-                "iteration": st.session_state.iteration_count
-            }
-            st.session_state.messages.append(assistant_message)
-            
-            # Log interactions
-            print("[APP] Logging interaction...")
-            log_chat_interaction(
-                st.session_state.user_id,
-                "CHAT_WITH_EXPLANATION_QUEUED",
-                user_prompt=st.session_state.pending_prompt,
-                model_output=final_response,
-                model_type=st.session_state.selected_model_type,
-                duration={
-                    "typing": typing_duration,
-                    "generation": generation_duration,
-                    "queue_time": (datetime.datetime.now() - start_time).total_seconds()
-                }
-            )
-            
-            print("[APP] Chat message added, XAI processing queued")
-            
-            # Reset state and continue
-            st.session_state.stage = "user"
-            st.session_state.pending_prompt = None
-            st.rerun()
-
-        if cols[3].button("Rewrite", type="tertiary", key="rewrite_button"):
-            st.session_state.stage = "rewrite"
-            st.rerun()
-
-    elif st.session_state.stage == "edit":
-        with st.chat_message("user"):
-            st.markdown(" ".join(st.session_state.validation["highlighted"]))
-            st.divider()
-            
-            new_prompt = st.text_area(
-                "Edit prompt:",
-                value=st.session_state.pending_prompt
-            )
-            
-            cols = st.columns(2)
-            if cols[0].button("Update", type="primary"):
-                log_validation_action(
-                    st.session_state.user_id,
-                    "EDIT_UPDATE",
-                    st.session_state.pending_prompt,
-                    modified_prompt=new_prompt,
-                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor)
-                )
-                st.session_state.pending_prompt = new_prompt
-                st.session_state.stage = "validate"
-                st.rerun()
-            
-            if cols[1].button("Cancel"):
-                st.session_state.stage = "validate"
-                st.rerun()
-
-    elif st.session_state.stage == "rewrite":
-        with st.chat_message("user"):
-            new_prompt = st.text_area(
-                "Rewrite prompt:",
-                value=st.session_state.pending_prompt
-            )
-            
-            if st.button("Update", type="primary"):
-                log_validation_action(
-                    st.session_state.user_id,
-                    "REWRITE_UPDATE",
-                    st.session_state.pending_prompt,
-                    modified_prompt=new_prompt,
-                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor)
-                )
-                st.session_state.pending_prompt = new_prompt
-                st.session_state.stage = "validate"
-                st.rerun()
-
-    elif st.session_state.stage == "viewing_explanation":
-        if st.button("Continue", type="primary"):
-            st.session_state.stage = "user"
-            st.session_state.pending_prompt = None
-            st.rerun()
+        st.rerun()
 
 show_chatbot()

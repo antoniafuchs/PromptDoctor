@@ -1,5 +1,6 @@
 import pandas as pd
 import datasets
+import re
 
 class MedicalTermProcessor:
     def __init__(self):
@@ -22,6 +23,13 @@ class MedicalTermProcessor:
         except Exception as e:
             print(f"Warning: Using fallback medical terms. Error: {e}")
 
+    def _escape_special_chars(self, text: str) -> str:
+        """Escape special characters used in Streamlit markdown"""
+        special_chars = '[]:-'
+        for char in special_chars:
+            text = text.replace(char, '\\' + char)
+        return text
+
     def highlight_medical_terms(self, text: str) -> str:
         """Highlights medical terms in the text using Streamlit color syntax"""
         if not text:
@@ -32,25 +40,23 @@ class MedicalTermProcessor:
         result = text
         matches = []
 
-        # Find matches for complete terms only
-        for term in self.medical_terms:
-            start = 0
-            while True:
-                pos = text_lower.find(term, start)
-                if pos == -1:
-                    break
-                # Verify it's a complete word/phrase
-                before = pos == 0 or not text_lower[pos-1].isalnum()
-                after = pos + len(term) == len(text_lower) or not text_lower[pos + len(term)].isalnum()
-                if before and after:
-                    matches.append((pos, pos + len(term), text[pos:pos + len(term)]))
-                start = pos + 1
+        # Sort terms by length (longest first)
+        sorted_terms = sorted(self.medical_terms, key=len, reverse=True)
+
+        for term in sorted_terms:
+            # Create pattern with word boundaries
+            pattern = r'\b' + re.escape(term) + r'\b'
+            for match in re.finditer(pattern, text_lower):
+                start, end = match.span()
+                original_term = text[start:end]
+                escaped_term = self._escape_special_chars(original_term)
+                matches.append((start, end, escaped_term))
 
         # Sort matches by position
         matches.sort(key=lambda x: x[0])
         
         # Apply highlighting in reverse to preserve positions
-        for start, end, term in reversed(matches):
-            result = result[:start] + f":red[:red-background[{term}]]" + result[end:]
+        for start, end, escaped_term in reversed(matches):
+            result = result[:start] + f":red[:red-background[{escaped_term}]]" + result[end:]
 
         return result
