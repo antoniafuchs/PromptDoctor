@@ -286,33 +286,42 @@ def show_logout_survey():
             horizontal=False
         ).split(" - ")[0]
 
+        # Add safe_int helper earlier in the code
+        def safe_int(value):
+            if value is None or value == "":
+                return None
+            try:
+                return int(value)
+            except (ValueError, TypeError):
+                return None
+
         explainability_data = {
             # Medical Term Highlighting
             "q1f_highlight_meaning": st.session_state.logout_survey_data.get('q1f_highlight_meaning'),
-            "q1g_terms_useful": int(st.session_state.logout_survey_data.get('q1g_terms_useful')),
+            "q1g_terms_useful": safe_int(st.session_state.logout_survey_data.get('q1g_terms_useful')),
             "q1p_highlight_missed_terms": st.session_state.logout_survey_data.get('q1p_highlight_missed_terms'),
             
             # Prompt Editing Purpose
             "q1c_edit_purpose": st.session_state.logout_survey_data.get('q1c_edit_purpose'),
-            "q1d_edit_helpful": int(st.session_state.logout_survey_data.get('q1d_edit_helpful')),
-            "q1e_edit_understanding": int(st.session_state.logout_survey_data.get('q1e_edit_understanding')),
-            "q1i_edit_self_efficacy": int(st.session_state.logout_survey_data.get('q1i_edit_self_efficacy')),
-            "q1j_edit_valuable": int(st.session_state.logout_survey_data.get('q1j_edit_valuable')),
-            "q1k_edit_clarity": int(st.session_state.logout_survey_data.get('q1k_edit_clarity')),
-            "q1l_edit_learning": int(st.session_state.logout_survey_data.get('q1l_edit_learning')),
+            "q1d_edit_helpful": safe_int(st.session_state.logout_survey_data.get('q1d_edit_helpful')),
+            "q1e_edit_understanding": safe_int(st.session_state.logout_survey_data.get('q1e_edit_understanding')),
+            "q1i_edit_self_efficacy": safe_int(st.session_state.logout_survey_data.get('q1i_edit_self_efficacy')),
+            "q1j_edit_valuable": safe_int(st.session_state.logout_survey_data.get('q1j_edit_valuable')),
+            "q1k_edit_clarity": safe_int(st.session_state.logout_survey_data.get('q1k_edit_clarity')),
+            "q1l_edit_learning": safe_int(st.session_state.logout_survey_data.get('q1l_edit_learning')),
             
             # Prompt Changes
             "q1m_edit_changed_prompt": st.session_state.logout_survey_data.get('q1m_edit_changed_prompt'),
             "q1n_edit_change_reason": st.session_state.logout_survey_data.get('q1n_edit_change_reason') if st.session_state.logout_survey_data.get('q1m_edit_changed_prompt') == "Yes" else None,
-            "q1o_edit_reuse": int(st.session_state.logout_survey_data.get('q1o_edit_reuse')),
+            "q1o_edit_reuse": safe_int(st.session_state.logout_survey_data.get('q1o_edit_reuse')),
             
             # Original explainability fields
-            "q4a_helpful": st.session_state.logout_survey_data.get('q4a_helpful'),
-            "q4b_refinement": st.session_state.logout_survey_data.get('q4b_refinement'),
+            "q4a_helpful": safe_int(st.session_state.logout_survey_data.get('q4a_helpful')),
+            "q4b_refinement": safe_int(st.session_state.logout_survey_data.get('q4b_refinement')),
             "q4c_comment": st.session_state.logout_survey_data.get('q4c_comment'),
-            "q4d_understanding": st.session_state.logout_survey_data.get('q4d_understanding'),
-            "q4e_expectations": st.session_state.logout_survey_data.get('q4e_expectations'),
-            "q4f_trust": st.session_state.logout_survey_data.get('q4f_trust')
+            "q4d_understanding": safe_int(st.session_state.logout_survey_data.get('q4d_understanding')),
+            "q4e_expectations": safe_int(st.session_state.logout_survey_data.get('q4e_expectations')),
+            "q4f_trust": safe_int(st.session_state.logout_survey_data.get('q4f_trust'))
         }
 
     # Open Feedback is always the last section

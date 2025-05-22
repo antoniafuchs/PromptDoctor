@@ -55,20 +55,36 @@ Use PromptDoctor to analyze the following Clinical Note to obtain a concise summ
 **Clinical Note**:\n
 The patient, a 50-year-old female, has been followed in the cardiology clinic for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three years. Her history includes controlled hypertension and hyperlipidemia. She now presents with new onset of palpitations and shortness of breath.""",
             
-            "B": (  # Use tuple to separate content parts
-                """Use PromptDoctor to analyze the following Clinical Note to obtain a concise summary of key findings and recommendations for future management. Mark the task as completed as soon as you are content with the output of the tool.
-
-**Clinical Note**:\n""",
-                """<div style="
-                line-height: 1.6;
-                font-size: 14px;
-                margin-bottom: 15px;
-                padding: 10px;
-                background-color: white;
-                border-radius: 4px;
-            ">The patient, a 50-year-old <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.37375955338310174);color: black;font-weight: 500;" title="Impact: +0.125">female,</span> has been followed <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.22868554915771322);color: black;font-weight: 500;" title="Impact: -0.076">in</span> the cardiology <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.10112662731052524);color: black;font-weight: 500;" title="Impact: -0.034">clinic</span> for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.45459364952792947);color: black;font-weight: 500;" title="Impact: -0.152">years.</span> Her history <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.3049525619103348);color: black;font-weight: 500;" title="Impact: +0.102">includes</span> controlled hypertension and <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.3583348392132456);color: black;font-weight: 500;" title="Impact: +0.119">hyperlipidemia.</span> <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.4564232324870227);color: black;font-weight: 500;" title="Impact: -0.152">She</span> now presents with new onset of <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.488831710170352);color: black;font-weight: 500;" title="Impact: +0.163">palpitations</span> and <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.5329125002532673);color: black;font-weight: 500;" title="Impact: +0.178">shortness</span> of <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.31794982770331226);color: black;font-weight: 500;" title="Impact: +0.106">breath.</span></div>""",
-                """\n\n:red-background[Red highlights] show the words with the highest impact on the model's answer. They boost its confidence the most.\n
-:blue-background[Blue highlights] show the words with the lowest impact. They lower its confidence the most.\n"""
+            "B": (
+                # Introduction - keep as regular text
+                """Use PromptDoctor to analyze the following Clinical Note to obtain a concise summary of key findings and recommendations for future management. Mark the task as completed as soon as you are content with the output of the tool.""",
+                
+                # Clinical note - wrap in styled div with highlighted terms
+                f"""
+                <div class="clinical-note">
+                    <strong>Clinical Note:</strong><br><br>
+                    <div style="line-height: 1.6;">
+                        The patient, a 50-year-old <span class="highlight-red" title="Impact: +0.125">female,</span> 
+                        has been followed <span class="highlight-blue" title="Impact: -0.076">in</span> 
+                        the cardiology <span class="highlight-blue" title="Impact: -0.034">clinic</span> 
+                        for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three 
+                        <span class="highlight-blue" title="Impact: -0.152">years.</span> 
+                        Her history <span class="highlight-red" title="Impact: +0.102">includes</span> 
+                        controlled hypertension and <span class="highlight-red" title="Impact: +0.119">hyperlipidemia.</span> 
+                        <span class="highlight-blue" title="Impact: -0.152">She</span> now presents with new onset of 
+                        <span class="highlight-red" title="Impact: +0.163">palpitations</span> and 
+                        <span class="highlight-red" title="Impact: +0.178">shortness</span> of 
+                        <span class="highlight-red" title="Impact: +0.106">breath.</span>
+                    </div>
+                </div>""",
+                
+                # Explanation legend - wrap in styled div
+                """
+                <div class="highlight-explanation">
+                    <span class="highlight-legend-red">Red highlights</span> show the words with the highest impact on the model's answer. They boost its confidence the most.<br>
+                    <span class="highlight-legend-blue">Blue highlights</span> show the words with the lowest impact. They lower its confidence the most.
+                </div>
+                """
             )
         }
 
@@ -91,6 +107,7 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
         # Add global styles once during initialization
         st.markdown("""
             <style>
+                /* Existing styles */
                 .clinical-note {
                     line-height: 1.8;
                     font-size: 16px;
@@ -101,24 +118,38 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                     border: 1px solid #eee;
                     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
                 }
-                .explanation-text {
-                    margin-top: 15px;
-                    padding: 10px;
-                    border-radius: 4px;
-                    font-size: 16px !important;
+                
+                /* Add highlight styles */
+                .highlight-red {
+                    display: inline-block;
+                    padding: 2px 4px;
+                    margin: 0 2px;
+                    border-radius: 3px;
+                    background-color: rgba(220, 53, 69, 0.37);
+                    color: black;
+                    font-weight: 500;
                 }
-                .task-wrapper {
-                    padding: 10px 0;
+                .highlight-blue {
+                    display: inline-block;
+                    padding: 2px 4px;
+                    margin: 0 2px;
+                    border-radius: 3px;
+                    background-color: rgba(0, 123, 255, 0.22);
+                    color: black;
+                    font-weight: 500;
                 }
-                .task-intro {
-                    font-size: 16px;
-                    line-height: 1.6;
-                    margin-bottom: 15px;
+                .highlight-legend-red {
+                    color: rgb(220, 53, 69);
+                    font-weight: 600;
+                }
+                .highlight-legend-blue {
+                    color: rgb(0, 123, 255);
+                    font-weight: 600;
                 }
                 .highlight-explanation {
                     margin-top: 15px;
-                    font-size: 16px !important;
                     line-height: 1.6;
+                    font-size: 16px;
                 }
             </style>
         """, unsafe_allow_html=True)
