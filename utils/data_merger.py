@@ -58,19 +58,20 @@ class DataMerger:
     def merge_all_data(self):
         """Merge all data sources into one CSV file"""
         try:
-            # Read surveys using semicolon delimiter
-            surveys = pd.read_csv(os.path.join(self.base_path, 'survey_data', 'task', 'task_surveys.csv'), sep=';')
+            # Read tasks directly instead of task_surveys.csv
+            tasks = pd.read_csv(os.path.join(self.base_path, 'data', 'tasks.csv'), sep=';')
             
-            # Read logs with dynamic column names since number of columns may vary
-            logs = pd.read_csv('user_logs.txt', sep=';', header=None, 
-                             names=['timestamp', 'user_id', 'interaction_type', 'model_type', 'duration', 'feedback'],
-                             on_bad_lines='skip')  # Skip problematic lines
+            # Read users data
+            users = pd.read_csv(os.path.join(self.base_path, 'data', 'users.csv'), sep=';')
             
-            # Clean up logs DataFrame
-            logs = logs.fillna('')  # Replace NaN with empty string
+            # Read other data files as needed
+            interactions = pd.read_csv(os.path.join(self.base_path, 'data', 'interactions.csv'), sep=';')
             
-            # Merge based on user_id
-            merged_df = pd.merge(surveys, logs, on='user_id', how='outer')
+            # Merge based on user_id and task_id
+            merged_df = pd.merge(users, tasks, on='user_id', how='outer')
+            
+            # Optionally merge with interactions
+            # merged_df = pd.merge(merged_df, interactions, on=['user_id', 'task_id'], how='outer')
             
             # Save merged data with semicolon delimiter
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')

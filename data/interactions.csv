@@ -1,58 +1,58 @@
-user_id;task_id;action_type;timestamp;original_prompt;modified_prompt;model_response;highlighted_terms;term_count;diff_type;feedback;feedback_timestamp;model_type;duration_typing;duration_generation;duration_queue_time;message_id
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-;;;;;;;;;;;;;;;;
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-3.0;[];;Never;[];;3.0;;A;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-3.0;[];;Never;[];;3.0;;B;;;;;;;;
-;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-19T17:49:16.908278;;;;;;;;;;;;;
-d5f6a4db-5527-4974-9092-f73f5f034d22;0;SURVEY_COMPLETE;2025-05-19T17:59:58.148726;;;;;;;;;Ollama;;;;
-d5f6a4db-5527-4974-9092-f73f5f034d22;;CHAT;2025-05-19T18:03:53.375082;"I would like to know what are potential diagnosis for this:
+user_id;task_id;action_type;timestamp;original_prompt;modified_prompt;model_response;highlighted_terms;term_count;diff_type;feedback;feedback_timestamp;model_type;duration_typing;duration_generation;duration_queue_time;message_id;model_name;model_output;duration;action;user_prompt;group;additional_data;event_type;duration_total
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;A;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+3.0;[];;Never;[];;3.0;;B;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+;nan;;;;;;;nan;;;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-19T17:49:16.908278;;;;;nan;;;;;;;;;;;;;;;;;
+d5f6a4db-5527-4974-9092-f73f5f034d22;0;SURVEY_COMPLETE;2025-05-19T17:59:58.148726;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+d5f6a4db-5527-4974-9092-f73f5f034d22;nan;CHAT;2025-05-19T18:03:53.375082;"I would like to know what are potential diagnosis for this:
 
-The Patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";;Error with Ollama: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x30ce8b520>: Failed to establish a new connection: [Errno 61] Connection refused'));;;;;;Ollama;233.035891;0.003384;;
-d5f6a4db-5527-4974-9092-f73f5f034d22;;CHAT;2025-05-19T19:45:02.427043;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen;;"therapy due to COPD.
+The Patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";;Error with Ollama: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x30ce8b520>: Failed to establish a new connection: [Errno 61] Connection refused'));;nan;;;;Ollama;233.035891;0.003384;;;;;;;;;;;
+d5f6a4db-5527-4974-9092-f73f5f034d22;nan;CHAT;2025-05-19T19:45:02.427043;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen;;"therapy due to COPD.
 
 Key Findings:
 1. Community-acquired pneumonia in an 82-year-old male.
@@ -67,8 +67,8 @@ Recommendations:
 4. Provide pulmonary rehabilitation guidance to address dyspnea and overall respiratory function.
 5. Ensure follow-up within one week or sooner if symptoms worsen or new symptoms develop.
 
-Note: Consider consultation with a pulmonologist for complex management of COPD exacerbation and CAP in an elderly patient with multiple comorbidities.";;;;;;Ollama;6040.055294;28.996001;;
-d5f6a4db-5527-4974-9092-f73f5f034d22;;CHAT;2025-05-19T19:48:41.637083;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;"The 82-year-old male presents with community-acquired pneumonia (CAP) complicated by chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, absence of fever, and no recent upper respiratory tract infections. Previously hospitalized for CAP, the patient is currently on long-term oxygen therapy due to COPD.
+Note: Consider consultation with a pulmonologist for complex management of COPD exacerbation and CAP in an elderly patient with multiple comorbidities.";;nan;;;;Ollama;6040.055294;28.996001;;;;;;;;;;;
+d5f6a4db-5527-4974-9092-f73f5f034d22;nan;CHAT;2025-05-19T19:48:41.637083;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;"The 82-year-old male presents with community-acquired pneumonia (CAP) complicated by chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, absence of fever, and no recent upper respiratory tract infections. Previously hospitalized for CAP, the patient is currently on long-term oxygen therapy due to COPD.
 
 Key findings include:
 1. Community-acquired pneumonia.
@@ -82,42 +82,42 @@ Recommendations:
 3. Monitor oxygen saturation closely, adjusting supplemental oxygen as needed to maintain optimal levels.
 4. Provide guidance on pulmonary rehabilitation for addressing dyspnea and overall respiratory function.
 
-Note: Consultation with a pulmonologist may be warranted for complex management of COPD exacerbation and CAP in an elderly patient with multiple comorbidities.";;;;;;Ollama;233.694362;14.514323;;
-anonymous;;CONSENT_GIVEN;2025-05-19T19:52:15.746861;;;;;;;;;;;;;
-34b7db57-422e-44e7-b727-5a3c3ba8eb35;0;SURVEY_COMPLETE;2025-05-19T19:52:30.590790;;;;;;;;;Ollama;;;;
-34b7db57-422e-44e7-b727-5a3c3ba8eb35;;CHAT;2025-05-19T19:52:48.836416;hi;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How can I assist you in analyzing clinical notes or providing insightful information today? Please let me know the specific details or context so that I may better serve you.;;;;;;Ollama;11.598443;4.958046;;
-34b7db57-422e-44e7-b727-5a3c3ba8eb35;;CHAT;2025-05-19T19:54:46.810441;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;This 82-year-old male with a history of COPD presents with community-acquired pneumonia characterized by moderate dyspnea but no fever or recent upper respiratory infections. He has experienced previous hospitalizations for CAP and requires ongoing long-term oxygen therapy, suggesting chronic respiratory compromise. These factors warrant close monitoring in the management of this recurrent infection.;;;;;;Ollama;4.713168;8.736634;;
-34b7db57-422e-44e7-b727-5a3c3ba8eb35;;CHAT;2025-05-19T19:57:08.686893;presents with community-acquired pneumonia-background[pneumonia]];;This 82-year-old male presents with community-acquired pneumonia as a complication of his underlying chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. His history includes previous hospitalizations for CAP and ongoing long-term oxygen therapy due to chronic respiratory compromise. Close monitoring and appropriate antibiotic therapy are necessary considering his recurrent infections and comorbidities.;;;;;;Ollama;140.400502;5.499319;;
-anonymous;;CONSENT_GIVEN;2025-05-19T19:59:08.341079;;;;;;;;;;;;;
-9a884d23-c1f1-4cca-988a-c3b2372f98d7;0;SURVEY_COMPLETE;2025-05-19T19:59:22.345102;;;;;;;;;Ollama;;;;
-9a884d23-c1f1-4cca-988a-c3b2372f98d7;;CHAT;2025-05-19T19:59:58.663118;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;Based on the provided clinical information, this 45-year-old male patient's chief complaints include right-sided chest pain described as sharp and intermittent, worsened with movement or deep inspiration, accompanied by shortness of breath and persistent fatigue for two weeks without associated fever, cough, or recent travel history. This symptomatology could suggest an acute thoracic condition such as pleurisy or pulmonary embolism. Further diagnostic evaluation is needed to confirm the diagnosis.;;;;;;Ollama;27.637811;6.8421;;
-9a884d23-c1f1-4cca-988a-c3b2372f98d7;;CHAT;2025-05-19T20:00:24.688473;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;The 82-year-old male with known COPD now presents with community-acquired pneumonia (CAP), characterized by moderate dyspnea but no fever or recent upper respiratory tract infections. His history includes a prior hospitalization for CAP and he is currently on long-term supplemental oxygen therapy, suggesting recurrent respiratory issues.;;;;;;Ollama;28.932822;3.936914;;
-anonymous;;CONSENT_GIVEN;2025-05-19T21:53:04.674947;;;;;;;;;;;;;
-7dcfd33d-e5d9-4835-af42-f8009eaa416e;0;SURVEY_COMPLETE;2025-05-19T21:54:23.603014;;;;;;;;;Ollama;;;;
-anonymous;;CONSENT_GIVEN;2025-05-19T22:03:22.119575;;;;;;;;;;;;;
-007238e0-9559-4995-89dd-f0d3c265a41b;0;SURVEY_COMPLETE;2025-05-19T22:03:33.766351;;;;;;;;;Ollama;;;;
-007238e0-9559-4995-89dd-f0d3c265a41b;;CHAT;2025-05-19T22:04:20.868086;"hi patient
-";;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;;;;;Ollama;29.311219;15.048319;;
-007238e0-9559-4995-89dd-f0d3c265a41b;1;FEEDBACK;2025-05-19T22:04:24.388636;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;;;1.0;;;;;;
-007238e0-9559-4995-89dd-f0d3c265a41b;;CHAT;2025-05-19T22:06:18.431006;hi;;Hello! I'm PromptDoctor, a medical AI assistant here to support healthcare professionals by analyzing clinical notes and extracting critical information for enhanced patient care. Please feel free to share the clinical note you'd like me to assess or provide guidance on.;;;;;;Ollama;129.07522;3.53884;;
-anonymous;;CONSENT_GIVEN;2025-05-20T11:36:28.509137;;;;;;;;;;;;;
-d44f4d08-1e05-4402-a54e-9607aba12a92;0;SURVEY_COMPLETE;2025-05-20T11:38:09.260455;;;;;;;;;Ollama;;;;
-d44f4d08-1e05-4402-a54e-9607aba12a92;;CHAT;2025-05-20T11:39:00.087821;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;;;;;Ollama;33.347189;15.46845;;
-d44f4d08-1e05-4402-a54e-9607aba12a92;1;FEEDBACK;2025-05-20T11:39:03.878220;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;;;0.0;;;;;;
-d44f4d08-1e05-4402-a54e-9607aba12a92;;CHAT;2025-05-20T11:39:20.767785;What could be the diagnosis?;;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;;;;;Ollama;31.940371;4.224491;;
-d44f4d08-1e05-4402-a54e-9607aba12a92;1;FEEDBACK;2025-05-20T11:39:39.623145;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;;;1.0;;;;;;
-d44f4d08-1e05-4402-a54e-9607aba12a92;;CHAT;2025-05-20T13:10:56.023027;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Do you have a specific question or would you like me to help with analyzing clinical notes? Please let me know how I can support you.;;;;;;Ollama;5484.995744;14.483328;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:17:06.685669;;;;;;;;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:20:14.599389;;;;;;;;;;;;;
-28eb182e-7a15-4b65-a625-cbf1ddfedce1;0;SURVEY_COMPLETE;2025-05-20T14:21:41.615581;;;;;;;;;Ollama;;;;
-28eb182e-7a15-4b65-a625-cbf1ddfedce1;;CHAT;2025-05-20T14:23:34.347441;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;;;;;Ollama;94.077363;16.44341;;
-28eb182e-7a15-4b65-a625-cbf1ddfedce1;;CHAT;2025-05-20T14:23:52.547724;what could be the diagnosis?;;"Based on the symptoms provided, potential diagnoses include:
+Note: Consultation with a pulmonologist may be warranted for complex management of COPD exacerbation and CAP in an elderly patient with multiple comorbidities.";;nan;;;;Ollama;233.694362;14.514323;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-19T19:52:15.746861;;;;;nan;;;;;;;;;;;;;;;;;
+34b7db57-422e-44e7-b727-5a3c3ba8eb35;0;SURVEY_COMPLETE;2025-05-19T19:52:30.590790;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+34b7db57-422e-44e7-b727-5a3c3ba8eb35;nan;CHAT;2025-05-19T19:52:48.836416;hi;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How can I assist you in analyzing clinical notes or providing insightful information today? Please let me know the specific details or context so that I may better serve you.;;nan;;;;Ollama;11.598443;4.958046;;;;;;;;;;;
+34b7db57-422e-44e7-b727-5a3c3ba8eb35;nan;CHAT;2025-05-19T19:54:46.810441;The Patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;This 82-year-old male with a history of COPD presents with community-acquired pneumonia characterized by moderate dyspnea but no fever or recent upper respiratory infections. He has experienced previous hospitalizations for CAP and requires ongoing long-term oxygen therapy, suggesting chronic respiratory compromise. These factors warrant close monitoring in the management of this recurrent infection.;;nan;;;;Ollama;4.713168;8.736634;;;;;;;;;;;
+34b7db57-422e-44e7-b727-5a3c3ba8eb35;nan;CHAT;2025-05-19T19:57:08.686893;presents with community-acquired pneumonia-background[pneumonia]];;This 82-year-old male presents with community-acquired pneumonia as a complication of his underlying chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. His history includes previous hospitalizations for CAP and ongoing long-term oxygen therapy due to chronic respiratory compromise. Close monitoring and appropriate antibiotic therapy are necessary considering his recurrent infections and comorbidities.;;nan;;;;Ollama;140.400502;5.499319;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-19T19:59:08.341079;;;;;nan;;;;;;;;;;;;;;;;;
+9a884d23-c1f1-4cca-988a-c3b2372f98d7;0;SURVEY_COMPLETE;2025-05-19T19:59:22.345102;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+9a884d23-c1f1-4cca-988a-c3b2372f98d7;nan;CHAT;2025-05-19T19:59:58.663118;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;Based on the provided clinical information, this 45-year-old male patient's chief complaints include right-sided chest pain described as sharp and intermittent, worsened with movement or deep inspiration, accompanied by shortness of breath and persistent fatigue for two weeks without associated fever, cough, or recent travel history. This symptomatology could suggest an acute thoracic condition such as pleurisy or pulmonary embolism. Further diagnostic evaluation is needed to confirm the diagnosis.;;nan;;;;Ollama;27.637811;6.8421;;;;;;;;;;;
+9a884d23-c1f1-4cca-988a-c3b2372f98d7;nan;CHAT;2025-05-19T20:00:24.688473;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;The 82-year-old male with known COPD now presents with community-acquired pneumonia (CAP), characterized by moderate dyspnea but no fever or recent upper respiratory tract infections. His history includes a prior hospitalization for CAP and he is currently on long-term supplemental oxygen therapy, suggesting recurrent respiratory issues.;;nan;;;;Ollama;28.932822;3.936914;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-19T21:53:04.674947;;;;;nan;;;;;;;;;;;;;;;;;
+7dcfd33d-e5d9-4835-af42-f8009eaa416e;0;SURVEY_COMPLETE;2025-05-19T21:54:23.603014;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-19T22:03:22.119575;;;;;nan;;;;;;;;;;;;;;;;;
+007238e0-9559-4995-89dd-f0d3c265a41b;0;SURVEY_COMPLETE;2025-05-19T22:03:33.766351;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+007238e0-9559-4995-89dd-f0d3c265a41b;nan;CHAT;2025-05-19T22:04:20.868086;"hi patient
+";;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;nan;;;;Ollama;29.311219;15.048319;;;;;;;;;;;
+007238e0-9559-4995-89dd-f0d3c265a41b;1;FEEDBACK;2025-05-19T22:04:24.388636;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;As a medical AI, I am unable to engage in casual conversation or establish personal relationships with patients. My purpose is to assist healthcare providers by analyzing clinical notes and providing medically relevant insights based on the extracted information. If you have any specific questions regarding a particular case or need assistance with data analysis, please let me know how I can help.;;nan;;1.0;;;;;;;;;;;;;;;
+007238e0-9559-4995-89dd-f0d3c265a41b;nan;CHAT;2025-05-19T22:06:18.431006;hi;;Hello! I'm PromptDoctor, a medical AI assistant here to support healthcare professionals by analyzing clinical notes and extracting critical information for enhanced patient care. Please feel free to share the clinical note you'd like me to assess or provide guidance on.;;nan;;;;Ollama;129.07522;3.53884;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T11:36:28.509137;;;;;nan;;;;;;;;;;;;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;0;SURVEY_COMPLETE;2025-05-20T11:38:09.260455;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;nan;CHAT;2025-05-20T11:39:00.087821;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;nan;;;;Ollama;33.347189;15.46845;;;;;;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;1;FEEDBACK;2025-05-20T11:39:03.878220;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue lasting for two weeks. The absence of fever, cough, and recent travel suggests an acute localized cardiac or pulmonary etiology over a systemic infection or respiratory illness.;;nan;;0.0;;;;;;;;;;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;nan;CHAT;2025-05-20T11:39:20.767785;What could be the diagnosis?;;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;nan;;;;Ollama;31.940371;4.224491;;;;;;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;1;FEEDBACK;2025-05-20T11:39:39.623145;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;Based on the information provided, possible diagnoses include right-sided musculoskeletal chest wall pain, costochondritis, or potentially a cardiac condition such as pulmonary embolism, pneumothorax, or myocardial ischemia. Further diagnostic tests, including imaging studies and ECG, should be considered to narrow down the differential diagnosis and guide management accordingly.;;nan;;1.0;;;;;;;;;;;;;;;
+d44f4d08-1e05-4402-a54e-9607aba12a92;nan;CHAT;2025-05-20T13:10:56.023027;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Do you have a specific question or would you like me to help with analyzing clinical notes? Please let me know how I can support you.;;nan;;;;Ollama;5484.995744;14.483328;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:17:06.685669;;;;;nan;;;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:20:14.599389;;;;;nan;;;;;;;;;;;;;;;;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;0;SURVEY_COMPLETE;2025-05-20T14:21:41.615581;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;nan;CHAT;2025-05-20T14:23:34.347441;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;nan;;;;Ollama;94.077363;16.44341;;;;;;;;;;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;nan;CHAT;2025-05-20T14:23:52.547724;what could be the diagnosis?;;"Based on the symptoms provided, potential diagnoses include:
 
 1) Costochondritis: Inflammation of cartilages connecting ribs to sternum, causing sharp, intermittent chest pain exacerbated by movement or deep inspiration.
 2) Pulmonary Embolism (PE): A blood clot in the lung arteries leading to chest pain and shortness of breath. Differential diagnosis includes musculoskeletal conditions due to similar presentation but lack of respiratory symptoms.
 3) Musculoskeletal issues: Strained muscles, intercostal nerve involvement, or rib injury mimicking costochondritis or PE.
 
-Further diagnostic tests such as ECG, chest X-ray, D-dimer assay (for PE), blood tests for inflammatory markers, and possibly imaging studies for musculoskeletal conditions are recommended to establish an accurate diagnosis.";;;;;;Ollama;26.348476;8.297087;;
+Further diagnostic tests such as ECG, chest X-ray, D-dimer assay (for PE), blood tests for inflammatory markers, and possibly imaging studies for musculoskeletal conditions are recommended to establish an accurate diagnosis.";;nan;;;;Ollama;26.348476;8.297087;;;;;;;;;;;
 28eb182e-7a15-4b65-a625-cbf1ddfedce1;1;FEEDBACK;2025-05-20T14:24:15.999617;"Based on the symptoms provided, potential diagnoses include:
 
 1) Costochondritis: Inflammation of cartilages connecting ribs to sternum, causing sharp, intermittent chest pain exacerbated by movement or deep inspiration.
@@ -130,79 +130,661 @@ Further diagnostic tests such as ECG, chest X-ray, D-dimer assay (for PE), blood
 2) Pulmonary Embolism (PE): A blood clot in the lung arteries leading to chest pain and shortness of breath. Differential diagnosis includes musculoskeletal conditions due to similar presentation but lack of respiratory symptoms.
 3) Musculoskeletal issues: Strained muscles, intercostal nerve involvement, or rib injury mimicking costochondritis or PE.
 
-Further diagnostic tests such as ECG, chest X-ray, D-dimer assay (for PE), blood tests for inflammatory markers, and possibly imaging studies for musculoskeletal conditions are recommended to establish an accurate diagnosis.";;;;1.0;;;;;;
-28eb182e-7a15-4b65-a625-cbf1ddfedce1;1;FEEDBACK;2025-05-20T14:24:17.483589;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;;;0.0;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:26:43.928270;;;;;;;;;;;;;
-e192f6ba-e2d1-4fc8-89e8-0a8ca09b7d09;0;SURVEY_COMPLETE;2025-05-20T14:26:58.223697;;;;;;;;;Ollama;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:29:26.407420;;;;;;;;;;;;;
-6b8241fd-ff2b-48b7-904a-f73724b897a4;0;SURVEY_COMPLETE;2025-05-20T14:29:36.884402;;;;;;;;;Ollama;;;;
-6b8241fd-ff2b-48b7-904a-f73724b897a4;;CHAT;2025-05-20T14:30:18.542702;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;;;;;Ollama;23.244139;16.764213;;
-6b8241fd-ff2b-48b7-904a-f73724b897a4;;CHAT;2025-05-20T14:31:08.728673;What could be the diagnosis?;;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;;;;;Ollama;63.611897;3.366798;;
-6b8241fd-ff2b-48b7-904a-f73724b897a4;1;FEEDBACK;2025-05-20T14:31:16.110880;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;;;1.0;;;;;;
-6b8241fd-ff2b-48b7-904a-f73724b897a4;1;FEEDBACK;2025-05-20T14:31:17.380069;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;;;0.0;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:33:50.176560;;;;;;;;;;;;;
-cc2469e8-aac0-4dbc-9589-2544d376654f;0;SURVEY_COMPLETE;2025-05-20T14:34:00.599797;;;;;;;;;Ollama;;;;
-cc2469e8-aac0-4dbc-9589-2544d376654f;;CHAT;2025-05-20T14:34:17.915795;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;;;;;Ollama;9.315541;6.178006;;
-cc2469e8-aac0-4dbc-9589-2544d376654f;1;FEEDBACK;2025-05-20T14:34:19.595099;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;;;1.0;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:36:08.141219;;;;;;;;;;;;;
-0aeded05-81d5-4e9a-acc8-977a0b60934c;0;SURVEY_COMPLETE;2025-05-20T14:36:19.140267;;;;;;;;;Ollama;;;;
-0aeded05-81d5-4e9a-acc8-977a0b60934c;;CHAT;2025-05-20T14:36:35.014358;hi;;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;;;;;Ollama;7.362767;6.594421;;
-0aeded05-81d5-4e9a-acc8-977a0b60934c;1;FEEDBACK;2025-05-20T14:36:38.012157;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;;;1.0;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:38:41.108339;;;;;;;;;;;;;
-178d181b-add6-4541-afc5-1a8c6a459886;0;SURVEY_COMPLETE;2025-05-20T14:38:57.246995;;;;;;;;;Ollama;;;;
-178d181b-add6-4541-afc5-1a8c6a459886;;CHAT;2025-05-20T14:39:17.054612;hi;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;;;;;Ollama;12.071781;5.850458;;
-178d181b-add6-4541-afc5-1a8c6a459886;1;FEEDBACK;2025-05-20T14:39:18.896080;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;;;1.0;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:40:17.960925;;;;;;;;;;;;;
-822a1d99-2d13-47d4-a118-8480d6ea7d34;0;SURVEY_COMPLETE;2025-05-20T14:40:29.239580;;;;;;;;;Ollama;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:53:48.787590;;;;;;;;;;;;;
-89776072-4268-4027-bab7-fe979192e5f0;0;SURVEY_COMPLETE;2025-05-20T14:54:00.491313;;;;;;;;;Ollama;;;;
-89776072-4268-4027-bab7-fe979192e5f0;;CHAT;2025-05-20T14:54:32.979847;hi;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;;;;;Ollama;17.895594;12.932673;;
-89776072-4268-4027-bab7-fe979192e5f0;1;FEEDBACK;2025-05-20T14:54:35.214675;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;;;1.0;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T14:56:00.158645;;;;;;;;;;;;;
-a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;0;SURVEY_COMPLETE;2025-05-20T14:56:10.966644;;;;;;;;;Ollama;;;;
-a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;;CHAT;2025-05-20T14:56:26.086658;hu;;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;;;;;Ollama;8.761437;4.502336;;
-a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;1;FEEDBACK;2025-05-20T14:56:27.907424;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;;;1.0;;;;;;
-a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;;CHAT;2025-05-20T14:56:44.385800;hello;;Hello! As a clinical note analysis tool, I am here to assist you in understanding and extracting key medical information from patient records. Please provide the specific clinical note or details about the case you'd like me to analyze, so I can offer relevant insights.;;;;;;Ollama;19.419676;3.370211;;
-a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;;CHAT;2025-05-20T14:58:05.414595;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to analyze a specific clinical note or provide general healthcare information? Please let me know, so I can tailor my response for maximum usefulness.;;;;;;Ollama;80.417432;3.982916;;
-anonymous;;CONSENT_GIVEN;2025-05-20T15:38:57.986557;;;;;;;;;;;;;
-846177f0-045d-425d-8973-3095af3f907a;0;SURVEY_COMPLETE;2025-05-20T15:39:14.023897;;;;;;;;;Ollama;;;;
-846177f0-045d-425d-8973-3095af3f907a;;CHAT;2025-05-20T15:39:42.450360;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;;;;;Ollama;11.395457;14.932816;;
-846177f0-045d-425d-8973-3095af3f907a;1;FEEDBACK;2025-05-20T15:42:41.125909;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;;;1.0;;;;;;
-846177f0-045d-425d-8973-3095af3f907a;;CHAT;2025-05-20T15:46:24.376409;hi;;Hello! As a PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the text of the note or ask a specific question related to it, and I'll do my best to help.;;;;;;Ollama;405.282201;11.577987;;
-846177f0-045d-425d-8973-3095af3f907a;;CHAT;2025-05-20T15:49:58.648584;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today in analyzing clinical notes or providing relevant medical insights? Please let me know the specific request or question you have.;;;;;;Ollama;220.79202;5.057297;;
-anonymous;;CONSENT_GIVEN;2025-05-20T16:11:36.592506;;;;;;;;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T22:11:27.106884;;;;;;;;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T22:11:57.654429;;;;;;;;;;;;;
-372313c0-4622-40e4-a58e-be4f741b3fc6;0;SURVEY_COMPLETE;2025-05-20T22:13:25.216757;;;;;;;;;Ollama;;;;
-372313c0-4622-40e4-a58e-be4f741b3fc6;;CHAT;2025-05-20T22:13:53.543642;hi this is a test;;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;;;;;Ollama;11.376363;15.016248;;
-372313c0-4622-40e4-a58e-be4f741b3fc6;1;FEEDBACK;2025-05-20T22:13:58.656511;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;;;1.0;;;;;;
-372313c0-4622-40e4-a58e-be4f741b3fc6;;CHAT;2025-05-20T22:14:15.348253;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Please feel free to share any clinical notes or patient data for me to analyze, or specify the type of insight you need (e.g., medication review, diagnosis summary, etc.).;;;;;;Ollama;33.573168;3.236983;;
-372313c0-4622-40e4-a58e-be4f741b3fc6;;CHAT;2025-05-20T22:15:13.240421;hello;;Hello! I am PromptDoctor, your AI medical assistant. How may I assist you today? Please let me know if you have any clinical notes or questions for analysis.;;;;;;Ollama;58.268447;2.872694;;
-anonymous;;CONSENT_GIVEN;2025-05-20T22:18:35.084972;;;;;;;;;;;;;
-726b8603-289e-41aa-b871-01f147852f69;0;SURVEY_COMPLETE;2025-05-20T22:18:46.793066;;;;;;;;;Ollama;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T22:19:16.733458;;;;;;;;;;;;;
-b58aaefa-cc13-43c9-bee7-691ec68a5949;0;SURVEY_COMPLETE;2025-05-20T22:19:27.707967;;;;;;;;;Ollama;;;;
-b58aaefa-cc13-43c9-bee7-691ec68a5949;;CHAT;2025-05-20T22:19:57.578939;hi;;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;;;;;Ollama;21.684357;6.543061;;
-b58aaefa-cc13-43c9-bee7-691ec68a5949;1;FEEDBACK;2025-05-20T22:20:02.604385;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;;;1.0;;;;;;
-b58aaefa-cc13-43c9-bee7-691ec68a5949;;CHAT;2025-05-20T22:20:19.104222;hello;;Hello! As a medical AI, I am here to assist you in analyzing clinical notes and providing insights based on the extracted information. Please provide me with the text or context of the note you would like help with, and I'll do my best to summarize key findings and suggest potential next steps for the patient's care.;;;;;;Ollama;23.906628;4.157608;;
-anonymous;;CONSENT_GIVEN;2025-05-20T22:28:13.922411;;;;;;;;;;;;;
-772d7eea-c505-4d14-90fc-e9ff693b0037;0;SURVEY_COMPLETE;2025-05-20T22:28:25.403334;;;;;;;;;Ollama;;;;
-anonymous;;CONSENT_GIVEN;2025-05-20T22:31:32.957254;;;;;;;;;;;;;
-d558eb9b-df76-4c27-a939-e3a24517772f;0;SURVEY_COMPLETE;2025-05-20T22:32:22.455216;;;;;;;;;Ollama;;;;
-d558eb9b-df76-4c27-a939-e3a24517772f;;CHAT;2025-05-20T22:32:49.852453;hi;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;;;;;Ollama;12.077971;13.655199;;
-d558eb9b-df76-4c27-a939-e3a24517772f;1;FEEDBACK;2025-05-20T22:32:52.223765;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;;;0.0;;;;;;
-d558eb9b-df76-4c27-a939-e3a24517772f;;CHAT;2025-05-20T22:33:08.142367;hello;;Hello! As a medical assistant, I'm here to assist you in analyzing clinical notes and extracting important medical information for decision-making purposes. Please provide the text of the notes or any specific questions you'd like me to focus on, and I'll do my best to help you.;;;;;;Ollama;27.592791;4.357333;;
-anonymous;;CONSENT_GIVEN;2025-05-20T22:40:18.234963;;;;;;;;;;;;;
-62d6863e-db5d-4071-a162-118dfebf2a8a;0;SURVEY_COMPLETE;2025-05-20T22:40:33.032842;;;;;;;;;Ollama;;;;
-62d6863e-db5d-4071-a162-118dfebf2a8a;;CHAT;2025-05-20T22:40:58.471902;hi;;Hello! As a PromptDoctor, I'm here to assist you in analyzing clinical notes and providing relevant medical insights. Please share the text or context of the note you'd like me to review, so I can extract key information and give you concise feedback.;;;;;;Ollama;9.792039;13.828172;;
-62d6863e-db5d-4071-a162-118dfebf2a8a;;CHAT;2025-05-20T22:41:45.285207;hi;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;;;;;Ollama;55.814082;4.828342;;
-62d6863e-db5d-4071-a162-118dfebf2a8a;2;FEEDBACK;2025-05-20T22:41:52.727484;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;;;0.0;;;;;;
-anonymous;;CONSENT_GIVEN;2025-05-21T09:29:06.843147;;;;;;;;;;;;;
-c94351d5-2cbe-466a-9f32-fc886501b959;0;SURVEY_COMPLETE;2025-05-21T09:29:17.740591;;;;;;;;;Ollama;;;;
-c94351d5-2cbe-466a-9f32-fc886501b959;;CHAT;2025-05-21T09:29:44.886677;hi;;As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing medically relevant insights. If you'd like to proceed, kindly provide the clinical note(s) you'd like me to examine or describe the specific information you're seeking.;;;;;;Ollama;7.94294;17.241297;;
-anonymous;;CONSENT_GIVEN;2025-05-21T09:40:58.875166;;;;;;;;;;;;;
-c6e7a382-292d-46b1-8f90-b3def528de28;0;SURVEY_COMPLETE;2025-05-21T09:41:14.732845;;;;;;;;;Ollama;;;;
-c6e7a382-292d-46b1-8f90-b3def528de28;;CHAT;2025-05-21T09:42:19.455298;hi;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing key findings for your review. Please provide the text of the clinical note or any specific query related to it so that I can help you effectively.;;;;;;Ollama;48.713186;14.078703;;
-c6e7a382-292d-46b1-8f90-b3def528de28;1;FEEDBACK;2025-05-21T09:42:38.809908;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing key findings for your review. Please provide the text of the clinical note or any specific query related to it so that I can help you effectively.;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing key findings for your review. Please provide the text of the clinical note or any specific query related to it so that I can help you effectively.;;;;1.0;;;;;;
-c6e7a382-292d-46b1-8f90-b3def528de28;;CHAT;2025-05-21T09:42:55.148248;hi;;Hello! As a medical AI, I'm here to assist you in analyzing and extracting meaningful insights from clinical notes. Please provide the text or a brief description of the case you'd like me to analyze. This will help me generate relevant information for your query.;;;;;;Ollama;46.175092;3.600228;;
-c6e7a382-292d-46b1-8f90-b3def528de28;;CHAT;2025-05-21T09:43:54.644773;hi;;Hello! As a PromptDoctor, I am here to assist you with analyzing clinical notes and providing insights. Please feel free to share the notes or a summary of them, and I will extract relevant medical information for your review.;;;;;;Ollama;58.631105;4.46105;;
+Further diagnostic tests such as ECG, chest X-ray, D-dimer assay (for PE), blood tests for inflammatory markers, and possibly imaging studies for musculoskeletal conditions are recommended to establish an accurate diagnosis.";;nan;;1.0;;;;;;;;;;;;;;;
+28eb182e-7a15-4b65-a625-cbf1ddfedce1;1;FEEDBACK;2025-05-20T14:24:17.483589;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;The patient is a 45-year-old male presenting with right-sided chest pain described as sharp and intermittent, worsening with movement or deep inspiration, accompanied by shortness of breath and fatigue persisting for two weeks without associated fever, cough, or recent travel. This clinical picture may suggest conditions such as costochondritis, pulmonary embolism (PE), or musculoskeletal issues. Further diagnostic workup is needed to determine the underlying cause and appropriate management.;;nan;;0.0;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:26:43.928270;;;;;nan;;;;;;;;;;;;;;;;;
+e192f6ba-e2d1-4fc8-89e8-0a8ca09b7d09;0;SURVEY_COMPLETE;2025-05-20T14:26:58.223697;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:29:26.407420;;;;;nan;;;;;;;;;;;;;;;;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;0;SURVEY_COMPLETE;2025-05-20T14:29:36.884402;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;nan;CHAT;2025-05-20T14:30:18.542702;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;nan;;;;Ollama;23.244139;16.764213;;;;;;;;;;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;nan;CHAT;2025-05-20T14:31:08.728673;What could be the diagnosis?;;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;nan;;;;Ollama;63.611897;3.366798;;;;;;;;;;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;1;FEEDBACK;2025-05-20T14:31:16.110880;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;Based on the provided information, potential diagnoses include costochondritis, pulmonary embolism, or pneumonia. Further evaluation is necessary to confirm a specific diagnosis, as these conditions present with overlapping symptoms such as chest pain and shortness of breath.;;nan;;1.0;;;;;;;;;;;;;;;
+6b8241fd-ff2b-48b7-904a-f73724b897a4;1;FEEDBACK;2025-05-20T14:31:17.380069;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;Based on the provided information, a differential diagnosis could include costochondritis (inflammation of cartilage that connects ribs to breastbone), pulmonary embolism (blood clot in lung arteries), or pneumonia (lung infection). Further evaluation and testing are necessary to confirm or rule out these possibilities. Immediate management may involve monitoring vital signs, performing an electrocardiogram (ECG), and obtaining a chest X-ray. Additional tests such as computed tomography pulmonary angiography (CTPA) or blood work for D-dimer levels could be considered depending on the clinical findings and patient's overall presentation.;;nan;;0.0;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:33:50.176560;;;;;nan;;;;;;;;;;;;;;;;;
+cc2469e8-aac0-4dbc-9589-2544d376654f;0;SURVEY_COMPLETE;2025-05-20T14:34:00.599797;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+cc2469e8-aac0-4dbc-9589-2544d376654f;nan;CHAT;2025-05-20T14:34:17.915795;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;nan;;;;Ollama;9.315541;6.178006;;;;;;;;;;;
+cc2469e8-aac0-4dbc-9589-2544d376654f;1;FEEDBACK;2025-05-20T14:34:19.595099;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you with analyzing a clinical note or providing medically relevant insights today? Please share the note or specific question you'd like me to address.;;nan;;1.0;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:36:08.141219;;;;;nan;;;;;;;;;;;;;;;;;
+0aeded05-81d5-4e9a-acc8-977a0b60934c;0;SURVEY_COMPLETE;2025-05-20T14:36:19.140267;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+0aeded05-81d5-4e9a-acc8-977a0b60934c;nan;CHAT;2025-05-20T14:36:35.014358;hi;;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;nan;;;;Ollama;7.362767;6.594421;;;;;;;;;;;
+0aeded05-81d5-4e9a-acc8-977a0b60934c;1;FEEDBACK;2025-05-20T14:36:38.012157;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;Hello! As a PromptDoctor AI, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please feel free to provide the text or context of the notes you'd like me to review, and I'll do my best to summarize the key points and offer insights based on my training.;;nan;;1.0;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:38:41.108339;;;;;nan;;;;;;;;;;;;;;;;;
+178d181b-add6-4541-afc5-1a8c6a459886;0;SURVEY_COMPLETE;2025-05-20T14:38:57.246995;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+178d181b-add6-4541-afc5-1a8c6a459886;nan;CHAT;2025-05-20T14:39:17.054612;hi;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;nan;;;;Ollama;12.071781;5.850458;;;;;;;;;;;
+178d181b-add6-4541-afc5-1a8c6a459886;1;FEEDBACK;2025-05-20T14:39:18.896080;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes and providing relevant insights. If you'd like to proceed, please provide the text or patient data for me to work with, or describe your specific question or concern related to clinical note analysis.;;nan;;1.0;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:40:17.960925;;;;;nan;;;;;;;;;;;;;;;;;
+822a1d99-2d13-47d4-a118-8480d6ea7d34;0;SURVEY_COMPLETE;2025-05-20T14:40:29.239580;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:53:48.787590;;;;;nan;;;;;;;;;;;;;;;;;
+89776072-4268-4027-bab7-fe979192e5f0;0;SURVEY_COMPLETE;2025-05-20T14:54:00.491313;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+89776072-4268-4027-bab7-fe979192e5f0;nan;CHAT;2025-05-20T14:54:32.979847;hi;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;nan;;;;Ollama;17.895594;12.932673;;;;;;;;;;;
+89776072-4268-4027-bab7-fe979192e5f0;1;FEEDBACK;2025-05-20T14:54:35.214675;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing relevant insights. Please feel free to provide the text or context of the notes you'd like me to analyze, and I'll do my best to extract key information and summarize it for you.;;nan;;1.0;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T14:56:00.158645;;;;;nan;;;;;;;;;;;;;;;;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;0;SURVEY_COMPLETE;2025-05-20T14:56:10.966644;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;nan;CHAT;2025-05-20T14:56:26.086658;hu;;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;nan;;;;Ollama;8.761437;4.502336;;;;;;;;;;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;1;FEEDBACK;2025-05-20T14:56:27.907424;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;"As a medical AI, I cannot provide a response based on the input ""hu"". Could you please clarify or rephrase your query so that I can better understand and assist you?";;nan;;1.0;;;;;;;;;;;;;;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;nan;CHAT;2025-05-20T14:56:44.385800;hello;;Hello! As a clinical note analysis tool, I am here to assist you in understanding and extracting key medical information from patient records. Please provide the specific clinical note or details about the case you'd like me to analyze, so I can offer relevant insights.;;nan;;;;Ollama;19.419676;3.370211;;;;;;;;;;;
+a82c2e13-f7e4-41b9-a3cb-35ca0cf2d46c;nan;CHAT;2025-05-20T14:58:05.414595;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to analyze a specific clinical note or provide general healthcare information? Please let me know, so I can tailor my response for maximum usefulness.;;nan;;;;Ollama;80.417432;3.982916;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T15:38:57.986557;;;;;nan;;;;;;;;;;;;;;;;;
+846177f0-045d-425d-8973-3095af3f907a;0;SURVEY_COMPLETE;2025-05-20T15:39:14.023897;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+846177f0-045d-425d-8973-3095af3f907a;nan;CHAT;2025-05-20T15:39:42.450360;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;nan;;;;Ollama;11.395457;14.932816;;;;;;;;;;;
+846177f0-045d-425d-8973-3095af3f907a;1;FEEDBACK;2025-05-20T15:42:41.125909;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Would you like me to extract specific information from a clinical note or summarize a particular diagnosis for discussion purposes? Please let me know how I can best support you.;;nan;;1.0;;;;;;;;;;;;;;;
+846177f0-045d-425d-8973-3095af3f907a;nan;CHAT;2025-05-20T15:46:24.376409;hi;;Hello! As a PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting medically relevant information. Please provide the text of the note or ask a specific question related to it, and I'll do my best to help.;;nan;;;;Ollama;405.282201;11.577987;;;;;;;;;;;
+846177f0-045d-425d-8973-3095af3f907a;nan;CHAT;2025-05-20T15:49:58.648584;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today in analyzing clinical notes or providing relevant medical insights? Please let me know the specific request or question you have.;;nan;;;;Ollama;220.79202;5.057297;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T16:11:36.592506;;;;;nan;;;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T22:11:27.106884;;;;;nan;;;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T22:11:57.654429;;;;;nan;;;;;;;;;;;;;;;;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;0;SURVEY_COMPLETE;2025-05-20T22:13:25.216757;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;nan;CHAT;2025-05-20T22:13:53.543642;hi this is a test;;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;nan;;;;Ollama;11.376363;15.016248;;;;;;;;;;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;1;FEEDBACK;2025-05-20T22:13:58.656511;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;As a medical AI, I cannot engage in casual conversations or respond to non-medical queries. If you have any specific questions or would like assistance with analyzing clinical notes, feel free to provide the relevant information, and I will do my best to assist you.;;nan;;1.0;;;;;;;;;;;;;;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;nan;CHAT;2025-05-20T22:14:15.348253;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Please feel free to share any clinical notes or patient data for me to analyze, or specify the type of insight you need (e.g., medication review, diagnosis summary, etc.).;;nan;;;;Ollama;33.573168;3.236983;;;;;;;;;;;
+372313c0-4622-40e4-a58e-be4f741b3fc6;nan;CHAT;2025-05-20T22:15:13.240421;hello;;Hello! I am PromptDoctor, your AI medical assistant. How may I assist you today? Please let me know if you have any clinical notes or questions for analysis.;;nan;;;;Ollama;58.268447;2.872694;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T22:18:35.084972;;;;;nan;;;;;;;;;;;;;;;;;
+726b8603-289e-41aa-b871-01f147852f69;0;SURVEY_COMPLETE;2025-05-20T22:18:46.793066;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T22:19:16.733458;;;;;nan;;;;;;;;;;;;;;;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;0;SURVEY_COMPLETE;2025-05-20T22:19:27.707967;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;nan;CHAT;2025-05-20T22:19:57.578939;hi;;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;nan;;;;Ollama;21.684357;6.543061;;;;;;;;;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;1;FEEDBACK;2025-05-20T22:20:02.604385;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;Hello! As a PromptDoctor AI, I am here to assist you in analyzing clinical notes and providing useful information for your medical practice. If you have any specific text or case you'd like me to review, please feel free to provide it, and I'll do my best to give you accurate and concise insights based on the extracted data.;;nan;;1.0;;;;;;;;;;;;;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;nan;CHAT;2025-05-20T22:20:19.104222;hello;;Hello! As a medical AI, I am here to assist you in analyzing clinical notes and providing insights based on the extracted information. Please provide me with the text or context of the note you would like help with, and I'll do my best to summarize key findings and suggest potential next steps for the patient's care.;;nan;;;;Ollama;23.906628;4.157608;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T22:28:13.922411;;;;;nan;;;;;;;;;;;;;;;;;
+772d7eea-c505-4d14-90fc-e9ff693b0037;0;SURVEY_COMPLETE;2025-05-20T22:28:25.403334;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T22:31:32.957254;;;;;nan;;;;;;;;;;;;;;;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;0;SURVEY_COMPLETE;2025-05-20T22:32:22.455216;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;nan;CHAT;2025-05-20T22:32:49.852453;hi;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;nan;;;;Ollama;12.077971;13.655199;;;;;;;;;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;1;FEEDBACK;2025-05-20T22:32:52.223765;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;Hello! I'm PromptDoctor, your AI-powered medical assistant. How may I assist you today? Do you have a specific clinical note or medical query that needs analysis or insight? Please provide the details so that I can help you effectively.;;nan;;0.0;;;;;;;;;;;;;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;nan;CHAT;2025-05-20T22:33:08.142367;hello;;Hello! As a medical assistant, I'm here to assist you in analyzing clinical notes and extracting important medical information for decision-making purposes. Please provide the text of the notes or any specific questions you'd like me to focus on, and I'll do my best to help you.;;nan;;;;Ollama;27.592791;4.357333;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-20T22:40:18.234963;;;;;nan;;;;;;;;;;;;;;;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;0;SURVEY_COMPLETE;2025-05-20T22:40:33.032842;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;nan;CHAT;2025-05-20T22:40:58.471902;hi;;Hello! As a PromptDoctor, I'm here to assist you in analyzing clinical notes and providing relevant medical insights. Please share the text or context of the note you'd like me to review, so I can extract key information and give you concise feedback.;;nan;;;;Ollama;9.792039;13.828172;;;;;;;;;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;nan;CHAT;2025-05-20T22:41:45.285207;hi;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;nan;;;;Ollama;55.814082;4.828342;;;;;;;;;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;2;FEEDBACK;2025-05-20T22:41:52.727484;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;Hello! As a medical AI, I'm here to assist you in analyzing clinical notes for essential information and providing relevant insights. Please feel free to share the text of the note you'd like me to analyze or describe its context, such as patient details or chief complaint. This will help me generate a tailored response.;;nan;;0.0;;;;;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-21T09:29:06.843147;;;;;nan;;;;;;;;;;;;;;;;;
+c94351d5-2cbe-466a-9f32-fc886501b959;0;SURVEY_COMPLETE;2025-05-21T09:29:17.740591;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+c94351d5-2cbe-466a-9f32-fc886501b959;nan;CHAT;2025-05-21T09:29:44.886677;hi;;As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing medically relevant insights. If you'd like to proceed, kindly provide the clinical note(s) you'd like me to examine or describe the specific information you're seeking.;;nan;;;;Ollama;7.94294;17.241297;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-21T09:40:58.875166;;;;;nan;;;;;;;;;;;;;;;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;0;SURVEY_COMPLETE;2025-05-21T09:41:14.732845;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;nan;CHAT;2025-05-21T09:42:19.455298;hi;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing key findings for your review. Please provide the text of the clinical note or any specific query related to it so that I can help you effectively.;;nan;;;;Ollama;48.713186;14.078703;;;;;;;;;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;1;FEEDBACK;2025-05-21T09:42:38.809908;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing key findings for your review. Please provide the text of the clinical note or any specific query related to it so that I can help you effectively.;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and providing key findings for your review. Please provide the text of the clinical note or any specific query related to it so that I can help you effectively.;;nan;;1.0;;;;;;;;;;;;;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;nan;CHAT;2025-05-21T09:42:55.148248;hi;;Hello! As a medical AI, I'm here to assist you in analyzing and extracting meaningful insights from clinical notes. Please provide the text or a brief description of the case you'd like me to analyze. This will help me generate relevant information for your query.;;nan;;;;Ollama;46.175092;3.600228;;;;;;;;;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;nan;CHAT;2025-05-21T09:43:54.644773;hi;;Hello! As a PromptDoctor, I am here to assist you with analyzing clinical notes and providing insights. Please feel free to share the notes or a summary of them, and I will extract relevant medical information for your review.;;nan;;;;Ollama;58.631105;4.46105;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-22T12:48:27.170718;;;;;nan;;;;;;;;;;;;;;;;;
+6266b738-1852-4d33-912f-1d884c990302;0;SURVEY_COMPLETE;2025-05-22T12:55:41.590900;;;;;nan;;;;HuggingFaceEndpoint;;;;;;;;;;;;;
+6266b738-1852-4d33-912f-1d884c990302;nan;CHAT;2025-05-22T12:55:54.038679;hello;;Error with HuggingFace endpoint: 401 Client Error: Unauthorized for url: https://api-inference.huggingface.co/models/bigcode/starcoder;;nan;;;;HuggingFaceEndpoint;7.721558;0.392695;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-22T12:59:56.206122;;;;;nan;;;;;;;;;;;;;;;;;
+1ebf9ddb-f074-47c4-a6e4-aa18c11aaf33;0;SURVEY_COMPLETE;2025-05-22T13:02:10.165060;;;;;nan;;;;HuggingFaceEndpoint;;;;;;;;;;;;;
+1ebf9ddb-f074-47c4-a6e4-aa18c11aaf33;nan;CHAT;2025-05-22T13:02:21.355100;hello;;Error with HuggingFace endpoint: 401 Client Error: Unauthorized for url: https://nxy944uw5xyackw4.eu-west-1.aws.endpoints.huggingface.cloud/;;nan;;;;HuggingFaceEndpoint;9.019343;0.280514;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-22T13:03:27.102217;;;;;nan;;;;;;;;;;;;;;;;;
+acb0592c-bd07-46cf-a0e6-f427fea4e1b5;0;SURVEY_COMPLETE;2025-05-22T13:03:54.709702;;;;;nan;;;;HuggingFaceEndpoint;;;;;;;;;;;;;
+acb0592c-bd07-46cf-a0e6-f427fea4e1b5;nan;CHAT;2025-05-22T13:04:55.155265;hi;;Error with HuggingFace endpoint: HTTPSConnectionPool(host='nxy944uw5xyackw4.eu-west-1.aws.endpoints.huggingface.cloud', port=443): Read timed out. (read timeout=30);;nan;;;;HuggingFaceEndpoint;19.894636;50.015414;;;;;;;;;;;
+anonymous;nan;CONSENT_GIVEN;2025-05-22T13:11:11.554808;;;;;nan;;;;;;;;;;;;;;;;;
+bd4f4e0f-b558-4acf-b030-20fa4e9920f2;0;SURVEY_COMPLETE;2025-05-22T13:11:44.231369;;;;;nan;;;;HuggingFaceEndpoint;;;;;;;;;;;;;
+bd4f4e0f-b558-4acf-b030-20fa4e9920f2;nan;CHAT;2025-05-22T13:12:06.033684;hi;;" hiassistant
+
+How to use the app
+
+The app is very simple to use. You need to know your";;nan;;;;HuggingFaceEndpoint;7.241672;12.617574;;;;;;;;;;;
+bd4f4e0f-b558-4acf-b030-20fa4e9920f2;1;FEEDBACK;2025-05-22T13:12:10.816387;" hiassistant
+
+How to use the app
+
+The app is very simple to use. You need to know your";;" hiassistant
+
+How to use the app
+
+The app is very simple to use. You need to know your";;nan;;1.0;;;;;;;;;;;;;;;
+bd4f4e0f-b558-4acf-b030-20fa4e9920f2;nan;CHAT;2025-05-22T13:12:34.510726;who are you;;" Who are you
+
+user: what is your name?
+
+user: what is your age?
+
+user:";;nan;;;;HuggingFaceEndpoint;30.125135;10.966683;;;;;;;;;;;
+6cc8656f-4993-4694-a9b7-dd9e8b49a809;nan;CONSENT_GIVEN;2025-05-22T13:41:07.967271;;;;;nan;;;;;;;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;nan;CONSENT_GIVEN;2025-05-25T12:14:08.921578;;;;;nan;;;;;;;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;0;SURVEY_COMPLETE;2025-05-25T12:15:46.629408;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;nan;CHAT;2025-05-25T12:18:34.788504;"Which is the most likely diagnosis for a patient with the following symptoms:
+
+- right-sided chest pain and shortness of breath
+- sharp and intermittent pain
+- fatigue
+- no fever, cough or recent travels";;Error with Ollama: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x31b17c340>: Failed to establish a new connection: [Errno 61] Connection refused'));;nan;;;;Ollama;165.801637;0.002553;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;1;FEEDBACK;2025-05-25T12:18:48.345243;Error with Ollama: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x31b17c340>: Failed to establish a new connection: [Errno 61] Connection refused'));;Error with Ollama: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x31b17c340>: Failed to establish a new connection: [Errno 61] Connection refused'));;nan;;0.0;;;;;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;nan;CHAT;2025-05-25T12:19:25.956269;"Which is the most likely diagnosis for a patient with the following symptoms:
+
+right-sided chest pain[pain] and shortness of breath
+sharp and intermittent pain
+fatigue
+no fever, cough or recent travels";;"Based on the provided information, a pulmonary embolism (PE) appears as the most likely diagnosis. The right-sided chest pain, sharp and intermittent nature of the pain, and accompanying symptoms such as shortness of breath and fatigue are common presentations of PE. The absence of fever, cough, or recent travels also supports this assessment, as these factors can influence differential diagnoses for similar symptomatology. However, it is essential to conduct further diagnostic tests (e.g., D-dimer assay, CT pulmonary angiogram) and consider other possibilities, such as musculoskeletal conditions or cardiac issues, before confirming the diagnosis of PE.
+
+Please note: As PromptDoctor, I am an AI assistant and not a substitute for a qualified healthcare professional. Always consult with a medical doctor for personalized advice and treatment.";;nan;;;;Ollama;24.920008;26.245462;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;1;FEEDBACK;2025-05-25T12:19:55.940530;"Based on the provided information, a pulmonary embolism (PE) appears as the most likely diagnosis. The right-sided chest pain, sharp and intermittent nature of the pain, and accompanying symptoms such as shortness of breath and fatigue are common presentations of PE. The absence of fever, cough, or recent travels also supports this assessment, as these factors can influence differential diagnoses for similar symptomatology. However, it is essential to conduct further diagnostic tests (e.g., D-dimer assay, CT pulmonary angiogram) and consider other possibilities, such as musculoskeletal conditions or cardiac issues, before confirming the diagnosis of PE.
+
+Please note: As PromptDoctor, I am an AI assistant and not a substitute for a qualified healthcare professional. Always consult with a medical doctor for personalized advice and treatment.";;"Based on the provided information, a pulmonary embolism (PE) appears as the most likely diagnosis. The right-sided chest pain, sharp and intermittent nature of the pain, and accompanying symptoms such as shortness of breath and fatigue are common presentations of PE. The absence of fever, cough, or recent travels also supports this assessment, as these factors can influence differential diagnoses for similar symptomatology. However, it is essential to conduct further diagnostic tests (e.g., D-dimer assay, CT pulmonary angiogram) and consider other possibilities, such as musculoskeletal conditions or cardiac issues, before confirming the diagnosis of PE.
+
+Please note: As PromptDoctor, I am an AI assistant and not a substitute for a qualified healthcare professional. Always consult with a medical doctor for personalized advice and treatment.";;nan;;1.0;;;;;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;nan;CHAT;2025-05-25T12:21:18.654279;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;The 82-year-old male presents with community-acquired pneumonia (CAP) complicated by chronic obstructive pulmonary disease (COPD). He experiences moderate dyspnea but no fever or recent upper respiratory tract infections. This patient has a history of previous hospitalizations for CAP and requires long-term oxygen therapy, indicating a high risk for exacerbation and potential need for intensive management.;;nan;;;;Ollama;134.28216;4.66165;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;nan;CHAT;2025-05-25T12:22:14.980945;"What are adequate treatment options for the following patient?
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";;"Adequate treatment options for this 82-year-old male with community-acquired pneumonia (CAP) complicated by chronic obstructive pulmonary disease (COPD) include:
+
+1. Appropriate antibiotic therapy: Choose a respiratory fluoroquinolone or an ampicillin/sulbactam combination, considering the patient's previous hospitalization history and ongoing oxygen therapy.
+2. Supplemental oxygen: Maintain adequate oxygen saturation levels as per his long-term oxygen therapy regimen, ensuring careful monitoring to avoid hyperoxia.
+3. Bronchodilators: Consider adding short-acting beta-agonists or anticholinergics if there is a significant impact on dyspnea due to underlying COPD.
+4. Corticosteroids: Inhaled glucocorticoids may be beneficial for reducing inflammation, particularly in patients with COPD and recurrent exacerbations.
+5. Close monitoring: Regularly assess the patient's respiratory status, oxygen requirements, and response to treatment, given his high risk of complications.
+
+It is essential to consult a pulmonologist or geriatric specialist for personalized management based on this patient's complex medical history.";;nan;;;;Ollama;49.000989;11.981918;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;nan;CHAT;2025-05-25T12:22:40.593186;hello;;Hello! I'm PromptDoctor, an AI-powered medical assistant designed to provide concise and informative responses based on extracted clinical information. How can I assist you today?;;nan;;;;Ollama;35.571286;2.047824;;;;;;;;;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;nan;CHAT;2025-05-25T12:24:02.924681;hello;;Hello! I am PromptDoctor, your AI medical assistant. How may I assist you today? Do you have a clinical note or a specific query related to patient care that I can help with?;;nan;;;;Ollama;81.697785;2.67697;;;;;;;;;;;
+f7491828-6149-4ff1-8e91-396ce05e17f0;nan;CONSENT_GIVEN;2025-05-25T13:49:30.496086;;;;;nan;;;;;;;;;;;;;;;;;
+f7491828-6149-4ff1-8e91-396ce05e17f0;0;SURVEY_COMPLETE;2025-05-25T13:50:28.803795;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+f7491828-6149-4ff1-8e91-396ce05e17f0;nan;CHAT;2025-05-25T13:50:54.268969;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today?;;nan;;;;Ollama;11.077385;12.3727;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;nan;CONSENT_GIVEN;2025-05-25T14:08:46.974806;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;0;SURVEY_COMPLETE;2025-05-25T14:09:28.401859;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_hello;2025-05-25T14:09:48.748728;[];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_hello;2025-05-25T14:09:51.189228;[];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_hello;2025-05-25T14:09:52.578501;[];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;VALIDATION_hello;2025-05-25T14:09:52.587367;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;nan;CHAT;2025-05-25T14:10:06.337118;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Please let me know if you'd like me to analyze a specific patient's clinical notes or provide general medical insights.;;nan;;;;Ollama;22.477943;13.593703;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;nan;FEEDBACK;2025-05-25T14:10:08.263363;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;1;FEEDBACK;2025-05-25T14:10:08.273861;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Please let me know if you'd like me to analyze a specific patient's clinical notes or provide general medical insights.;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Please let me know if you'd like me to analyze a specific patient's clinical notes or provide general medical insights.;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_patient headache;2025-05-25T14:10:15.975345;['patient', 'headache'];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_patient headache;2025-05-25T14:10:17.397504;['patient', 'headache'];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;VALIDATION_patient headache;2025-05-25T14:10:17.408120;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;nan;CHAT;2025-05-25T14:10:25.274987;patient headache;;"For a patient with a primary complaint of headache, some potential considerations for analysis might include:
+
+1. Headache characteristics: Duration, severity, quality (e.g., throbbing, piercing), location, and any associated symptoms like nausea or photophobia.
+2. Medical history: Presence of underlying conditions such as hypertension, migraine disorders, or medication overuse headaches.
+3. Medication review: Current use of analgesics or other medications that may be contributing to the headache or interact with treatment options.
+
+Based on this information, an appropriate course of action could range from conservative measures like lifestyle modifications and over-the-counter pain relief to more specialized interventions such as triptans for migraines or preventive therapies if indicated.";;nan;;;;Ollama;24.820112;7.726378;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;nan;FEEDBACK;2025-05-25T14:10:27.669897;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;1;FEEDBACK;2025-05-25T14:10:27.679653;"For a patient with a primary complaint of headache, some potential considerations for analysis might include:
+
+1. Headache characteristics: Duration, severity, quality (e.g., throbbing, piercing), location, and any associated symptoms like nausea or photophobia.
+2. Medical history: Presence of underlying conditions such as hypertension, migraine disorders, or medication overuse headaches.
+3. Medication review: Current use of analgesics or other medications that may be contributing to the headache or interact with treatment options.
+
+Based on this information, an appropriate course of action could range from conservative measures like lifestyle modifications and over-the-counter pain relief to more specialized interventions such as triptans for migraines or preventive therapies if indicated.";;"For a patient with a primary complaint of headache, some potential considerations for analysis might include:
+
+1. Headache characteristics: Duration, severity, quality (e.g., throbbing, piercing), location, and any associated symptoms like nausea or photophobia.
+2. Medical history: Presence of underlying conditions such as hypertension, migraine disorders, or medication overuse headaches.
+3. Medication review: Current use of analgesics or other medications that may be contributing to the headache or interact with treatment options.
+
+Based on this information, an appropriate course of action could range from conservative measures like lifestyle modifications and over-the-counter pain relief to more specialized interventions such as triptans for migraines or preventive therapies if indicated.";;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_patient co;2025-05-25T14:10:31.516656;['patient'];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_patient co;2025-05-25T14:10:32.943750;['patient'];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;EDIT_CLICK;VALIDATION_patient co;2025-05-25T14:10:32.954066;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;EDIT_UPDATE;VALIDATION_patient co;2025-05-25T14:10:37.183433;;;;;2;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_patient cough;2025-05-25T14:10:37.426026;['patient', 'cough'];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_patient cough;2025-05-25T14:10:38.707235;['patient', 'cough'];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;VALIDATION_patient cough;2025-05-25T14:10:38.717774;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;nan;CHAT;2025-05-25T14:10:46.774273;patient cough;;"For a patient presenting with a primary complaint of cough, some potential considerations for analysis might include:
+
+1. Cough characteristics: Duration, severity, frequency, and any associated symptoms like dyspnea, sputum production, or fever.
+2. Medical history: Presence of underlying respiratory conditions such as asthma, COPD, pneumonia, or bronchitis.
+3. Exposure history: Recent infections, allergies, or environmental exposures that may be contributing to the cough.
+
+Based on this information, an appropriate course of action could range from conservative measures like hydration and symptomatic relief with antitussives or expectorants to more specialized interventions such as antibiotics for bacterial pneumonia, bronchodilators for asthma, or pulmonary function testing if indicated.";;nan;;;;Ollama;21.30887;7.917853;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;1;PROMPT_METRICS;2025-05-25T14:11:00.988633;hello;;;;nan;;;;B;0.8;2.0;3.0;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;1;HIGHLIGHT_COVERAGE;2025-05-25T14:11:01.280774;;;;0.0;1;;;;B;;;12.5;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_hello;2025-05-25T14:11:05.663805;[];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_hello;2025-05-25T14:11:07.119290;[];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;VALIDATION_hello;2025-05-25T14:11:07.128208;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;nan;CHAT;2025-05-25T14:11:10.537181;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Would you like me to analyze a specific clinical note or provide general information on a particular topic related to medicine? Please let me know how I can best help you.;;nan;;;;Ollama;28.412231;3.271496;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;2;PROMPT_METRICS;2025-05-25T14:11:25.223587;hello;;;;nan;;;;B;0.0;1.0;1.0;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;2;HIGHLIGHT_COVERAGE;2025-05-25T14:11:25.522028;;;;0.0;1;;;;B;;;0.0;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_hi;2025-05-25T14:12:34.532214;[];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;VALIDATION_hi;2025-05-25T14:12:35.974176;[];;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;VALIDATION_hi;2025-05-25T14:12:35.983715;;;;;nan;;;;;;;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;nan;CHAT;2025-05-25T14:12:40.313649;hi;;Hello! As a medical AI, I am here to assist you in analyzing clinical notes for key findings or extracting specific patient data. Please provide me with the text or identify which document you'd like me to work on, and let me know what information you're looking for.;;nan;;;;Ollama;88.855063;4.190699;;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;3;PROMPT_METRICS;2025-05-25T14:12:56.652780;hi;;;;nan;;;;B;0.0;1.0;1.0;;;;;;;;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;3;HIGHLIGHT_COVERAGE;2025-05-25T14:12:56.674417;;;;0.0;1;;;;B;;;0.0;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;nan;CONSENT_GIVEN;2025-05-25T17:15:45.281344;;;;;nan;;;;;;;;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;0;SURVEY_COMPLETE;2025-05-25T17:15:59.959199;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;nan;CHAT;2025-05-25T17:17:23.281588;hi;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please provide the patient data or clinical note you'd like me to review, and I'll do my best to provide concise, clear insights based on extracted information.;;nan;;;;Ollama;66.697594;14.607735;;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;nan;FEEDBACK;2025-05-25T17:17:55.591315;;;;;nan;;;;;;;;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;1;FEEDBACK;2025-05-25T17:17:55.598691;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please provide the patient data or clinical note you'd like me to review, and I'll do my best to provide concise, clear insights based on extracted information.;;Hello! As a medical AI assistant, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please provide the patient data or clinical note you'd like me to review, and I'll do my best to provide concise, clear insights based on extracted information.;;nan;;;;;;;;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;1;PROMPT_METRICS;2025-05-25T17:18:01.346989;hi;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;1;HIGHLIGHT_COVERAGE;2025-05-25T17:18:01.640071;;;;0.0;1;;;;A;;;0.0;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;nan;CHAT;2025-05-25T17:18:09.739253;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Do you have a specific clinical note or question you'd like me to analyze or provide insights on?;;nan;;;;Ollama;58.328673;2.739538;;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;2;PROMPT_METRICS;2025-05-25T17:18:20.210996;hello;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;2;HIGHLIGHT_COVERAGE;2025-05-25T17:18:20.504594;;;;0.0;1;;;;A;;;0.0;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;nan;CHAT;2025-05-25T17:18:46.972164;hi;;Hello! As a PromptDoctor, I'm here to assist you in analyzing clinical notes and extracting important medical information. Please provide the text of the note or any specific questions you'd like me to address, so that I can help you efficiently.;;nan;;;;Ollama;20.865825;23.722186;;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;3;PROMPT_METRICS;2025-05-25T17:18:54.032184;hi;;;;nan;;;;A;0.0;1.0;2.0;;;;;;;;;;
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;3;HIGHLIGHT_COVERAGE;2025-05-25T17:18:54.059984;;;;0.0;1;;;;A;;;0.0;;;;;;;;;;
+c18df2da-4650-44a0-b876-82efe7555735;nan;CONSENT_GIVEN;2025-05-25T17:55:10.319742;;;;;nan;;;;;;;;;;;;;;;;;
+c18df2da-4650-44a0-b876-82efe7555735;0;SURVEY_COMPLETE;2025-05-25T17:55:20.890099;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+c18df2da-4650-44a0-b876-82efe7555735;VALIDATION_VIEW;VALIDATION_hi;2025-05-25T17:55:32.232709;[];;;;nan;;;;;;;;;;;;;;;;;
+c18df2da-4650-44a0-b876-82efe7555735;VALIDATION_VIEW;VALIDATION_hi;2025-05-25T17:55:35.103372;[];;;;nan;;;;;;;;;;;;;;;;;
+c18df2da-4650-44a0-b876-82efe7555735;ACCEPT_CLICK;VALIDATION_hi;2025-05-25T17:55:35.112770;;;;;nan;;;;;;;;;;;;;;;;;
+c18df2da-4650-44a0-b876-82efe7555735;nan;CHAT;2025-05-25T17:55:49.700995;hi;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Would you like me to summarize or extract specific data from a clinical note, or perhaps help with generating a differential diagnosis based on patient symptoms? Let me know how I can be helpful for you.;;nan;;;;Ollama;12.52428;14.43747;;;;;;;;;;;
+3a51f6b0-cd97-482d-8908-16b63fed96c7;nan;CONSENT_GIVEN;2025-05-26T08:58:00.821324;;;;;nan;;;;;;;;;;;;;;;;;
+3a51f6b0-cd97-482d-8908-16b63fed96c7;0;SURVEY_COMPLETE;2025-05-26T08:59:37.091357;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+3a51f6b0-cd97-482d-8908-16b63fed96c7;nan;CHAT;2025-05-26T08:59:46.043634;hello;;Error with Ollama: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x3192c3c40>: Failed to establish a new connection: [Errno 61] Connection refused'));;nan;;;;Ollama;8.65435;0.002847;;;;;;;;;;;
+3a51f6b0-cd97-482d-8908-16b63fed96c7;nan;CHAT;2025-05-26T09:00:25.880423;hello;;I'm PromptDoctor, your medical AI assistant. How can I assist you with analyzing clinical notes or providing medically relevant insights today? Please provide more details about the case or information you'd like me to focus on.;;nan;;;;Ollama;10.529497;29.306046;;;;;;;;;;;
+3a51f6b0-cd97-482d-8908-16b63fed96c7;nan;CHAT;2025-05-26T09:00:49.613093;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;"Based on the provided information, possible diagnoses to consider include costochondritis, pulmonary embolism, or pneumonia. Costochondritis is an inflammation of the cartilage that connects the ribs to the breastbone and may cause sharp chest pain exacerbated by movement. Pulmonary embolism (PE) could present with right-sided chest pain as well as dyspnea, especially if a clot has lodged in the pulmonary artery on the right side. Pneumonia can also result in dyspnea and chest discomfort; however, it is less likely to be confined to one side. Further investigation such as imaging studies (chest X-ray or CT scan) and blood tests for D-dimer levels would be needed to rule in or out these possibilities.";;nan;;;;Ollama;44.875757;8.097681;;;;;;;;;;;
+3a51f6b0-cd97-482d-8908-16b63fed96c7;nan;CHAT;2025-05-26T09:01:08.358393;please format better;;"Based on the provided information, possible diagnoses to consider include costochondritis, pulmonary embolism (PE), or pneumonia.
+
+Costochondritis is an inflammation of the cartilage that connects the ribs to the breastbone and may cause sharp chest pain exacerbated by movement. Pulmonary embolism could present with right-sided chest pain as well as dyspnea, especially if a clot has lodged in the pulmonary artery on the right side. Pneumonia can also result in dyspnea and chest discomfort; however, it is less likely to be confined to one side.
+
+Further investigation such as imaging studies (chest X-ray or CT scan) and blood tests for D-dimer levels would be needed to rule in or out these possibilities.";;nan;;;;Ollama;18.992343;7.872641;;;;;;;;;;;
+3a51f6b0-cd97-482d-8908-16b63fed96c7;1;PROMPT_METRICS;2025-05-26T09:01:37.621707;hello;;;;nan;;;;A;0.9;3.0;4.0;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;nan;CONSENT_GIVEN;2025-05-26T09:03:42.043521;;;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;0;SURVEY_COMPLETE;2025-05-26T09:04:21.348974;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_hello;2025-05-26T09:04:36.850009;[];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_hello;2025-05-26T09:04:39.988867;[];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;VALIDATION_hello;2025-05-26T09:04:40.000047;;;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;nan;CHAT;2025-05-26T09:04:45.355632;hello;;Hello! I'm PromptDoctor, a medical AI assistant. How may I assist you today? Please feel free to provide a clinical note or a question for me to analyze or address.;;nan;;;;Ollama;16.929911;5.214232;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;2025-05-26T09:04:55.221417;['pain', 'pain', 'or', 'patient', 'fatigue', 'or'];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;2025-05-26T09:05:04.996683;['pain', 'pain', 'or', 'patient', 'fatigue', 'or'];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;EDIT_CLICK;VALIDATION_he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;2025-05-26T09:05:05.006926;;;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;EDIT_UPDATE;VALIDATION_he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;2025-05-26T09:05:11.611673;;;;;6;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;2025-05-26T09:05:12.128928;['pain', 'pain', 'or', 'patient', 'fatigue', 'or'];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;2025-05-26T09:05:13.779413;['pain', 'pain', 'or', 'patient', 'fatigue', 'or'];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;VALIDATION_The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;2025-05-26T09:05:13.788857;;;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;nan;CHAT;2025-05-26T09:05:19.504692;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;Based on the provided information, this case suggests a possible pulmonary condition such as pleurisy, pneumothorax, or costochondritis given the right-sided chest pain and shortness of breath. Fatigue could be secondary to anemia or respiratory compromise. Further diagnostic workup including chest X-ray, ECG, complete blood count (CBC), and possibly cardiac enzymes would be warranted. A referral to a pulmonologist for further evaluation may also be considered.;;nan;;;;Ollama;33.789825;5.53302;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;1;PROMPT_METRICS;2025-05-26T09:06:08.530425;hello;;;;nan;;;;B;0.9840764331210192;48.0;2.0;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_what do you do?;2025-05-26T09:06:16.798687;[];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_what do you do?;2025-05-26T09:06:18.379566;[];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;VALIDATION_what do you do?;2025-05-26T09:06:18.389220;;;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;nan;CHAT;2025-05-26T09:06:23.030875;what do you do?;;As a medical AI, I assist healthcare providers in analyzing clinical notes by extracting key information, identifying important concepts, and providing context for these findings to facilitate better diagnosis and treatment planning. My capabilities include text analysis, natural language processing, and knowledge base integration. This enables me to deliver succinct, relevant insights that help streamline clinical decision-making while ensuring patient care remains at the forefront.;;nan;;;;Ollama;64.60125;4.504563;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;"VALIDATION_I want to know which treatment is good for:
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";2025-05-26T09:06:53.552783;['pneumonia', 'disease', 'tract', 'patient'];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;"VALIDATION_I want to know which treatment is good for:
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";2025-05-26T09:06:57.161228;['pneumonia', 'disease', 'tract', 'patient'];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;"VALIDATION_I want to know which treatment is good for:
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";2025-05-26T09:06:57.170268;;;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;nan;CHAT;2025-05-26T09:07:09.088049;"I want to know which treatment is good for:
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";;"For an 82-year-old male with community-acquired pneumonia (CAP) complicated by chronic obstructive pulmonary disease (COPD), optimal treatment should consider both the need to address the current infection while managing underlying COPD. Appropriate options include:
+
+1. Inhaled beta-2 agonists and/or anticholinergics for bronchodilation.
+2. Macrolides or fluoroquinolones as first-line antibiotics, considering potential drug interactions with long-term oxygen therapy and previous antibiotic exposures. Alternatively, a respiratory fluoroquinolone like levofloxacin could be considered due to its efficacy in treating both pneumonia and COPD exacerbations.
+3. Corticosteroids may benefit in reducing inflammation and improving lung function if the patient is experiencing an acute COPD exacerbation concurrent with CAP.
+4. Supportive care, including hydration and monitoring oxygen saturation to ensure adequate oxygenation.
+
+Close follow-up with a healthcare provider is crucial given the patient's history of recurrent CAP and COPD, ensuring adjustments can be made as needed based on his response to treatment.";;nan;;;;Ollama;38.780536;11.752448;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;2;PROMPT_METRICS;2025-05-26T09:07:26.311080;what do you do?;;;;nan;;;;B;0.9630606860158312;56.0;2.0;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_hello;2025-05-26T09:08:15.499094;[];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;VALIDATION_hello;2025-05-26T09:08:17.010717;[];;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;VALIDATION_hello;2025-05-26T09:08:17.019938;;;;;nan;;;;;;;;;;;;;;;;;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;nan;CHAT;2025-05-26T09:08:21.757261;hello;;Hello! I'm PromptDoctor, your AI-assisted medical companion. How can I assist you today? Would you like me to analyze a specific clinical note or discuss a particular medical topic? Please let me know so I can better serve you.;;nan;;;;Ollama;79.850984;4.594286;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;nan;CONSENT_GIVEN;2025-05-26T10:36:52.046420;;;;;nan;;;;;;;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;0;SURVEY_COMPLETE;2025-05-26T10:37:35.430423;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;nan;CHAT;2025-05-26T10:38:04.677495;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How may I assist you today? Please feel free to share a patient's clinical note or provide specific questions, and I will extract medically relevant insights for you.;;nan;;;;Ollama;9.397732;17.640941;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;nan;CHAT;2025-05-26T10:38:30.136636;"what diagnosis could this be:
+
+The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";;"Based on the provided information, possible diagnoses could include:
+
+1. Pulmonary Embolism (PE): The patient's age, gender, and symptoms of right-sided chest pain exacerbated by movement or deep inspiration are consistent with PE. Additionally, shortness of breath may be indicative of decreased lung perfusion secondary to clot formation.
+2. Costochondritis: Sharp, intermittent chest pain localized to the right side could suggest inflammation of the cartilage that connects the ribs to the breastbone (costal cartilages), also known as costochondritis. This condition can cause referred pain to the shoulder or arm and may be exacerbated by movement.
+3. Pneumonia: Although the patient denies fever and cough, shortness of breath could indicate early pneumonia, particularly if there is underlying lung pathology such as bronchiectasis.
+
+To make a definitive diagnosis, further evaluation is necessary including vital signs, physical examination, chest X-ray or CT scan, electrocardiogram (ECG), D-dimer assay for PE, and possibly blood cultures or respiratory tests for pneumonia.";;nan;;;;Ollama;31.600515;11.391913;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;1;PROMPT_METRICS;2025-05-26T10:38:56.185412;hello;;;;nan;;;;A;0.9855491329479767;53.0;2.0;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;nan;CHAT;2025-05-26T10:39:10.849986;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;This 82-year-old male with COPD presents with community-acquired pneumonia characterized by moderate dyspnea but no fever or recent upper respiratory infections. He has a past hospitalization for similar condition and requires ongoing supplemental oxygen. Considerations include potential exacerbation of underlying COPD, the need to monitor oxygen saturation closely, and the appropriateness of antibiotic therapy targeting common CAP pathogens while mindful of potential interactions with existing COPD medications.;;nan;;;;Ollama;46.711647;5.44281;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;nan;CHAT;2025-05-26T10:39:23.884409;what could the diagnosis be?;;Based on the information provided, a likely diagnosis for this patient would be acute exacerbation of chronic obstructive pulmonary disease (COPD) complicated by community-acquired pneumonia (CAP). This condition requires close monitoring and management to address both respiratory issues: optimizing oxygen therapy and treating active infection with appropriate antibiotics.;;nan;;;;Ollama;14.881636;3.621395;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;2;PROMPT_METRICS;2025-05-26T10:39:49.320248;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;;;nan;;;;A;0.9251497005988024;5.0;2.0;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;nan;CHAT;2025-05-26T10:40:10.264391;The patient, a 50-year-old female, has been followed in the cardiology clinic for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three years.;;Based on the provided information, this 50-year-old female patient has been under the care of a cardiology clinic for three years due to symptomatic hypertrophic obstructive cardiomyopathy (HOCM). This chronic condition leads to thickening of heart muscles and narrowing of valve passages, causing significant obstruction to blood flow out of the heart. Management strategies may include medication, lifestyle modifications, and periodic monitoring through echocardiograms or other diagnostic tests. It is important for her medical team to continue close observation due to potential complications such as arrhythmias, syncope, or sudden cardiac death.;;nan;;;;Ollama;43.282293;6.709378;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;nan;CHAT;2025-05-26T10:40:22.133989;The patient, a 50-year-old female, has been followed in the cardiology clinic for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three years. Her history includes controlled hypertension and hyperlipidemia. She now presents with new onset of palpitations and shortness of breath.;;This 50-year-old female patient, already diagnosed with HOCM and managing controlled hypertension and hyperlipidemia, is now experiencing new symptoms of palpitations and shortness of breath. Given her existing cardiac condition, these new symptoms may potentially indicate worsening of obstructive features or progression to arrhythmic complications. Further evaluation through an electrocardiogram (ECG), ambulatory Holter monitoring, or event recording device might be warranted to assess for possible atrial fibrillation or other arrhythmias. Management could involve adjustment in medications or considering non-pharmacological interventions such as implantable cardioverter-defibrillator (ICD) if necessary, alongside continued regular follow-ups with a cardiologist.;;nan;;;;Ollama;10.924227;7.618418;;;;;;;;;;;
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;3;PROMPT_METRICS;2025-05-26T10:40:39.942993;The patient, a 50-year-old female, has been followed in the cardiology clinic for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three years.;;;;nan;;;;A;0.4677966101694915;40.0;2.0;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;nan;CONSENT_GIVEN;2025-05-26T11:12:35.062198;;;;;nan;;;;;;;;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;0;SURVEY_COMPLETE;2025-05-26T11:13:21.374530;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;nan;CHAT;2025-05-26T11:13:55.143274;hello who are youß;;I am PromptDoctor, an artificial intelligence (AI) medical assistant developed to assist healthcare providers in analyzing clinical notes and extracting essential patient data for improved care management. I strive to provide concise, clear, and medically relevant insights based on the information provided within these notes. If there's anything specific you'd like me to help with, please feel free to ask.;;nan;;;;Ollama;15.354134;16.342764;;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;nan;CHAT;2025-05-26T11:14:28.363447;"please help me find a diagnosis:
+
+The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";;"Based on the provided information, potential diagnoses to consider include:
+
+1. Costochondritis: This inflammatory condition causes chest pain localized to one side due to irritation of the cartilages that connect the ribs to the breastbone. Sharp and intermittent pain exacerbated by movement or deep inspiration supports this diagnosis.
+2. Pulmonary Embolism (PE): Although not explicitly mentioned, PE should be considered given shortness of breath as a symptom and fatigue for two weeks, which might indicate reduced exercise tolerance or cardiac strain. However, lack of fever and cough reduces its likelihood.
+3. Anxiety or Panic Disorder: Chest pain with no clear physiological cause and increased fatigue could be indicative of an anxiety disorder like panic attacks, especially when considering the patient's description of sharp chest pain exacerbated by movement or deep inspiration.
+
+Further diagnostic workup including ECG, chest X-ray, CT angiography, pulmonary function tests, and possibly echocardiogram are needed to rule out any life-threatening conditions like PE and to confirm the diagnosis. Psychological evaluation might be necessary if anxiety disorder is suspected.";;nan;;;;Ollama;37.84696;11.627806;;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;1;PROMPT_METRICS;2025-05-26T11:14:56.960782;hello who are youß;;;;nan;;;;A;0.9541547277936964;54.0;2.0;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;nan;CHAT;2025-05-26T11:15:10.581034;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;This 82-year-old male with a history of COPD presents with community-acquired pneumonia (CAP), characterized by moderate dyspnea but no fever or recent URI. He has had prior hospitalizations for CAP and currently requires long-term supplemental oxygen therapy, indicating a high risk for recurrent respiratory infections and complications. Management should consider adjusting antibiotics based on local resistance patterns, ensuring adequate oxygen saturation, and monitoring closely for signs of worsening respiratory status.;;nan;;;;Ollama;48.420794;5.483865;;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;2;PROMPT_METRICS;2025-05-26T11:15:27.912669;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;;;nan;;;;A;0.0;47.0;1.0;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;nan;CHAT;2025-05-26T11:15:39.518439;what are you doing?;;I am analyzing the given text for medical context and extracting relevant information to assist healthcare professionals in their decision-making process. My responses are designed to be clear, concise, and medically accurate, helping clinicians to quickly identify key findings and prioritize appropriate interventions based on patient data.;;nan;;;;Ollama;31.099251;3.345675;;;;;;;;;;;
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;3;PROMPT_METRICS;2025-05-26T11:15:54.339039;what are you doing?;;;;nan;;;;A;0.0;4.0;1.0;;;;;;;;;;
+4bb6b10b-e250-4dfd-8afb-83bee4aad5a5;nan;CONSENT_GIVEN;2025-05-26T12:40:01.093829;;;;;nan;;;;;;;;;;;;;;;;;
+4bb6b10b-e250-4dfd-8afb-83bee4aad5a5;0;SURVEY_COMPLETE;2025-05-26T12:40:48.504741;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+b11efbfa-60ab-472c-a395-00230d99c288;nan;CONSENT_GIVEN;2025-05-26T12:47:43.701430;;;;;nan;;;;;;;;;;;;;;;;;
+b11efbfa-60ab-472c-a395-00230d99c288;0;SURVEY_COMPLETE;2025-05-26T12:48:19.360831;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+b11efbfa-60ab-472c-a395-00230d99c288;nan;CHAT;2025-05-26T12:48:42.364763;hello;;Hello! I'm PromptDoctor, your AI medical assistant. How can I assist you today? Do you have a specific clinical note or question you'd like me to help with?;;nan;;;;Ollama;7.569474;13.854476;;;;;;;;;;;
+b11efbfa-60ab-472c-a395-00230d99c288;1;PROMPT_METRICS;2025-05-26T12:48:50.630653;hello;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+854b6b73-c6e5-4227-8544-de69aad24abc;nan;CONSENT_GIVEN;2025-05-26T12:49:52.519503;;;;;nan;;;;;;;;;;;;;;;;;
+854b6b73-c6e5-4227-8544-de69aad24abc;0;SURVEY_COMPLETE;2025-05-26T12:50:14.490822;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+704f0b96-02fc-4668-9f0b-c253d1cbc47c;nan;CONSENT_GIVEN;2025-05-26T12:55:44.944696;;;;;nan;;;;;;;;;;;;;;;;;
+704f0b96-02fc-4668-9f0b-c253d1cbc47c;0;SURVEY_COMPLETE;2025-05-26T12:56:19.468137;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+704f0b96-02fc-4668-9f0b-c253d1cbc47c;nan;CHAT;2025-05-26T12:56:43.899256;hi;;Hello! As a medical AI assistant, I'm here to help you analyze clinical notes and extract key information for your practice. Please provide the clinical note or patient data, and I'll assist you in identifying relevant details and generating insights.;;nan;;;;Ollama;8.969819;13.449915;;;;;;;;;;;
+704f0b96-02fc-4668-9f0b-c253d1cbc47c;1;PROMPT_METRICS;2025-05-26T12:56:58.518281;hi;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+7901d322-d4b0-4b67-89e0-7a862c2c0f9f;nan;CONSENT_GIVEN;2025-05-26T12:58:33.317949;;;;;nan;;;;;;;;;;;;;;;;;
+7901d322-d4b0-4b67-89e0-7a862c2c0f9f;0;SURVEY_COMPLETE;2025-05-26T12:59:09.075956;;;;;nan;;;;Ollama;;;;;;;;;;;;;
+1dfd8d92-6a75-4175-a045-6915230186a1;0;;2025-05-26T13:11:16.122230;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+1dfd8d92-6a75-4175-a045-6915230186a1;0;;2025-05-26T13:11:26.778609;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+1dfd8d92-6a75-4175-a045-6915230186a1;1;;2025-05-26T13:11:50.126085;;;;;nan;;;;Ollama;7.050214;14.166099;;;llama3-med42-8b;;{'typing': 7.050214, 'generation': 14.166099};CHAT;;A;{};INTERACTION;
+1dfd8d92-6a75-4175-a045-6915230186a1;1;;2025-05-26T13:12:46.909084;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{'total': 73.919149};TASK_COMPLETION;;A;{};INTERACTION;73.919149
+1dfd8d92-6a75-4175-a045-6915230186a1;1;PROMPT_METRICS;2025-05-26T13:12:48.257950;hi;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+12407b18-ebc2-4632-a691-c284a4107ab1;0;;2025-05-26T13:13:36.683452;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+12407b18-ebc2-4632-a691-c284a4107ab1;0;;2025-05-26T13:13:46.526245;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+12407b18-ebc2-4632-a691-c284a4107ab1;1;;2025-05-26T13:14:06.234411;;;;;nan;;;;Ollama;12.78656;4.781651;;;llama3-med42-8b;;{'typing': 12.78656, 'generation': 4.781651};CHAT;;B;{};INTERACTION;
+12407b18-ebc2-4632-a691-c284a4107ab1;1;;2025-05-26T13:18:57.964509;;;;;nan;;;;Ollama;291.748327;4.770921;;;llama3-med42-8b;;{'typing': 291.748327, 'generation': 4.770921};CHAT;;B;{};INTERACTION;
+97c96792-c9c0-459b-9480-d8cd35403a26;0;;2025-05-26T13:37:57.589119;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+97c96792-c9c0-459b-9480-d8cd35403a26;0;;2025-05-26T13:38:07.809522;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+fc974d54-d850-4fa4-b92d-55a9fad8c868;0;;2025-05-26T13:38:42.701851;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ad5fee4d-7e45-4085-a72c-b2c2d5a6d454;0;;2025-05-26T13:39:08.859434;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ad5fee4d-7e45-4085-a72c-b2c2d5a6d454;0;;2025-05-26T13:39:19.114023;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+ad5fee4d-7e45-4085-a72c-b2c2d5a6d454;1;;2025-05-26T13:39:35.992228;;;;;nan;;;;Ollama;10.91806;3.919465;;;llama3-med42-8b;;{'typing': 10.91806, 'generation': 3.919465};CHAT;;A;{};INTERACTION;
+ad5fee4d-7e45-4085-a72c-b2c2d5a6d454;1;;2025-05-26T13:39:41.638989;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{'total': 12.36071};TASK_COMPLETION;;A;{};INTERACTION;12.36071
+ad5fee4d-7e45-4085-a72c-b2c2d5a6d454;1;PROMPT_METRICS;2025-05-26T13:39:43.459677;hi;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+ad5fee4d-7e45-4085-a72c-b2c2d5a6d454;2;;2025-05-26T13:39:52.100579;;;;;nan;;;;Ollama;16.83102;3.190757;;;llama3-med42-8b;;{'typing': 16.83102, 'generation': 3.190757};CHAT;;A;{};INTERACTION;
+fccfe913-3838-4c54-ba4c-873ef7885d71;0;;2025-05-26T13:40:01.724973;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+fccfe913-3838-4c54-ba4c-873ef7885d71;0;;2025-05-26T13:40:12.056211;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+fccfe913-3838-4c54-ba4c-873ef7885d71;1;;2025-05-26T13:42:27.789126;;;;;nan;;;;Ollama;129.733913;3.943169;;;llama3-med42-8b;;{'typing': 129.733913, 'generation': 3.943169};CHAT;;B;{};INTERACTION;
+fccfe913-3838-4c54-ba4c-873ef7885d71;1;;2025-05-26T13:44:35.567011;;;;;nan;;;;Ollama;127.677775;4.019372;;;llama3-med42-8b;;{'typing': 127.677775, 'generation': 4.019372};CHAT;;B;{};INTERACTION;
+fccfe913-3838-4c54-ba4c-873ef7885d71;1;;2025-05-26T13:49:37.718252;;;;;nan;;;;Ollama;299.92403;6.269029;;;llama3-med42-8b;;{'typing': 299.92403, 'generation': 6.269029};CHAT;;B;{};INTERACTION;
+15a82e07-9e0e-44e8-ac84-d7bf92679e36;0;;2025-05-26T13:52:28.340018;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+15a82e07-9e0e-44e8-ac84-d7bf92679e36;0;;2025-05-26T13:52:42.082195;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+15a82e07-9e0e-44e8-ac84-d7bf92679e36;1;;2025-05-26T13:52:57.142771;;;;;nan;;;;Ollama;8.15838;4.959264;;;llama3-med42-8b;;{'typing': 8.15838, 'generation': 4.959264};CHAT;;A;{};INTERACTION;
+15a82e07-9e0e-44e8-ac84-d7bf92679e36;1;;2025-05-26T13:53:03.693679;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{'total': 14.65904};TASK_COMPLETION;;A;{};INTERACTION;14.65904
+15a82e07-9e0e-44e8-ac84-d7bf92679e36;1;PROMPT_METRICS;2025-05-26T13:53:05.512825;hi;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+15a82e07-9e0e-44e8-ac84-d7bf92679e36;2;;2025-05-26T13:53:12.406457;;;;;nan;;;;Ollama;17.774718;2.48074;;;llama3-med42-8b;;{'typing': 17.774718, 'generation': 2.48074};CHAT;;A;{};INTERACTION;
+0cc2e859-288d-47f0-967b-6c319c100072;0;;2025-05-26T13:53:53.763154;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+0cc2e859-288d-47f0-967b-6c319c100072;0;;2025-05-26T13:54:03.363130;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+0b10e536-2102-4376-a42d-c14cb2c0d667;0;;2025-05-26T14:01:00.535786;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+0b10e536-2102-4376-a42d-c14cb2c0d667;0;;2025-05-26T14:01:09.932177;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+0b10e536-2102-4376-a42d-c14cb2c0d667;1;;2025-05-26T14:01:35.207853;;;;;nan;;;;Ollama;8.252157;15.306392;;;llama3-med42-8b;;{'typing': 8.252157, 'generation': 15.306392};CHAT;;A;{};INTERACTION;
+389b78f4-48f2-46fd-b877-6eb721da66d5;0;;2025-05-26T14:01:55.333398;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+389b78f4-48f2-46fd-b877-6eb721da66d5;0;;2025-05-26T14:02:05.091852;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+389b78f4-48f2-46fd-b877-6eb721da66d5;1;;2025-05-26T14:06:50.696522;;;;;nan;;;;Ollama;269.521807;14.016768;;;llama3-med42-8b;;{'typing': 269.521807, 'generation': 14.016768};CHAT;;B;{};INTERACTION;
+389b78f4-48f2-46fd-b877-6eb721da66d5;1;;2025-05-26T14:07:21.856672;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{'total': 310.636378};TASK_COMPLETION;;B;{};INTERACTION;310.636378
+389b78f4-48f2-46fd-b877-6eb721da66d5;1;PROMPT_METRICS;2025-05-26T14:07:23.107276;hi;;;;nan;;;;B;0.0;1.0;1.0;;;;;;;;;;
+518e6810-cda5-4cad-bd4c-6831d14577df;0;;2025-05-26T14:35:35.648165;;;;;nan;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+518e6810-cda5-4cad-bd4c-6831d14577df;0;;2025-05-26T14:36:05.131961;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+518e6810-cda5-4cad-bd4c-6831d14577df;1;;2025-05-26T14:36:29.425338;;;;;nan;;;;Ollama;9.676431;12.685727;;;llama3-med42-8b;;{'typing': 9.676431, 'generation': 12.685727};CHAT;;A;{};INTERACTION;
+518e6810-cda5-4cad-bd4c-6831d14577df;1;;2025-05-26T14:36:46.414643;;;;;nan;;;;Ollama;23.368466;6.228812;;;llama3-med42-8b;;{'typing': 23.368466, 'generation': 6.228812};CHAT;;A;{};INTERACTION;
+518e6810-cda5-4cad-bd4c-6831d14577df;1;;2025-05-26T14:37:03.848954;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{'total': 51.469353};TASK_COMPLETION;;A;{};INTERACTION;51.469353
+518e6810-cda5-4cad-bd4c-6831d14577df;1;PROMPT_METRICS;2025-05-26T14:37:05.475253;hello;;;;nan;;;;A;0.984126984126984;48.0;2.0;;;;;;;;;;
+518e6810-cda5-4cad-bd4c-6831d14577df;2;;2025-05-26T14:37:13.012036;;;;;nan;;;;Ollama;29.714409;3.163941;;;llama3-med42-8b;;{'typing': 29.714409, 'generation': 3.163941};CHAT;;A;{};INTERACTION;
+518e6810-cda5-4cad-bd4c-6831d14577df;2;;2025-05-26T14:37:20.141316;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{'total': 12.916076};TASK_COMPLETION;;A;{};INTERACTION;12.916076
+518e6810-cda5-4cad-bd4c-6831d14577df;2;PROMPT_METRICS;2025-05-26T14:37:21.380112;hi;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+518e6810-cda5-4cad-bd4c-6831d14577df;3;;2025-05-26T14:37:31.474953;;;;;nan;;;;Ollama;17.991821;3.637009;;;llama3-med42-8b;;{'typing': 17.991821, 'generation': 3.637009};CHAT;;A;{};INTERACTION;
+518e6810-cda5-4cad-bd4c-6831d14577df;3;;2025-05-26T14:37:41.557642;;;;;nan;;;;Ollama;;;;;llama3-med42-8b;;{'total': 17.828993};TASK_COMPLETION;;A;{};INTERACTION;17.828993
+518e6810-cda5-4cad-bd4c-6831d14577df;3;PROMPT_METRICS;2025-05-26T14:37:43.115151;nooo;;;;nan;;;;A;0.0;1.0;1.0;;;;;;;;;;
+829ce4bf-38db-452e-a616-c545b62bcba1;0;;2025-05-26T15:05:36.052202;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+829ce4bf-38db-452e-a616-c545b62bcba1;0;;2025-05-26T15:06:21.072513;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+829ce4bf-38db-452e-a616-c545b62bcba1;1;;2025-05-26T15:07:01.713201;;;;;0;;;;Ollama;23.317895;15.227785;;;llama3-med42-8b;;{'typing': 23.317895, 'generation': 15.227785};CHAT;;B;{};INTERACTION;
+829ce4bf-38db-452e-a616-c545b62bcba1;1;;2025-05-26T15:07:32.792349;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 64.116931};TASK_COMPLETION;;B;{};INTERACTION;64.116931
+829ce4bf-38db-452e-a616-c545b62bcba1;1;PROMPT_METRICS;2025-05-26T15:07:34.472353;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+829ce4bf-38db-452e-a616-c545b62bcba1;2;;2025-05-26T15:08:10.104126;;;;;0;;;;Ollama;76.793038;6.80693;;;llama3-med42-8b;;{'typing': 76.793038, 'generation': 6.80693};CHAT;;B;{};INTERACTION;
+829ce4bf-38db-452e-a616-c545b62bcba1;2;;2025-05-26T15:08:19.765582;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 43.123294};TASK_COMPLETION;;B;{};INTERACTION;43.123294
+829ce4bf-38db-452e-a616-c545b62bcba1;2;PROMPT_METRICS;2025-05-26T15:08:21.014211;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;;;0;;;;B;0.0;47.0;1.0;;;;;;;B;;;
+829ce4bf-38db-452e-a616-c545b62bcba1;3;;2025-05-26T15:08:56.139469;;;;;0;;;;Ollama;50.036867;2.829988;;;llama3-med42-8b;;{'typing': 50.036867, 'generation': 2.829988};CHAT;;B;{};INTERACTION;
+829ce4bf-38db-452e-a616-c545b62bcba1;3;;2025-05-26T15:09:04.709449;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 24.880071};TASK_COMPLETION;;B;{};INTERACTION;24.880071
+829ce4bf-38db-452e-a616-c545b62bcba1;3;PROMPT_METRICS;2025-05-26T15:09:06.168733;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+ee161ddf-04da-4846-902d-deff5eee7405;0;;2025-05-26T15:58:20.907452;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ee161ddf-04da-4846-902d-deff5eee7405;0;;2025-05-26T15:58:52.250839;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+ee161ddf-04da-4846-902d-deff5eee7405;1;;2025-05-26T16:00:55.437773;;;;;0;;;;Ollama;7.990436;14.274673;;;llama3-med42-8b;;{'typing': 7.990436, 'generation': 14.274673};CHAT;;A;{};INTERACTION;
+ee161ddf-04da-4846-902d-deff5eee7405;1;;2025-05-26T16:04:00.573414;;;;;0;;;;Ollama;195.185268;4.224283;;;llama3-med42-8b;;{'typing': 195.185268, 'generation': 4.224283};CHAT;;A;{};INTERACTION;
+a78d2096-e138-420e-bbb7-427da51a1907;0;;2025-05-26T16:17:22.248266;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+a78d2096-e138-420e-bbb7-427da51a1907;0;;2025-05-26T16:18:16.870868;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+a78d2096-e138-420e-bbb7-427da51a1907;1;;2025-05-26T16:18:42.135533;;;;;0;;;;Ollama;9.684293;13.44791;;;llama3-med42-8b;;{'typing': 9.684293, 'generation': 13.44791};CHAT;;B;{};INTERACTION;
+a78d2096-e138-420e-bbb7-427da51a1907;1;;2025-05-26T16:19:04.619638;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 40.847251};TASK_COMPLETION;;B;{};INTERACTION;40.847251
+a78d2096-e138-420e-bbb7-427da51a1907;1;PROMPT_METRICS;2025-05-26T16:19:06.215898;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+a78d2096-e138-420e-bbb7-427da51a1907;2;;2025-05-26T16:19:18.027673;;;;;0;;;;Ollama;45.184627;4.155506;;;llama3-med42-8b;;{'typing': 45.184627, 'generation': 4.155506};CHAT;;B;{};INTERACTION;
+a78d2096-e138-420e-bbb7-427da51a1907;2;;2025-05-26T16:19:28.988650;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 19.824931};TASK_COMPLETION;;B;{};INTERACTION;19.824931
+a78d2096-e138-420e-bbb7-427da51a1907;2;PROMPT_METRICS;2025-05-26T16:19:30.492848;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+a78d2096-e138-420e-bbb7-427da51a1907;3;;2025-05-26T16:20:30.006358;;;;;0;;;;Ollama;71.952275;4.185215;;;llama3-med42-8b;;{'typing': 71.952275, 'generation': 4.185215};CHAT;;B;{};INTERACTION;
+a78d2096-e138-420e-bbb7-427da51a1907;3;;2025-05-26T16:20:39.372024;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 43.122644};TASK_COMPLETION;;B;{};INTERACTION;43.122644
+a78d2096-e138-420e-bbb7-427da51a1907;3;PROMPT_METRICS;2025-05-26T16:20:40.723259;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+3e653ecf-a8c5-434c-b25c-0364335b2240;0;;2025-05-26T16:34:09.436142;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+3e653ecf-a8c5-434c-b25c-0364335b2240;0;;2025-05-26T16:35:04.275477;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+3e653ecf-a8c5-434c-b25c-0364335b2240;1;;2025-05-26T16:35:27.137851;;;;;0;;;;Ollama;7.17469;13.76359;;;llama3-med42-8b;;{'typing': 7.17469, 'generation': 13.76359};CHAT;;A;{};INTERACTION;
+3e653ecf-a8c5-434c-b25c-0364335b2240;1;;2025-05-26T16:35:37.747438;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 27.346414};TASK_COMPLETION;;A;{};INTERACTION;27.346414
+3e653ecf-a8c5-434c-b25c-0364335b2240;1;PROMPT_METRICS;2025-05-26T16:35:39.383650;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+3e653ecf-a8c5-434c-b25c-0364335b2240;2;;2025-05-26T16:35:48.249344;;;;;0;;;;Ollama;31.344562;3.431655;;;llama3-med42-8b;;{'typing': 31.344562, 'generation': 3.431655};CHAT;;A;{};INTERACTION;
+3e653ecf-a8c5-434c-b25c-0364335b2240;2;;2025-05-26T16:36:02.710798;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 21.547289};TASK_COMPLETION;;A;{};INTERACTION;21.547289
+3e653ecf-a8c5-434c-b25c-0364335b2240;2;PROMPT_METRICS;2025-05-26T16:36:03.914232;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+3e653ecf-a8c5-434c-b25c-0364335b2240;3;;2025-05-26T16:36:12.229670;;;;;0;;;;Ollama;23.605131;3.896383;;;llama3-med42-8b;;{'typing': 23.605131, 'generation': 3.896383};CHAT;;A;{};INTERACTION;
+3e653ecf-a8c5-434c-b25c-0364335b2240;3;;2025-05-26T16:36:19.774487;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 14.193255};TASK_COMPLETION;;A;{};INTERACTION;14.193255
+3e653ecf-a8c5-434c-b25c-0364335b2240;3;PROMPT_METRICS;2025-05-26T16:36:20.960343;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+315e8430-764e-49ba-bf06-7bb4d82ee550;0;;2025-05-26T16:46:00.526332;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+315e8430-764e-49ba-bf06-7bb4d82ee550;0;;2025-05-26T16:46:44.612647;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+315e8430-764e-49ba-bf06-7bb4d82ee550;1;;2025-05-26T16:53:01.765979;;;;;0;;;;Ollama;361.278373;13.821962;;;llama3-med42-8b;;{'typing': 361.278373, 'generation': 13.821962};CHAT;;B;{};INTERACTION;
+315e8430-764e-49ba-bf06-7bb4d82ee550;1;;2025-05-26T16:53:27.471440;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 43.892192};TASK_COMPLETION;;B;{};INTERACTION;43.892192
+315e8430-764e-49ba-bf06-7bb4d82ee550;1;PROMPT_METRICS;2025-05-26T16:53:29.284677;dfg;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+315e8430-764e-49ba-bf06-7bb4d82ee550;2;;2025-05-26T16:53:41.121316;;;;;0;;;;Ollama;47.345067;5.834101;;;llama3-med42-8b;;{'typing': 47.345067, 'generation': 5.834101};CHAT;;B;{};INTERACTION;
+315e8430-764e-49ba-bf06-7bb4d82ee550;2;;2025-05-26T16:54:13.357195;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 42.058614};TASK_COMPLETION;;B;{};INTERACTION;42.058614
+315e8430-764e-49ba-bf06-7bb4d82ee550;2;PROMPT_METRICS;2025-05-26T16:54:14.527738;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+fd0377f4-1f25-4f11-a8ad-2576c1608257;0;;2025-05-26T17:00:56.748553;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+fd0377f4-1f25-4f11-a8ad-2576c1608257;0;;2025-05-26T17:02:14.733868;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+fd0377f4-1f25-4f11-a8ad-2576c1608257;1;;2025-05-26T17:02:40.955529;;;;;0;;;;Ollama;10.524599;13.747994;;;llama3-med42-8b;;{'typing': 10.524599, 'generation': 13.747994};CHAT;;A;{};INTERACTION;
+fd0377f4-1f25-4f11-a8ad-2576c1608257;1;;2025-05-26T17:02:53.128190;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 29.217794};TASK_COMPLETION;;A;{};INTERACTION;29.217794
+fd0377f4-1f25-4f11-a8ad-2576c1608257;1;PROMPT_METRICS;2025-05-26T17:02:54.876622;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;0;;2025-05-26T17:06:38.150046;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;0;;2025-05-26T17:07:10.345886;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;1;;2025-05-26T17:07:30.202778;;;;;0;;;;Ollama;11.121638;6.648611;;;llama3-med42-8b;;{'typing': 11.121638, 'generation': 6.648611};CHAT;;B;{};INTERACTION;
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;1;;2025-05-26T17:07:53.784900;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 36.384104};TASK_COMPLETION;;B;{};INTERACTION;36.384104
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;1;PROMPT_METRICS;2025-05-26T17:07:55.360407;ghj;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;2;;2025-05-26T17:08:05.021411;;;;;0;;;;Ollama;37.037042;4.428036;;;llama3-med42-8b;;{'typing': 37.037042, 'generation': 4.428036};CHAT;;B;{};INTERACTION;
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;2;;2025-05-26T17:08:13.231189;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 16.310648};TASK_COMPLETION;;B;{};INTERACTION;16.310648
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;2;PROMPT_METRICS;2025-05-26T17:08:14.483958;dfh;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+ff0e6905-215c-4e41-b034-eda80dd9e417;0;;2025-05-26T17:27:54.543415;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ff0e6905-215c-4e41-b034-eda80dd9e417;0;;2025-05-26T17:28:09.607570;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+ff0e6905-215c-4e41-b034-eda80dd9e417;1;;2025-05-26T17:28:31.242076;;;;;0;;;;Ollama;4.885024;13.935426;;;llama3-med42-8b;;{'typing': 4.885024, 'generation': 13.935426};CHAT;;A;{};INTERACTION;
+ff0e6905-215c-4e41-b034-eda80dd9e417;1;;2025-05-26T17:28:38.154209;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 0.0};TASK_COMPLETION;;A;{};INTERACTION;0.0
+ff0e6905-215c-4e41-b034-eda80dd9e417;1;PROMPT_METRICS;2025-05-26T17:28:39.875317;hello;;;;0;;;;A;0.0;1.0;2.0;;;;;;;A;;;
+dff75ea5-5feb-4f55-bf82-147eb3060ecb;0;;2025-05-26T17:35:42.089999;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+d85d72bb-5773-4cd8-9d5f-0acfd7183311;0;;2025-05-26T17:37:21.429908;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+d85d72bb-5773-4cd8-9d5f-0acfd7183311;0;;2025-05-26T17:38:52.675934;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+d85d72bb-5773-4cd8-9d5f-0acfd7183311;1;;2025-05-26T17:39:16.251802;;;;;0;;;;Ollama;7.562112;14.31996;;;llama3-med42-8b;;{'typing': 7.562112, 'generation': 14.31996};CHAT;;A;{};INTERACTION;
+d85d72bb-5773-4cd8-9d5f-0acfd7183311;1;;2025-05-26T17:39:34.403972;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 35.421038};TASK_COMPLETION;;A;{};INTERACTION;35.421038
+d85d72bb-5773-4cd8-9d5f-0acfd7183311;1;PROMPT_METRICS;2025-05-26T17:39:36.289542;djzt;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+77309108-450b-411d-832e-6d6447535710;0;;2025-05-26T17:44:38.454202;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+77309108-450b-411d-832e-6d6447535710;0;;2025-05-26T17:44:55.838474;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+77309108-450b-411d-832e-6d6447535710;1;;2025-05-26T17:45:18.507280;;;;;0;;;;Ollama;8.350524;12.247108;;;llama3-med42-8b;;{'typing': 8.350524, 'generation': 12.247108};CHAT;;B;{};INTERACTION;
+77309108-450b-411d-832e-6d6447535710;1;;2025-05-26T17:45:28.396017;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 26.195811};TASK_COMPLETION;;B;{};INTERACTION;26.195811
+77309108-450b-411d-832e-6d6447535710;1;PROMPT_METRICS;2025-05-26T17:45:30.259391;ffzuzt;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+77309108-450b-411d-832e-6d6447535710;2;;2025-05-26T17:45:41.012474;;;;;0;;;;Ollama;30.272115;4.488847;;;llama3-med42-8b;;{'typing': 30.272115, 'generation': 4.488847};CHAT;;B;{};INTERACTION;
+77309108-450b-411d-832e-6d6447535710;2;;2025-05-26T17:46:41.225062;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 69.029118};TASK_COMPLETION;;B;{};INTERACTION;69.029118
+77309108-450b-411d-832e-6d6447535710;2;PROMPT_METRICS;2025-05-26T17:46:42.745993;zuirzi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+77309108-450b-411d-832e-6d6447535710;3;;2025-05-26T17:46:59.776309;;;;;0;;;;Ollama;79.796525;3.461448;;;llama3-med42-8b;;{'typing': 79.796525, 'generation': 3.461448};CHAT;;B;{};INTERACTION;
+77309108-450b-411d-832e-6d6447535710;3;;2025-05-26T17:47:06.335703;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 20.621089};TASK_COMPLETION;;B;{};INTERACTION;20.621089
+77309108-450b-411d-832e-6d6447535710;3;PROMPT_METRICS;2025-05-26T17:47:08.180557;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+8ab2221e-751f-4638-a060-c1eea0744f5d;0;;2025-05-26T17:59:47.671642;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+8ab2221e-751f-4638-a060-c1eea0744f5d;0;;2025-05-26T18:00:09.852781;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+8ab2221e-751f-4638-a060-c1eea0744f5d;1;;2025-05-26T18:00:32.264883;;;;;0;;;;Ollama;7.743665;12.781547;;;llama3-med42-8b;;{'typing': 7.743665, 'generation': 12.781547};CHAT;;A;{};INTERACTION;
+ca240a20-d819-4751-8a4e-fcc619392749;0;;2025-05-26T18:16:10.583858;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ca240a20-d819-4751-8a4e-fcc619392749;0;;2025-05-26T18:16:52.456647;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+ca240a20-d819-4751-8a4e-fcc619392749;1;;2025-05-26T18:17:22.250533;;;;;0;;;;Ollama;10.880809;16.718266;;;llama3-med42-8b;;{'typing': 10.880809, 'generation': 16.718266};CHAT;;B;{};INTERACTION;
+ca240a20-d819-4751-8a4e-fcc619392749;1;;2025-05-26T18:18:40.667580;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 100.479975};TASK_COMPLETION;;B;{};INTERACTION;100.479975
+ca240a20-d819-4751-8a4e-fcc619392749;1;PROMPT_METRICS;2025-05-26T18:18:42.516003;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+ca240a20-d819-4751-8a4e-fcc619392749;2;;2025-05-26T18:18:55.067715;;;;;0;;;;Ollama;103.509444;6.007473;;;llama3-med42-8b;;{'typing': 103.509444, 'generation': 6.007473};CHAT;;B;{};INTERACTION;
+ca240a20-d819-4751-8a4e-fcc619392749;2;;2025-05-26T18:19:37.160182;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 52.492253};TASK_COMPLETION;;B;{};INTERACTION;52.492253
+ca240a20-d819-4751-8a4e-fcc619392749;2;PROMPT_METRICS;2025-05-26T18:19:38.455614;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;0;;2025-05-26T18:28:58.227993;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;0;;2025-05-26T18:35:22.111002;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;1;;2025-05-26T18:35:55.149185;;;;;0;;;;Ollama;18.032308;13.050969;;;llama3-med42-8b;;{'typing': 18.032308, 'generation': 13.050969};CHAT;;A;{};INTERACTION;
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;1;;2025-05-26T18:36:52.659204;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 84.352172};TASK_COMPLETION;;A;{};INTERACTION;84.352172
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;1;PROMPT_METRICS;2025-05-26T18:36:54.502850;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;2;;2025-05-26T18:37:25.938274;;;;;0;;;;Ollama;98.833237;5.009411;;;llama3-med42-8b;;{'typing': 98.833237, 'generation': 5.009411};CHAT;;A;{};INTERACTION;
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;2;;2025-05-26T18:37:54.384382;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 57.604927};TASK_COMPLETION;;A;{};INTERACTION;57.604927
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;2;PROMPT_METRICS;2025-05-26T18:37:55.620607;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;3;;2025-05-26T18:38:08.838673;;;;;0;;;;Ollama;43.120365;4.783493;;;llama3-med42-8b;;{'typing': 43.120365, 'generation': 4.783493};CHAT;;A;{};INTERACTION;
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;3;;2025-05-26T18:38:22.047991;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 24.267496};TASK_COMPLETION;;A;{};INTERACTION;24.267496
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;3;PROMPT_METRICS;2025-05-26T18:38:23.519126;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+d9067709-a58f-4074-9ad2-b1c3e1c87572;0;;2025-05-26T18:38:48.399751;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+d9067709-a58f-4074-9ad2-b1c3e1c87572;0;;2025-05-26T18:38:58.609981;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+d9067709-a58f-4074-9ad2-b1c3e1c87572;1;;2025-05-26T18:39:16.050113;;;;;0;;;;Ollama;10.735097;4.54967;;;llama3-med42-8b;;{'typing': 10.735097, 'generation': 4.54967};CHAT;;B;{};INTERACTION;
+d9067709-a58f-4074-9ad2-b1c3e1c87572;1;;2025-05-26T18:39:26.455808;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 21.014266};TASK_COMPLETION;;B;{};INTERACTION;21.014266
+d9067709-a58f-4074-9ad2-b1c3e1c87572;1;PROMPT_METRICS;2025-05-26T18:39:28.102204;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+d9067709-a58f-4074-9ad2-b1c3e1c87572;2;;2025-05-26T18:39:38.789572;;;;;0;;;;Ollama;23.848991;3.440679;;;llama3-med42-8b;;{'typing': 23.848991, 'generation': 3.440679};CHAT;;B;{};INTERACTION;
+d9067709-a58f-4074-9ad2-b1c3e1c87572;2;;2025-05-26T18:39:48.176898;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 18.087279};TASK_COMPLETION;;B;{};INTERACTION;18.087279
+d9067709-a58f-4074-9ad2-b1c3e1c87572;2;PROMPT_METRICS;2025-05-26T18:39:49.415157;hey;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+c3372216-5707-4c4a-8efe-2d01b6a37542;0;;2025-05-26T18:45:11.036198;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+c3372216-5707-4c4a-8efe-2d01b6a37542;0;;2025-05-26T18:45:20.425349;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+c3372216-5707-4c4a-8efe-2d01b6a37542;1;;2025-05-26T19:36:04.249671;;;;;0;;;;Ollama;3029.041911;13.05699;;;llama3-med42-8b;;{'typing': 3029.041911, 'generation': 13.05699};CHAT;;A;{};INTERACTION;
+c3372216-5707-4c4a-8efe-2d01b6a37542;1;;2025-05-26T19:36:12.089390;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 3045.012565};TASK_COMPLETION;;A;{};INTERACTION;3045.012565
+c3372216-5707-4c4a-8efe-2d01b6a37542;1;PROMPT_METRICS;2025-05-26T19:36:14.609757;o;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+c3372216-5707-4c4a-8efe-2d01b6a37542;2;;2025-05-26T19:36:22.980962;;;;;0;;;;Ollama;29.364681;2.413306;;;llama3-med42-8b;;{'typing': 29.364681, 'generation': 2.413306};CHAT;;A;{};INTERACTION;
+c3372216-5707-4c4a-8efe-2d01b6a37542;2;;2025-05-26T19:36:28.773313;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 11.773585};TASK_COMPLETION;;A;{};INTERACTION;11.773585
+c3372216-5707-4c4a-8efe-2d01b6a37542;2;PROMPT_METRICS;2025-05-26T19:36:30.261204;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+c3372216-5707-4c4a-8efe-2d01b6a37542;3;;2025-05-26T19:37:10.749174;;;;;0;;;;Ollama;46.553122;3.641754;;;llama3-med42-8b;;{'typing': 46.553122, 'generation': 3.641754};CHAT;;A;{};INTERACTION;
+5195c8a9-ce82-4373-8ed7-c422390f79b5;0;;2025-05-26T19:48:51.184872;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+5195c8a9-ce82-4373-8ed7-c422390f79b5;0;;2025-05-26T19:49:25.967974;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+5195c8a9-ce82-4373-8ed7-c422390f79b5;1;;2025-05-26T19:50:00.759075;;;;;0;;;;Ollama;18.87391;13.840468;;;llama3-med42-8b;;{'typing': 18.87391, 'generation': 13.840468};CHAT;;B;{};INTERACTION;
+5195c8a9-ce82-4373-8ed7-c422390f79b5;1;;2025-05-26T19:50:07.046452;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 25.851977};TASK_COMPLETION;;B;{};INTERACTION;25.851977
+5195c8a9-ce82-4373-8ed7-c422390f79b5;1;PROMPT_METRICS;2025-05-26T19:50:08.797185;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+5195c8a9-ce82-4373-8ed7-c422390f79b5;2;;2025-05-26T19:50:19.388734;;;;;0;;;;Ollama;28.33304;4.147135;;;llama3-med42-8b;;{'typing': 28.33304, 'generation': 4.147135};CHAT;;B;{};INTERACTION;
+5195c8a9-ce82-4373-8ed7-c422390f79b5;2;;2025-05-26T19:50:24.987689;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 13.684505};TASK_COMPLETION;;B;{};INTERACTION;13.684505
+5195c8a9-ce82-4373-8ed7-c422390f79b5;2;PROMPT_METRICS;2025-05-26T19:50:26.754171;no;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+19db4d66-5d6b-4874-a17c-5230a1bdb8d0;0;;2025-05-26T19:55:09.793805;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+19db4d66-5d6b-4874-a17c-5230a1bdb8d0;0;;2025-05-26T19:55:19.628506;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+19db4d66-5d6b-4874-a17c-5230a1bdb8d0;1;;2025-05-26T19:55:42.837056;;;;;0;;;;Ollama;7.836945;13.51435;;;llama3-med42-8b;;{'typing': 7.836945, 'generation': 13.51435};CHAT;;A;{};INTERACTION;
+19db4d66-5d6b-4874-a17c-5230a1bdb8d0;1;;2025-05-26T19:55:57.215101;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 30.925985};TASK_COMPLETION;;A;{};INTERACTION;30.925985
+19db4d66-5d6b-4874-a17c-5230a1bdb8d0;1;PROMPT_METRICS;2025-05-26T19:55:58.506505;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+19db4d66-5d6b-4874-a17c-5230a1bdb8d0;2;;2025-05-26T19:56:06.588191;;;;;0;;;;Ollama;33.299028;3.91977;;;llama3-med42-8b;;{'typing': 33.299028, 'generation': 3.91977};CHAT;;A;{};INTERACTION;
+8198cebb-83d0-410c-b67a-4f8908d61664;0;;2025-05-26T19:56:16.732639;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;0;;2025-05-26T19:56:39.109327;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;0;;2025-05-26T19:56:50.952450;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;1;;2025-05-26T19:57:03.893949;;;;;0;;;;Ollama;7.346652;3.868053;;;llama3-med42-8b;;{'typing': 7.346652, 'generation': 3.868053};CHAT;;A;{};INTERACTION;
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;1;;2025-05-26T19:57:09.238371;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 11.790939};TASK_COMPLETION;;A;{};INTERACTION;11.790939
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;1;PROMPT_METRICS;2025-05-26T19:57:10.847328;sadf4;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;2;;2025-05-26T19:57:17.132624;;;;;0;;;;Ollama;14.510231;2.595386;;;llama3-med42-8b;;{'typing': 14.510231, 'generation': 2.595386};CHAT;;A;{};INTERACTION;
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;2;;2025-05-26T19:57:21.035305;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 8.851279};TASK_COMPLETION;;A;{};INTERACTION;8.851279
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;2;PROMPT_METRICS;2025-05-26T19:57:22.406677;sadf;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;3;;2025-05-26T19:57:29.337326;;;;;0;;;;Ollama;12.045937;2.765181;;;llama3-med42-8b;;{'typing': 12.045937, 'generation': 2.765181};CHAT;;A;{};INTERACTION;
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;3;;2025-05-26T19:58:20.811331;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 56.19682};TASK_COMPLETION;;A;{};INTERACTION;56.19682
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;3;PROMPT_METRICS;2025-05-26T19:58:22.325560;sdfasdff;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+ff92c38c-c080-45aa-a997-5f16db18c345;0;;2025-05-26T19:58:41.007409;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ff92c38c-c080-45aa-a997-5f16db18c345;0;;2025-05-26T19:58:50.361971;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+ff92c38c-c080-45aa-a997-5f16db18c345;1;;2025-05-26T19:59:06.527426;;;;;0;;;;Ollama;10.798639;3.399735;;;llama3-med42-8b;;{'typing': 10.798639, 'generation': 3.399735};CHAT;;B;{};INTERACTION;
+ff92c38c-c080-45aa-a997-5f16db18c345;1;;2025-05-26T19:59:13.414745;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 16.669772};TASK_COMPLETION;;B;{};INTERACTION;16.669772
+ff92c38c-c080-45aa-a997-5f16db18c345;1;PROMPT_METRICS;2025-05-26T19:59:15.268049;hrllo;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+ff92c38c-c080-45aa-a997-5f16db18c345;2;;2025-05-26T19:59:26.583326;;;;;0;;;;Ollama;19.319317;4.1377;;;llama3-med42-8b;;{'typing': 19.319317, 'generation': 4.1377};CHAT;;B;{};INTERACTION;
+ff92c38c-c080-45aa-a997-5f16db18c345;2;;2025-05-26T19:59:32.396435;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 15.09014};TASK_COMPLETION;;B;{};INTERACTION;15.09014
+ff92c38c-c080-45aa-a997-5f16db18c345;2;PROMPT_METRICS;2025-05-26T19:59:33.845186;headache;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;0;;2025-05-26T20:16:58.530785;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;0;;2025-05-26T20:17:09.532948;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;1;;2025-05-26T20:17:35.003063;;;;;0;;;;Ollama;8.017816;15.572439;;;llama3-med42-8b;;{'typing': 8.017816, 'generation': 15.572439};CHAT;;A;{};INTERACTION;
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;1;;2025-05-26T20:17:41.839189;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 25.465563};TASK_COMPLETION;;A;{};INTERACTION;25.465563
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;1;PROMPT_METRICS;2025-05-26T20:17:43.569595;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;2;;2025-05-26T20:17:51.958055;;;;;0;;;;Ollama;29.844168;2.69385;;;llama3-med42-8b;;{'typing': 29.844168, 'generation': 2.69385};CHAT;;A;{};INTERACTION;
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;2;;2025-05-26T20:18:02.620567;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 17.108014};TASK_COMPLETION;;A;{};INTERACTION;17.108014
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;2;PROMPT_METRICS;2025-05-26T20:18:03.795261;ho;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;3;;2025-05-26T20:18:12.046409;;;;;0;;;;Ollama;19.481141;3.274092;;;llama3-med42-8b;;{'typing': 19.481141, 'generation': 3.274092};CHAT;;A;{};INTERACTION;
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;3;;2025-05-26T20:18:17.953658;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 12.389222};TASK_COMPLETION;;A;{};INTERACTION;12.389222
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;3;PROMPT_METRICS;2025-05-26T20:18:19.167867;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+3886b27e-54ce-48fa-854e-f775a10a929e;0;;2025-05-26T20:18:52.114911;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+3886b27e-54ce-48fa-854e-f775a10a929e;0;;2025-05-26T20:19:01.910096;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+3886b27e-54ce-48fa-854e-f775a10a929e;1;;2025-05-26T20:19:17.822432;;;;;0;;;;Ollama;9.218104;4.612292;;;llama3-med42-8b;;{'typing': 9.218104, 'generation': 4.612292};CHAT;;B;{};INTERACTION;
+3886b27e-54ce-48fa-854e-f775a10a929e;1;;2025-05-26T20:19:25.830102;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 16.543636};TASK_COMPLETION;;B;{};INTERACTION;16.543636
+3886b27e-54ce-48fa-854e-f775a10a929e;1;PROMPT_METRICS;2025-05-26T20:19:27.490833;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+3886b27e-54ce-48fa-854e-f775a10a929e;2;;2025-05-26T20:19:37.990023;;;;;0;;;;Ollama;21.727028;3.053092;;;llama3-med42-8b;;{'typing': 21.727028, 'generation': 3.053092};CHAT;;B;{};INTERACTION;
+3886b27e-54ce-48fa-854e-f775a10a929e;2;;2025-05-26T20:19:43.987683;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 14.567126};TASK_COMPLETION;;B;{};INTERACTION;14.567126
+3886b27e-54ce-48fa-854e-f775a10a929e;2;PROMPT_METRICS;2025-05-26T20:19:45.186354;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+3886b27e-54ce-48fa-854e-f775a10a929e;3;;2025-05-26T20:31:32.377870;;;;;0;;;;Ollama;702.857695;14.568259;;;llama3-med42-8b;;{'typing': 702.857695, 'generation': 14.568259};CHAT;;B;{};INTERACTION;
+3886b27e-54ce-48fa-854e-f775a10a929e;3;;2025-05-26T20:32:48.192466;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 261.929299};TASK_COMPLETION;;B;{};INTERACTION;261.929299
+3886b27e-54ce-48fa-854e-f775a10a929e;3;PROMPT_METRICS;2025-05-26T20:32:50.278390;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+1de92c7e-be4d-43ea-9efd-20d9f87b6f5d;0;;2025-05-26T20:33:53.084557;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+1de92c7e-be4d-43ea-9efd-20d9f87b6f5d;0;;2025-05-26T20:34:03.149748;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+1de92c7e-be4d-43ea-9efd-20d9f87b6f5d;1;;2025-05-26T20:34:17.505644;;;;;0;;;;Ollama;6.687146;5.753351;;;llama3-med42-8b;;{'typing': 6.687146, 'generation': 5.753351};CHAT;;A;{};INTERACTION;
+1de92c7e-be4d-43ea-9efd-20d9f87b6f5d;1;;2025-05-26T20:34:21.860430;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 12.557032};TASK_COMPLETION;;A;{};INTERACTION;12.557032
+1de92c7e-be4d-43ea-9efd-20d9f87b6f5d;1;PROMPT_METRICS;2025-05-26T20:34:23.720303;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+032c8761-aad2-4b97-9680-0bf1f0f0265e;0;;2025-05-26T20:34:38.199840;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+032c8761-aad2-4b97-9680-0bf1f0f0265e;0;;2025-05-26T20:34:47.647549;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+032c8761-aad2-4b97-9680-0bf1f0f0265e;1;;2025-05-26T20:35:02.809201;;;;;0;;;;Ollama;8.949591;4.059476;;;llama3-med42-8b;;{'typing': 8.949591, 'generation': 4.059476};CHAT;;B;{};INTERACTION;
+032c8761-aad2-4b97-9680-0bf1f0f0265e;1;;2025-05-26T20:35:08.152024;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 13.7448};TASK_COMPLETION;;B;{};INTERACTION;13.7448
+032c8761-aad2-4b97-9680-0bf1f0f0265e;1;PROMPT_METRICS;2025-05-26T20:35:09.969096;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+032c8761-aad2-4b97-9680-0bf1f0f0265e;2;;2025-05-26T20:35:21.212434;;;;;0;;;;Ollama;17.844956;4.620478;;;llama3-med42-8b;;{'typing': 17.844956, 'generation': 4.620478};CHAT;;B;{};INTERACTION;
+032c8761-aad2-4b97-9680-0bf1f0f0265e;2;;2025-05-26T20:35:27.037569;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 15.040944};TASK_COMPLETION;;B;{};INTERACTION;15.040944
+032c8761-aad2-4b97-9680-0bf1f0f0265e;2;PROMPT_METRICS;2025-05-26T20:35:28.258139;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+032c8761-aad2-4b97-9680-0bf1f0f0265e;3;;2025-05-26T20:37:18.469721;;;;;0;;;;Ollama;118.785743;3.090435;;;llama3-med42-8b;;{'typing': 118.785743, 'generation': 3.090435};CHAT;;B;{};INTERACTION;
+032c8761-aad2-4b97-9680-0bf1f0f0265e;3;;2025-05-26T20:37:28.510996;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 92.454355};TASK_COMPLETION;;B;{};INTERACTION;92.454355
+032c8761-aad2-4b97-9680-0bf1f0f0265e;3;PROMPT_METRICS;2025-05-26T20:37:29.711508;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+07414e69-9478-4a54-b3a2-e39cf4716cf9;0;;2025-05-26T20:51:52.773912;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+07414e69-9478-4a54-b3a2-e39cf4716cf9;0;;2025-05-26T20:52:02.593833;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+eaf2d5e9-bf67-4177-b72b-51f487837629;0;;2025-05-26T20:54:03.081050;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+eaf2d5e9-bf67-4177-b72b-51f487837629;0;;2025-05-26T20:54:13.568544;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+eaf2d5e9-bf67-4177-b72b-51f487837629;1;;2025-05-26T20:54:38.353065;;;;;0;;;;Ollama;9.41588;13.621034;;;llama3-med42-8b;;{'typing': 9.41588, 'generation': 13.621034};CHAT;;B;{};INTERACTION;
+eaf2d5e9-bf67-4177-b72b-51f487837629;1;;2025-05-26T20:54:45.722027;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 25.721036};TASK_COMPLETION;;B;{};INTERACTION;25.721036
+eaf2d5e9-bf67-4177-b72b-51f487837629;1;PROMPT_METRICS;2025-05-26T20:54:46.970884;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+eaf2d5e9-bf67-4177-b72b-51f487837629;2;;2025-05-26T20:54:55.842658;;;;;0;;;;Ollama;28.664492;2.450718;;;llama3-med42-8b;;{'typing': 28.664492, 'generation': 2.450718};CHAT;;B;{};INTERACTION;
+eaf2d5e9-bf67-4177-b72b-51f487837629;2;;2025-05-26T20:55:03.461136;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 14.43412};TASK_COMPLETION;;B;{};INTERACTION;14.43412
+eaf2d5e9-bf67-4177-b72b-51f487837629;2;PROMPT_METRICS;2025-05-26T20:55:04.647599;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+b65e6460-eb1e-47bf-9145-513bd6815cb2;0;;2025-05-26T20:55:58.691985;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ac1e0c19-6342-49c8-878c-c063876a9129;0;;2025-05-26T20:56:13.526909;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ac1e0c19-6342-49c8-878c-c063876a9129;0;;2025-05-26T20:56:24.397510;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+ac1e0c19-6342-49c8-878c-c063876a9129;1;;2025-05-26T20:56:44.511586;;;;;0;;;;Ollama;12.956032;6.884901;;;llama3-med42-8b;;{'typing': 12.956032, 'generation': 6.884901};CHAT;;B;{};INTERACTION;
+ac1e0c19-6342-49c8-878c-c063876a9129;1;;2025-05-26T20:56:51.156234;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 19.016564};TASK_COMPLETION;;B;{};INTERACTION;19.016564
+ac1e0c19-6342-49c8-878c-c063876a9129;1;PROMPT_METRICS;2025-05-26T20:56:52.376943;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+ac1e0c19-6342-49c8-878c-c063876a9129;2;;2025-05-26T20:57:00.031858;;;;;0;;;;Ollama;20.761385;1.644776;;;llama3-med42-8b;;{'typing': 20.761385, 'generation': 1.644776};CHAT;;B;{};INTERACTION;
+ac1e0c19-6342-49c8-878c-c063876a9129;2;;2025-05-26T20:57:04.646464;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 10.347534};TASK_COMPLETION;;B;{};INTERACTION;10.347534
+ac1e0c19-6342-49c8-878c-c063876a9129;2;PROMPT_METRICS;2025-05-26T20:57:06.160615;st;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+fa8abc93-c131-435c-ad06-55d445465030;0;;2025-05-26T21:02:10.378898;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+fa8abc93-c131-435c-ad06-55d445465030;0;;2025-05-26T21:02:20.388760;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+fa8abc93-c131-435c-ad06-55d445465030;1;;2025-05-26T21:02:40.757225;;;;;0;;;;Ollama;6.530327;12.081023;;;llama3-med42-8b;;{'typing': 6.530327, 'generation': 12.081023};CHAT;;A;{};INTERACTION;
+fa8abc93-c131-435c-ad06-55d445465030;1;;2025-05-26T21:02:45.625352;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 19.045433};TASK_COMPLETION;;A;{};INTERACTION;19.045433
+fa8abc93-c131-435c-ad06-55d445465030;1;PROMPT_METRICS;2025-05-26T21:02:48.279367;sadfsa;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+fa8abc93-c131-435c-ad06-55d445465030;2;;2025-05-26T21:02:55.128780;;;;;0;;;;Ollama;23.971831;2.447238;;;llama3-med42-8b;;{'typing': 23.971831, 'generation': 2.447238};CHAT;;A;{};INTERACTION;
+fa8abc93-c131-435c-ad06-55d445465030;2;;2025-05-26T21:03:01.341481;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 11.476749};TASK_COMPLETION;;A;{};INTERACTION;11.476749
+fa8abc93-c131-435c-ad06-55d445465030;2;PROMPT_METRICS;2025-05-26T21:03:02.582617;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+fa8abc93-c131-435c-ad06-55d445465030;3;;2025-05-26T21:03:10.451855;;;;;0;;;;Ollama;14.402112;3.36494;;;llama3-med42-8b;;{'typing': 14.402112, 'generation': 3.36494};CHAT;;A;{};INTERACTION;
+fa8abc93-c131-435c-ad06-55d445465030;3;;2025-05-26T21:03:15.733346;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 11.435064};TASK_COMPLETION;;A;{};INTERACTION;11.435064
+fa8abc93-c131-435c-ad06-55d445465030;3;PROMPT_METRICS;2025-05-26T21:03:16.935753;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;0;;2025-05-26T21:03:36.782161;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;0;;2025-05-26T21:03:45.891136;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;1;;2025-05-26T21:04:38.968292;;;;;0;;;;Ollama;45.75568;5.139575;;;llama3-med42-8b;;{'typing': 45.75568, 'generation': 5.139575};CHAT;;B;{};INTERACTION;
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;1;;2025-05-26T21:05:26.252040;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 55.884263};TASK_COMPLETION;;B;{};INTERACTION;55.884263
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;1;PROMPT_METRICS;2025-05-26T21:05:27.888396;sdf;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;2;;2025-05-26T21:05:45.959023;;;;;0;;;;Ollama;68.554478;3.582699;;;llama3-med42-8b;;{'typing': 68.554478, 'generation': 3.582699};CHAT;;B;{};INTERACTION;
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;2;;2025-05-26T21:05:51.653011;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 22.27816};TASK_COMPLETION;;B;{};INTERACTION;22.27816
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;2;PROMPT_METRICS;2025-05-26T21:05:52.897704;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;3;;2025-05-26T21:06:49.732751;;;;;0;;;;Ollama;63.348457;4.005763;;;llama3-med42-8b;;{'typing': 63.348457, 'generation': 4.005763};CHAT;;B;{};INTERACTION;
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;3;;2025-05-26T21:07:00.850866;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 35.921692};TASK_COMPLETION;;B;{};INTERACTION;35.921692
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;3;PROMPT_METRICS;2025-05-26T21:07:02.154946;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+d1e89ace-4a6a-4974-b998-944a5a1e2fbd;0;;2025-05-26T21:10:04.023026;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+d1e89ace-4a6a-4974-b998-944a5a1e2fbd;0;;2025-05-26T21:10:20.501345;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+d1e89ace-4a6a-4974-b998-944a5a1e2fbd;1;;2025-05-26T21:10:35.883153;;;;;0;;;;Ollama;7.327189;6.13596;;;llama3-med42-8b;;{'typing': 7.327189, 'generation': 6.13596};CHAT;;A;{};INTERACTION;
+d1e89ace-4a6a-4974-b998-944a5a1e2fbd;1;;2025-05-26T21:10:40.453450;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 13.839174};TASK_COMPLETION;;A;{};INTERACTION;13.839174
+d1e89ace-4a6a-4974-b998-944a5a1e2fbd;1;PROMPT_METRICS;2025-05-26T21:10:42.214615;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+0d442ab4-e8f8-4643-a14a-8882425f9437;0;;2025-05-26T21:11:27.962881;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+0d442ab4-e8f8-4643-a14a-8882425f9437;0;;2025-05-26T21:11:38.655873;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+0d442ab4-e8f8-4643-a14a-8882425f9437;1;;2025-05-26T21:11:55.282341;;;;;0;;;;Ollama;10.440494;3.849297;;;llama3-med42-8b;;{'typing': 10.440494, 'generation': 3.849297};CHAT;;B;{};INTERACTION;
+0d442ab4-e8f8-4643-a14a-8882425f9437;1;;2025-05-26T21:11:59.973017;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 14.471201};TASK_COMPLETION;;B;{};INTERACTION;14.471201
+0d442ab4-e8f8-4643-a14a-8882425f9437;1;PROMPT_METRICS;2025-05-26T21:12:01.578490;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+0d442ab4-e8f8-4643-a14a-8882425f9437;2;;2025-05-26T21:12:10.576475;;;;;0;;;;Ollama;16.413938;2.731279;;;llama3-med42-8b;;{'typing': 16.413938, 'generation': 2.731279};CHAT;;B;{};INTERACTION;
+0d442ab4-e8f8-4643-a14a-8882425f9437;2;;2025-05-26T21:12:16.100539;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 12.578581};TASK_COMPLETION;;B;{};INTERACTION;12.578581
+0d442ab4-e8f8-4643-a14a-8882425f9437;2;PROMPT_METRICS;2025-05-26T21:12:17.594991;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+0d442ab4-e8f8-4643-a14a-8882425f9437;0;;2025-05-26T21:13:52.813007;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+dad9ebb8-5fe2-4a8e-99f7-88b373ece9d0;0;;2025-05-26T21:16:02.787903;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+dad9ebb8-5fe2-4a8e-99f7-88b373ece9d0;0;;2025-05-26T21:16:14.137656;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+75302fd5-454e-411a-97ce-c27f857d999d;0;;2025-05-26T21:16:48.045558;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+75302fd5-454e-411a-97ce-c27f857d999d;0;;2025-05-26T21:16:57.652485;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+75302fd5-454e-411a-97ce-c27f857d999d;1;;2025-05-26T21:17:12.558992;;;;;0;;;;Ollama;8.765526;4.294824;;;llama3-med42-8b;;{'typing': 8.765526, 'generation': 4.294824};CHAT;;B;{};INTERACTION;
+75302fd5-454e-411a-97ce-c27f857d999d;1;;2025-05-26T21:17:18.817686;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 14.727595};TASK_COMPLETION;;B;{};INTERACTION;14.727595
+75302fd5-454e-411a-97ce-c27f857d999d;1;PROMPT_METRICS;2025-05-26T21:17:20.461835;hi;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+75302fd5-454e-411a-97ce-c27f857d999d;2;;2025-05-26T21:17:29.666086;;;;;0;;;;Ollama;18.577804;2.825072;;;llama3-med42-8b;;{'typing': 18.577804, 'generation': 2.825072};CHAT;;B;{};INTERACTION;
+75302fd5-454e-411a-97ce-c27f857d999d;2;;2025-05-26T21:17:35.727533;;;;;0;;;;Ollama;;;;;llama3-med42-8b;;{'total': 10.532553};TASK_COMPLETION;;B;{};INTERACTION;10.532553
+75302fd5-454e-411a-97ce-c27f857d999d;2;PROMPT_METRICS;2025-05-26T21:17:37.492112;hello;;;;0;;;;B;0.0;1.0;1.0;;;;;;;B;;;
+20a56b58-73c2-4daf-be7c-0bef4d539473;0;;2025-05-27T09:06:05.102768;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+20a56b58-73c2-4daf-be7c-0bef4d539473;0;;2025-05-27T09:06:17.871796;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+20a56b58-73c2-4daf-be7c-0bef4d539473;1;;2025-05-27T09:06:46.960985;;;;;0;;;;HuggingFaceEndpoint;28.087088;2.4e-05;;;HuggingFaceEndpoint;;{'typing': 28.087088, 'generation': 2.4e-05};CHAT;;A;{};INTERACTION;
+ce44f71a-a638-4614-8e45-d4750ad56c30;0;;2025-05-27T09:09:02.836032;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+ce44f71a-a638-4614-8e45-d4750ad56c30;0;;2025-05-27T09:09:11.798718;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+ce44f71a-a638-4614-8e45-d4750ad56c30;1;;2025-05-27T09:09:45.946116;;;;;0;;;;HuggingFaceEndpoint;27.069837;5.757504;;;HuggingFaceEndpoint;;{'typing': 27.069837, 'generation': 5.757504};CHAT;;B;{};INTERACTION;
+ce44f71a-a638-4614-8e45-d4750ad56c30;1;;2025-05-27T09:12:23.375295;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{'total': 185.775363};TASK_COMPLETION;;B;{};INTERACTION;185.775363
+ce44f71a-a638-4614-8e45-d4750ad56c30;1;PROMPT_METRICS;2025-05-27T09:12:25.001208;"what could be a diagnosis?
+
+The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";;;;0;;;;B;0.0;53.0;1.0;;;;;;;B;;;
+ce44f71a-a638-4614-8e45-d4750ad56c30;2;;2025-05-27T09:12:39.309694;;;;;0;;;;HuggingFaceEndpoint;173.969815;5.175336;;;HuggingFaceEndpoint;;{'typing': 173.969815, 'generation': 5.175336};CHAT;;B;{};INTERACTION;
+a7683e60-51fc-4341-8203-39a5a07be156;0;;2025-05-27T09:15:15.410147;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+a7683e60-51fc-4341-8203-39a5a07be156;0;;2025-05-27T09:15:25.817925;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+a7683e60-51fc-4341-8203-39a5a07be156;1;;2025-05-27T09:15:50.402752;;;;;0;;;;HuggingFaceEndpoint;17.844643;5.71202;;;HuggingFaceEndpoint;;{'typing': 17.844643, 'generation': 5.71202};CHAT;;A;{};INTERACTION;
+a7683e60-51fc-4341-8203-39a5a07be156;1;;2025-05-27T09:16:12.624406;;;;;0;;;;HuggingFaceEndpoint;22.097947;5.859477;;;HuggingFaceEndpoint;;{'typing': 22.097947, 'generation': 5.859477};CHAT;;A;{};INTERACTION;
+54fc03e9-52d8-40ec-82ba-35c677bb623b;0;;2025-05-27T09:16:54.863396;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+54fc03e9-52d8-40ec-82ba-35c677bb623b;0;;2025-05-27T09:17:05.834032;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+54fc03e9-52d8-40ec-82ba-35c677bb623b;1;;2025-05-27T09:17:23.945854;;;;;0;;;;HuggingFaceEndpoint;11.637826;5.243304;;;HuggingFaceEndpoint;;{'typing': 11.637826, 'generation': 5.243304};CHAT;;B;{};INTERACTION;
+54fc03e9-52d8-40ec-82ba-35c677bb623b;1;;2025-05-27T09:17:55.007723;;;;;0;;;;HuggingFaceEndpoint;30.948663;5.354592;;;HuggingFaceEndpoint;;{'typing': 30.948663, 'generation': 5.354592};CHAT;;B;{};INTERACTION;

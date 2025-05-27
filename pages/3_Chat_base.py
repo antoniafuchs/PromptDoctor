@@ -1,3 +1,4 @@
+from multiprocessing.connection import Client
 import streamlit as st
 import asyncio
 import os
@@ -60,7 +61,6 @@ from tracking.logging import (
 from tracking.task_manager import TaskManager 
 from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
 from utils.medical_processor import MedicalTermProcessor
-from utils.prompt_validator import validate_prompt, add_highlights
 from utils.model_config import ModelConfig
 from utils.xai import LIMEMedicalExplainer
 from utils.xai.processing import XAIProcessor
@@ -79,7 +79,7 @@ init_torch()
 # Load shared styles
 load_styles()
 
-# Add custom CSS for sidebar width detection
+# Add custom CSS for sidebar width detection and font sizes
 st.markdown("""
 <style>
     [data-testid="stSidebar"] > div:first-child {
@@ -96,6 +96,38 @@ st.markdown("""
         border: none;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    /* Ensure clinical notes and survey questions have 18px font size */
+    div[data-testid="stMarkdownContainer"] p,
+    div[data-testid="stRadio"] label,
+    div[data-testid="stRadio"] div,
+    div[data-testid="stTextArea"] label,
+    div[data-testid="stTextArea"] textarea,
+    .clinical-note, .clinical-note div, .clinical-note span, .clinical-note p {
+        font-size: 18px !important;
+    }
+    
+    /* Fix highlighted terms font size */
+    span[style*="display: inline-block"], 
+    span[class*="highlight"] {
+        font-size: 18px !important;
+    }
+    
+    /* Task description styling */
+    div[style*="background-color: rgb(231, 245, 255)"] p,
+    div[style*="background-color: rgb(231, 245, 255)"] {
+        font-size: 18px !important;
+    }
+    
+    /* Clinical note bold text */
+    .clinical-note strong, strong {
+        font-size: 18px !important;
+    }
+    
+    /* Chat message styling */
+    div[data-testid="stChatMessage"] p {
+        font-size: 18px !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -312,7 +344,61 @@ def process_prompt_and_get_response(prompt):
     with st.spinner("Generating response..."):
         st.session_state.model_timer.start()
         
-        if st.session_state.selected_model_type == "Ollama":
+        if st.session_state.selected_model_type == "HuggingFaceEndpoint":
+            try:
+                headers = {
+                    "Authorization": f"Bearer {st.session_state.hf_api_token}",
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                }
+                
+                # Create conversation context
+                conversation = f"{system_prompt}\n\n"
+                for msg in st.session_state.messages[-5:]:
+                    content = msg.get("raw_content", msg.get("content", ""))
+                    conversation += f"{msg['role']}: {content}\n"
+                conversation += f"user: {prompt}\nassistant:"
+                
+                payload = {
+                    "inputs": conversation,
+                    "parameters": {
+                        "max_new_tokens": 25,
+                        "temperature": 0.7,
+                        "top_p": 0.9,
+                        "do_sample": True,
+                        "return_full_text": False
+                    }
+                }
+                
+                # Use session with longer timeout
+                session = requests.Session()
+                retry_count = 0
+                max_retries = 3
+                
+                while retry_count < max_retries:
+                    try:
+                        response = session.post(
+                            st.session_state.endpoint_url,
+                            headers=headers,
+                            json=payload,
+                            timeout=90
+                        )
+                        response.raise_for_status()
+                        final_response = response.json()[0]["generated_text"]
+                        break
+                    except requests.Timeout:
+                        retry_count += 1
+                        if retry_count == max_retries:
+                            final_response = "Error: Request timed out after multiple retries"
+                        continue
+                    except Exception as e:
+                        final_response = f"Error with HuggingFace endpoint: {str(e)}"
+                        break
+                
+            except Exception as e:
+                final_response = f"Error with HuggingFace endpoint: {str(e)}"
+                
+        elif st.session_state.selected_model_type == "Ollama":
             # Combine all messages including system prompt and new user prompt
             all_messages = [{"role": "system", "content": system_prompt}]
             for m in st.session_state.messages:
@@ -527,6 +613,11 @@ def show_chatbot():
         else:
             duration = 0.0
             
+        # Add duration to survey data
+        survey_data['task_duration'] = duration
+        survey_data['start_time'] = task.started_at.isoformat() if task.started_at else None
+        survey_data['end_time'] = datetime.datetime.now().isoformat()
+            
         # Log completion with duration
         log_task_completion(
             st.session_state.user_id, 
@@ -556,6 +647,12 @@ def show_chatbot():
     if prompt := st.chat_input("How can I help?", key="main_chat_input"):
         # Hide task intro
         st.session_state.show_task_intro = False
+        
+        # Track the prompt submission for the current task
+        st.session_state.task_manager.track_prompt_submission(
+            st.session_state.current_task, 
+            prompt
+        )
         
         # Immediately show user message
         with st.chat_message("user"):

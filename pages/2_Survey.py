@@ -6,6 +6,31 @@ from utils.style_loader import load_styles
 from datetime import datetime
 from utils.data_storage import DataStorage  
 
+# Initialize session state for form values if not exists
+if "survey_form_values" not in st.session_state:
+    st.session_state.survey_form_values = {}
+if "form_value_cache" not in st.session_state:
+    st.session_state.form_value_cache = {}
+
+def cache_form_value(key, value):
+    """Cache a form value in session state with validation"""
+    # Store the value in both caches for redundancy
+    st.session_state.survey_form_values[key] = value
+    st.session_state.form_value_cache[key] = value
+    # Force immediate persist to prevent loss
+    st.session_state[f"cached_{key}"] = value
+
+def get_cached_form_value(key, default=""):
+    """Get a cached form value with fallbacks"""
+    # Try multiple locations to ensure we get the value
+    if key in st.session_state.form_value_cache:
+        return st.session_state.form_value_cache[key]
+    elif key in st.session_state.survey_form_values:
+        return st.session_state.survey_form_values[key]
+    elif f"cached_{key}" in st.session_state:
+        return st.session_state[f"cached_{key}"]
+    else:
+        return default
 
 def show_login_survey():
     if "user_id" not in st.session_state or st.session_state.user_id is None:
@@ -134,9 +159,17 @@ def show_login_survey():
             horizontal=False
         )
 
+        # Only show the "Other" field if "Other" or "Specialist" is selected
+        q1_other = ""
         if q1_training == "Other" or q1_training == "Specialist":
-            q1_other = survey.text_input("Please specify:")
-
+            q1_other = survey.text_input(
+                "Please specify:",
+                value=get_cached_form_value("q1_other"),
+                key=f"input_q1_other_{q1_training}"  # Add parent selection to key for uniqueness
+            )
+            # Cache the value immediately
+            cache_form_value("q1_other", q1_other)
+        
         q2_records = survey.radio(
             "Do you have experience working with real patient records?",
             options=[
@@ -147,6 +180,8 @@ def show_login_survey():
             horizontal=False
         )
 
+        # Initialize with default value
+        q2_records_years = 0
         if q2_records == "Yes":
             q2_records_years = survey.number_input(
                 "How many years of experience do you have with patient records?",
@@ -163,15 +198,13 @@ def show_login_survey():
                 "Yes",
                 "No"
             ],
-            index=0,  # Changed from 2 to 0
+            index=0,
             horizontal=False
         )
 
-        if q3_training == "Yes":
-            q3_training_desc = survey.text_area(
-                "Please briefly describe your training:",
-                placeholder="E.g., Medical school courses, residency training, workshops..."
-            )
+        # Initialize the q3_training_desc variable with an empty string
+        q3_training_desc = ""
+        # We'll only keep Yes/No without the additional text area
 
         q4_confidence = survey.selectbox(
             "How confident are you in interpreting clinical notes?",
@@ -187,14 +220,13 @@ def show_login_survey():
         )
         q4_confidence_value = int(q4_confidence.split()[0])  # Store numeric value directly
 
+        # Always store these values, even if empty
         st.session_state.survey_responses['q1_training'] = q1_training
-        if q1_training == "Other" or q1_training == "Specialist":
-            st.session_state.survey_responses['q1_other'] = q1_other
-
+        st.session_state.survey_responses['q1_other'] = q1_other  # Always store the value from session state
         st.session_state.survey_responses['q2_records'] = q2_records
-        st.session_state.survey_responses['q2_records_years'] = q2_records_years if q2_records == "Yes" else None
+        st.session_state.survey_responses['q2_records_years'] = q2_records_years
         st.session_state.survey_responses['q3_training'] = q3_training
-        st.session_state.survey_responses['q3_training_desc'] = q3_training_desc if q3_training == "Yes" else None
+        st.session_state.survey_responses['q3_training_desc'] = q3_training_desc  # Store empty string
         st.session_state.survey_responses['q4_confidence'] = q4_confidence_value
 
     # AI Familiarity page
@@ -226,19 +258,6 @@ def show_login_survey():
             help="1: Not at all, 2: Slightly familiar, 3: Moderately familiar, 4: Very familiar, 5: Expert"
         )
 
-        q6_tools = survey.multiselect(
-            "Have you used any of the following tools before?",
-            options=[
-                "ChatGPT",
-                "Google Bard / Gemini",
-                "Med-PaLM",
-                "UpToDate",
-                "Other"
-            ]
-        )
-
-        if "Other" in q6_tools:
-            q6_other = survey.text_input("Please specify other tools:")
 
         q7_frequency = survey.radio(
             "How frequently do you use LLMs (e.g., ChatGPT)?",
@@ -256,18 +275,16 @@ def show_login_survey():
         st.session_state.survey_responses['q5a_gen_ai'] = q5a_gen_ai
         st.session_state.survey_responses['q5b_prompt'] = q5b_prompt
         st.session_state.survey_responses['q5c_cds'] = q5c_cds
-        st.session_state.survey_responses['q6_tools'] = q6_tools
-        if "Other" in q6_tools:
-            st.session_state.survey_responses['q6_other'] = q6_other
         st.session_state.survey_responses['q7_frequency'] = q7_frequency
 
     # Final page with expectations
     else:
         st.subheader("LLM Usage & Expectations")
         
-        q8_uses = survey.multiselect(
-            "What do you usually use LLMs for? (Select all that apply)",
-            help="verification = checking the accuracy of the information provided by the LLM",
+        # Replace multiselect with radio button for primary LLM use
+        q8_primary_use = survey.radio(
+            "What do you primarily use LLMs for?",
+            help="Select your most common use case for LLM tools like ChatGPT",
             options=[
                 "Study help",
                 "Medical knowledge lookup",
@@ -275,11 +292,28 @@ def show_login_survey():
                 "Clinical summarization",
                 "Prompt design or refinement",
                 "Other"
-            ]
+            ],
+            index=0,
+            horizontal=False
         )
+        
+        # Store as a list with a single item to maintain compatibility with existing code
+        q8_uses = [q8_primary_use]
 
-        if "Other" in q8_uses:
-            q8_other = survey.text_input("Please specify other LLM uses:")
+        # Initialize form values if not exist
+        if "q8_other" not in st.session_state.survey_form_values:
+            st.session_state.survey_form_values["q8_other"] = ""
+        
+        # Show the text input only if "Other" is selected
+        q8_other = ""
+        if q8_primary_use == "Other":
+            q8_other = survey.text_input(
+                "Please specify other LLM use:",
+                value=get_cached_form_value("q8_other"),
+                key=f"input_q8_other_{q8_primary_use}"  # Dynamic key based on selection
+            )
+            # Cache the value immediately
+            cache_form_value("q8_other", q8_other)
 
         q9_trust = survey.radio(
             "How much do you currently trust AI-generated answers for medical topics?",
@@ -294,19 +328,11 @@ def show_login_survey():
             horizontal=False
         ).split(" - ")[0]
 
-        q10_expectations = survey.text_area(
-            "What are your expectations from tools like these?",
-            placeholder="""Please consider:
-- What benefits do you anticipate for your work?
-- What concerns or limitations do you foresee?
-- What would make you trust/distrust the system?"""
-        )
 
         st.session_state.survey_responses['q8_uses'] = q8_uses
-        if "Other" in q8_uses:
-            st.session_state.survey_responses['q8_other'] = q8_other
+        st.session_state.survey_responses['q8_other'] = q8_other  # Store the value from session state
         st.session_state.survey_responses['q9_trust'] = int(q9_trust)
-        st.session_state.survey_responses['q10_expectations'] = q10_expectations
+
 
     # Add navigation buttons at bottom of each page
     st.write("")  # Add spacing
@@ -329,32 +355,43 @@ def show_login_survey():
                     pages.next()
                     st.rerun()
         else:  # Last page
-            if st.button("Continue to App", type="primary", use_container_width=True):
-                # Prepare survey data
+            if st.button("Submit & Continue", type="primary", use_container_width=True):
+                # Prepare survey data - use cached values for reliability
                 survey_data = {
                     'user_id': st.session_state.user_id,
                     'group': st.session_state.get('group', 'unknown'),
                     'login_time': datetime.now().isoformat(),
-                    'age': st.session_state.survey_responses.get('age'),
-                    'gender': st.session_state.survey_responses.get('gender'),
-                    'training_level': st.session_state.survey_responses.get('q1_training'),
-                    'specialization': st.session_state.survey_responses.get('q1_other'),
-                    'patient_records_exp': st.session_state.survey_responses.get('q2_records'),
-                    'patient_records_years': st.session_state.survey_responses.get('q2_records_years'),
-                    'clinical_reasoning_training': st.session_state.survey_responses.get('q3_training'),
-                    'clinical_reasoning_desc': st.session_state.survey_responses.get('q3_training_desc'),
-                    'clinical_notes_confidence': st.session_state.survey_responses.get('q4_confidence'),
-                    'gen_ai_familiarity': st.session_state.survey_responses.get('q5a_gen_ai'),
-                    'prompt_eng_familiarity': st.session_state.survey_responses.get('q5b_prompt'),
-                    'cds_familiarity': st.session_state.survey_responses.get('q5c_cds'),
-                    'tools_used': ','.join(st.session_state.survey_responses.get('q6_tools', [])),
-                    'other_tools': st.session_state.survey_responses.get('q6_other'),
-                    'llm_usage_frequency': st.session_state.survey_responses.get('q7_frequency'),
+                    'age': st.session_state.survey_responses.get('age', 'Prefer not to say'),
+                    'gender': st.session_state.survey_responses.get('gender', 'Prefer not to say'),
+                    'training_level': st.session_state.survey_responses.get('q1_training', ''),
+                    'specialization': get_cached_form_value('q1_other', ''),
+                    'patient_records_exp': st.session_state.survey_responses.get('q2_records', 'No'),
+                    'patient_records_years': st.session_state.survey_responses.get('q2_records_years', ''),
+                    'clinical_reasoning_training': st.session_state.survey_responses.get('q3_training', 'No'),
+                    'clinical_reasoning_desc': get_cached_form_value('q3_training_desc', ''),
+                    'clinical_notes_confidence': st.session_state.survey_responses.get('q4_confidence', 3),
+                    'gen_ai_familiarity': st.session_state.survey_responses.get('q5a_gen_ai', 3),
+                    'prompt_eng_familiarity': st.session_state.survey_responses.get('q5b_prompt', 3),
+                    'cds_familiarity': st.session_state.survey_responses.get('q5c_cds', 3),
+                    'llm_usage_frequency': st.session_state.survey_responses.get('q7_frequency', ''),
                     'use_cases': ','.join(st.session_state.survey_responses.get('q8_uses', [])),
-                    'other_use_cases': st.session_state.survey_responses.get('q8_other'),
-                    'trust_level': st.session_state.survey_responses.get('q9_trust'),
-                    'expectations': st.session_state.survey_responses.get('q10_expectations')
+                    'other_use_cases': get_cached_form_value('q8_other', ''),
+                    'trust_level': st.session_state.survey_responses.get('q9_trust', 3),
                 }
+                
+                # Print values for debugging
+                print("Survey data being submitted:")
+                for key in ['specialization', 'clinical_reasoning_desc', 'other_tools', 'other_use_cases', 'expectations']:
+                    print(f"  {key}: '{survey_data.get(key, '')}'")
+
+                # Ensure all fields are properly converted to strings
+                for key, value in survey_data.items():
+                    if value is None:
+                        survey_data[key] = ''  # Convert None to empty string
+                    elif isinstance(value, list):
+                        survey_data[key] = ','.join(map(str, value))  # Convert lists to comma-separated strings
+                    elif not isinstance(value, str) and not isinstance(value, int) and not isinstance(value, float):
+                        survey_data[key] = str(value)  # Convert other types to strings
 
                 # Store using only DataStorage
                 storage = DataStorage()

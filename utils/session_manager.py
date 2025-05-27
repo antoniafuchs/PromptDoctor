@@ -17,3 +17,15 @@ class SessionManager:
         """Clear session data"""
         if 'user_id' in st.session_state:
             del st.session_state.user_id
+
+class DataStorage:
+    def __init__(self):
+        # Initialize db attribute to prevent 'no attribute' error
+        self.db = None
+    
+    def save_highlight_metrics(self, metrics_data):
+        if not hasattr(self, 'db') or self.db is None:
+            # Initialize db connection or handle the error gracefully
+            print("Warning: Database connection not initialized for metrics storage")
+            return False
+        # ...existing implementation...

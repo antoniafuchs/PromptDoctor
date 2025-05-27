@@ -10,6 +10,14 @@ import requests
 import pandas as pd
 from typing import List
 
+# Try to import NLTK with error handling
+try:
+    import nltk
+    NLTK_AVAILABLE = True
+except (ImportError, EOFError, ModuleNotFoundError) as e:
+    print(f"[WARNING] NLTK import error: {e}. Some NLP features may be limited.")
+    NLTK_AVAILABLE = False
+
 # Set event loop policy for thread safety
 try:
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -27,6 +35,7 @@ except RuntimeError:
 # Try to import ollama
 try:
     from langchain.llms import Ollama
+    from ollama import Client
     OLLAMA_CLIENT_AVAILABLE = True
 except ImportError:
     print("[WARNING] Ollama client package not installed. Falling back to direct API calls.")
@@ -40,6 +49,7 @@ st.set_page_config(
 
 
 # Import remaining modules
+from utils import medical_processor
 from utils.style_loader import load_styles
 import requests
 import json
@@ -49,6 +59,8 @@ import pyperclip
 from typing import List
 from tracking.timer import Timer
 from tracking.logging import (
+    _calculate_edit_distance,
+    _determine_diff_type,
     log_chat_interaction,
     log_validation_action,
     log_task_completion,
@@ -79,7 +91,7 @@ init_torch()
 # Load shared styles
 load_styles()
 
-# Add custom CSS for sidebar width detection
+# Add custom CSS for sidebar width detection and font sizes
 st.markdown("""
 <style>
     [data-testid="stSidebar"] > div:first-child {
@@ -96,6 +108,22 @@ st.markdown("""
         border: none;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    /* Ensure clinical notes and survey questions have 18px font size */
+    div[data-testid="stMarkdownContainer"] p,
+    div[data-testid="stRadio"] label,
+    div[data-testid="stRadio"] div,
+    div[data-testid="stTextArea"] label,
+    div[data-testid="stTextArea"] textarea,
+    .clinical-note, .clinical-note div, .clinical-note span, .clinical-note p {
+        font-size: 18px !important;
+    }
+    
+    /* Fix highlighted terms font size */
+    span[style*="display: inline-block"], 
+    span[class*="highlight"] {
+        font-size: 18px !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -120,7 +148,17 @@ if "pdf_upload_time" not in st.session_state:
 if "pdf_text" not in st.session_state:
     st.session_state.pdf_text = None
 if "medical_processor" not in st.session_state:
-    st.session_state.medical_processor = MedicalTermProcessor()
+    try:
+        st.session_state.medical_processor = MedicalTermProcessor()
+    except Exception as e:
+        print(f"[WARNING] Failed to initialize MedicalTermProcessor: {e}")
+        # Create a simple fallback processor
+        class SimpleMedicalProcessor:
+            def highlight_medical_terms(self, text):
+                return text
+            def get_medical_terms(self, text):
+                return []
+        st.session_state.medical_processor = SimpleMedicalProcessor()
 if "message_feedback" not in st.session_state:
     st.session_state.message_feedback = {}
 if "stage" not in st.session_state:
@@ -166,36 +204,56 @@ def on_input_focus():
 
 def save_feedback(index):
     """Save feedback for a specific message"""
-    # Check if feedback already exists for this message
-    message = st.session_state.messages[index]
-    message_id = f"msg_{index}"
-    
-    # Skip if feedback already exists
-    if (index in st.session_state.message_feedback or 
-        st.session_state.get(f"feedback_{index}_submitted", False)):
-        return
+    try:
+        # Ensure the index is valid
+        if index >= len(st.session_state.messages):
+            print(f"[ERROR] Invalid message index for feedback: {index}")
+            return
+            
+        # Get the message and message ID
+        message = st.session_state.messages[index]
+        message_id = f"msg_{index}"
         
-    feedback_value = st.session_state[f"feedback_{index}"]
-    
-    # Map thumbs to feedback values (1 for thumbs up, -1 for thumbs down)
-    feedback_text = {
-        1: "positive",
-        -1: "negative",
-        0: "neutral"
-    }.get(feedback_value, "neutral")
-    
-    st.session_state.message_feedback[index] = feedback_value
-    st.session_state[f"feedback_{index}_submitted"] = True
-    
-    # Log the feedback
-    log_feedback(
-        user_id=st.session_state.user_id,
-        task_id=st.session_state.current_task,
-        message_id=message_id,
-        feedback_value=feedback_value,
-        prompt=message.get("raw_content", message.get("content")),
-        response=message.get("content")
-    )
+        # Check if feedback already exists for this message
+        if (index in st.session_state.message_feedback or 
+            st.session_state.get(f"feedback_{index}_submitted", False)):
+            # Feedback already recorded, nothing to do
+            return
+            
+        # Get feedback value from session state
+        if f"feedback_{index}" not in st.session_state:
+            print(f"[WARNING] No feedback value found for index {index}")
+            return
+            
+        feedback_value = st.session_state[f"feedback_{index}"]
+        
+        # Map thumbs to feedback values (1 for thumbs up, -1 for thumbs down, 0 for neutral)
+        feedback_text = {
+            1: "positive",
+            -1: "negative",
+            0: "neutral"
+        }.get(feedback_value, "neutral")
+        
+        # Store feedback in session state for this message
+        st.session_state.message_feedback[index] = feedback_value
+        st.session_state[f"feedback_{index}_submitted"] = True
+        
+        # Log the feedback
+        try:
+            log_feedback(
+                user_id=st.session_state.user_id,
+                task_id=st.session_state.current_task,
+                message_id=message_id,
+                feedback_value=feedback_value,
+                prompt=message.get("raw_content", message.get("content")),
+                response=message.get("content")
+            )
+            print(f"[INFO] Feedback logged successfully for message {index}: {feedback_value}")
+        except Exception as e:
+            print(f"Error in feedback logging: {str(e)}")
+    except Exception as e:
+        print(f"Error in save_feedback: {str(e)}")
+        # Continue without disrupting the app
 
 def process_prompt(prompt, response_placeholder):
     """Process the accepted prompt and send to model"""
@@ -318,7 +376,61 @@ def process_prompt_and_get_response(prompt):
     with st.spinner("Generating response..."):
         st.session_state.model_timer.start()
         
-        if st.session_state.selected_model_type == "Ollama":
+        if st.session_state.selected_model_type == "HuggingFaceEndpoint":
+            try:
+                headers = {
+                    "Authorization": f"Bearer {st.session_state.hf_api_token}",
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                }
+                
+                # Create conversation context
+                conversation = f"{system_prompt}\n\n"
+                for msg in st.session_state.messages[-5:]:
+                    content = msg.get("raw_content", msg.get("content", ""))
+                    conversation += f"{msg['role']}: {content}\n"
+                conversation += f"user: {prompt}\nassistant:"
+                
+                payload = {
+                    "inputs": conversation,
+                    "parameters": {
+                        "max_new_tokens": 25,
+                        "temperature": 0.7,
+                        "top_p": 0.9,
+                        "do_sample": True,
+                        "return_full_text": False
+                    }
+                }
+                
+                # Use session with longer timeout
+                session = requests.Session()
+                retry_count = 0
+                max_retries = 3
+                
+                while retry_count < max_retries:
+                    try:
+                        response = session.post(
+                            st.session_state.endpoint_url,
+                            headers=headers,
+                            json=payload,
+                            timeout=90
+                        )
+                        response.raise_for_status()
+                        final_response = response.json()[0]["generated_text"]
+                        break
+                    except requests.Timeout:
+                        retry_count += 1
+                        if retry_count == max_retries:
+                            final_response = "Error: Request timed out after multiple retries"
+                        continue
+                    except Exception as e:
+                        final_response = f"Error with HuggingFace endpoint: {str(e)}"
+                        break
+                
+            except Exception as e:
+                final_response = f"Error with HuggingFace endpoint: {str(e)}"
+                
+        elif st.session_state.selected_model_type == "Ollama":
             # Combine all messages including system prompt and new user prompt
             all_messages = [{"role": "system", "content": system_prompt}]
             for m in st.session_state.messages:
@@ -433,8 +545,7 @@ def process_prompt_and_get_response(prompt):
 
 def get_medical_terms(text: str, medical_processor) -> List[str]:
     """Extract medical terms from text"""
-    words = text.lower().split()
-    return [word for word in words if word in medical_processor.medical_terms]
+    return medical_processor.get_medical_terms(text)
 
 def get_local_ollama_models():
     """Get list of locally available Ollama models"""
@@ -534,6 +645,11 @@ def show_chatbot():
         else:
             duration = 0.0
             
+        # Add duration to survey data
+        survey_data['task_duration'] = duration
+        survey_data['start_time'] = task.started_at.isoformat() if task.started_at else None
+        survey_data['end_time'] = datetime.datetime.now().isoformat()
+            
         # Log completion with duration
         log_task_completion(
             st.session_state.user_id, 
@@ -549,10 +665,12 @@ def show_chatbot():
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
             if message["role"] == "assistant":
+                # Check if feedback already exists - use same approach as Chat_base.py
                 feedback = st.session_state.message_feedback.get(i)
                 st.feedback(
                     "thumbs",
                     key=f"feedback_{i}",
+                    # Only disable if feedback already given for this specific message
                     disabled=feedback is not None,
                     on_change=save_feedback,
                     args=[i],
@@ -561,25 +679,35 @@ def show_chatbot():
     # Single chat input handler with validation flow
     if prompt := st.chat_input("How can I help?", key="main_chat_input"):
         if st.session_state.stage == "user":
+            # Track the prompt submission for the current task
+            st.session_state.task_manager.track_prompt_submission(
+                st.session_state.current_task, 
+                prompt
+            )
+            
             # Store prompt and show validation
             st.session_state.pending_prompt = prompt
             st.session_state.stage = "validate"
             st.rerun()
-    
+
     # Handle validation stages
     if st.session_state.stage == "validate":
-        # Validate and highlight prompt
+        # Get current prompt count for this task
+        current_prompt_count = st.session_state.get('current_prompt_count', 0)
+        
+        # Validate and highlight prompt with prompt count
         sentences, highlighted, has_terms = validate_prompt(
             st.session_state.pending_prompt,
-            st.session_state.medical_processor
+            st.session_state.medical_processor,
+            prompt_count=current_prompt_count
         )
         
         # Display validation UI
-        st.markdown(" ".join(highlighted))
+        st.markdown(" ".join(highlighted), unsafe_allow_html=True)
         st.divider()
         
         # Log validation display
-        medical_terms = get_medical_terms(st.session_state.pending_prompt, st.session_state.medical_processor)
+        medical_terms = st.session_state.medical_processor.get_medical_terms(st.session_state.pending_prompt)
         log_validation_action(
             st.session_state.user_id,
             "VALIDATION_VIEW",
@@ -590,10 +718,22 @@ def show_chatbot():
         
         cols = st.columns(4)  # Changed from 3 to 4 columns
         if cols[0].button("Edit", type="primary", key="edit_button"):
+            # Get user ID and task ID
+            user_id = st.session_state.get('user_id', '')
+            task_id = st.session_state.get('current_task', 0)
+            current_prompt_count = st.session_state.get('current_prompt_count', 0)
+            
+            # Generate structured message ID
+            user_id_prefix = user_id[:8] if user_id else ''
+            message_id = f"task_{task_id}_prompt_{current_prompt_count}_{user_id_prefix}"
+            
             log_validation_action(
-                st.session_state.user_id,
-                "EDIT_CLICK",
-                st.session_state.pending_prompt
+                user_id=user_id,
+                task_id=task_id,
+                action_type="EDIT_CLICK",
+                original_prompt=st.session_state.pending_prompt,
+                prompt_count=current_prompt_count,
+                message_id=message_id
             )
             st.session_state.validation = {
                 "sentences": sentences,
@@ -604,10 +744,22 @@ def show_chatbot():
             st.rerun()
         
         if cols[1].button("Accept", key="accept_button"):
+            # Get user ID and task ID
+            user_id = st.session_state.get('user_id', '')
+            task_id = st.session_state.get('current_task', 0)
+            current_prompt_count = st.session_state.get('current_prompt_count', 0)
+            
+            # Generate structured message ID
+            user_id_prefix = user_id[:8] if user_id else ''
+            message_id = f"task_{task_id}_prompt_{current_prompt_count}_{user_id_prefix}"
+            
             log_validation_action(
-                st.session_state.user_id,
-                "ACCEPT_CLICK",
-                st.session_state.pending_prompt
+                user_id=user_id,
+                task_id=task_id,
+                action_type="ACCEPT_CLICK",
+                original_prompt=st.session_state.pending_prompt,
+                prompt_count=current_prompt_count,
+                message_id=message_id
             )
             # Hide task intro
             st.session_state.show_task_intro = False
@@ -620,7 +772,7 @@ def show_chatbot():
             # Add messages to history
             user_message = {
                 "role": "user",
-                "content": highlighted_prompt,
+                "content": highlighted_prompt if highlighted_prompt else st.session_state.pending_prompt,
                 "raw_content": st.session_state.pending_prompt,
                 "timestamp": datetime.datetime.now().isoformat(),
                 "iteration": st.session_state.iteration_count
@@ -657,22 +809,42 @@ def show_chatbot():
 
     elif st.session_state.stage == "edit":
         with st.chat_message("user"):
-            st.markdown(" ".join(st.session_state.validation["highlighted"]))
+            st.markdown(" ".join(st.session_state.validation["highlighted"]), unsafe_allow_html=True)
             st.divider()
             
             new_prompt = st.text_area(
                 "Edit prompt:",
-                value=st.session_state.pending_prompt
+                value=st.session_state.pending_prompt,
+                height=150  # Adding a fixed height for better visibility
             )
             
             cols = st.columns(2)
             if cols[0].button("Update", type="primary"):
+                # Get user ID and task ID
+                user_id = st.session_state.get('user_id', '')
+                task_id = st.session_state.get('current_task', 0)
+                current_prompt_count = st.session_state.get('current_prompt_count', 0)
+                
+                # Generate structured message ID
+                user_id_prefix = user_id[:8] if user_id else ''
+                message_id = f"task_{task_id}_prompt_{current_prompt_count}_{user_id_prefix}"
+                
+                # Calculate edit distance and diff type
+                edit_distance = _calculate_edit_distance(st.session_state.pending_prompt, new_prompt)
+                diff_type = _determine_diff_type(st.session_state.pending_prompt, new_prompt)
+                
+                # Log with enhanced data
                 log_validation_action(
-                    st.session_state.user_id,
-                    "EDIT_UPDATE",
-                    st.session_state.pending_prompt,
+                    user_id=user_id,
+                    task_id=task_id,
+                    action_type="EDIT_UPDATE",
+                    original_prompt=st.session_state.pending_prompt,
                     modified_prompt=new_prompt,
-                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor)
+                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor),
+                    prompt_count=current_prompt_count,
+                    message_id=message_id,
+                    edit_distance=edit_distance,
+                    diff_type=diff_type
                 )
                 st.session_state.pending_prompt = new_prompt
                 st.session_state.stage = "validate"

@@ -22,6 +22,13 @@ class ModelConfig:
         "Ollama": [
             {"name": "llama3-med42-8b", "display_name": "Med42 8B"},
             {"name": "llama2-medical", "display_name": "Llama 2 Medical"}
+        ],
+        "HuggingFaceEndpoint": [
+            {
+                "name": "openai-community/gpt2",
+                "display_name": "GPT-2",
+                "endpoint_url": "https://nxy944uw5xyackw4.eu-west-1.aws.endpoints.huggingface.cloud"
+            }
         ]
     }
 

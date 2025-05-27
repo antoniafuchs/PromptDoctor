@@ -61,21 +61,15 @@ def get_local_ollama_models():
     return models
 
 def show_login_page():
+    # Skip login page if in study mode
+    if "study_mode" in st.session_state and st.session_state.study_mode:
+        st.switch_page("pages/2_Survey.py")
+        return
+
     # Check if already logged in
     if all(key in st.session_state for key in ["user_id", "selected_model_type", "selected_model_name", "group", "login_complete"]):
         st.switch_page("pages/2_Survey.py")
         return
-
-    # Create user ID first if not exists
-    if "user_id" not in st.session_state:
-        st.session_state.user_id = str(uuid.uuid4())
-        st.session_state.login_time = datetime.datetime.now().isoformat()
-
-    # Get or assign group for user
-    if "group" not in st.session_state:
-        db_manager = DBManager()
-        group = db_manager.assign_group_to_user(st.session_state.user_id)
-        st.session_state.group = group
 
     st.set_page_config(page_title="PromptDoctor")
     st.header("Login")
@@ -87,7 +81,7 @@ def show_login_page():
     # Model type selection
     model_type = st.selectbox(
         "Select Model Type",
-        ["Ollama", "GPT", "HuggingFace"],
+        ["Ollama", "GPT", "HuggingFace", "HuggingFaceEndpoint"],
         key="model_selection"
     )
 
@@ -102,6 +96,18 @@ def show_login_page():
         available_models = ModelConfig.DEFAULT_CONFIGS.get(model_type, [])
 
     model_options = {m["display_name"]: m["name"] for m in available_models}
+
+    # Add API token input for HuggingFace endpoint
+    if model_type == "HuggingFaceEndpoint":
+        hf_token = st.text_input(
+            "HuggingFace API Token",
+            type="password",
+            help="Enter your HuggingFace API token"
+        )
+        if not hf_token:
+            st.warning("API token is required for HuggingFace endpoints")
+            st.stop()
+        st.session_state.hf_api_token = hf_token
 
     if not model_options:
         st.warning("No models found. For Ollama, please ensure models are installed in ~/.ollama/models/")
@@ -131,6 +137,14 @@ def show_login_page():
                 "group": st.session_state.group
             }
         )
+        
+        if model_type == "HuggingFaceEndpoint":
+            selected_model_info = next(
+                (m for m in available_models if m["name"] == selected_model),
+                None
+            )
+            if selected_model_info:
+                st.session_state.endpoint_url = selected_model_info["endpoint_url"]
         
         st.switch_page("pages/2_Survey.py")
 

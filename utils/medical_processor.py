@@ -60,3 +60,23 @@ class MedicalTermProcessor:
             result = result[:start] + f":red[:red-background[{escaped_term}]]" + result[end:]
 
         return result
+
+    def get_medical_terms(self, text=None):
+        """
+        Extract medical terms from the provided text.
+        If text is None, return all medical terms.
+        """
+        if text is None:
+            return list(self.medical_terms)
+        
+        # Extract words from text and check if they're medical terms
+        words = text.lower().split()
+        found_terms = []
+        
+        for word in words:
+            # Clean the word for term checking (remove punctuation)
+            clean_word = word.strip('.,!?;:()"\'')
+            if clean_word in self.medical_terms:
+                found_terms.append(clean_word)
+                
+        return found_terms

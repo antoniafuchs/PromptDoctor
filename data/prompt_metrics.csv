@@ -1,0 +1,91 @@
+user_id;task_id;group;prompt_count;first_prompt;last_prompt;levenshtein_distance;word_count;timestamp
+3a51f6b0-cd97-482d-8908-16b63fed96c7;1;A;4;hello;please format better;0.9;3;2025-05-26T09:01:37.621707
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;1;B;2;hello;he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;0.9840764331210191;48;2025-05-26T09:06:08.530425
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;2;B;2;what do you do?;"I want to know which treatment is good for:
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";0.9630606860158312;56;2025-05-26T09:07:26.311080
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;1;A;2;hello;"what diagnosis could this be:
+
+The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";0.9855491329479769;53;2025-05-26T10:38:56.185412
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;2;A;2;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;what could the diagnosis be?;0.9251497005988024;5;2025-05-26T10:39:49.320248
+3e1951fb-3411-4d20-b999-fe9ecb0c2e7e;3;A;2;The patient, a 50-year-old female, has been followed in the cardiology clinic for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three years.;The patient, a 50-year-old female, has been followed in the cardiology clinic for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three years. Her history includes controlled hypertension and hyperlipidemia. She now presents with new onset of palpitations and shortness of breath.;0.46779661016949153;40;2025-05-26T10:40:39.942993
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;1;A;2;hello who are youß;"please help me find a diagnosis:
+
+The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";0.9541547277936963;54;2025-05-26T11:14:56.960782
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;2;A;1;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;0.0;47;2025-05-26T11:15:27.912669
+ec19b2a4-9e2e-4254-9fb7-1d955c38e60e;3;A;1;what are you doing?;what are you doing?;0.0;4;2025-05-26T11:15:54.339039
+b11efbfa-60ab-472c-a395-00230d99c288;1;A;1;hello;hello;0.0;1;2025-05-26T12:48:50.630653
+704f0b96-02fc-4668-9f0b-c253d1cbc47c;1;A;1;hi;hi;0.0;1;2025-05-26T12:56:58.518281
+1dfd8d92-6a75-4175-a045-6915230186a1;1;A;1;hi;hi;0.0;1;2025-05-26T13:12:48.257950
+ad5fee4d-7e45-4085-a72c-b2c2d5a6d454;1;A;1;hi;hi;0.0;1;2025-05-26T13:39:43.459677
+15a82e07-9e0e-44e8-ac84-d7bf92679e36;1;A;1;hi;hi;0.0;1;2025-05-26T13:53:05.512825
+389b78f4-48f2-46fd-b877-6eb721da66d5;1;B;1;hi;hi;0.0;1;2025-05-26T14:07:23.107276
+518e6810-cda5-4cad-bd4c-6831d14577df;1;A;2;hello;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;0.9841269841269841;48;2025-05-26T14:37:05.475253
+518e6810-cda5-4cad-bd4c-6831d14577df;2;A;1;hi;hi;0.0;1;2025-05-26T14:37:21.380112
+518e6810-cda5-4cad-bd4c-6831d14577df;3;A;1;nooo;nooo;0.0;1;2025-05-26T14:37:43.115151
+829ce4bf-38db-452e-a616-c545b62bcba1;1;B;1;hi;hi;0.0;1;2025-05-26T15:07:34.472353
+829ce4bf-38db-452e-a616-c545b62bcba1;2;B;1;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;0.0;47;2025-05-26T15:08:21.014211
+829ce4bf-38db-452e-a616-c545b62bcba1;3;B;1;hello;hello;0.0;1;2025-05-26T15:09:06.168733
+a78d2096-e138-420e-bbb7-427da51a1907;1;B;1;hello;hello;0.0;1;2025-05-26T16:19:06.215898
+a78d2096-e138-420e-bbb7-427da51a1907;2;B;1;hello;hello;0.0;1;2025-05-26T16:19:30.492848
+a78d2096-e138-420e-bbb7-427da51a1907;3;B;1;hi;hi;0.0;1;2025-05-26T16:20:40.723259
+3e653ecf-a8c5-434c-b25c-0364335b2240;1;A;1;hello;hello;0.0;1;2025-05-26T16:35:39.383650
+3e653ecf-a8c5-434c-b25c-0364335b2240;2;A;1;hi;hi;0.0;1;2025-05-26T16:36:03.914232
+3e653ecf-a8c5-434c-b25c-0364335b2240;3;A;1;hello;hello;0.0;1;2025-05-26T16:36:20.960343
+315e8430-764e-49ba-bf06-7bb4d82ee550;1;B;1;dfg;dfg;0.0;1;2025-05-26T16:53:29.284677
+315e8430-764e-49ba-bf06-7bb4d82ee550;2;B;1;hi;hi;0.0;1;2025-05-26T16:54:14.527738
+fd0377f4-1f25-4f11-a8ad-2576c1608257;1;A;1;hi;hi;0.0;1;2025-05-26T17:02:54.876622
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;1;B;1;ghj;ghj;0.0;1;2025-05-26T17:07:55.360407
+a9c4deae-1853-4b0a-ba6f-5dd0570438ca;2;B;1;dfh;dfh;0.0;1;2025-05-26T17:08:14.483958
+ff0e6905-215c-4e41-b034-eda80dd9e417;1;A;2;hello;hello;0.0;1;2025-05-26T17:28:39.875317
+d85d72bb-5773-4cd8-9d5f-0acfd7183311;1;A;1;djzt;djzt;0.0;1;2025-05-26T17:39:36.289542
+77309108-450b-411d-832e-6d6447535710;1;B;1;ffzuzt;ffzuzt;0.0;1;2025-05-26T17:45:30.259391
+77309108-450b-411d-832e-6d6447535710;2;B;1;zuirzi;zuirzi;0.0;1;2025-05-26T17:46:42.745993
+77309108-450b-411d-832e-6d6447535710;3;B;1;hi;hi;0.0;1;2025-05-26T17:47:08.180557
+ca240a20-d819-4751-8a4e-fcc619392749;1;B;1;hi;hi;0.0;1;2025-05-26T18:18:42.516003
+ca240a20-d819-4751-8a4e-fcc619392749;2;B;1;hi;hi;0.0;1;2025-05-26T18:19:38.455614
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;1;A;1;hi;hi;0.0;1;2025-05-26T18:36:54.502850
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;2;A;1;hello;hello;0.0;1;2025-05-26T18:37:55.620607
+c46b3b89-00d0-4d7b-a09e-86550dbf9299;3;A;1;hello;hello;0.0;1;2025-05-26T18:38:23.519126
+d9067709-a58f-4074-9ad2-b1c3e1c87572;1;B;1;hi;hi;0.0;1;2025-05-26T18:39:28.102204
+d9067709-a58f-4074-9ad2-b1c3e1c87572;2;B;1;hey;hey;0.0;1;2025-05-26T18:39:49.415157
+c3372216-5707-4c4a-8efe-2d01b6a37542;1;A;1;o;o;0.0;1;2025-05-26T19:36:14.609757
+c3372216-5707-4c4a-8efe-2d01b6a37542;2;A;1;hello;hello;0.0;1;2025-05-26T19:36:30.261204
+5195c8a9-ce82-4373-8ed7-c422390f79b5;1;B;1;hello;hello;0.0;1;2025-05-26T19:50:08.797185
+5195c8a9-ce82-4373-8ed7-c422390f79b5;2;B;1;no;no;0.0;1;2025-05-26T19:50:26.754171
+19db4d66-5d6b-4874-a17c-5230a1bdb8d0;1;A;1;hello;hello;0.0;1;2025-05-26T19:55:58.506505
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;1;A;1;sadf4;sadf4;0.0;1;2025-05-26T19:57:10.847328
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;2;A;1;sadf;sadf;0.0;1;2025-05-26T19:57:22.406677
+41cff7b3-b2ac-4586-9d3d-898f9c37e26b;3;A;1;sdfasdff;sdfasdff;0.0;1;2025-05-26T19:58:22.325560
+ff92c38c-c080-45aa-a997-5f16db18c345;1;B;1;hrllo;hrllo;0.0;1;2025-05-26T19:59:15.268049
+ff92c38c-c080-45aa-a997-5f16db18c345;2;B;1;headache;headache;0.0;1;2025-05-26T19:59:33.845186
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;1;A;1;hi;hi;0.0;1;2025-05-26T20:17:43.569595
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;2;A;1;ho;ho;0.0;1;2025-05-26T20:18:03.795261
+ee6b9b27-d9a4-4313-a258-47bc1ceb2809;3;A;1;hi;hi;0.0;1;2025-05-26T20:18:19.167867
+3886b27e-54ce-48fa-854e-f775a10a929e;1;B;1;hi;hi;0.0;1;2025-05-26T20:19:27.490833
+3886b27e-54ce-48fa-854e-f775a10a929e;2;B;1;hello;hello;0.0;1;2025-05-26T20:19:45.186354
+3886b27e-54ce-48fa-854e-f775a10a929e;3;B;1;hi;hi;0.0;1;2025-05-26T20:32:50.278390
+1de92c7e-be4d-43ea-9efd-20d9f87b6f5d;1;A;1;hi;hi;0.0;1;2025-05-26T20:34:23.720303
+032c8761-aad2-4b97-9680-0bf1f0f0265e;1;B;1;hi;hi;0.0;1;2025-05-26T20:35:09.969096
+032c8761-aad2-4b97-9680-0bf1f0f0265e;2;B;1;hello;hello;0.0;1;2025-05-26T20:35:28.258139
+032c8761-aad2-4b97-9680-0bf1f0f0265e;3;B;1;hi;hi;0.0;1;2025-05-26T20:37:29.711508
+eaf2d5e9-bf67-4177-b72b-51f487837629;1;B;1;hi;hi;0.0;1;2025-05-26T20:54:46.970884
+eaf2d5e9-bf67-4177-b72b-51f487837629;2;B;1;hi;hi;0.0;1;2025-05-26T20:55:04.647599
+ac1e0c19-6342-49c8-878c-c063876a9129;1;B;1;hello;hello;0.0;1;2025-05-26T20:56:52.376943
+ac1e0c19-6342-49c8-878c-c063876a9129;2;B;1;st;st;0.0;1;2025-05-26T20:57:06.160615
+fa8abc93-c131-435c-ad06-55d445465030;1;A;1;sadfsa;sadfsa;0.0;1;2025-05-26T21:02:48.279367
+fa8abc93-c131-435c-ad06-55d445465030;2;A;1;hi;hi;0.0;1;2025-05-26T21:03:02.582617
+fa8abc93-c131-435c-ad06-55d445465030;3;A;1;hello;hello;0.0;1;2025-05-26T21:03:16.935753
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;1;B;1;sdf;sdf;0.0;1;2025-05-26T21:05:27.888396
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;2;B;1;hi;hi;0.0;1;2025-05-26T21:05:52.897704
+e4e4095e-4c6e-4be0-8e01-a0135832b58d;3;B;1;hi;hi;0.0;1;2025-05-26T21:07:02.154946
+d1e89ace-4a6a-4974-b998-944a5a1e2fbd;1;A;1;hello;hello;0.0;1;2025-05-26T21:10:42.214615
+0d442ab4-e8f8-4643-a14a-8882425f9437;1;B;1;hi;hi;0.0;1;2025-05-26T21:12:01.578490
+0d442ab4-e8f8-4643-a14a-8882425f9437;2;B;1;hello;hello;0.0;1;2025-05-26T21:12:17.594991
+75302fd5-454e-411a-97ce-c27f857d999d;1;B;1;hi;hi;0.0;1;2025-05-26T21:17:20.461835
+75302fd5-454e-411a-97ce-c27f857d999d;2;B;1;hello;hello;0.0;1;2025-05-26T21:17:37.492112
+ce44f71a-a638-4614-8e45-d4750ad56c30;1;B;1;"what could be a diagnosis?
+
+The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";"what could be a diagnosis?
+
+The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.";0.0;53;2025-05-27T09:12:25.001208
