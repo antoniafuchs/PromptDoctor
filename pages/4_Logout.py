@@ -115,7 +115,7 @@ def show_logout_survey():
     if "logout_survey_data" not in st.session_state:
         st.session_state.logout_survey_data = {}
 
-    st.header("Thanks for Completing All Tasks!")
+    st.header("Thanks for completing all tasks!")
 
     # Show only goodbye messages if logged out
     if st.session_state.logged_out:

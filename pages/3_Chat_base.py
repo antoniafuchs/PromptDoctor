@@ -68,13 +68,26 @@ import os
 import glob
 from threading import Thread
 import pandas as pd
-from utils.ml_utils import init_torch
+from utils.ml_utils import init_torch, get_device
 from utils.model_handler import ModelHandler
 from streamlit_extras.switch_page_button import switch_page
 import streamlit_survey as ss 
 
-# Initialize PyTorch with basic settings
-init_torch()
+# Initialize PyTorch with basic settings - safer initialization
+try:
+    from utils.ml_utils import init_torch, get_device
+    # Initialize PyTorch in a way that avoids event loop errors
+    init_torch()
+except ImportError as e:
+    print(f"[WARNING] Error importing PyTorch utilities: {str(e)}")
+    # Create fallback functions if import fails
+    def init_torch():
+        return "PyTorch initialization skipped"
+    def get_device():
+        return "cpu"
+    init_torch()
+except Exception as e:
+    print(f"[WARNING] Error during PyTorch initialization: {str(e)}")
 
 # Load shared styles
 load_styles()

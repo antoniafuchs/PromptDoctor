@@ -149,3 +149,7 @@ d1e89ace-4a6a-4974-b998-944a5a1e2fbd,1,,HIGHLIGHT_METRICS,2025-05-26T21:10:42.49
 ce44f71a-a638-4614-8e45-d4750ad56c30,1,,HIGHLIGHT_METRICS,2025-05-27T09:12:25.306332,,,"pain,fatigue,patient,fever,shortness of breath,chest pain,or,cough",8,1,,B,,B,,,HIGHLIGHT_METRICS,"what could be a diagnosis?
 
 The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel."
+c213d388-7aa0-4b48-9df0-7121469b45c8,1,,HIGHLIGHT_METRICS,2025-05-27T15:41:55.858680,,,,0,1,,A,,A,,,HIGHLIGHT_METRICS,hi
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca,1,,HIGHLIGHT_METRICS,2025-05-27T15:54:18.309356,,,,0,1,,A,,A,,,HIGHLIGHT_METRICS,hi
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca,2,,HIGHLIGHT_METRICS,2025-05-27T15:54:28.542503,,,,0,1,,A,,A,,,HIGHLIGHT_METRICS,hello
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca,3,,HIGHLIGHT_METRICS,2025-05-27T15:54:38.099186,,,,0,1,,A,,A,,,HIGHLIGHT_METRICS,hi

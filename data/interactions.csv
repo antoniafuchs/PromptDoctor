@@ -788,3 +788,25 @@ a7683e60-51fc-4341-8203-39a5a07be156;1;;2025-05-27T09:16:12.624406;;;;;0;;;;Hugg
 54fc03e9-52d8-40ec-82ba-35c677bb623b;0;;2025-05-27T09:17:05.834032;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
 54fc03e9-52d8-40ec-82ba-35c677bb623b;1;;2025-05-27T09:17:23.945854;;;;;0;;;;HuggingFaceEndpoint;11.637826;5.243304;;;HuggingFaceEndpoint;;{'typing': 11.637826, 'generation': 5.243304};CHAT;;B;{};INTERACTION;
 54fc03e9-52d8-40ec-82ba-35c677bb623b;1;;2025-05-27T09:17:55.007723;;;;;0;;;;HuggingFaceEndpoint;30.948663;5.354592;;;HuggingFaceEndpoint;;{'typing': 30.948663, 'generation': 5.354592};CHAT;;B;{};INTERACTION;
+c213d388-7aa0-4b48-9df0-7121469b45c8;0;;2025-05-27T15:38:50.379283;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+c213d388-7aa0-4b48-9df0-7121469b45c8;0;;2025-05-27T15:40:57.857439;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+c213d388-7aa0-4b48-9df0-7121469b45c8;1;;2025-05-27T15:41:29.492990;;;;;0;;;;HuggingFaceEndpoint;30.207146;0.250776;;;HuggingFaceEndpoint;;{'typing': 30.207146, 'generation': 0.250776};CHAT;;A;{};INTERACTION;
+c213d388-7aa0-4b48-9df0-7121469b45c8;1;;2025-05-27T15:41:54.437984;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{'total': 27.604176};TASK_COMPLETION;;A;{};INTERACTION;27.604176
+c213d388-7aa0-4b48-9df0-7121469b45c8;1;PROMPT_METRICS;2025-05-27T15:41:55.566802;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+c213d388-7aa0-4b48-9df0-7121469b45c8;2;;2025-05-27T15:41:59.933071;;;;;0;;;;HuggingFaceEndpoint;30.501909;0.205919;;;HuggingFaceEndpoint;;{'typing': 30.501909, 'generation': 0.205919};CHAT;;A;{};INTERACTION;
+d5f3422e-a327-496b-83b0-cbe04c03fcef;0;;2025-05-27T15:47:25.195260;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+d5f3422e-a327-496b-83b0-cbe04c03fcef;0;;2025-05-27T15:47:48.233564;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+6e2ddd40-4c77-4ac6-b473-5e097f04ba21;0;;2025-05-27T15:48:45.454793;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+56d49d6c-6fa7-4a33-be6e-1f8af100096f;0;;2025-05-27T15:49:33.514573;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+56d49d6c-6fa7-4a33-be6e-1f8af100096f;0;;2025-05-27T15:50:27.009140;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;0;;2025-05-27T15:51:52.520261;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;0;;2025-05-27T15:52:02.115682;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;1;;2025-05-27T15:54:06.481820;;;;;0;;;;HuggingFaceEndpoint;123.157498;0.236771;;;HuggingFaceEndpoint;;{'typing': 123.157498, 'generation': 0.236771};CHAT;;A;{};INTERACTION;
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;1;;2025-05-27T15:54:16.319831;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{'total': 13.086598};TASK_COMPLETION;;A;{};INTERACTION;13.086598
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;1;PROMPT_METRICS;2025-05-27T15:54:18.026892;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;2;;2025-05-27T15:54:22.647290;;;;;0;;;;HuggingFaceEndpoint;16.272713;0.134737;;;HuggingFaceEndpoint;;{'typing': 16.272713, 'generation': 0.134737};CHAT;;A;{};INTERACTION;
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;2;;2025-05-27T15:54:27.097926;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{'total': 7.509983};TASK_COMPLETION;;A;{};INTERACTION;7.509983
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;2;PROMPT_METRICS;2025-05-27T15:54:28.243563;hello;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;3;;2025-05-27T15:54:32.435439;;;;;0;;;;HuggingFaceEndpoint;9.713139;0.205195;;;HuggingFaceEndpoint;;{'typing': 9.713139, 'generation': 0.205195};CHAT;;A;{};INTERACTION;
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;3;;2025-05-27T15:54:36.840996;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{'total': 6.791565};TASK_COMPLETION;;A;{};INTERACTION;6.791565
+78d6df64-1bcc-4f35-845c-3bb87b8de1ca;3;PROMPT_METRICS;2025-05-27T15:54:38.073229;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
