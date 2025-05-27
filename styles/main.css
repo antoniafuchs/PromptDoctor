@@ -1,0 +1,58 @@
+/* Base text styles */
+.stMarkdown p {
+    font-size: 18px !important;
+}
+.stMarkdown li {
+    font-size: 18px !important;
+}
+.stMarkdown strong {
+    font-size: 18px !important;
+}
+.stMarkdown h3 {
+    font-size: 28px !important;
+
+}
+
+/* Task description styles */
+.stInfo p, .stInfo li, .stInfo strong {
+    font-size: 18px !important;
+}
+
+/* Survey question styles */
+.stRadio label, .stSelectbox label, .stTextArea label {
+    font-size: 18px !important;
+}
+
+/* Task container text styling */
+div[data-testid="stMarkdownContainer"] p {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+
+}
+
+/* Clinical note styling */
+div[data-testid="stMarkdownContainer"] strong {
+    font-size: 18px !important;
+
+}
+
+/* Headers */
+div[data-testid="stMarkdownContainer"] h3 {
+    font-size: 32px !important;
+    margin-top: 24px !important;
+    margin-bottom: 20px !important;
+
+}
+
+/* Info container specific */
+.stInfo p, .stInfo li, .stInfo strong {
+    font-size: 24px !important;
+}
+
+/* Main container width */
+.stMainBlockContainer {
+    max-width: 800px !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    margin: 0 auto !important;
+}

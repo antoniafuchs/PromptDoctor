@@ -1,0 +1,882 @@
+import streamlit as st
+import asyncio
+import os
+import glob
+import json
+import uuid
+import datetime
+import pyperclip
+import requests
+import pandas as pd
+from typing import List
+
+# Try to import NLTK with error handling
+try:
+    import nltk
+    NLTK_AVAILABLE = True
+except (ImportError, EOFError, ModuleNotFoundError) as e:
+    print(f"[WARNING] NLTK import error: {e}. Some NLP features may be limited.")
+    NLTK_AVAILABLE = False
+
+# Set event loop policy for thread safety
+try:
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+except AttributeError:
+    # Not on Windows, use default policy
+    pass
+
+# Initialize event loop
+try:
+    loop = asyncio.get_event_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+# Try to import ollama
+try:
+    from langchain.llms import Ollama
+    from ollama import Client
+    OLLAMA_CLIENT_AVAILABLE = True
+except ImportError:
+    print("[WARNING] Ollama client package not installed. Falling back to direct API calls.")
+    OLLAMA_CLIENT_AVAILABLE = False
+
+# Page config must be first Streamlit command
+st.set_page_config(
+    page_title="PromptDoctor",
+    layout="wide"
+)
+
+
+# Import remaining modules
+from utils import medical_processor
+from utils.style_loader import load_styles
+import requests
+import json
+import uuid
+import datetime
+import pyperclip
+from typing import List
+from tracking.timer import Timer
+from tracking.logging import (
+    _calculate_edit_distance,
+    _determine_diff_type,
+    log_chat_interaction,
+    log_validation_action,
+    log_task_completion,
+    log_feedback,
+    log_task_duration,
+    log_lime_explanation,
+    log_model_output
+)
+from tracking.task_manager import TaskManager 
+from utils.pdf_handler import displayPDF, displayPDFpage, handle_pdf_upload
+from utils.medical_processor import MedicalTermProcessor
+from utils.prompt_validator import validate_prompt, add_highlights
+from utils.model_config import ModelConfig
+from utils.xai import LIMEMedicalExplainer
+from utils.xai.processing import XAIProcessor
+import os
+import glob
+from threading import Thread
+import pandas as pd
+from utils.ml_utils import init_torch
+from utils.model_handler import ModelHandler
+from streamlit_extras.switch_page_button import switch_page
+import streamlit_survey as ss 
+
+# Initialize PyTorch with basic settings
+init_torch()
+
+# Load shared styles
+load_styles()
+
+# Add custom CSS for sidebar width detection and font sizes
+st.markdown("""
+<style>
+    [data-testid="stSidebar"] > div:first-child {
+        width: var(--sidebar-width, 100%);
+    }
+    /* Add XAI visualization styling */
+    .word-span {
+        transition: transform 0.1s ease-in-out;
+    }
+    .word-span:hover {
+        transform: scale(1.05);
+    }
+    iframe.xai-frame {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    /* Ensure clinical notes and survey questions have 18px font size */
+    div[data-testid="stMarkdownContainer"] p,
+    div[data-testid="stRadio"] label,
+    div[data-testid="stRadio"] div,
+    div[data-testid="stTextArea"] label,
+    div[data-testid="stTextArea"] textarea,
+    .clinical-note, .clinical-note div, .clinical-note span, .clinical-note p {
+        font-size: 18px !important;
+    }
+    
+    /* Fix highlighted terms font size */
+    span[style*="display: inline-block"], 
+    span[class*="highlight"] {
+        font-size: 18px !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Initialize session state variables
+if "user_id" not in st.session_state:
+    st.session_state.user_id = None
+if "selected_model_type" not in st.session_state:
+    st.session_state.selected_model_type = None
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+if "model_timer" not in st.session_state:
+    st.session_state.model_timer = Timer()
+if "iteration_count" not in st.session_state:
+    st.session_state.iteration_count = 0
+if "last_input_time" not in st.session_state:
+    st.session_state.last_input_time = datetime.datetime.now()
+if "pdf_file" not in st.session_state:
+    st.session_state.pdf_file = None
+if "pdf_upload_time" not in st.session_state:
+    st.session_state.pdf_upload_time = None
+if "pdf_text" not in st.session_state:
+    st.session_state.pdf_text = None
+if "medical_processor" not in st.session_state:
+    try:
+        st.session_state.medical_processor = MedicalTermProcessor()
+    except Exception as e:
+        print(f"[WARNING] Failed to initialize MedicalTermProcessor: {e}")
+        # Create a simple fallback processor
+        class SimpleMedicalProcessor:
+            def highlight_medical_terms(self, text):
+                return text
+            def get_medical_terms(self, text):
+                return []
+        st.session_state.medical_processor = SimpleMedicalProcessor()
+if "message_feedback" not in st.session_state:
+    st.session_state.message_feedback = {}
+if "stage" not in st.session_state:
+    st.session_state.stage = "user"
+    st.session_state.pending_prompt = None
+    st.session_state.validation = {}
+if "model_handler" not in st.session_state:
+    st.session_state.model_handler = ModelHandler()
+if "available_models" in st.session_state:
+    del st.session_state.available_models
+if "selected_model_name" not in st.session_state:
+    st.session_state.selected_model_name = None
+if "hf_model" not in st.session_state:
+    st.session_state.hf_model = None
+if "hf_tokenizer" not in st.session_state:
+    st.session_state.hf_tokenizer = None
+if "lime_explainer" not in st.session_state:
+    st.session_state.lime_explainer = LIMEMedicalExplainer()
+if "xai_queue" not in st.session_state:
+    st.session_state.xai_queue = []
+if "xai_processing" not in st.session_state:
+    st.session_state.xai_processing = False
+if "xai_results" not in st.session_state:
+    st.session_state.xai_results = {}
+if "xai_processor" not in st.session_state:
+    st.session_state.xai_processor = XAIProcessor()
+if "current_task" not in st.session_state:
+    st.session_state.current_task = 1
+if "task_completed" not in st.session_state:
+    st.session_state.task_completed = []
+
+# Initialize TaskManager in session state
+if "task_manager" not in st.session_state:
+    st.session_state.task_manager = TaskManager(total_tasks=3)
+
+# Define the system prompt
+system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
+
+# Remove JavaScript section and replace with input focus handler
+def on_input_focus():
+    if st.session_state.input_start_time is None:
+        st.session_state.input_start_time = datetime.datetime.now()
+
+def save_feedback(index):
+    """Save feedback for a specific message"""
+    try:
+        # Ensure the index is valid
+        if index >= len(st.session_state.messages):
+            print(f"[ERROR] Invalid message index for feedback: {index}")
+            return
+            
+        # Get the message and message ID
+        message = st.session_state.messages[index]
+        message_id = f"msg_{index}"
+        
+        # Check if feedback already exists for this message
+        if (index in st.session_state.message_feedback or 
+            st.session_state.get(f"feedback_{index}_submitted", False)):
+            # Feedback already recorded, nothing to do
+            return
+            
+        # Get feedback value from session state
+        if f"feedback_{index}" not in st.session_state:
+            print(f"[WARNING] No feedback value found for index {index}")
+            return
+            
+        feedback_value = st.session_state[f"feedback_{index}"]
+        
+        # Map thumbs to feedback values (1 for thumbs up, -1 for thumbs down, 0 for neutral)
+        feedback_text = {
+            1: "positive",
+            -1: "negative",
+            0: "neutral"
+        }.get(feedback_value, "neutral")
+        
+        # Store feedback in session state for this message
+        st.session_state.message_feedback[index] = feedback_value
+        st.session_state[f"feedback_{index}_submitted"] = True
+        
+        # Log the feedback
+        try:
+            log_feedback(
+                user_id=st.session_state.user_id,
+                task_id=st.session_state.current_task,
+                message_id=message_id,
+                feedback_value=feedback_value,
+                prompt=message.get("raw_content", message.get("content")),
+                response=message.get("content")
+            )
+            print(f"[INFO] Feedback logged successfully for message {index}: {feedback_value}")
+        except Exception as e:
+            print(f"Error in feedback logging: {str(e)}")
+    except Exception as e:
+        print(f"Error in save_feedback: {str(e)}")
+        # Continue without disrupting the app
+
+def process_prompt(prompt, response_placeholder):
+    """Process the accepted prompt and send to model"""
+    current_time = datetime.datetime.now()
+    typing_duration = (current_time - st.session_state.last_input_time).total_seconds()
+    st.session_state.last_input_time = current_time
+    st.session_state.iteration_count += 1
+    
+    # Process prompt for highlighting
+    highlighted_prompt = st.session_state.medical_processor.highlight_medical_terms(prompt)
+    
+    # Add to message history
+    message = {
+        "role": "user",
+        "content": highlighted_prompt,
+        "raw_content": prompt,
+        "user_id": st.session_state.user_id,
+        "timestamp": datetime.datetime.now().isoformat(),
+        "iteration": st.session_state.iteration_count
+    }
+    st.session_state.messages.append(message)
+    
+    # Handle model response
+    final_response = ""
+    generation_duration = 0.0
+
+    with st.spinner("Generating response..."):
+        if st.session_state.selected_model_type == "Ollama":
+            st.session_state.model_timer.start()
+            try:
+                payload = {
+                    "model": "llama3-med42-8b",
+                    "messages": [
+                        {"role": "system", "content": system_prompt}
+                    ] + [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
+                }
+                response = requests.post("http://localhost:11434/api/chat", json=payload, stream=True)
+                final_response = ""
+                
+                for line in response.iter_lines(decode_unicode=True):
+                    if line:
+                        try:
+                            data = json.loads(line)
+                            content = data.get("message", {}).get("content", "")
+                            final_response += content
+                            response_placeholder.markdown(final_response)
+                            if data.get("done", False):
+                                break
+                        except json.JSONDecodeError:
+                            continue
+                            
+            except Exception as e:
+                final_response = f"Error: {e}"
+                response_placeholder.markdown(final_response)
+
+            generation_duration = st.session_state.model_timer.stop()
+            
+        elif st.session_state.selected_model_type == "GPT":
+            st.session_state.model_timer.start()
+            final_response = "GPT integration not implemented yet"
+            response_placeholder.markdown(final_response)
+            generation_duration = st.session_state.model_timer.stop()
+            
+        else:  # HuggingFace
+            st.session_state.model_timer.start()
+            final_response = "HuggingFace integration not implemented yet"
+            response_placeholder.markdown(final_response)
+            generation_duration = st.session_state.model_timer.stop()
+
+        # Update response placeholder
+        response_placeholder.markdown(final_response)
+
+        # Save assistant's reply
+        assistant_message = {
+            "role": "assistant",
+            "content": final_response,
+            "user_id": st.session_state.user_id,
+            "timestamp": datetime.datetime.now().isoformat(),
+            "iteration": st.session_state.iteration_count
+        }
+        st.session_state.messages.append(assistant_message)
+        
+        # Log interactions
+        log_chat_interaction(
+            user_id=st.session_state.user_id,
+            action_type="MODEL_OUTPUT",
+            user_prompt=prompt,
+            model_output=final_response,
+            model_type=st.session_state.selected_model_type,
+            duration={
+                "typing": typing_duration,
+                "generation": generation_duration
+            }
+        )
+
+        # Add feedback for new message
+        current_message_index = len(st.session_state.messages) - 1
+        st.feedback(
+            "thumbs",
+            key=f"feedback_{current_message_index}",
+            on_change=save_feedback,
+            args=[current_message_index],
+        )
+
+        # Remove obsolete logging to user_logs.txt
+        
+    return highlighted_prompt, final_response
+
+def process_prompt_and_get_response(prompt):
+    """Process prompt and get model response without creating chat messages"""
+    current_time = datetime.datetime.now()
+    typing_duration = (current_time - st.session_state.last_input_time).total_seconds()
+    st.session_state.last_input_time = current_time
+    st.session_state.iteration_count += 1
+    
+    highlighted_prompt = st.session_state.medical_processor.highlight_medical_terms(prompt)
+    final_response = ""
+    generation_duration = 0.0
+
+    with st.spinner("Generating response..."):
+        st.session_state.model_timer.start()
+        
+        if st.session_state.selected_model_type == "HuggingFaceEndpoint":
+            try:
+                headers = {
+                    "Authorization": f"Bearer {st.session_state.hf_api_token}",
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                }
+                
+                # Create conversation context
+                conversation = f"{system_prompt}\n\n"
+                for msg in st.session_state.messages[-5:]:
+                    content = msg.get("raw_content", msg.get("content", ""))
+                    conversation += f"{msg['role']}: {content}\n"
+                conversation += f"user: {prompt}\nassistant:"
+                
+                payload = {
+                    "inputs": conversation,
+                    "parameters": {
+                        "max_new_tokens": 25,
+                        "temperature": 0.7,
+                        "top_p": 0.9,
+                        "do_sample": True,
+                        "return_full_text": False
+                    }
+                }
+                
+                # Use session with longer timeout
+                session = requests.Session()
+                retry_count = 0
+                max_retries = 3
+                
+                while retry_count < max_retries:
+                    try:
+                        response = session.post(
+                            st.session_state.endpoint_url,
+                            headers=headers,
+                            json=payload,
+                            timeout=90
+                        )
+                        response.raise_for_status()
+                        final_response = response.json()[0]["generated_text"]
+                        break
+                    except requests.Timeout:
+                        retry_count += 1
+                        if retry_count == max_retries:
+                            final_response = "Error: Request timed out after multiple retries"
+                        continue
+                    except Exception as e:
+                        final_response = f"Error with HuggingFace endpoint: {str(e)}"
+                        break
+                
+            except Exception as e:
+                final_response = f"Error with HuggingFace endpoint: {str(e)}"
+                
+        elif st.session_state.selected_model_type == "Ollama":
+            # Combine all messages including system prompt and new user prompt
+            all_messages = [{"role": "system", "content": system_prompt}]
+            for m in st.session_state.messages:
+                all_messages.append({
+                    "role": m["role"],
+                    "content": m.get("raw_content", m.get("content"))
+                })
+            all_messages.append({"role": "user", "content": prompt})
+            
+            # Verify model exists locally
+            local_models = get_local_ollama_models()
+            model_names = [m["name"] for m in local_models]
+            
+            if st.session_state.selected_model_name not in model_names:
+                return highlighted_prompt, "Error: Selected model not found locally", 0, 0
+            
+            try:
+                if OLLAMA_CLIENT_AVAILABLE:
+                    # Try client first
+                    try:
+                        client = Client(host='http://localhost:11434')
+                        response = client.chat(
+                            model=st.session_state.selected_model_name,
+                            messages=all_messages
+                        )
+                        final_response = response['message']['content']
+                    except Exception as client_error:
+                        print(f"[Ollama] Client error, falling back to API: {str(client_error)}")
+                        raise  # Trigger fallback
+                else:
+                    raise ImportError("Ollama client not available")
+                    
+            except Exception as e:
+                # Fallback to direct API call
+                try:
+                    payload = {
+                        "model": st.session_state.selected_model_name,
+                        "messages": all_messages
+                    }
+                    
+                    response = requests.post(
+                        "http://localhost:11434/api/chat",
+                        json=payload,
+                        stream=True,
+                        timeout=30
+                    )
+                    
+                    final_response = ""
+                    for line in response.iter_lines(decode_unicode=True):
+                        if not line:
+                            continue
+                        try:
+                            data = json.loads(line)
+                            if data.get("error"):
+                                raise Exception(data["error"])
+                            content = data.get("message", {}).get("content", "")
+                            if content:
+                                final_response += content
+                            if data.get("done", False):
+                                break
+                        except json.JSONDecodeError:
+                            continue
+                            
+                except Exception as api_error:
+                    final_response = f"Error with Ollama: {str(api_error)}"
+        elif st.session_state.selected_model_type == "HuggingFace":
+            try:
+                if st.session_state.hf_model is None:
+                    with st.spinner("Loading HuggingFace model..."):
+                        model, tokenizer = ModelConfig.initialize_hf_model(st.session_state.selected_model_name)
+                        st.session_state.hf_model = model
+                        st.session_state.hf_tokenizer = tokenizer
+                
+                # Prepare prompt
+                prompt_text = f"{system_prompt}\n\n"
+                for msg in st.session_state.messages[-5:]:  # Limit context window
+                    content = msg.get("raw_content", msg.get("content", ""))
+                    prompt_text += f"{msg['role']}: {content}\n"
+                prompt_text += f"user: {prompt}\nassistant:"
+                
+                # Tokenize
+                inputs = st.session_state.hf_tokenizer(
+                    prompt_text,
+                    return_tensors="pt",
+                    padding=True,
+                    truncation=True,
+                    max_length=512
+                )
+                
+                # Generate using model's generation config
+                outputs = st.session_state.hf_model.generate(
+                    **inputs,
+                    min_length=10,
+                    repetition_penalty=1.2,
+                    no_repeat_ngram_size=3,
+                    early_stopping=True
+                )
+                
+                final_response = st.session_state.hf_tokenizer.decode(
+                    outputs[0], 
+                    skip_special_tokens=True
+                ).split("assistant:")[-1].strip()
+                
+            except Exception as e:
+                final_response = f"Error with HuggingFace model: {str(e)}"
+        else:
+            final_response = "Model type not implemented"
+        
+        generation_duration = st.session_state.model_timer.stop()
+
+    return highlighted_prompt, final_response, typing_duration, generation_duration
+
+def get_medical_terms(text: str, medical_processor) -> List[str]:
+    """Extract medical terms from text"""
+    return medical_processor.get_medical_terms(text)
+
+def get_local_ollama_models():
+    """Get list of locally available Ollama models"""
+    models_path = os.path.expanduser("~/.ollama/models/manifests/registry.ollama.ai/library/")
+    if not os.path.exists(models_path):
+        return []
+    
+    model_entries = glob.glob(os.path.join(models_path, "*"))
+    models = []
+    
+    for entry in model_entries:
+        model_name = os.path.basename(entry)
+        
+        # Check if it's a directory
+        if os.path.isdir(entry):
+            # Try to find a manifest.json inside the directory
+            manifest_path = os.path.join(entry, "manifest.json")
+            if os.path.exists(manifest_path):
+                try:
+                    with open(manifest_path, 'r') as f:
+                        manifest = json.load(f)
+                        display_name = f"{model_name} ({manifest.get('version', 'unknown')})"
+                except:
+                    display_name = f"{model_name} (custom)"
+            else:
+                display_name = f"{model_name} (custom)"
+                
+        # If it's a file
+        else:
+            try:
+                with open(entry, 'r') as f:
+                    manifest = json.load(f)
+                    display_name = f"{model_name} ({manifest.get('version', 'unknown')})"
+            except:
+                display_name = model_name
+        
+        models.append({
+            "name": model_name,
+            "display_name": display_name,
+            "path": entry
+        })
+    
+    return models
+
+
+def show_chatbot():
+    if "user_id" not in st.session_state or st.session_state.user_id is None:
+        st.switch_page("Home.py")
+        return
+
+    # Initialize task intro on first login
+    if "first_login" not in st.session_state:
+        st.session_state.first_login = True
+        st.session_state.show_task_intro = True
+
+    st.header("PromptDoctor")
+    
+    # Add custom CSS
+    st.markdown("""
+    <style>
+        [data-testid="stSidebar"] > div:first-child {
+            width: var(--sidebar-width, 100%);
+        }
+        .word-span {
+            transition: transform 0.1s ease-in-out;
+        }
+        .word-span:hover {
+            transform: scale(1.05);
+        }
+        iframe.xai-frame {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Sidebar
+    with st.sidebar:
+        # Show progress tracking in sidebar
+        st.session_state.task_manager.render_progress_sidebar()
+        
+        st.divider()
+        
+        
+    # Show task controls in main UI
+    st.session_state.task_manager.render_task_controls()
+    
+    # Show survey if needed
+    current_task = st.session_state.current_task
+    survey_data = st.session_state.task_manager.show_task_survey(current_task)
+    if survey_data:
+        # Calculate task duration from start time
+        task = st.session_state.task_states[current_task - 1]
+        if task.started_at:
+            duration = (datetime.datetime.now() - task.started_at).total_seconds()
+        else:
+            duration = 0.0
+            
+        # Add duration to survey data
+        survey_data['task_duration'] = duration
+        survey_data['start_time'] = task.started_at.isoformat() if task.started_at else None
+        survey_data['end_time'] = datetime.datetime.now().isoformat()
+            
+        # Log completion with duration
+        log_task_completion(
+            st.session_state.user_id, 
+            current_task, 
+            survey_data,
+            duration
+        )
+        st.session_state.task_manager.complete_task(current_task, survey_data)
+        st.rerun()
+
+    # Display chat history with proper feedback handling
+    for i, message in enumerate(st.session_state.messages):
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+            if message["role"] == "assistant":
+                # Check if feedback already exists - use same approach as Chat_base.py
+                feedback = st.session_state.message_feedback.get(i)
+                st.feedback(
+                    "thumbs",
+                    key=f"feedback_{i}",
+                    # Only disable if feedback already given for this specific message
+                    disabled=feedback is not None,
+                    on_change=save_feedback,
+                    args=[i],
+                )
+
+    # Single chat input handler with validation flow
+    if prompt := st.chat_input("How can I help?", key="main_chat_input"):
+        if st.session_state.stage == "user":
+            # Track the prompt submission for the current task
+            st.session_state.task_manager.track_prompt_submission(
+                st.session_state.current_task, 
+                prompt
+            )
+            
+            # Store prompt and show validation
+            st.session_state.pending_prompt = prompt
+            st.session_state.stage = "validate"
+            st.rerun()
+
+    # Handle validation stages
+    if st.session_state.stage == "validate":
+        # Get current prompt count for this task
+        current_prompt_count = st.session_state.get('current_prompt_count', 0)
+        
+        # Validate and highlight prompt with prompt count
+        sentences, highlighted, has_terms = validate_prompt(
+            st.session_state.pending_prompt,
+            st.session_state.medical_processor,
+            prompt_count=current_prompt_count
+        )
+        
+        # Display validation UI
+        st.markdown(" ".join(highlighted), unsafe_allow_html=True)
+        st.divider()
+        
+        # Log validation display
+        medical_terms = st.session_state.medical_processor.get_medical_terms(st.session_state.pending_prompt)
+        log_validation_action(
+            st.session_state.user_id,
+            "VALIDATION_VIEW",
+            st.session_state.pending_prompt,
+            medical_terms,
+            medical_term_count=len(medical_terms)
+        )
+        
+        cols = st.columns(4)  # Changed from 3 to 4 columns
+        if cols[0].button("Edit", type="primary", key="edit_button"):
+            # Get user ID and task ID
+            user_id = st.session_state.get('user_id', '')
+            task_id = st.session_state.get('current_task', 0)
+            current_prompt_count = st.session_state.get('current_prompt_count', 0)
+            
+            # Generate structured message ID
+            user_id_prefix = user_id[:8] if user_id else ''
+            message_id = f"task_{task_id}_prompt_{current_prompt_count}_{user_id_prefix}"
+            
+            log_validation_action(
+                user_id=user_id,
+                task_id=task_id,
+                action_type="EDIT_CLICK",
+                original_prompt=st.session_state.pending_prompt,
+                prompt_count=current_prompt_count,
+                message_id=message_id
+            )
+            st.session_state.validation = {
+                "sentences": sentences,
+                "highlighted": highlighted,
+                "has_terms": has_terms
+            }
+            st.session_state.stage = "edit"
+            st.rerun()
+        
+        if cols[1].button("Accept", key="accept_button"):
+            # Get user ID and task ID
+            user_id = st.session_state.get('user_id', '')
+            task_id = st.session_state.get('current_task', 0)
+            current_prompt_count = st.session_state.get('current_prompt_count', 0)
+            
+            # Generate structured message ID
+            user_id_prefix = user_id[:8] if user_id else ''
+            message_id = f"task_{task_id}_prompt_{current_prompt_count}_{user_id_prefix}"
+            
+            log_validation_action(
+                user_id=user_id,
+                task_id=task_id,
+                action_type="ACCEPT_CLICK",
+                original_prompt=st.session_state.pending_prompt,
+                prompt_count=current_prompt_count,
+                message_id=message_id
+            )
+            # Hide task intro
+            st.session_state.show_task_intro = False
+            
+            # Get response first
+            highlighted_prompt, final_response, typing_duration, generation_duration = process_prompt_and_get_response(
+                st.session_state.pending_prompt
+            )
+            
+            # Add messages to history
+            user_message = {
+                "role": "user",
+                "content": highlighted_prompt if highlighted_prompt else st.session_state.pending_prompt,
+                "raw_content": st.session_state.pending_prompt,
+                "timestamp": datetime.datetime.now().isoformat(),
+                "iteration": st.session_state.iteration_count
+            }
+            st.session_state.messages.append(user_message)
+            
+            assistant_message = {
+                "role": "assistant",
+                "content": final_response,
+                "timestamp": datetime.datetime.now().isoformat(),
+                "iteration": st.session_state.iteration_count
+            }
+            st.session_state.messages.append(assistant_message)
+            
+            # Log interactions
+            log_chat_interaction(
+                st.session_state.user_id,
+                "CHAT",
+                user_prompt=st.session_state.pending_prompt,
+                model_output=final_response,
+                model_type=st.session_state.selected_model_type,
+                duration={
+                    "typing": typing_duration,
+                    "generation": generation_duration
+                }
+            )
+            
+            # Reset state and rerun
+            st.session_state.stage = "user"
+            st.session_state.pending_prompt = None
+            st.rerun()
+        
+    
+
+    elif st.session_state.stage == "edit":
+        with st.chat_message("user"):
+            st.markdown(" ".join(st.session_state.validation["highlighted"]), unsafe_allow_html=True)
+            st.divider()
+            
+            new_prompt = st.text_area(
+                "Edit prompt:",
+                value=st.session_state.pending_prompt,
+                height=150  # Adding a fixed height for better visibility
+            )
+            
+            cols = st.columns(2)
+            if cols[0].button("Update", type="primary"):
+                # Get user ID and task ID
+                user_id = st.session_state.get('user_id', '')
+                task_id = st.session_state.get('current_task', 0)
+                current_prompt_count = st.session_state.get('current_prompt_count', 0)
+                
+                # Generate structured message ID
+                user_id_prefix = user_id[:8] if user_id else ''
+                message_id = f"task_{task_id}_prompt_{current_prompt_count}_{user_id_prefix}"
+                
+                # Calculate edit distance and diff type
+                edit_distance = _calculate_edit_distance(st.session_state.pending_prompt, new_prompt)
+                diff_type = _determine_diff_type(st.session_state.pending_prompt, new_prompt)
+                
+                # Log with enhanced data
+                log_validation_action(
+                    user_id=user_id,
+                    task_id=task_id,
+                    action_type="EDIT_UPDATE",
+                    original_prompt=st.session_state.pending_prompt,
+                    modified_prompt=new_prompt,
+                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor),
+                    prompt_count=current_prompt_count,
+                    message_id=message_id,
+                    edit_distance=edit_distance,
+                    diff_type=diff_type
+                )
+                st.session_state.pending_prompt = new_prompt
+                st.session_state.stage = "validate"
+                st.rerun()
+            
+            if cols[1].button("Cancel"):
+                st.session_state.stage = "validate"
+                st.rerun()
+
+    elif st.session_state.stage == "rewrite":
+        with st.chat_message("user"):
+            new_prompt = st.text_area(
+                "Rewrite prompt:",
+                value=st.session_state.pending_prompt
+            )
+            
+            if st.button("Update", type="primary"):
+                log_validation_action(
+                    st.session_state.user_id,
+                    "REWRITE_UPDATE",
+                    st.session_state.pending_prompt,
+                    modified_prompt=new_prompt,
+                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor)
+                )
+                st.session_state.pending_prompt = new_prompt
+                st.session_state.stage = "validate"
+                st.rerun()
+
+    elif st.session_state.stage == "viewing_explanation":
+        if st.button("Continue", type="primary"):
+            st.session_state.stage = "user"
+            st.session_state.pending_prompt = None
+            st.rerun()
+
+show_chatbot()

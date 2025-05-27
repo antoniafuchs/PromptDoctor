@@ -1,0 +1,166 @@
+user_id;task_id;timestamp;action_type;original_prompt;modified_prompt;highlighted_terms;medical_term_count;edit_distance;diff_type;message_id;reason_for_change
+846177f0-045d-425d-8973-3095af3f907a;VALIDATION_VIEW;2025-05-20T15:39:26.163227;hi;[];;;0.0;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;VALIDATION_VIEW;2025-05-20T15:39:27.373797;hi;[];;;0.0;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;ACCEPT_CLICK;2025-05-20T15:39:27.378942;hi;;;;;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;VALIDATION_VIEW;2025-05-20T15:46:11.039608;hi;[];;;0.0;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;VALIDATION_VIEW;2025-05-20T15:46:12.657721;hi;[];;;0.0;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;ACCEPT_CLICK;2025-05-20T15:46:12.661098;hi;;;;;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;VALIDATION_VIEW;2025-05-20T15:49:45.046073;hello;[];;;0.0;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;VALIDATION_VIEW;2025-05-20T15:49:47.648105;hello;[];;;0.0;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;EDIT_CLICK;2025-05-20T15:49:47.651332;hello;;;;;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;EDIT_UPDATE;2025-05-20T15:49:51.631491;hello;;;;;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;VALIDATION_VIEW;2025-05-20T15:49:51.869080;hi;[];;;0.0;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;VALIDATION_VIEW;2025-05-20T15:49:53.449723;hi;[];;;0.0;0.0;;;
+846177f0-045d-425d-8973-3095af3f907a;ACCEPT_CLICK;2025-05-20T15:49:53.453192;hi;;;;;0.0;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;VALIDATION_VIEW;2025-05-20T22:19:49.164429;hi;[];;;0.0;0.0;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;VALIDATION_VIEW;2025-05-20T22:19:50.895102;hi;[];;;0.0;0.0;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;ACCEPT_CLICK;2025-05-20T22:19:50.898577;hi;;;;;0.0;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;VALIDATION_VIEW;2025-05-20T22:20:13.389579;hello;[];;;0.0;0.0;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;VALIDATION_VIEW;2025-05-20T22:20:14.802670;hello;[];;;0.0;0.0;;;
+b58aaefa-cc13-43c9-bee7-691ec68a5949;ACCEPT_CLICK;2025-05-20T22:20:14.805652;hello;;;;;0.0;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;VALIDATION_VIEW;2025-05-20T22:32:34.348230;hi;[];;;0.0;0.0;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;VALIDATION_VIEW;2025-05-20T22:32:36.053657;hi;[];;;0.0;0.0;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;ACCEPT_CLICK;2025-05-20T22:32:36.057571;hi;;;;;0.0;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;VALIDATION_VIEW;2025-05-20T22:33:02.236175;hello;[];;;0.0;0.0;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;VALIDATION_VIEW;2025-05-20T22:33:03.646666;hello;[];;;0.0;0.0;;;
+d558eb9b-df76-4c27-a939-e3a24517772f;ACCEPT_CLICK;2025-05-20T22:33:03.650112;hello;;;;;0.0;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;VALIDATION_VIEW;2025-05-20T22:40:43.094976;hi;[];;;0.0;0.0;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;VALIDATION_VIEW;2025-05-20T22:40:44.502880;hi;[];;;0.0;0.0;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;ACCEPT_CLICK;2025-05-20T22:40:44.506694;hi;;;;;0.0;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;VALIDATION_VIEW;2025-05-20T22:41:38.825064;hi;[];;;0.0;0.0;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;VALIDATION_VIEW;2025-05-20T22:41:40.317160;hi;[];;;0.0;0.0;;;
+62d6863e-db5d-4071-a162-118dfebf2a8a;ACCEPT_CLICK;2025-05-20T22:41:40.320606;hi;;;;;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;VALIDATION_VIEW;2025-05-21T09:42:03.551749;hi;[];;;0.0;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;VALIDATION_VIEW;2025-05-21T09:42:05.233723;hi;[];;;0.0;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;ACCEPT_CLICK;2025-05-21T09:42:05.237436;hi;;;;;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;VALIDATION_VIEW;2025-05-21T09:42:49.951889;hi;[];;;0.0;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;VALIDATION_VIEW;2025-05-21T09:42:51.410226;hi;[];;;0.0;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;ACCEPT_CLICK;2025-05-21T09:42:51.413143;hi;;;;;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;VALIDATION_VIEW;2025-05-21T09:43:48.506786;hi;[];;;0.0;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;VALIDATION_VIEW;2025-05-21T09:43:50.040681;hi;[];;;0.0;0.0;;;
+c6e7a382-292d-46b1-8f90-b3def528de28;ACCEPT_CLICK;2025-05-21T09:43:50.044270;hi;;;;;0.0;;;
+1ebf9ddb-f074-47c4-a6e4-aa18c11aaf33;VALIDATION_VIEW;2025-05-22T13:02:19.719992;hello;[];;;0.0;0.0;;;
+1ebf9ddb-f074-47c4-a6e4-aa18c11aaf33;VALIDATION_VIEW;2025-05-22T13:02:20.939080;hello;[];;;0.0;0.0;;;
+1ebf9ddb-f074-47c4-a6e4-aa18c11aaf33;ACCEPT_CLICK;2025-05-22T13:02:20.942103;hello;;;;;0.0;;;
+acb0592c-bd07-46cf-a0e6-f427fea4e1b5;VALIDATION_VIEW;2025-05-22T13:04:03.012618;hi;[];;;0.0;0.0;;;
+acb0592c-bd07-46cf-a0e6-f427fea4e1b5;VALIDATION_VIEW;2025-05-22T13:04:05.003221;hi;[];;;0.0;0.0;;;
+acb0592c-bd07-46cf-a0e6-f427fea4e1b5;ACCEPT_CLICK;2025-05-22T13:04:05.006755;hi;;;;;0.0;;;
+acb0592c-bd07-46cf-a0e6-f427fea4e1b5;VALIDATION_VIEW;2025-05-22T13:04:22.489479;hi;[];;;0.0;0.0;;;
+acb0592c-bd07-46cf-a0e6-f427fea4e1b5;VALIDATION_VIEW;2025-05-22T13:04:24.897811;hi;[];;;0.0;0.0;;;
+acb0592c-bd07-46cf-a0e6-f427fea4e1b5;ACCEPT_CLICK;2025-05-22T13:04:24.901655;hi;;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:18:10.385752;"Which is the most likely diagnosis for a patient with the following symptoms:
+
+- right-sided chest pain and shortness of breath
+- sharp and intermittent pain
+- fatigue
+- no fever, cough or recent travels";['patient', 'pain', 'pain', 'fatigue', 'cough', 'or'];;;6.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:18:34.636697;"Which is the most likely diagnosis for a patient with the following symptoms:
+
+- right-sided chest pain and shortness of breath
+- sharp and intermittent pain
+- fatigue
+- no fever, cough or recent travels";['patient', 'pain', 'pain', 'fatigue', 'cough', 'or'];;;6.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;ACCEPT_CLICK;2025-05-25T12:18:34.640208;"Which is the most likely diagnosis for a patient with the following symptoms:
+
+- right-sided chest pain and shortness of breath
+- sharp and intermittent pain
+- fatigue
+- no fever, cough or recent travels";;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:18:57.123666;"Which is the most likely diagnosis for a patient with the following symptoms:
+
+right-sided chest pain[pain] and shortness of breath
+sharp and intermittent pain
+fatigue
+no fever, cough or recent travels";['patient', 'pain', 'fatigue', 'cough', 'or'];;;5.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:18:59.555329;"Which is the most likely diagnosis for a patient with the following symptoms:
+
+right-sided chest pain[pain] and shortness of breath
+sharp and intermittent pain
+fatigue
+no fever, cough or recent travels";['patient', 'pain', 'fatigue', 'cough', 'or'];;;5.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;ACCEPT_CLICK;2025-05-25T12:18:59.559575;"Which is the most likely diagnosis for a patient with the following symptoms:
+
+right-sided chest pain[pain] and shortness of breath
+sharp and intermittent pain
+fatigue
+no fever, cough or recent travels";;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:21:09.596536;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;['pneumonia', 'disease', 'tract', 'patient'];;;4.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:21:13.839138;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;['pneumonia', 'disease', 'tract', 'patient'];;;4.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;ACCEPT_CLICK;2025-05-25T12:21:13.842249;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:21:25.510622;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;['pneumonia', 'disease', 'tract', 'patient'];;;4.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:21:26.942969;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;['pneumonia', 'disease', 'tract', 'patient'];;;4.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;EDIT_CLICK;2025-05-25T12:21:26.946452;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;EDIT_UPDATE;2025-05-25T12:21:59.053488;The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.;;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:21:59.570278;"What are adequate treatment options for the following patient?
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";['pneumonia', 'disease', 'tract', 'patient'];;;4.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:22:02.839184;"What are adequate treatment options for the following patient?
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";['pneumonia', 'disease', 'tract', 'patient'];;;4.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;ACCEPT_CLICK;2025-05-25T12:22:02.843048;"What are adequate treatment options for the following patient?
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:22:29.722267;helo;[];;;0.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:22:31.773145;helo;[];;;0.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;EDIT_CLICK;2025-05-25T12:22:31.777863;helo;;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;EDIT_UPDATE;2025-05-25T12:22:36.985114;helo;;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:22:37.216693;hello;[];;;0.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:22:38.409277;hello;[];;;0.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;ACCEPT_CLICK;2025-05-25T12:22:38.413697;hello;;;;;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:23:58.261884;hello;[];;;0.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;VALIDATION_VIEW;2025-05-25T12:24:00.107924;hello;[];;;0.0;0.0;;;
+264dd611-d146-4adf-bb10-9d1566b5b053;ACCEPT_CLICK;2025-05-25T12:24:00.111438;hello;;;;;0.0;;;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:09:48.748634;hello;[];;;0.0;0.0;;f87ed018-11d5-46fb-b50c-b39a6c0ccab8;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:09:51.189113;hello;[];;;0.0;0.0;;e4f80524-05c0-4bc4-b326-a763a01620af;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:09:52.578464;hello;[];;;0.0;0.0;;e47bbe4c-755b-4613-a1d3-e6b1c64e6786;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;2025-05-25T14:09:52.587259;hello;;;;;0.0;;1f4f4227-2217-4aef-a11b-6bae206a4855;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:10:15.975245;patient headache;['patient', 'headache'];;;2.0;0.0;;eff25239-c16a-42d6-b3e7-c2bd76f0fbf0;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:10:17.397426;patient headache;['patient', 'headache'];;;2.0;0.0;;6b4b4e9c-16ab-48d9-a508-6bddcb13bc31;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;2025-05-25T14:10:17.407973;patient headache;;;;;0.0;;8db1e95e-64c4-4305-9ff2-b1dfb67bd698;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:10:31.516522;patient co;['patient'];;;1.0;0.0;;bafc9322-f4f2-440e-b8f7-2faf5e341643;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:10:32.943679;patient co;['patient'];;;1.0;0.0;;a3d4e268-f7b7-4ed0-8a30-ce61be66ed1c;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;EDIT_CLICK;2025-05-25T14:10:32.953974;patient co;;;;;0.0;;fbf6eaba-4eef-4259-b758-a8bd44f4f747;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;EDIT_UPDATE;2025-05-25T14:10:37.183404;patient co;;;;;0.0;;53897689-d050-4915-bb80-c57fa48f0d38;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:10:37.425869;patient cough;['patient', 'cough'];;;2.0;0.0;;0080e624-566f-422c-8150-f19801a9dfdb;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:10:38.707075;patient cough;['patient', 'cough'];;;2.0;0.0;;c9bfb58e-c6fb-4fd9-99d7-a6264eb5f8fb;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;2025-05-25T14:10:38.717698;patient cough;;;;;0.0;;fe39e9a3-3f9c-489c-a867-9248218a62f6;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;1;2025-05-25T14:11:01.276232;HIGHLIGHT_METRICS;;;;8.0;0.0;;4b57e8eb-2f48-495b-82f9-2f181abe8801;B
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:11:05.663641;hello;[];;;0.0;0.0;;308d7a61-3456-4422-bd27-e8242ee05d26;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:11:07.119153;hello;[];;;0.0;0.0;;50b7d14d-ccd8-4289-9603-f8b80fdee7a2;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;2025-05-25T14:11:07.128083;hello;;;;;0.0;;285ec020-91e7-4743-a5e0-4ffe1ce8b6a1;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;2;2025-05-25T14:11:25.518359;HIGHLIGHT_METRICS;;;;7.0;0.0;;11366ddf-8c77-4fa6-8b1f-340679a71032;B
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:12:34.532032;hi;[];;;0.0;0.0;;88944be0-6504-4378-ba4b-6fdc0a9d2108;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;VALIDATION_VIEW;2025-05-25T14:12:35.974137;hi;[];;;0.0;0.0;;c3c8aaa7-0602-49b1-992b-d533fe53039a;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;ACCEPT_CLICK;2025-05-25T14:12:35.983579;hi;;;;;0.0;;4f824396-d555-44c1-8257-b14990dae6ac;
+60d6283c-4b2a-4fc4-b701-12c506d7cc32;3;2025-05-25T14:12:56.670449;HIGHLIGHT_METRICS;;;;6.0;0.0;;a73b4734-b933-4a6f-9917-e489f669b8bd;B
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;1;2025-05-25T17:18:01.636265;HIGHLIGHT_METRICS;;;;8.0;0.0;;8264ab41-d93c-4b34-a582-cfb94676cef2;A
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;2;2025-05-25T17:18:20.500343;HIGHLIGHT_METRICS;;;;7.0;0.0;;02c5da60-e5a1-4781-ae73-1f3b6c8da812;A
+e0af3d42-3cb3-4186-bf7c-f528cc293e0e;3;2025-05-25T17:18:54.055223;HIGHLIGHT_METRICS;;;;6.0;0.0;;a37426b5-4d0f-47f4-918e-44894aca095a;A
+c18df2da-4650-44a0-b876-82efe7555735;VALIDATION_VIEW;2025-05-25T17:55:32.232621;hi;[];;;0.0;0.0;;582f028a-801c-47dc-b2ed-4fc1eba1c08a;
+c18df2da-4650-44a0-b876-82efe7555735;VALIDATION_VIEW;2025-05-25T17:55:35.103194;hi;[];;;0.0;0.0;;8d50001e-72d8-43da-afcd-7042905d2e1e;
+c18df2da-4650-44a0-b876-82efe7555735;ACCEPT_CLICK;2025-05-25T17:55:35.112721;hi;;;;;0.0;;14e4ef3c-30e5-4e89-8890-9335dbb97129;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:04:36.849856;hello;[];;;0.0;0.0;;23e206eb-e6f4-4f97-806b-b193ca0aa674;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:04:39.988842;hello;[];;;0.0;0.0;;3c11ca5f-5b87-4950-b573-3793291f78be;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;2025-05-26T09:04:39.999959;hello;;;;;0.0;;3506cb71-50aa-48b2-92a9-6e6363258e63;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:04:55.221304;he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;['pain', 'pain', 'or', 'patient', 'fatigue', 'or'];;;6.0;0.0;;44781f72-09d3-4fe6-afef-043267a769d3;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:05:04.996579;he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;['pain', 'pain', 'or', 'patient', 'fatigue', 'or'];;;6.0;0.0;;a2e57477-726e-437c-a4d5-a1f9c29316bd;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;EDIT_CLICK;2025-05-26T09:05:05.006895;he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;;;;0.0;;b30b21c4-429b-430f-978f-9aea6472b6ff;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;EDIT_UPDATE;2025-05-26T09:05:11.611646;he patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;;;;0.0;;ea301178-47e6-4ee4-a41f-f4da7c329eb2;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:05:12.128900;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;['pain', 'pain', 'or', 'patient', 'fatigue', 'or'];;;6.0;0.0;;2f031ed7-bf02-4ac3-a94f-1e37b4157d6f;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:05:13.779293;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;['pain', 'pain', 'or', 'patient', 'fatigue', 'or'];;;6.0;0.0;;8050a816-f0e3-4421-89da-e8b096579f85;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;2025-05-26T09:05:13.788805;The patient, a 45-year-old male, presents with chief complaints of right-sided chest pain and shortness of breath. He describes the pain as sharp and intermittent, exacerbated by movement or deep inspiration. The patient also reports experiencing fatigue for two weeks but denies fever, cough, or any recent travel.;;;;;0.0;;d6735ad7-18af-449c-b033-41da67afc4e9;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:06:16.798600;what do you do?;[];;;0.0;0.0;;8e502f82-da4b-4f6a-806a-e04a2113b319;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:06:18.379491;what do you do?;[];;;0.0;0.0;;db07f240-816b-4b5f-8958-d72a8ee396bb;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;2025-05-26T09:06:18.389203;what do you do?;;;;;0.0;;8ffee609-70d1-4035-ab67-44d5192d9d92;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:06:53.552685;"I want to know which treatment is good for:
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";['pneumonia', 'disease', 'tract', 'patient'];;;4.0;0.0;;e99dbee8-cf7b-42c4-8255-06ecd92512e3;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:06:57.161142;"I want to know which treatment is good for:
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";['pneumonia', 'disease', 'tract', 'patient'];;;4.0;0.0;;d348d70b-84df-4ebb-a624-46bdd6f668e3;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;2025-05-26T09:06:57.170243;"I want to know which treatment is good for:
+
+The patient, an 82-year-old male, presents with community-acquired pneumonia (CAP) complicated by a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, no fever, and no recent upper respiratory tract infections. The patient has previously been hospitalized for CAP and is on long-term oxygen therapy.";;;;;0.0;;0adf96b7-c4e9-41ab-8c25-58e5284b7491;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:08:15.499008;hello;[];;;0.0;0.0;;cbd39e9d-50f6-4613-819b-51d8452dba34;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;VALIDATION_VIEW;2025-05-26T09:08:17.010659;hello;[];;;0.0;0.0;;7d1bbe66-9f93-4f33-b3e4-438f70a06176;
+72cb9aa5-d6eb-4ce7-aa3c-0245e5383c4c;ACCEPT_CLICK;2025-05-26T09:08:17.019849;hello;;;;;0.0;;57d2e2ae-e431-4a89-85e6-b07155c06dfc;
