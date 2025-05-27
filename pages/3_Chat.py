@@ -593,7 +593,7 @@ def get_local_ollama_models():
 
 def show_chatbot():
     if "user_id" not in st.session_state or st.session_state.user_id is None:
-        st.switch_page("pages/1_Login.py")
+        st.switch_page("Home.py")
         return
 
     # Initialize task intro on first login
