@@ -156,3 +156,7 @@ HuggingFaceEndpoint;HuggingFaceEndpoint;;A;2025-05-27T15:52:02.100090;78d6df64-1
 HuggingFaceEndpoint;HuggingFaceEndpoint;;B;2025-05-27T16:58:56.203897;94815c94-b8d3-4d57-bcb4-08c47bd7b320;
 HuggingFaceEndpoint;HuggingFaceEndpoint;;A;2025-05-27T17:06:55.361142;0173db9e-17dc-434c-8dfa-885604ad9c82;
 HuggingFaceEndpoint;HuggingFaceEndpoint;;A;2025-05-27T17:07:49.652095;7342523f-4c72-4227-b8f0-3c6047c6a8e4;
+Ollama;llama3-med42-8b;Med42 8B;B;2025-05-28T14:12:24.898839;d175436b-3432-4672-942c-e7ba8263feb8;
+Ollama;llama3-med42-8b;;B;2025-05-28T14:12:35.243554;d175436b-3432-4672-942c-e7ba8263feb8;
+Ollama;llama3-med42-8b;Med42 8B;A;2025-05-28T14:17:00.372942;6c5fb0ef-24dd-436b-9ae3-b7053b7da9dd;
+Ollama;llama3-med42-8b;;A;2025-05-28T14:17:09.958187;6c5fb0ef-24dd-436b-9ae3-b7053b7da9dd;
