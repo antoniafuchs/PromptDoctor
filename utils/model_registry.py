@@ -2,11 +2,13 @@ from typing import Dict, Type
 from .model_providers.base import ModelProvider
 from .model_providers.ollama_provider import OllamaProvider
 from .model_providers.huggingface_provider import HuggingFaceProvider
+from .model_providers.together_provider import TogetherProvider
 
 class ModelRegistry:
     _providers: Dict[str, Type[ModelProvider]] = {
         "Ollama": OllamaProvider,
         "HuggingFace": HuggingFaceProvider,
+        "Together": TogetherProvider,
     }
     
     @classmethod

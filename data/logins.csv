@@ -160,3 +160,12 @@ Ollama;llama3-med42-8b;Med42 8B;B;2025-05-28T14:12:24.898839;d175436b-3432-4672-
 Ollama;llama3-med42-8b;;B;2025-05-28T14:12:35.243554;d175436b-3432-4672-942c-e7ba8263feb8;
 Ollama;llama3-med42-8b;Med42 8B;A;2025-05-28T14:17:00.372942;6c5fb0ef-24dd-436b-9ae3-b7053b7da9dd;
 Ollama;llama3-med42-8b;;A;2025-05-28T14:17:09.958187;6c5fb0ef-24dd-436b-9ae3-b7053b7da9dd;
+Ollama;llama3-med42-8b;Med42 8B;B;2025-05-28T16:57:08.913245;dd79c021-c598-46c9-8a68-6e1b588425f4;
+Ollama;llama3-med42-8b;;B;2025-05-28T16:57:16.559481;dd79c021-c598-46c9-8a68-6e1b588425f4;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;Llama 3.3 70B Instruct (Free);A;2025-05-28T17:40:32.938405;7e4f9a8b-5d22-4a07-be21-31a1207480f3;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;;A;2025-05-28T17:40:41.452641;7e4f9a8b-5d22-4a07-be21-31a1207480f3;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;Llama 3.3 70B Instruct (Free);B;2025-05-28T17:45:20.257193;;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;Llama 3.3 70B Instruct (Free);A;2025-05-28T17:45:42.455987;745d67ab-7cd0-47a1-8a1f-54b83625af45;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;;A;2025-05-28T17:45:49.157988;745d67ab-7cd0-47a1-8a1f-54b83625af45;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;;B;2025-05-28T17:55:27.413116;5e6d8575-ea46-47b9-9513-ad6a26b1c05b;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;;A;2025-05-28T17:59:07.895928;1d3dad5f-0d6c-4e4a-bcbf-11685d2df2ac;

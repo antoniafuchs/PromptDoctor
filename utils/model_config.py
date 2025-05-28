@@ -29,6 +29,11 @@ class ModelConfig:
                 "display_name": "GPT-2",
                 "endpoint_url": "https://nxy944uw5xyackw4.eu-west-1.aws.endpoints.huggingface.cloud"
             }
+        ],
+        "Together": [
+            {"name": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free", "display_name": "Llama 3.3 70B Instruct (Free)"},
+            {"name": "meta-llama/Llama-3.1-8B-Instruct", "display_name": "Llama 3.1 8B Instruct"},
+            {"name": "mistralai/Mixtral-8x7B-Instruct-v0.1", "display_name": "Mixtral 8x7B Instruct"}
         ]
     }
 

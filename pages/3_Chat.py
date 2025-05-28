@@ -208,7 +208,27 @@ if "task_manager" not in st.session_state:
     st.session_state.task_manager = TaskManager(total_tasks=3)
 
 # Define the system prompt
-system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
+system_prompt = """You are PromptDoctor, a specialized AI assistant for clinical and medical use.
+Your core function is to assist healthcare professionals, medical students, and clinical researchers by analyzing clinical notes and medical case data, and generating medically accurate, relevant, and concise responses.
+
+Key capabilities:
+
+– Identify and extract key medical information (e.g., symptoms, diagnoses, treatments, lab values) from clinical notes.
+– Provide differential diagnoses, treatment recommendations, or summaries based on structured and unstructured input.
+– Support medical prompt optimization by highlighting which input elements significantly affect model output.
+– Justify answers using medically valid reasoning and highlight any uncertainties or assumptions.
+
+Your Responsibilities & Safety
+– Always prioritize clinical safety and evidence-based practices.
+– Avoid overconfidence: if information is missing or ambiguous, clearly state limitations or uncertainties.
+– Do not fabricate clinical facts or suggest experimental treatments unless explicitly requested and labeled as such.
+– Respect data privacy and do not request identifiable patient information.
+
+Your Tone and Style:
+– Be concise, clear, and professional.
+– Tailor your explanations to the level of medical knowledge (e.g., differentiate between student-level and expert-level users if prompted).
+– Use structured formats (e.g., bullet points, labeled sections) when possible to improve readability.
+You have been fine-tuned for real-world clinical and educational contexts. Respond only to medically relevant tasks, and escalate or abstain when a question is beyond your scope or safety constraints."""
 
 # Remove JavaScript section and replace with input focus handler
 def on_input_focus():
@@ -549,6 +569,65 @@ def process_prompt_and_get_response(prompt):
                 
             except Exception as e:
                 final_response = f"Error with HuggingFace model: {str(e)}"
+        elif st.session_state.selected_model_type == "Together":
+            try:
+                # Import together API
+                try:
+                    from together import Together
+                    together_available = True
+                except ImportError:
+                    together_available = False
+                    final_response = "Error: Together package not installed. Install with 'pip install together'"
+                    return highlighted_prompt, final_response, typing_duration, generation_duration
+                
+                if together_available:
+                    # Initialize client if needed
+                    api_key = st.session_state.get("together_api_key")
+                    
+                    if api_key:
+                        client = Together(api_key=api_key)
+                        # Also set environment variable as backup
+                        os.environ["TOGETHER_API_KEY"] = api_key
+                    else:
+                        # Try to use environment variable
+                        if "TOGETHER_API_KEY" not in os.environ:
+                            final_response = "Error: Together API key not found. Please set the TOGETHER_API_KEY environment variable or provide it via the UI."
+                            return highlighted_prompt, final_response, typing_duration, generation_duration
+                        client = Together()
+                    
+                    # Prepare messages
+                    formatted_messages = [
+                        {"role": "system", "content": system_prompt}
+                    ]
+                    
+                    # Add conversation history (last few messages)
+                    for m in st.session_state.messages[-5:]:
+                        formatted_messages.append({
+                            "role": m["role"],
+                            "content": m.get("raw_content", m.get("content"))
+                        })
+                    
+                    # Add current prompt
+                    formatted_messages.append({"role": "user", "content": prompt})
+                    
+                    # Get response
+                    try:
+                        response = client.chat.completions.create(
+                            model=st.session_state.selected_model_name,
+                            messages=formatted_messages,
+                            max_tokens=1024,
+                            temperature=0.7,
+                            stream=False
+                        )
+                        
+                        if hasattr(response, 'choices') and len(response.choices) > 0:
+                            final_response = response.choices[0].message.content
+                        else:
+                            final_response = "No response generated"
+                    except Exception as e:
+                        final_response = f"Error calling Together API: {str(e)}"
+            except Exception as e:
+                final_response = f"Error with Together API: {str(e)}"
         else:
             final_response = "Model type not implemented"
         

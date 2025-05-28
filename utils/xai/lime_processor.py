@@ -3,6 +3,7 @@ from lime.lime_text import LimeTextExplainer
 from typing import List, Callable, Dict, Any
 import streamlit as st
 import html
+import os
 
 class LIMEProcessor:
     def __init__(self):
@@ -22,6 +23,8 @@ class LIMEProcessor:
             return self._huggingface_predictor
         elif model_type == "GPT":
             return self._gpt_predictor
+        elif model_type == "Together":
+            return self._together_predictor
         else:
             return self._default_predictor
     
@@ -89,6 +92,62 @@ class LIMEProcessor:
     def _default_predictor(self, texts: List[str]) -> np.ndarray:
         """Default prediction function"""
         return np.array([[0.5, 0.5] for _ in texts])
+    
+    def _together_predictor(self, texts: List[str]) -> np.ndarray:
+        """Prediction function for Together API models"""
+        try:
+            from together import Together
+            together_available = True
+        except ImportError:
+            together_available = False
+            return np.array([[0.5, 0.5] for _ in texts])
+            
+        if not together_available:
+            return np.array([[0.5, 0.5] for _ in texts])
+            
+        predictions = []
+        
+        # Get API key from session state or environment
+        api_key = st.session_state.get("together_api_key")
+        if api_key:
+            client = Together(api_key=api_key)
+        else:
+            # Try to use environment variable
+            if "TOGETHER_API_KEY" not in os.environ:
+                print("[LIME] Together API key not found.")
+                return np.array([[0.5, 0.5] for _ in texts])
+            client = Together()
+        
+        for text in texts:
+            try:
+                # Get model response using Together API
+                response = client.chat.completions.create(
+                    model=st.session_state.selected_model_name,
+                    messages=[{"role": "user", "content": text}],
+                    max_tokens=256,
+                    temperature=0.7,
+                    stream=False
+                )
+                
+                if hasattr(response, 'choices') and len(response.choices) > 0:
+                    response_text = response.choices[0].message.content
+                else:
+                    response_text = ""
+                
+                # Calculate relevance score based on words
+                text_words = set(text.lower().split())
+                resp_words = set(response_text.lower().split())
+                word_overlap = len(text_words.intersection(resp_words))
+                
+                # Normalize confidence score
+                confidence = min((word_overlap / len(text_words) if text_words else 0.5) + 0.2, 1.0)
+                predictions.append([1 - confidence, confidence])
+                
+            except Exception as e:
+                print(f"[LIME] Together API prediction error: {e}")
+                predictions.append([0.5, 0.5])
+        
+        return np.array(predictions)
 
     def _create_visualization_html(self, explanation, text) -> str:
         """Create HTML visualization of LIME explanation"""

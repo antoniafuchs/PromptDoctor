@@ -83,7 +83,7 @@ def show_login_page():
     # Model type selection
     model_type = st.selectbox(
         "Select Model Type",
-        ["Ollama", "GPT", "HuggingFace", "HuggingFaceEndpoint"],
+        ["Ollama", "GPT", "HuggingFace", "HuggingFaceEndpoint", "Together"],
         key="model_selection"
     )
 
@@ -110,6 +110,20 @@ def show_login_page():
             st.warning("API token is required for HuggingFace endpoints")
             st.stop()
         st.session_state.hf_api_token = hf_token
+
+    # Add Together API key input if required
+    if model_type == "Together":
+        # Together API uses an environment variable by default
+        # But we can add an option to override it
+        together_key = st.text_input(
+            "Together API Key (optional)",
+            type="password",
+            help="Enter your Together API key if not set in environment"
+        )
+        if together_key:
+            st.session_state.together_api_key = together_key
+            # Set environment variable for this session
+            os.environ["TOGETHER_API_KEY"] = together_key
 
     if not model_options:
         st.warning("No models found. For Ollama, please ensure models are installed in ~/.ollama/models/")
