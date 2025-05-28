@@ -38,8 +38,7 @@ def show_login_survey():
         return
         
     st.set_page_config(
-        page_title="PromptDoctor",
-        theme="light"
+        page_title="PromptDoctor"
     )
     st.header("Survey")
     
