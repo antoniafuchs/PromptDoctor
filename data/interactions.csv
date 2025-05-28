@@ -810,3 +810,10 @@ d5f3422e-a327-496b-83b0-cbe04c03fcef;0;;2025-05-27T15:47:48.233564;;;;;0;;;;Hugg
 78d6df64-1bcc-4f35-845c-3bb87b8de1ca;3;;2025-05-27T15:54:32.435439;;;;;0;;;;HuggingFaceEndpoint;9.713139;0.205195;;;HuggingFaceEndpoint;;{'typing': 9.713139, 'generation': 0.205195};CHAT;;A;{};INTERACTION;
 78d6df64-1bcc-4f35-845c-3bb87b8de1ca;3;;2025-05-27T15:54:36.840996;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{'total': 6.791565};TASK_COMPLETION;;A;{};INTERACTION;6.791565
 78d6df64-1bcc-4f35-845c-3bb87b8de1ca;3;PROMPT_METRICS;2025-05-27T15:54:38.073229;hi;;;;0;;;;A;0.0;1.0;1.0;;;;;;;A;;;
+94815c94-b8d3-4d57-bcb4-08c47bd7b320;0;;2025-05-27T16:58:46.728763;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+94815c94-b8d3-4d57-bcb4-08c47bd7b320;0;;2025-05-27T16:58:56.219959;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;B;{};INTERACTION;
+0173db9e-17dc-434c-8dfa-885604ad9c82;0;;2025-05-27T17:03:24.791884;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+0173db9e-17dc-434c-8dfa-885604ad9c82;0;;2025-05-27T17:06:55.378501;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;A;{};INTERACTION;
+;1;;2025-05-27T17:07:28.238016;;;;;0;;;;;;;;;;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+7342523f-4c72-4227-b8f0-3c6047c6a8e4;0;;2025-05-27T17:07:40.581798;;;;;0;;;;unknown;;;;;unknown;;{};CONSENT_GIVEN;;A;{};INTERACTION;
+7342523f-4c72-4227-b8f0-3c6047c6a8e4;0;;2025-05-27T17:07:49.667166;;;;;0;;;;HuggingFaceEndpoint;;;;;HuggingFaceEndpoint;;{};SURVEY_COMPLETE;;A;{};INTERACTION;

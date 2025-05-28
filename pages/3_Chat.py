@@ -44,7 +44,8 @@ except ImportError:
 # Page config must be first Streamlit command
 st.set_page_config(
     page_title="PromptDoctor",
-    layout="wide"
+    layout="wide",
+    theme="light"
 )
 
 

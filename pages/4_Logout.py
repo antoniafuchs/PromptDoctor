@@ -39,7 +39,8 @@ def show_logout_survey():
 
     st.set_page_config(
         page_title="PromptDoctor",
-        initial_sidebar_state="collapsed"  # Start with sidebar collapsed
+        initial_sidebar_state="collapsed",  # Start with sidebar collapsed
+        theme="light"
     )
 
      # Add custom CSS for larger survey text

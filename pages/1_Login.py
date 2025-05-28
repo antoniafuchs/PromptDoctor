@@ -71,7 +71,10 @@ def show_login_page():
         st.switch_page("pages/2_Survey.py")
         return
 
-    st.set_page_config(page_title="PromptDoctor")
+    st.set_page_config(
+        page_title="PromptDoctor",
+        theme="light"
+    )
     st.header("Login")
     st.markdown("### Welcome to PromptDoctor")
     st.markdown("Please login and select your preferred model")

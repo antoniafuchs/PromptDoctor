@@ -29,6 +29,41 @@ st.markdown("""
         div[data-testid="stRadio"] div {
             font-size: 18px !important;
         }
+        
+        /* Task container styling */
+        .task-container {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: rgb(231, 245, 255);
+            margin-bottom: 1rem;
+        }
+        .task-container h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+        .task-container strong {
+            font-weight: 600;
+        }
+        .task-container p {
+            margin: 0.5rem 0;
+        }
+        
+        /* Highlight legend styling */
+        .highlight-legend-red {
+            color: rgb(220, 53, 69);
+            font-weight: 600;
+            font-size: 18px !important;
+        }
+        .highlight-legend-blue {
+            color: rgb(0, 123, 255);
+            font-weight: 600;
+            font-size: 18px !important;
+        }
+        .highlight-explanation {
+            margin-top: 15px;
+            line-height: 1.6;
+            font-size: 18px !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -182,6 +217,24 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                 div[data-testid="stRadio"] label,
                 div[data-testid="stTextArea"] label {
                     font-size: 18px !important;
+                }
+                
+                /* Task container styling */
+                .task-container {
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    background-color: rgb(231, 245, 255);
+                    margin-bottom: 1rem;
+                }
+                .task-container h3 {
+                    margin: 0 0 0.5rem 0;
+                    font-size: 1.5rem;
+                }
+                .task-container strong {
+                    font-weight: 600;
+                }
+                .task-container p {
+                    margin: 0.5rem 0;
                 }
             </style>
         """, unsafe_allow_html=True)
@@ -474,12 +527,7 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
             if current_task.task_number == 3 and st.session_state.get('group', 'A') == 'B':
                 # Create a container for the task title and number
                 st.sidebar.markdown(f"""
-                <div style="
-                    padding: 1rem;
-                    border-radius: 0.5rem;
-                    background-color: rgb(231, 245, 255);
-                    margin-bottom: 1rem;
-                ">
+                <div class="task-container">
                     <strong>Task {current_task.task_number}: {task_title}</strong><br>
                     ({current_task.task_number} of {len(st.session_state.task_states)})
                 </div>
@@ -505,28 +553,16 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                 
                 # Add hint about highlights
                 st.sidebar.markdown("""
-                <div style="
-                    padding: 0.8rem;
-                    border-radius: 0.5rem;
-                    background-color: rgb(231, 245, 255);
-                    border: 1px solid rgba(0, 123, 255, 0.2);
-                    margin-top: 1rem;
-                    font-size: 0.9em;
-                ">
-                     <span style="color: rgb(220, 53, 69);">Red highlights</span> show the words with the highest impact on the model's answer. They boost its confidence the most.<br><br>
-                    <span style="color: rgb(0, 123, 255);">blue highlights</span> show the words with the lowest impact. They lower its confidence the most.
+                <div class="task-container" style="margin-top: 1rem; font-size: 0.9em;">
+                    <span class="highlight-legend-red">Red highlights</span> show the words with the highest impact on the model's answer. They boost its confidence the most.<br><br>
+                    <span class="highlight-legend-blue">Blue highlights</span> show the words with the lowest impact. They lower its confidence the most.
                 </div>
                 """, unsafe_allow_html=True)
             else:
                 # Standard approach for other tasks
                 description = self._get_formatted_description(current_task)
                 st.sidebar.markdown(f"""
-                <div style="
-                    padding: 1rem;
-                    border-radius: 0.5rem;
-                    background-color: rgb(231, 245, 255);
-                    margin-bottom: 1rem;
-                ">
+                <div class="task-container">
                     <strong>Task {current_task.task_number}: {task_title}</strong><br>
                     ({current_task.task_number} of {len(st.session_state.task_states)})
                     
@@ -693,7 +729,7 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                                     if full_end > 0:
                                         # Remove the entire code block
                                         code_block = content_part[code_start:full_end+6]
-                                        content_part = content_part[i].replace(code_block, '')
+                                        content_part = content_part.replace(code_block, '')
                                         # Look for next instance
                                         copy_button_pos = content_part.find('data-clipboard-text="</div>"')
                                     else:
@@ -703,15 +739,10 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                             else:
                                 break
                     
-                    # Create a complete HTML container with blue background containing the intro and clinical note
+                    # Create a complete HTML container with theme-adaptive background
                     st.markdown(
                         f"""
-                        <div style="
-                            padding: 1rem;
-                            border-radius: 0.5rem;
-                            background-color: rgb(231, 245, 255);
-                            margin-bottom: 1rem;
-                        ">
+                        <div class="task-container">
                             <h3>Task {current_task.task_number}: {task_title}</h3>
                             <p>{intro}</p>
                             {clinical_note}
@@ -729,12 +760,7 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                 else:
                     description = self.TASK_DESCRIPTIONS[3]['A']
                     st.markdown(f"""
-                    <div style="
-                        padding: 1rem;
-                        border-radius: 0.5rem;
-                        background-color: rgb(231, 245, 255);
-                        margin-bottom: 1rem;
-                    ">
+                    <div class="task-container">
                         <h3>Task {current_task.task_number}: {task_title}</h3>
                         {description}
                     </div>
@@ -742,14 +768,9 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
             else:
                 # Regular tasks (1 and 2)
                 description = self.TASK_DESCRIPTIONS[current_task.task_number]
-                # Use markdown with info styling instead of st.info
+                # Use markdown with theme-adaptive styling
                 st.markdown(f"""
-                <div style="
-                    padding: 1rem;
-                    border-radius: 0.5rem;
-                    background-color: rgb(231, 245, 255);
-                    margin-bottom: 1rem;
-                ">
+                <div class="task-container">
                     <h3>Task {current_task.task_number}: {task_title}</h3>
                     {description}
                 </div>

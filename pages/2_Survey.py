@@ -37,7 +37,10 @@ def show_login_survey():
         st.switch_page("pages/Login")
         return
         
-    st.set_page_config(page_title="PromptDoctor")
+    st.set_page_config(
+        page_title="PromptDoctor",
+        theme="light"
+    )
     st.header("Survey")
     
     # Add custom CSS for larger survey text
