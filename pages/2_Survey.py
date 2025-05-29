@@ -368,30 +368,23 @@ def show_login_survey():
                     'training_level': st.session_state.survey_responses.get('q1_training', ''),
                     'specialization': get_cached_form_value('q1_other', ''),
                     'patient_records_exp': st.session_state.survey_responses.get('q2_records', 'No'),
-                    'patient_records_years': st.session_state.survey_responses.get('q2_records_years', ''),
-                    'clinical_reasoning_training': st.session_state.survey_responses.get('q3_training', 'No'),
-                    'clinical_reasoning_desc': get_cached_form_value('q3_training_desc', ''),
                     'clinical_notes_confidence': st.session_state.survey_responses.get('q4_confidence', 3),
                     'gen_ai_familiarity': st.session_state.survey_responses.get('q5a_gen_ai', 3),
                     'prompt_eng_familiarity': st.session_state.survey_responses.get('q5b_prompt', 3),
                     'cds_familiarity': st.session_state.survey_responses.get('q5c_cds', 3),
                     'llm_usage_frequency': st.session_state.survey_responses.get('q7_frequency', ''),
-                    'use_cases': ','.join(st.session_state.survey_responses.get('q8_uses', [])),
-                    'other_use_cases': get_cached_form_value('q8_other', ''),
                     'trust_level': st.session_state.survey_responses.get('q9_trust', 3),
                 }
                 
                 # Print values for debugging
                 print("Survey data being submitted:")
-                for key in ['specialization', 'clinical_reasoning_desc', 'other_tools', 'other_use_cases', 'expectations']:
+                for key in ['specialization']:
                     print(f"  {key}: '{survey_data.get(key, '')}'")
 
                 # Ensure all fields are properly converted to strings
                 for key, value in survey_data.items():
                     if value is None:
                         survey_data[key] = ''  # Convert None to empty string
-                    elif isinstance(value, list):
-                        survey_data[key] = ','.join(map(str, value))  # Convert lists to comma-separated strings
                     elif not isinstance(value, str) and not isinstance(value, int) and not isinstance(value, float):
                         survey_data[key] = str(value)  # Convert other types to strings
 

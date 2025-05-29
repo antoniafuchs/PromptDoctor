@@ -5,6 +5,9 @@
 .stMarkdown li {
     font-size: 18px !important;
 }
+.stMarkdown ul {
+    font-size: 18px !important;
+}
 .stMarkdown strong {
     font-size: 18px !important;
 }

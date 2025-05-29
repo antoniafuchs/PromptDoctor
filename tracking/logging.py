@@ -9,6 +9,7 @@ import difflib
 import uuid
 import logging
 from utils.data_storage import DataStorage
+import traceback
 
 # Configure logging
 logging.basicConfig(
@@ -26,6 +27,60 @@ class EnhancedLogger:
         self.storage = DataStorage()
         self.log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
         os.makedirs(self.log_dir, exist_ok=True)
+        
+        # Verify storage is working on initialization
+        self.verify_storage()
+        
+    def verify_storage(self) -> Dict:
+        """Verify storage is working and return diagnostic information"""
+        try:
+            # Create a test diagnostic file to verify write permissions
+            diag_file = os.path.join(self.log_dir, 'storage_diagnostics.log')
+            with open(diag_file, 'a') as f:
+                timestamp = datetime.now(timezone.utc).isoformat()
+                f.write(f"[{timestamp}] Storage diagnostic check\n")
+                
+            # Check if critical directories exist and are writable
+            data_dir = os.path.dirname(os.path.dirname(__file__))
+            data_dir = os.path.join(data_dir, 'data')
+            
+            diagnostic_info = {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "log_dir_exists": os.path.exists(self.log_dir),
+                "log_dir_writable": os.access(self.log_dir, os.W_OK),
+                "data_dir_exists": os.path.exists(data_dir),
+                "data_dir_writable": os.access(data_dir, os.W_OK) if os.path.exists(data_dir) else False,
+                "python_version": os.sys.version,
+                "files_check": {}
+            }
+            
+            # Check for critical CSV files
+            critical_files = [
+                os.path.join(data_dir, 'surveys.csv'),
+                os.path.join(data_dir, 'tasks.csv'),
+                os.path.join(data_dir, 'interactions.csv')
+            ]
+            
+            for file_path in critical_files:
+                file_name = os.path.basename(file_path)
+                exists = os.path.exists(file_path)
+                diagnostic_info["files_check"][file_name] = {
+                    "exists": exists,
+                    "size": os.path.getsize(file_path) if exists else 0,
+                    "writable": os.access(file_path, os.W_OK) if exists else False,
+                    "last_modified": datetime.fromtimestamp(os.path.getmtime(file_path)).isoformat() if exists else None
+                }
+            
+            # Log diagnostic information
+            self._log_to_file(f"Storage diagnostic results: {json.dumps(diagnostic_info, indent=2)}")
+            logger.info(f"Storage diagnostic complete. Log dir: {self.log_dir}, Data dir: {data_dir}")
+            
+            return diagnostic_info
+        except Exception as e:
+            error_msg = f"Storage verification failed: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            self._log_to_file(error_msg)
+            return {"error": error_msg, "timestamp": datetime.now(timezone.utc).isoformat()}
         
     def _log_to_file(self, message: str) -> None:
         """Write a log message to the error log file"""
@@ -180,65 +235,215 @@ class EnhancedLogger:
         
         self.storage.log_validation(validation_data)
 
-    def log_final_survey(self, user_id: str, survey_data: dict):
-        """Log final survey responses"""
-        # Flatten nested survey data
-        flattened_data = {'user_id': user_id, 'timestamp': datetime.now(timezone.utc).isoformat()}
-        for section, items in survey_data.items():
-            if isinstance(items, dict):
-                for key, value in items.items():
-                    flattened_data[f"{section}_{key}"] = value
-            else:
-                flattened_data[section] = items
-        self.storage.log_survey(flattened_data)
-
     def log_feedback(self, user_id: str, task_id: int, message_id: str, 
-                    feedback_value: int, prompt: str = None, response: str = None) -> None:
+                feedback_value: int, prompt: str = None, response: str = None) -> None:
         """Log user feedback on model responses"""
         try:
-            # Check if feedback already exists
-            existing = self.storage.get_message_feedback(user_id, message_id)
-            if existing:
-                # Skip if feedback already recorded
-                return
-                
+            # Debug info for troubleshooting
+            logger.info(f"Logging feedback: user={user_id}, task={task_id}, message={message_id}, value={feedback_value}")
+            
             # Format feedback data
             feedback_data = {
                 'feedback_value': feedback_value,
                 'timestamp': datetime.now(timezone.utc).isoformat()
             }
             
-            # Save feedback using the dedicated method
-            self.storage.save_feedback(user_id, message_id, feedback_data)
+            # Create storage instance
+            storage = DataStorage()
             
-            # Also log as interaction for backwards compatibility
-            self.storage.log_interaction({
+            # Log as interaction directly without checking for existing feedback
+            # This avoids the need for get_message_feedback
+            interaction_data = {
                 'user_id': user_id,
                 'task_id': task_id,
-                'message_id': message_id,
                 'action_type': 'FEEDBACK',
+                'message_id': message_id,
                 'original_prompt': prompt,
                 'model_response': response,
                 'feedback': feedback_value,
                 'feedback_timestamp': datetime.now(timezone.utc).isoformat(),
                 'timestamp': datetime.now(timezone.utc).isoformat()
-            })
+            }
+            
+            storage.log_interaction(interaction_data)
+            
+            # Also try to save using dedicated feedback method if available
+            try:
+                storage.save_feedback(user_id, message_id, feedback_data)
+            except Exception as inner_e:
+                # If save_feedback fails, we already logged via log_interaction above
+                logger.warning(f"Secondary feedback save method failed: {str(inner_e)}")
+                
+            logger.info(f"Successfully logged feedback: message_id={message_id}, value={feedback_value}")
             
         except Exception as e:
-            # Use the _log_to_file method to log the error
-            self._log_to_file(f"Error logging feedback: {str(e)}")
-            logger.error(f"Error logging feedback: {str(e)}")
+            error_msg = f"Error logging feedback: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
             
-    def log_task_duration(self, user_id: str, task_id: int, duration: float) -> None:
-        """Log task duration"""
-        log_data = {
-            "timestamp": datetime.now(timezone.utc).isoformat(),
-            "user_id": user_id,
-            "action_type": "TASK_DURATION",
-            "task_id": task_id,
-            "duration": duration
+            # Try emergency direct logging as a last resort
+            try:
+                log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
+                os.makedirs(log_dir, exist_ok=True)
+                emergency_log = os.path.join(log_dir, 'emergency_feedback.log')
+                with open(emergency_log, 'a') as f:
+                    f.write(f"[{datetime.now(timezone.utc).isoformat()}] FEEDBACK ERROR: {error_msg}\n")
+                    f.write(f"DATA: user_id={user_id}, task_id={task_id}, message_id={message_id}, value={feedback_value}\n\n")
+            except:
+                pass
+            
+    def log_final_survey(self, user_id: str, survey_data: dict):
+        """Log final survey responses with improved error handling"""
+        try:
+            # Debug survey data before flattening
+            logger.info(f"Logging final survey for user_id={user_id} with {len(survey_data)} sections")
+            self._log_to_file(f"Survey data keys: {list(survey_data.keys())}")
+            
+            # Flatten nested survey data
+            flattened_data = {'user_id': user_id, 'timestamp': datetime.now(timezone.utc).isoformat()}
+            for section, items in survey_data.items():
+                if isinstance(items, dict):
+                    for key, value in items.items():
+                        flattened_data[f"{section}_{key}"] = value
+                        # Debug each field
+                        logger.debug(f"Survey field: {section}_{key} = {value}")
+                else:
+                    flattened_data[section] = items
+                    logger.debug(f"Survey field: {section} = {items}")
+            
+            # Verify critical fields exist
+            if 'q1b_clarity' in survey_data:
+                logger.info(f"Survey clarity value: {survey_data['q1b_clarity']}")
+            else:
+                logger.warning("Missing expected survey field: q1b_clarity")
+                
+            if 'q2a_trust' in survey_data:
+                logger.info(f"Survey trust value: {survey_data['q2a_trust']}")
+            else:
+                logger.warning("Missing expected survey field: q2a_trust")
+            
+            # Store the flattened data
+            self.storage.log_survey(flattened_data)
+            
+            # Create backup of survey data in JSON format
+            backup_dir = os.path.join(self.log_dir, 'survey_backups')
+            os.makedirs(backup_dir, exist_ok=True)
+            
+            backup_file = os.path.join(backup_dir, f"survey_{user_id}_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.json")
+            with open(backup_file, 'w') as f:
+                json.dump(flattened_data, f, indent=2)
+                
+            logger.info(f"Survey data saved successfully for user_id={user_id}")
+            
+        except Exception as e:
+            error_msg = f"Error logging final survey: {str(e)}\n{traceback.format_exc()}"
+            self._log_to_file(error_msg)
+            logger.error(error_msg)
+            
+            # Try emergency direct logging as a last resort
+            try:
+                emergency_file = os.path.join(self.log_dir, 'emergency_surveys.json')
+                with open(emergency_file, 'a') as f:
+                    f.write(f"\n--- ERROR {datetime.now(timezone.utc).isoformat()} ---\n")
+                    f.write(f"USER: {user_id}\n")
+                    json.dump(survey_data, f, indent=2)
+                    f.write("\n\n")
+            except:
+                pass
+
+# Add missing helper functions
+def _calculate_edit_distance(original: str, modified: str) -> float:
+    """Calculate normalized edit distance between original and modified text"""
+    if not original or not modified:
+        return 0.0
+    return difflib.SequenceMatcher(None, str(original), str(modified)).ratio()
+
+def _determine_diff_type(original: str, modified: str) -> str:
+    """Determine the type of difference between original and modified prompt"""
+    if not original or not modified:
+        return "unknown"
+    
+    if original == modified:
+        return "unchanged"
+        
+    # Calculate word counts
+    original_words = set(original.lower().split())
+    modified_words = set(modified.lower().split())
+    
+    added = modified_words - original_words
+    removed = original_words - modified_words
+    
+    if added and removed:
+        return "substitution"
+    elif added:
+        return "addition"
+    elif removed:
+        return "deletion"
+    else:
+        return "reformulation"  # Same words but different structure
+
+# Additional logging functions that might be imported
+def log_task_duration(user_id: str, task_id: int, duration: float, start_time=None, end_time=None) -> None:
+    """Log task duration information"""
+    try:
+        storage = DataStorage()
+        task_data = {
+            'user_id': user_id,
+            'task_id': task_id,
+            'task_duration': duration,
+            'task_start': start_time.isoformat() if start_time else None,
+            'task_end': end_time.isoformat() if end_time else None,
+            'timestamp': datetime.now(timezone.utc).isoformat()
         }
-        self.storage.log_task(log_data)
+        storage.log_task(task_data)
+        logger.info(f"Task duration logged: {duration:.2f}s for user_id={user_id}, task_id={task_id}")
+    except Exception as e:
+        error_msg = f"Error logging task duration: {str(e)}\n{traceback.format_exc()}"
+        logger.error(error_msg)
+        enhanced_logger._log_to_file(error_msg)
+
+def log_lime_explanation(user_id: str, task_id: int, prompt: str, explanation_data: Dict) -> None:
+    """Log LIME explanation data"""
+    try:
+        storage = DataStorage()
+        data = {
+            'user_id': user_id,
+            'task_id': task_id,
+            'action_type': 'LIME_EXPLANATION',
+            'timestamp': datetime.now(timezone.utc).isoformat(),
+            'original_prompt': prompt,
+            'explanation_data': json.dumps(explanation_data)
+        }
+        storage.log_interaction(data)
+        logger.info(f"LIME explanation logged for user_id={user_id}, task_id={task_id}")
+    except Exception as e:
+        error_msg = f"Error logging LIME explanation: {str(e)}\n{traceback.format_exc()}"
+        logger.error(error_msg)
+        enhanced_logger._log_to_file(error_msg)
+
+def log_model_output(user_id: str, task_id: int, prompt: str, model_output: str, model_info: Dict = None) -> None:
+    """Log model output for analysis"""
+    try:
+        storage = DataStorage()
+        data = {
+            'user_id': user_id,
+            'task_id': task_id,
+            'action_type': 'MODEL_OUTPUT',
+            'timestamp': datetime.now(timezone.utc).isoformat(),
+            'original_prompt': prompt,
+            'model_response': model_output
+        }
+        
+        # Add model info if provided
+        if model_info:
+            for key, value in model_info.items():
+                data[key] = value
+                
+        storage.log_interaction(data)
+        logger.info(f"Model output logged for user_id={user_id}, task_id={task_id}")
+    except Exception as e:
+        error_msg = f"Error logging model output: {str(e)}\n{traceback.format_exc()}"
+        logger.error(error_msg)
+        enhanced_logger._log_to_file(error_msg)
 
 # Initialize global logger instance
 enhanced_logger = EnhancedLogger()
@@ -286,8 +491,11 @@ def log_validation_action(user_id, action_type, original_prompt, highlighted_ter
         
         # Use save_unified_prompt_data instead of save_validation_log
         storage.save_unified_prompt_data(log_data)
+        logger.info(f"Validation action logged: {action_type} for user_id={user_id}, task_id={task_id}")
     except Exception as e:
-        logger.error(f"Error logging validation action: {str(e)}")
+        error_msg = f"Error logging validation action: {str(e)}\n{traceback.format_exc()}"
+        logger.error(error_msg)
+        enhanced_logger._log_to_file(error_msg)
         
     return log_data
 
@@ -299,113 +507,11 @@ def log_final_survey(*args, **kwargs):
 
 def log_feedback(*args, **kwargs):
     enhanced_logger.log_feedback(*args, **kwargs)
-
-def log_task_duration(user_id: str, task_id: int, duration: float) -> None:
-    """Log task duration"""
-    enhanced_logger.log_task_duration(user_id, task_id, duration)
-
-def log_lime_explanation(
-    user_id: str,
-    prompt: str,
-    explanation_data: dict,
-    task_id: int = None,
-    model_type: str = None,
-    duration: float = None
-) -> None:
-    """Log LIME explanation results"""
-    enhanced_logger.log_interaction(
-        user_id=user_id, 
-        action_type="LIME_EXPLANATION",
-        task_id=task_id,
-        user_prompt=prompt,
-        model_output=None,
-        model_type=model_type,
-        duration={"total": duration} if duration else None,
-        additional_data={"explanation_data": explanation_data}
-    )
-
-def log_model_output(
-    user_id: str,
-    task_id: int,
-    model_type: str,
-    prompt: str,
-    output: str,
-    duration: dict = None,
-    metadata: dict = None
-) -> None:
-    """Log model generation output"""
-    enhanced_logger.log_interaction(
-        user_id=user_id,
-        action_type="MODEL_OUTPUT",
-        task_id=task_id,
-        user_prompt=prompt,
-        model_output=output,
-        model_type=model_type,
-        duration=duration,
-        additional_data=metadata
-    )
-
-def log_user_interaction(
-    user_id: str,
-    action_type: str,
-    metadata: dict = None,
-    timestamp: datetime = None
-) -> None:
-    """Log generic user interaction"""
-    if timestamp is None:
-        timestamp = datetime.now(timezone.utc)
-    enhanced_logger.log_interaction(
-        user_id=user_id,
-        action_type=action_type,
-        additional_data=metadata,
-        timestamp=timestamp.isoformat() if isinstance(timestamp, datetime) else timestamp
-    )
-
-# Helper functions for diff generation and analysis
-def _generate_diff(original: str, modified: str) -> str:
-    """Generate a human-readable diff between two strings"""
-    diff = difflib.ndiff(original.splitlines(keepends=True), 
-                        modified.splitlines(keepends=True))
-    return ''.join(diff)
-
-def _calculate_edit_distance(original: str, modified: str) -> float:
-    """
-    Calculate normalized Levenshtein distance between original and modified text
-    Returns a value between 0.0 (identical) and 1.0 (completely different)
-    """
-    import Levenshtein
     
-    # Handle edge cases
-    if not original and not modified:
-        return 0.0
-    if not original or not modified:
-        return 1.0
-    
-    # Calculate Levenshtein distance
-    distance = Levenshtein.distance(original, modified)
-    
-    # Normalize by the length of the longer string
-    max_length = max(len(original), len(modified))
-    return distance / max_length if max_length > 0 else 0.0
+def check_storage_status():
+    """Diagnostic function to check storage status"""
+    return enhanced_logger.verify_storage()
 
-def _determine_diff_type(original: str, modified: str) -> str:
-    """
-    Determine the type of difference between original and modified text
-    Returns one of: "addition", "deletion", "replacement", "minor_change", "major_change"
-    """
-    # Calculate edit distance
-    edit_distance = _calculate_edit_distance(original, modified)
-    
-    # Simple string length comparison
-    len_diff = len(modified) - len(original)
-    
-    if edit_distance < 0.1:
-        return "minor_change"
-    elif edit_distance > 0.5:
-        return "major_change"
-    elif len_diff > 10:
-        return "addition"
-    elif len_diff < -10:
-        return "deletion"
-    else:
-        return "replacement"
+# Run verification on module import
+storage_status = check_storage_status()
+logger.info(f"Storage verification on startup: {json.dumps(storage_status, indent=2)}")

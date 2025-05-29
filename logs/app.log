@@ -1,0 +1,542 @@
+2025-05-29 10:16:55,755 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 10:17:43,961 - promptdoctor - ERROR - Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
+2025-05-29 12:44:08,290 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 12:47:19,127 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 12:48:55,873 - promptdoctor - ERROR - Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
+2025-05-29 12:49:15,513 - promptdoctor - ERROR - Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
+2025-05-29 13:00:24,377 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 13:00:36,104 - promptdoctor - ERROR - Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
+2025-05-29 13:01:03,625 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 13:26:46,131 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 13:27:16,909 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 13:37:20,906 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 13:37:57,433 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 13:45:58,976 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 13:46:48,323 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 14:55:23,046 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 14:55:23,047 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 14:55:23,047 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T12:55:23.047131+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 81111,
+      "writable": true,
+      "last_modified": "2025-05-29T13:46:54.489867"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 166611,
+      "writable": true,
+      "last_modified": "2025-05-29T13:46:48.011517"
+    }
+  }
+}
+2025-05-29 14:56:09,386 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 14:57:53,784 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 14:57:53,784 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 14:57:53,784 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T12:57:53.784290+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 81111,
+      "writable": true,
+      "last_modified": "2025-05-29T13:46:54.489867"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 166923,
+      "writable": true,
+      "last_modified": "2025-05-29T14:56:08.842388"
+    }
+  }
+}
+2025-05-29 14:58:50,916 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 14:59:40,293 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 15:00:36,811 - promptdoctor - INFO - Logging feedback: user=ebc27225-a0f6-4fe6-9579-8e8a5aa6790e, task=1, message=msg_1, value=1
+2025-05-29 15:00:36,842 - promptdoctor - INFO - Successfully logged feedback: message_id=msg_1, value=1
+2025-05-29 15:16:28,981 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 15:16:28,981 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 15:16:28,981 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T13:16:28.981297+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 81233,
+      "writable": true,
+      "last_modified": "2025-05-29T15:00:29.810309"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 168024,
+      "writable": true,
+      "last_modified": "2025-05-29T15:00:36.842123"
+    }
+  }
+}
+2025-05-29 15:17:10,732 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:17:10,732 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:19:01,361 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:19:01,363 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:23:15,788 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:23:15,789 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:48:46,318 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 15:48:46,318 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 15:48:46,318 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T13:48:46.318305+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 81233,
+      "writable": true,
+      "last_modified": "2025-05-29T15:00:29.810309"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 168157,
+      "writable": true,
+      "last_modified": "2025-05-29T15:16:41.151984"
+    }
+  }
+}
+2025-05-29 15:48:59,639 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:48:59,640 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:52:59,982 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:52:59,983 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:54:49,163 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 15:54:49,163 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 15:54:49,163 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T13:54:49.163674+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 81233,
+      "writable": true,
+      "last_modified": "2025-05-29T15:00:29.810309"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 168157,
+      "writable": true,
+      "last_modified": "2025-05-29T15:16:41.151984"
+    }
+  }
+}
+2025-05-29 15:54:49,474 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:54:49,474 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:55:06,557 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:55:06,558 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:59:26,586 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:59:26,588 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:59:31,558 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 15:59:31,559 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:11,069 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:11,070 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:13,089 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:13,090 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:14,809 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:14,810 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:17,959 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:17,959 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:19,313 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:19,313 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:24,204 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:24,206 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:27,454 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:27,454 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:31,088 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:31,089 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:33,118 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:33,118 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:58,049 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:00:58,050 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:01:10,385 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:01:10,386 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:01:19,394 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:01:19,395 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:01:49,961 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:01:49,962 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:01:53,962 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:01:53,962 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:02:22,767 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:02:22,768 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:02:48,446 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:02:48,447 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:02:55,302 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:02:55,302 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:25,754 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:25,755 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:30,619 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:30,619 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:33,227 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:33,228 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:34,151 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:34,152 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:36,240 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:36,241 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:50,782 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:50,782 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:52,348 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:03:52,349 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:33:00,386 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 16:33:00,386 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 16:33:00,386 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T14:33:00.386202+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 81233,
+      "writable": true,
+      "last_modified": "2025-05-29T15:00:29.810309"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 168157,
+      "writable": true,
+      "last_modified": "2025-05-29T15:16:41.151984"
+    }
+  }
+}
+2025-05-29 16:33:13,923 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:33:13,924 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:42:06,865 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 16:42:06,865 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 16:42:06,865 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T14:42:06.865229+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 81233,
+      "writable": true,
+      "last_modified": "2025-05-29T15:00:29.810309"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 168157,
+      "writable": true,
+      "last_modified": "2025-05-29T15:16:41.151984"
+    }
+  }
+}
+2025-05-29 16:42:19,873 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:42:19,873 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:42:43,358 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:42:43,359 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:42:58,460 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:42:58,461 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:01,762 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:01,763 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:06,006 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:06,007 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:23,497 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:23,499 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:28,562 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:28,563 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:37,791 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:37,792 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:50,259 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:50,260 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:54,931 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:43:54,932 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:44:18,498 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:44:18,498 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:45:09,740 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 16:45:09,740 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 16:45:09,740 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T14:45:09.740663+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 81233,
+      "writable": true,
+      "last_modified": "2025-05-29T15:00:29.810309"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 168157,
+      "writable": true,
+      "last_modified": "2025-05-29T15:16:41.151984"
+    }
+  }
+}
+2025-05-29 16:45:34,441 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:45:34,442 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:45:48,244 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:45:48,246 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:45:51,722 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:45:51,722 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:46:13,846 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 16:46:32,205 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:46:32,206 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:46:47,610 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:46:47,610 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:47:02,561 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:47:02,562 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:47:29,116 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:47:29,117 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:47:46,208 - promptdoctor - INFO - Logging feedback: user=1c7b985d-6ce9-4f79-97dd-8ebbffbefe0a, task=1, message=msg_1, value=1
+2025-05-29 16:47:46,234 - promptdoctor - INFO - Successfully logged feedback: message_id=msg_1, value=1
+2025-05-29 16:48:05,561 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:05,562 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:15,724 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:15,725 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:33,962 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:33,963 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:45,331 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:45,331 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:47,471 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:48:47,472 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:49:30,071 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:49:30,073 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:49:32,046 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:49:32,046 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:49:52,977 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:49:52,979 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:49:57,104 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:49:57,104 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:50:06,729 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:50:06,729 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:50:56,056 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:50:56,057 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:51:05,064 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:51:05,064 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:51:22,092 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 16:51:22,093 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-29 17:02:57,293 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 17:02:57,294 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 17:02:57,294 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T15:02:57.294109+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 83015,
+      "writable": true,
+      "last_modified": "2025-05-29T16:51:59.568889"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 170878,
+      "writable": true,
+      "last_modified": "2025-05-29T16:51:55.100575"
+    }
+  }
+}
+2025-05-29 17:03:11,774 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 17:03:27,946 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
+2025-05-29 17:03:27,951 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
+2025-05-29 17:03:30,037 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
+2025-05-29 17:03:30,041 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
+2025-05-29 17:03:30,047 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
+2025-05-29 17:04:35,068 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 17:04:35,068 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 17:04:35,068 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T15:04:35.068255+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 85367,
+      "writable": true,
+      "last_modified": "2025-05-29T17:03:49.754939"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 171742,
+      "writable": true,
+      "last_modified": "2025-05-29T17:03:48.205585"
+    }
+  }
+}
+2025-05-29 17:04:48,690 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 20:41:36,369 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 20:41:36,369 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 20:41:36,369 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T18:41:36.369278+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 87147,
+      "writable": true,
+      "last_modified": "2025-05-29T17:05:24.262365"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 173157,
+      "writable": true,
+      "last_modified": "2025-05-29T17:05:20.164133"
+    }
+  }
+}
+2025-05-29 20:42:09,231 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-29 20:42:17,471 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
+2025-05-29 20:42:17,475 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
+2025-05-29 20:42:18,943 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
+2025-05-29 20:42:18,948 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
+2025-05-29 20:42:18,953 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
+2025-05-29 20:42:35,368 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
+2025-05-29 20:42:35,372 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
+2025-05-29 20:42:36,527 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
+2025-05-29 20:42:36,532 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
+2025-05-29 20:42:36,539 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
+2025-05-29 20:42:43,475 - promptdoctor - INFO - Logging feedback: user=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task=2, message=msg_1, value=1
+2025-05-29 20:42:43,506 - promptdoctor - INFO - Successfully logged feedback: message_id=msg_1, value=1
+2025-05-29 20:42:55,759 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
+2025-05-29 20:42:55,763 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
+2025-05-29 20:42:57,080 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
+2025-05-29 20:42:57,084 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
+2025-05-29 20:42:57,089 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
+2025-05-29 20:42:58,396 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
+2025-05-29 20:42:58,400 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
+2025-05-29 20:42:58,406 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
+2025-05-29 20:43:08,226 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 20:43:08,226 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-29 20:43:08,226 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-29T18:43:08.226426+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 4413,
+      "writable": true,
+      "last_modified": "2025-05-29T13:42:44.675992"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 88927,
+      "writable": true,
+      "last_modified": "2025-05-29T20:42:51.647564"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 175280,
+      "writable": true,
+      "last_modified": "2025-05-29T20:42:48.592029"
+    }
+  }
+}
+2025-05-29 20:43:21,753 - datasets - INFO - PyTorch version 2.6.0 available.

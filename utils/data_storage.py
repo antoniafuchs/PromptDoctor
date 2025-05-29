@@ -7,11 +7,32 @@ import difflib
 import shutil
 import json
 import uuid
+import logging
+import traceback
+import sys
+
+# Configure logging
+logger = logging.getLogger('data_storage')
+logger.setLevel(logging.INFO)
+if not logger.handlers:
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
 
 def safe_concat_dataframe(existing_df: pd.DataFrame, new_data: dict) -> pd.DataFrame:
     """
     Safely concatenate new data to existing DataFrame, handling empty/NA values properly
     """
+    # Debug incoming data
+    logger.debug(f"Concatenating data with keys: {list(new_data.keys())}")
+    
+    # Convert complex types to strings to prevent DataFrame errors
+    for key, value in new_data.items():
+        if isinstance(value, (dict, list)):
+            logger.debug(f"Converting complex type for field '{key}': {type(value)} to string")
+            new_data[key] = str(value)
+    
     # Convert new data to DataFrame
     new_df = pd.DataFrame([new_data])
     
@@ -77,8 +98,29 @@ class DataStorage:
     def __init__(self):
         self.data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
         self.feedback_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'feedback')
+        self.log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
+        
+        # Ensure all directories exist
+        for directory in [self.data_dir, self.feedback_dir, self.log_dir]:
+            os.makedirs(directory, exist_ok=True)
+            
         self._ensure_data_directory()
         self._initialize_csv_files()
+        
+        # Log initialization
+        self._log_storage_event("DataStorage initialized")
+        
+    def _log_storage_event(self, message: str, level: str = "INFO"):
+        """Log storage events to a dedicated file"""
+        try:
+            timestamp = datetime.now().isoformat()
+            log_file = os.path.join(self.log_dir, 'storage.log')
+            with open(log_file, 'a') as f:
+                f.write(f"[{timestamp}] [{level}] {message}\n")
+        except Exception as e:
+            # Last resort fallback - print to console
+            print(f"Error writing to storage log: {str(e)}")
+            print(f"Original message: {message}")
 
     def _ensure_data_directory(self):
         """Create data directory if it doesn't exist"""
@@ -113,12 +155,12 @@ class DataStorage:
                          'age', 'gender',
                          # Medical Experience
                          'training_level', 'specialization', 'patient_records_exp',
-                         'clinical_reasoning_training', 'clinical_notes_confidence',
+                         'clinical_notes_confidence',
                          # AI Experience
                          'gen_ai_familiarity', 'prompt_eng_familiarity', 'cds_familiarity',
-                         'tools_used', 'other_tools', 'llm_usage_frequency',
+                         'llm_usage_frequency',
                          # Usage Patterns
-                         'use_cases', 'other_use_cases', 'trust_level', 'expectations'],
+                         'trust_level'],
             
             'tasks.csv': ['user_id', 'task_id', 'task_start', 'task_end', 'completion_status',
                          'task_duration', 'timestamp',
@@ -140,19 +182,17 @@ class DataStorage:
             
             'surveys.csv': ['user_id', 'timestamp', 'group',
                           # Usability Questions
-                          'US_ease', 'US_clarity', 'US_reuse', 'US_prior_exp',
-                          'US_exp_affect', 'US_exp_how', 'US_understanding',
+                          'US_ease', 'US_clarity', 'US_reuse', 
                           # Trust Questions
                           'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations',
                           # Feedback Questions
                           'FB_likes', 'FB_improvements', 'FB_clinical_yn', 'FB_clinical', 'FB_other',
                           # Explainability Questions (Group B)
-                          'EX_helpful', 'EX_refinement', 'EX_comment',
-                          'EX_understanding', 'EX_expectations', 'EX_trust', 'EX_edit_helpful',
-                          'EX_edit_reason', 'EX_self_efficacy', 'EX_terms_useful', 'EX_edit_understanding',
-                          'EX_clarity', 'EX_edit_changed', 'EX_reuse'],
+                          'EX_edit_helpful', 'EX_edit_reason', 'EX_self_efficacy', 'EX_terms_useful',
+                          'EX_refinement', 'EX_helpful', 'EX_reuse', 'EX_trust', 'EX_edit_understanding',
+                          'EX_clarity', 'EX_edit_changed', 'EX_understanding'],
 
-            'logins.csv': ['timestamp', 'user_id', 'group', 'model_type', 'model_name', 'model_display_name'],
+            'logins.csv': ['timestamp', 'user_id', 'group', 'model_type', 'model_name'],
             # 'task_surveys.csv': [
             #     'timestamp', 'user_id', 'task_number',
             #     # Task Experience
@@ -211,11 +251,10 @@ class DataStorage:
         filepath = os.path.join(self.data_dir, 'users.csv')
         df = self._read_or_create_df(filepath, [
             'user_id', 'group', 'login_time', 'logout_time', 'age', 'gender', 'training_level',
-            'specialization', 'patient_records_exp', 'patient_records_years',
-            'clinical_reasoning_training', 'clinical_reasoning_desc',
+            'specialization', 'patient_records_exp',
             'clinical_notes_confidence', 'gen_ai_familiarity', 'prompt_eng_familiarity', 
-            'cds_familiarity', 'tools_used', 'other_tools', 'llm_usage_frequency',
-            'use_cases', 'other_use_cases', 'trust_level', 'expectations'
+            'cds_familiarity', 'llm_usage_frequency',
+            'trust_level'
         ])
         
         # Map older field names to new field names
@@ -223,20 +262,12 @@ class DataStorage:
             'q1_training': 'training_level',
             'q1_other': 'specialization',
             'q2_records': 'patient_records_exp',
-            'q2_records_years': 'patient_records_years',
-            'q3_training': 'clinical_reasoning_training',
-            'q3_training_desc': 'clinical_reasoning_desc',
             'q4_confidence': 'clinical_notes_confidence',
             'q5a_gen_ai': 'gen_ai_familiarity',
             'q5b_prompt': 'prompt_eng_familiarity',
             'q5c_cds': 'cds_familiarity',
-            'q6_tools': 'tools_used',
-            'q6_other': 'other_tools',
             'q7_frequency': 'llm_usage_frequency',
-            'q8_uses': 'use_cases',
-            'q8_other': 'other_use_cases',
-            'q9_trust': 'trust_level',
-            'q10_expectations': 'expectations'
+            'q9_trust': 'trust_level'
         }
         
         # Apply mappings
@@ -254,14 +285,8 @@ class DataStorage:
                 elif isinstance(user_data[col], str) and user_data[col].isdigit():
                     user_data[col] = int(user_data[col])
         
-        # Handle list fields
-        list_fields = ['tools_used', 'use_cases']
-        for field in list_fields:
-            if field in user_data and isinstance(user_data[field], list):
-                user_data[field] = ','.join(user_data[field])
-        
         # Ensure all text fields are properly saved as strings
-        text_fields = ['specialization', 'clinical_reasoning_desc', 'other_tools', 'other_use_cases', 'expectations']
+        text_fields = ['specialization']
         for field in text_fields:
             if field in user_data and user_data[field] is not None:
                 if not isinstance(user_data[field], str):
@@ -269,6 +294,15 @@ class DataStorage:
                 # Ensure the field is not empty
                 if user_data[field] is None:
                     user_data[field] = ''
+                # Replace any newlines with spaces to prevent CSV issues
+                if isinstance(user_data[field], str):
+                    user_data[field] = user_data[field].replace('\n', ' ').replace('\r', ' ')
+        
+        # Log the text fields for debugging
+        logger.debug(f"Saving user text fields:")
+        for field in text_fields:
+            if field in user_data:
+                logger.debug(f"  {field}: {user_data[field]}")
         
         df = safe_concat_dataframe(df, user_data)
         self._safe_save_df(df, filepath)
@@ -474,132 +508,6 @@ class DataStorage:
         # Also save to unified prompt data
         validation_data['event_type'] = 'VALIDATION'
         self.save_unified_prompt_data(validation_data)
-
-    def log_survey(self, survey_data: Dict) -> None:
-        """Log survey responses with improved error handling and data validation"""
-        # Debug incoming survey data text fields
-        print(f"DEBUG - Incoming survey text fields:")
-        text_fields = ['FB_likes', 'FB_improvements', 'FB_clinical', 'FB_other', 'EX_edit_reason', 'EX_comment']
-        for field in text_fields:
-            if field in survey_data:
-                print(f"  {field}: '{survey_data[field]}'")
-    
-        filepath = os.path.join(self.data_dir, 'surveys.csv')
-        df = self._read_or_create_df(filepath, [
-            'user_id', 'timestamp', 'group',
-                          # Usability Questions
-                          'US_ease', 'US_clarity', 'US_reuse', 'US_prior_exp',
-                          'US_exp_affect', 'US_exp_how', 'US_understanding',
-                          # Trust Questions
-                          'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations',
-                          # Feedback Questions
-                          'FB_likes', 'FB_improvements', 'FB_clinical_yn', 'FB_clinical', 'FB_other',
-                          # Explainability Questions (Group B)
-                          'EX_helpful', 'EX_refinement', 'EX_comment',
-                          'EX_understanding', 'EX_expectations', 'EX_trust', 'EX_edit_helpful',
-                          'EX_edit_reason', 'EX_self_efficacy', 'EX_terms_useful', 'EX_edit_understanding',
-                          'EX_clarity', 'EX_edit_changed', 'EX_reuse'
-        ])
-        
-        # Convert likert scales to numeric
-        likert_columns = ['US_ease', 'US_clarity', 'US_reuse', 'TR_model_trust',
-                         'TR_understanding', 'TR_explanations', 'TR_current_trust', 'EX_helpful',
-                         'EX_terms_useful', 'EX_edit_helpful', 'EX_edit_understanding',
-                         'EX_self_efficacy', 'EX_clarity', 'EX_reuse', 'EX_trust']
-        
-        for col in likert_columns:
-            if col in survey_data and isinstance(survey_data[col], str) and ' - ' in survey_data[col]:
-                try:
-                    survey_data[col] = int(survey_data[col].split(' - ')[0])
-                except (ValueError, IndexError):
-                    print(f"Warning: Could not convert {col} value '{survey_data[col]}' to integer")
-                    if not isinstance(survey_data[col], int):
-                        survey_data[col] = None
-
-        # Ensure timestamp is present
-        if 'timestamp' not in survey_data:
-            survey_data['timestamp'] = datetime.now().isoformat()
-            
-        # Ensure all text fields are at least empty strings, not None
-        text_fields = ['FB_likes', 'FB_improvements', 'FB_clinical', 'FB_other', 
-                       'EX_edit_reason', 'EX_comment', 'EX_edit_changed']
-        for field in text_fields:
-            if field in survey_data:
-                if survey_data[field] is None:
-                    survey_data[field] = ''
-                # Make sure text fields are stored as strings, not as other types
-                if not isinstance(survey_data[field], str):
-                    survey_data[field] = str(survey_data[field])
-                
-        # Debug survey data before saving
-        print(f"DEBUG - Survey data before saving:")
-        for field in text_fields:
-            if field in survey_data:
-                print(f"  {field}: '{survey_data[field]}'")
-
-        # Try to directly save to CSV to avoid dataframe issues
-        try:
-            # Check if file exists
-            file_exists = os.path.exists(filepath)
-            
-            # Get headers either from existing file or survey_data
-            if file_exists:
-                with open(filepath, 'r', newline='') as f:
-                    reader = csv.reader(f, delimiter=';')
-                    headers = next(reader, list(survey_data.keys()))
-            else:
-                headers = list(survey_data.keys())
-                
-            # Append to CSV file
-            with open(filepath, 'a', newline='') as f:
-                writer = csv.DictWriter(f, fieldnames=headers, delimiter=';', 
-                                       extrasaction='ignore')
-                
-                # Write header if file is new
-                if not file_exists:
-                    writer.writeheader()
-                    
-                # Write the row
-                writer.writerow(survey_data)
-                
-            print(f"Survey data saved successfully to {filepath}")
-            return
-        except Exception as e:
-            print(f"Error with direct CSV write: {str(e)}")
-            
-        # Fallback to DataFrame method if direct write fails
-        try:
-            df = safe_concat_dataframe(df, survey_data)
-            self._safe_save_df(df, filepath)
-        except Exception as e:
-            print(f"Error saving survey data: {str(e)}")
-            
-            # Last resort: try to manually append a line to the CSV
-            try:
-                with open(filepath, 'a', newline='') as f:
-                    line_parts = []
-                    with open(filepath, 'r') as read_f:
-                        headers = next(csv.reader(read_f, delimiter=';'))
-                        
-                    for h in headers:
-                        if h in survey_data:
-                            value = survey_data[h]
-                            if value is None:
-                                value = ''
-                            elif not isinstance(value, str):
-                                value = str(value)
-                            # Fix: Escape semicolons and quotes without using backslashes in f-string
-                            if ';' in value or '"' in value:
-                                # Replace method 1: Use string concatenation instead of f-strings with backslashes
-                                value = '"' + value.replace('"', '""') + '"'
-                            line_parts.append(value)
-                        else:
-                            line_parts.append('')
-                            
-                    f.write(';'.join(line_parts) + '\n')
-                    print(f"Successfully saved survey data with manual CSV write")
-            except Exception as e2:
-                print(f"Critical error saving survey data: {str(e2)}")
 
     def save_login_data(self, user_id: str, data: Dict[str, Any]) -> None:
         """Save login data"""
@@ -972,10 +880,10 @@ class DataStorage:
             os.makedirs(self.data_dir, exist_ok=True)
             
             # Try to load existing data if file exists
-            prompt_data_path = os.path.join(self.data_dir, 'prompt_data.csv')
+            prompt_data_path = os.path.join(self.data_dir, 'unified_prompts.csv')
             if os.path.exists(prompt_data_path):
                 try:
-                    self.prompt_df = pd.read_csv(prompt_data_path)
+                    self.prompt_df = pd.read_csv(prompt_data_path, sep=';')
                 except Exception as e:
                     print(f"Error loading prompt data: {e}")
         
@@ -1003,53 +911,53 @@ class DataStorage:
         # Make sure we have model info
         if 'model_type' not in data and 'group' in data:
             data['model_type'] = data['group']
-                    
-            # Append new data
-            new_row = pd.DataFrame([data])
-            
-            # Ensure all columns exist in both dataframes
-            all_columns = list(set(self.prompt_df.columns) | set(new_row.columns))
-            for col in all_columns:
-                if col not in self.prompt_df:
-                    self.prompt_df[col] = None
-                if col not in new_row:
-                    new_row[col] = None
-                    
-            # Concatenate the dataframes
-            self.prompt_df = pd.concat([self.prompt_df, new_row], ignore_index=True)
-            
-            # Save to CSV
-            try:
-                prompt_data_path = os.path.join(self.data_dir, 'prompt_data.csv')
-                self.prompt_df.to_csv(prompt_data_path, index=False)
-            except Exception as e:
-                print(f"Error saving prompt data: {e}")
+        
+        # Append new data
+        new_row = pd.DataFrame([data])
+        
+        # Ensure all columns exist in both dataframes
+        all_columns = list(set(self.prompt_df.columns) | set(new_row.columns))
+        for col in all_columns:
+            if col not in self.prompt_df:
+                self.prompt_df[col] = None
+            if col not in new_row:
+                new_row[col] = None
                 
-                # Last resort - try direct write with minimal fields
-                try:
-                    with open(prompt_data_path, 'a', newline='') as f:
-                        writer = csv.writer(f)
-                        minimal_data = [
-                            data.get('user_id', ''),
-                            data.get('task_id', ''),
-                            data.get('event_type', ''),
-                            data.get('action', ''),
-                            data.get('timestamp', datetime.now().isoformat()),
-                            data.get('original_prompt', ''),
-                            data.get('modified_prompt', ''),
-                            data.get('highlighted_terms', ''),
-                            data.get('medical_term_count', 0),
-                            data.get('prompt_count', 0),
-                            data.get('message_id', ''),
-                            data.get('model_type', ''),
-                            data.get('model_name', ''),
-                            data.get('group', ''),
-                            data.get('edit_distance', 0.0),
-                            data.get('diff_type', '')
-                        ]
-                        writer.writerow(minimal_data)
-                except Exception as e2:
-                    print(f"Critical error saving prompt data: {e2}")
+        # Concatenate the dataframes
+        self.prompt_df = pd.concat([self.prompt_df, new_row], ignore_index=True)
+        
+        # Save to CSV
+        try:
+            prompt_data_path = os.path.join(self.data_dir, 'unified_prompts.csv')
+            self.prompt_df.to_csv(prompt_data_path, index=False, sep=';')
+        except Exception as e:
+            print(f"Error saving prompt data: {e}")
+            
+            # Last resort - try direct write with minimal fields
+            try:
+                with open(prompt_data_path, 'a', newline='') as f:
+                    writer = csv.writer(f, delimiter=';')
+                    minimal_data = [
+                        data.get('user_id', ''),
+                        data.get('task_id', ''),
+                        data.get('event_type', ''),
+                        data.get('action', ''),
+                        data.get('timestamp', datetime.now().isoformat()),
+                        data.get('original_prompt', ''),
+                        data.get('modified_prompt', ''),
+                        data.get('highlighted_terms', ''),
+                        data.get('medical_term_count', 0),
+                        data.get('prompt_count', 0),
+                        data.get('message_id', ''),
+                        data.get('model_type', ''),
+                        data.get('model_name', ''),
+                        data.get('group', ''),
+                        data.get('edit_distance', 0.0),
+                        data.get('diff_type', '')
+                    ]
+                    writer.writerow(minimal_data)
+            except Exception as e2:
+                print(f"Critical error saving prompt data: {e2}")
         
     # This is an alias method to maintain compatibility
     def save_validation_log(self, data):
@@ -1065,3 +973,297 @@ class DataStorage:
             value = pd.NA  # Use pandas NA for empty values in numeric columns
     
         self.df.loc[mask, key] = value
+
+    def get_message_feedback(self, user_id: str, message_id: str) -> Optional[Dict]:
+        """Get feedback for a specific message"""
+        try:
+            filepath = os.path.join(self.data_dir, 'interactions.csv')
+            if not os.path.exists(filepath):
+                return None
+                
+            df = pd.read_csv(filepath, sep=';')
+            
+            # Find feedback for this message
+            mask = (df['user_id'] == user_id) & (df['message_id'] == message_id) & (df['action_type'] == 'FEEDBACK')
+            if mask.any():
+                row = df[mask].iloc[0]
+                return {
+                    'feedback_value': row.get('feedback', None),
+                    'timestamp': row.get('feedback_timestamp', None)
+                }
+            return None
+        except Exception as e:
+            error_msg = f"Error getting message feedback: {str(e)}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")
+            return None
+    
+    def save_feedback(self, user_id: str, message_id: str, feedback_data: Dict) -> bool:
+        """Save feedback data for a specific message"""
+        try:
+            # Ensure the feedback directory exists
+            os.makedirs(self.feedback_dir, exist_ok=True)
+            
+            # Create a JSON file for this feedback
+            feedback_file = os.path.join(self.feedback_dir, f"{user_id}_{message_id}.json")
+            
+            # Add metadata
+            feedback_data.update({
+                'user_id': user_id,
+                'message_id': message_id,
+                'saved_at': datetime.now().isoformat()
+            })
+            
+            # Save the feedback data
+            with open(feedback_file, 'w') as f:
+                json.dump(feedback_data, f, indent=2)
+                
+            # Also save to a consolidated feedback log
+            feedback_log = os.path.join(self.data_dir, 'feedback.csv')
+            if not os.path.exists(feedback_log):
+                with open(feedback_log, 'w', newline='') as f:
+                    writer = csv.writer(f, delimiter=';')
+                    writer.writerow(['user_id', 'message_id', 'feedback_value', 'timestamp'])
+            
+            # Append to the feedback log
+            with open(feedback_log, 'a', newline='') as f:
+                writer = csv.writer(f, delimiter=';')
+                writer.writerow([
+                    user_id,
+                    message_id,
+                    feedback_data.get('feedback_value', ''),
+                    feedback_data.get('timestamp', datetime.now().isoformat())
+                ])
+                
+            self._log_storage_event(f"Saved feedback for user {user_id}, message {message_id}")
+            return True
+        except Exception as e:
+            error_msg = f"Error saving feedback: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")
+            return False
+
+    def log_survey(self, survey_data: Dict) -> None:
+        """Log survey responses with improved error handling and data validation"""
+        # Debug incoming survey data
+        logger.info(f"Logging survey for user {survey_data.get('user_id', 'unknown')}")
+        self._log_storage_event(f"Logging survey for user {survey_data.get('user_id', 'unknown')}")
+        
+        # Track survey fields for debugging
+        text_fields = ['FB_likes', 'FB_improvements', 'FB_clinical', 'FB_other', 'EX_edit_reason', 'EX_comment']
+        for field in text_fields:
+            if field in survey_data:
+                logger.debug(f"Survey field {field}: '{survey_data[field]}'")
+    
+        filepath = os.path.join(self.data_dir, 'surveys.csv')
+        
+        # Ensure file exists with headers
+        if not os.path.exists(filepath):
+            with open(filepath, 'w', newline='') as f:
+                writer = csv.writer(f, delimiter=';')
+                writer.writerow([
+                    'user_id', 'timestamp', 'group',
+                    # Usability Questions
+                    'US_ease', 'US_clarity', 'US_reuse', 
+                    # Trust Questions
+                    'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations',
+                    # Feedback Questions
+                    'FB_likes', 'FB_improvements', 'FB_clinical_yn', 'FB_clinical', 'FB_other',
+                    # Explainability Questions (Group B)
+                    'EX_edit_helpful', 'EX_edit_reason', 'EX_self_efficacy', 'EX_terms_useful',
+                    'EX_refinement', 'EX_helpful', 'EX_reuse', 'EX_trust', 'EX_edit_understanding',
+                    'EX_clarity', 'EX_edit_changed', 'EX_understanding'
+                ])
+        
+        # Convert likert scales to numeric
+        likert_columns = ['US_ease', 'US_clarity', 'US_reuse', 'TR_model_trust',
+                         'TR_understanding', 'TR_explanations', 'TR_current_trust', 'EX_helpful',
+                         'EX_terms_useful', 'EX_edit_helpful', 'EX_edit_understanding',
+                         'EX_self_efficacy', 'EX_clarity', 'EX_reuse', 'EX_trust']
+        
+        for col in likert_columns:
+            if col in survey_data and isinstance(survey_data[col], str) and ' - ' in survey_data[col]:
+                try:
+                    survey_data[col] = int(survey_data[col].split(' - ')[0])
+                    logger.debug(f"Converted {col} to {survey_data[col]}")
+                except (ValueError, IndexError):
+                    logger.warning(f"Could not convert {col} value '{survey_data[col]}' to integer")
+                    survey_data[col] = None
+
+        # Ensure timestamp is present
+        if 'timestamp' not in survey_data:
+            survey_data['timestamp'] = datetime.now().isoformat()
+            
+        # Ensure all text fields are at least empty strings, not None
+        for field in text_fields:
+            if field in survey_data:
+                if survey_data[field] is None:
+                    survey_data[field] = ''
+                # Make sure text fields are stored as strings, not as other types
+                if not isinstance(survey_data[field], str):
+                    survey_data[field] = str(survey_data[field])
+
+        # Create backup of survey data in JSON
+        backup_file = os.path.join(self.log_dir, f"survey_backup_{survey_data.get('user_id', 'unknown')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+        try:
+            with open(backup_file, 'w') as f:
+                json.dump(survey_data, f, indent=2)
+            logger.info(f"Created survey backup at {backup_file}")
+        except Exception as e:
+            logger.error(f"Failed to create survey backup: {str(e)}")
+
+        # Try to directly save to CSV to avoid dataframe issues
+        try:
+            # Check if file exists
+            file_exists = os.path.exists(filepath)
+            
+            # Get headers either from existing file or survey_data
+            if file_exists:
+                with open(filepath, 'r', newline='') as f:
+                    reader = csv.reader(f, delimiter=';')
+                    headers = next(reader, list(survey_data.keys()))
+            else:
+                headers = list(survey_data.keys())
+                
+            # Append to CSV file
+            with open(filepath, 'a', newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=headers, delimiter=';', 
+                                       extrasaction='ignore')
+                
+                # Write header if file is new
+                if not file_exists:
+                    writer.writeheader()
+                    
+                # Write the row
+                writer.writerow(survey_data)
+                
+            logger.info(f"Survey data saved successfully to {filepath}")
+            self._log_storage_event(f"Successfully logged survey for user {survey_data.get('user_id', 'unknown')}")
+            return
+        except Exception as e:
+            error_msg = f"Error with direct CSV write: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")
+            
+        # Fallback to manual CSV append if all else fails
+        try:
+            with open(filepath, 'a', newline='') as f:
+                line_parts = []
+                
+                # Get headers from file
+                headers = []
+                if os.path.exists(filepath) and os.path.getsize(filepath) > 0:
+                    with open(filepath, 'r', newline='') as read_f:
+                        reader = csv.reader(read_f, delimiter=';')
+                        headers = next(reader, [])
+                else:
+                    headers = list(survey_data.keys())
+                
+                # Build row with values in correct order
+                for h in headers:
+                    value = ''
+                    if h in survey_data:
+                        value = survey_data[h]
+                        if value is None:
+                            value = ''
+                        elif not isinstance(value, str):
+                            value = str(value)
+                        
+                        # Properly quote values with semicolons
+                        if ';' in value:
+                            value = f'"{value}"'
+                    
+                    line_parts.append(value)
+                
+                # Write the CSV line
+                f.write(';'.join(line_parts) + '\n')
+                logger.info("Successfully saved survey using manual CSV write")
+                self._log_storage_event("Successfully saved survey using manual fallback method")
+        except Exception as e2:
+            error_msg = f"Critical error saving survey: {str(e2)}\n{traceback.format_exc()}"
+            logger.critical(error_msg)
+            self._log_storage_event(error_msg, "CRITICAL")
+            
+            # Last resort: direct file write
+            try:
+                emergency_file = os.path.join(self.log_dir, 'emergency_surveys.json')
+                with open(emergency_file, 'a') as f:
+                    f.write(f"\n--- EMERGENCY SAVE {datetime.now().isoformat()} ---\n")
+                    json.dump(survey_data, f, indent=2)
+                    f.write("\n\n")
+            except:
+                pass
+
+    def get_storage_status(self) -> Dict:
+        """Get storage system status for diagnostics"""
+        status = {
+            "timestamp": datetime.now().isoformat(),
+            "python_version": sys.version,
+            "pandas_version": pd.__version__,
+            "directories": {
+                "data_dir": {
+                    "path": self.data_dir,
+                    "exists": os.path.exists(self.data_dir),
+                    "writable": os.access(self.data_dir, os.W_OK) if os.path.exists(self.data_dir) else False
+                },
+                "feedback_dir": {
+                    "path": self.feedback_dir,
+                    "exists": os.path.exists(self.feedback_dir),
+                    "writable": os.access(self.feedback_dir, os.W_OK) if os.path.exists(self.feedback_dir) else False
+                },
+                "log_dir": {
+                    "path": self.log_dir,
+                    "exists": os.path.exists(self.log_dir),
+                    "writable": os.access(self.log_dir, os.W_OK) if os.path.exists(self.log_dir) else False
+                }
+            },
+            "files": {}
+        }
+        
+        # Check key data files
+        important_files = [
+            os.path.join(self.data_dir, 'users.csv'),
+            os.path.join(self.data_dir, 'tasks.csv'),
+            os.path.join(self.data_dir, 'interactions.csv'),
+            os.path.join(self.data_dir, 'surveys.csv'),
+            os.path.join(self.data_dir, 'validation.csv')
+        ]
+        
+        for filepath in important_files:
+            filename = os.path.basename(filepath)
+            file_exists = os.path.exists(filepath)
+            status["files"][filename] = {
+                "path": filepath,
+                "exists": file_exists,
+                "size_bytes": os.path.getsize(filepath) if file_exists else 0,
+                "writable": os.access(filepath, os.W_OK) if file_exists else False,
+                "last_modified": datetime.fromtimestamp(os.path.getmtime(filepath)).isoformat() if file_exists else None,
+                "row_count": -1  # Will be filled in below
+            }
+            
+            # Try to count rows in the file
+            if file_exists:
+                try:
+                    with open(filepath, 'r', newline='') as f:
+                        reader = csv.reader(f)
+                        row_count = sum(1 for _ in reader) - 1  # Subtract header
+                        status["files"][filename]["row_count"] = max(0, row_count)
+                except Exception as e:
+                    status["files"][filename]["row_count_error"] = str(e)
+        
+        # Perform test write
+        test_file = os.path.join(self.log_dir, 'storage_test.txt')
+        try:
+            with open(test_file, 'w') as f:
+                f.write(f"Storage test at {datetime.now().isoformat()}")
+            status["test_write_success"] = True
+            if os.path.exists(test_file):
+                os.remove(test_file)
+        except Exception as e:
+            status["test_write_success"] = False
+            status["test_write_error"] = str(e)
+        
+        # Log the status check
+        self._log_storage_event(f"Storage status check completed: {json.dumps(status, indent=2)}")
+        
+        return status

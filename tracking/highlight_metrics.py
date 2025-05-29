@@ -58,4 +58,11 @@ class HighlightMetrics:
                 'total_terms': len(self.LIME_HIGHLIGHTS),
                 'coverage_percentage': len(matches) / len(self.LIME_HIGHLIGHTS) * 100
             }
-        return {}
+        
+        # Default return for unknown task
+        return {
+            'highlight_type': 'unknown',
+            'matched_terms': [],
+            'total_terms': 0,
+            'coverage_percentage': 0
+        }
