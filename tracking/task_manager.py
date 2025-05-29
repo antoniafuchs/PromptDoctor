@@ -330,114 +330,6 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
         # Store the current prompt count in the session state for validation
         st.session_state['current_prompt_count'] = st.session_state.prompt_counts[task_number]
 
-    def complete_task(self, task_number: int, survey_data: Dict) -> None:
-        """Complete task and handle state transition"""
-        task = st.session_state.task_states[task_number - 1]
-        task.completed = True 
-        task.completed_at = datetime.now()
-        
-        # Calculate task duration
-        if task.started_at:
-            duration_seconds = (task.completed_at - task.started_at).total_seconds()
-        else:
-            duration_seconds = 0.0
-            
-        # Add duration and prompt count to survey data
-        survey_data['task_duration'] = duration_seconds
-        survey_data['start_time'] = task.started_at.isoformat() if task.started_at else None
-        survey_data['end_time'] = task.completed_at.isoformat() if task.completed_at else None
-        prompt_count = st.session_state.prompt_counts.get(task_number, 0)
-        survey_data['prompt_count'] = prompt_count
-        
-        # Store feedback data if available
-        if hasattr(st.session_state, 'message_feedback') and st.session_state.message_feedback:
-            survey_data['message_feedback'] = st.session_state.message_feedback
-    
-        # Store survey data
-        task.survey_data = survey_data
-        
-        # Get final prompt from task prompts
-        prompts = st.session_state.task_prompts.get(task_number, [])
-        if prompts:
-            final_prompt = prompts[-1]
-            
-            # Calculate prompt metrics
-            metrics = PromptMetrics().analyze_prompts(
-                prompts, 
-                task_id=task_number,
-                user_id=st.session_state.user_id,
-                group=st.session_state.get('group', 'A')
-            )
-            
-            # Save metrics using the DataStorage class with unified approach
-            storage = DataStorage()
-            storage.save_prompt_metrics(
-                st.session_state.user_id,
-                task_number,
-                st.session_state.get('group', 'A'),
-                {
-                    'prompt_count': metrics.prompt_count,
-                    'first_prompt': metrics.first_prompt,
-                    'last_prompt': metrics.last_prompt,
-                    'levenshtein_distance': metrics.levenshtein_distance,
-                    'word_count': metrics.word_count,
-                    'timestamp': metrics.timestamp.isoformat(),
-                    'medical_term_count': metrics.medical_term_count,
-                    'highlighted_terms': metrics.highlighted_terms,
-                    'diff_type': metrics.diff_type
-                }
-            )
-            
-            # Calculate and store highlight coverage metrics
-            highlight_coverage = self.highlight_metrics.calculate_coverage(task_number, final_prompt)
-            if highlight_coverage:
-                # Create unified data for highlight metrics
-                highlight_data = {
-                    'user_id': st.session_state.user_id,
-                    'task_id': task_number,
-                    'group': st.session_state.get('group', 'A'),
-                    'timestamp': datetime.now().isoformat(),
-                    'action_type': 'HIGHLIGHT_METRICS',
-                    'prompt_count': prompt_count,
-                    'last_prompt': final_prompt,
-                    'medical_term_count': len(highlight_coverage.get('matched_terms', [])),
-                    'highlighted_terms': highlight_coverage.get('matched_terms', []),
-                }
-                storage.save_unified_prompt_data(highlight_data)
-                
-                # For backward compatibility
-                storage.save_highlight_metrics(
-                    st.session_state.user_id,
-                    task_number,
-                    st.session_state.get('group', 'A'),
-                    highlight_coverage
-                )
-            
-            # Save prompt counts to the unified file
-            storage.save_prompt_counts({
-                'user_id': st.session_state.user_id,
-                'group': st.session_state.get('group', 'A'),
-                'task_id': task_number,
-                'prompt_count': prompt_count,
-                'timestamp': datetime.now().isoformat()
-            })
-        
-        # Move to next task if not the last one
-        if task_number < len(st.session_state.task_states):
-            st.session_state.current_task = task_number + 1
-            # Reset states for next task
-            st.session_state.stage = "user"  # Add this line
-            st.session_state.messages = []
-            st.session_state.message_feedback = {}
-            st.session_state.show_task_intro = True
-            st.session_state.show_feedback = False
-            st.session_state.feedback_submitted = {}  # Add this line
-            if "task_complete_clicked" in st.session_state:
-                del st.session_state.task_complete_clicked
-            if "task_ready_for_completion" not in st.session_state:
-                st.session_state.task_ready_for_completion = True
-        else:
-            st.switch_page("pages/4_Logout.py")
     
     def can_proceed_to_next(self) -> bool:
         """Check if user can proceed to next task"""
@@ -511,10 +403,10 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                     background-color: rgb(231, 245, 255);
                     border: 1px solid rgba(0, 123, 255, 0.2);
                     margin-top: 1rem;
-                    font-size: 0.9em;
+                    font-size: 16px;
                 ">
                      <span style="color: rgb(220, 53, 69);">Red highlights</span> show the words with the highest impact on the model's answer. They boost its confidence the most.<br><br>
-                    <span style="color: rgb(0, 123, 255);">blue highlights</span> show the words with the lowest impact. They lower its confidence the most.
+                    <span style="color: rgb(0, 123, 255);">Blue highlights</span> show the words with the lowest impact. They lower its confidence the most.
                 </div>
                 """, unsafe_allow_html=True)
             else:
