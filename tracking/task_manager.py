@@ -581,6 +581,20 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                             """,
                             unsafe_allow_html=True
                         )
+                else:
+                    # Group A - make sure we render the task description properly
+                    description = self.TASK_DESCRIPTIONS[3]['A']
+                    st.markdown(f"""
+                    <div style="
+                        padding: 1rem;
+                        border-radius: 0.5rem;
+                        background-color: rgb(231, 245, 255);
+                        margin-bottom: 1rem;
+                    ">
+                        <h3>Task {current_task.task_number}: {task_title}</h3>
+                        <p>{description}</p>
+                    </div>
+                    """, unsafe_allow_html=True)
             else:
                 # Regular tasks (1 and 2)
                 description = self.TASK_DESCRIPTIONS[current_task.task_number]
