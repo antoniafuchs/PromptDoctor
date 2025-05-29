@@ -204,7 +204,18 @@ def render_overview_tab(data):
     
     # Calculate key metrics
     total_users = len(data["users"]) if data["users"] is not None else 0
-    completed_tasks = len(data["tasks"][data["tasks"]["completion_status"] == "completed"]) if data["tasks"] is not None else 0
+    
+    # Check if tasks data exists and has the required columns
+    completed_tasks = 0
+    if data["tasks"] is not None:
+        if "completion_status" in data["tasks"].columns:
+            completed_tasks = len(data["tasks"][data["tasks"]["completion_status"] == "completed"])
+        elif "status" in data["tasks"].columns:
+            # Try alternative column name
+            completed_tasks = len(data["tasks"][data["tasks"]["status"] == "completed"])
+        else:
+            st.warning("⚠️ Tasks data doesn't have completion status information")
+    
     total_interactions = len(data["interactions"]) if data["interactions"] is not None else 0
     total_surveys = len(data["surveys"]) if data["surveys"] is not None else 0
     
@@ -971,47 +982,60 @@ def render_tasks_tab(data):
     st.header("Task Statistics")
     
     if data["tasks"] is not None:
-        # Task completion counts
-        completed_tasks = data["tasks"][data["tasks"]["completion_status"] == "completed"]
+        # Determine which column to use for task completion status
+        completion_col = None
+        if "completion_status" in data["tasks"].columns:
+            completion_col = "completion_status"
+        elif "status" in data["tasks"].columns:
+            completion_col = "status"
         
-        st.subheader("Task Completion Rates")
-        if not completed_tasks.empty and "task_id" in completed_tasks.columns:
-            # Create task completion counts
-            task_counts = completed_tasks["task_id"].value_counts().sort_index().reset_index()
-            task_counts.columns = ["Task ID", "Completions"]
+        if completion_col:
+            # Task completion counts
+            completed_tasks = data["tasks"][data["tasks"][completion_col] == "completed"]
             
-            col1, col2 = st.columns([1, 2])
-            
-            with col1:
-                st.dataframe(task_counts, use_container_width=True)
-            
-            with col2:
-                # Create chart
-                fig, ax = plt.subplots(figsize=(8, 4))
-                bars = ax.bar(task_counts["Task ID"].astype(str), task_counts["Completions"])
+            st.subheader("Task Completion Rates")
+            if not completed_tasks.empty and "task_id" in completed_tasks.columns:
+                # Create task completion counts
+                task_counts = completed_tasks["task_id"].value_counts().sort_index().reset_index()
+                task_counts.columns = ["Task ID", "Completions"]
                 
-                # Add labels
-                for bar in bars:
-                    height = bar.get_height()
-                    ax.annotate(f'{height}',
-                                xy=(bar.get_x() + bar.get_width() / 2, height),
-                                xytext=(0, 3),
-                                textcoords="offset points",
-                                ha='center', va='bottom')
+                col1, col2 = st.columns([1, 2])
                 
-                ax.set_title("Task Completions")
-                ax.set_xlabel("Task ID")
-                ax.set_ylabel("Number of Completions")
-                st.pyplot(fig)
+                with col1:
+                    st.dataframe(task_counts, use_container_width=True)
+                
+                with col2:
+                    # Create chart
+                    fig, ax = plt.subplots(figsize=(8, 4))
+                    bars = ax.bar(task_counts["Task ID"].astype(str), task_counts["Completions"])
+                    
+                    # Add labels
+                    for bar in bars:
+                        height = bar.get_height()
+                        ax.annotate(f'{height}',
+                                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                                    xytext=(0, 3),
+                                    textcoords="offset points",
+                                    ha='center', va='bottom')
+                    
+                    ax.set_title("Task Completions")
+                    ax.set_xlabel("Task ID")
+                    ax.set_ylabel("Number of Completions")
+                    st.pyplot(fig)
+        else:
+            st.warning("⚠️ Task completion status column not found in tasks data")
+            # Still show the task data without completion filtering
+            st.subheader("All Tasks")
+            st.dataframe(data["tasks"], use_container_width=True)
         
         # Task duration statistics
         st.subheader("Task Duration Statistics")
-        if "task_duration" in completed_tasks.columns:
+        if "task_duration" in data["tasks"].columns:
             # Convert to numeric if needed
-            completed_tasks["task_duration"] = pd.to_numeric(completed_tasks["task_duration"], errors="coerce")
+            data["tasks"]["task_duration"] = pd.to_numeric(data["tasks"]["task_duration"], errors="coerce")
             
             # Group by task_id
-            duration_stats = completed_tasks.groupby("task_id")["task_duration"].agg(
+            duration_stats = data["tasks"].groupby("task_id")["task_duration"].agg(
                 ["count", "mean", "median", "min", "max"]
             ).reset_index()
             
@@ -1068,10 +1092,14 @@ def render_tasks_tab(data):
             
             with col1:
                 total = len(task_data)
-                completed = len(task_data[task_data["completion_status"] == "completed"])
-                completion_rate = (completed / total) * 100 if total > 0 else 0
                 
-                st.metric("Completion Rate", f"{completion_rate:.1f}%", f"{completed}/{total}")
+                # Display completion rate if we have completion status
+                if completion_col:
+                    completed = len(task_data[task_data[completion_col] == "completed"])
+                    completion_rate = (completed / total) * 100 if total > 0 else 0
+                    st.metric("Completion Rate", f"{completion_rate:.1f}%", f"{completed}/{total}")
+                else:
+                    st.metric("Total Entries", f"{total}")
             
             with col2:
                 if "task_duration" in task_data.columns:
