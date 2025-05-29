@@ -74,7 +74,7 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                 
                 # Clinical note HTML (updated with consistent highlight styling)
                 """
-                <div class="clinical-note" style="line-height: 1.8; font-size: 16px; margin: 15px 0; padding: 15px; background-color: white; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <div class="clinical-note" style="line-height: 1.8; font-size: 18px; margin: 15px 0; padding: 15px; background-color: white; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
                     <strong>Clinical Note:</strong><br><br>
                     <div style="line-height: 1.6;">
                         The patient, a 50-year-old <span class="highlight-red" style="display: inline-block; padding: 2px 4px; margin: 0 2px; border-radius: 3px; background-color: rgba(220, 53, 69, 0.37); color: black; font-weight: 500;" title="Impact: +0.125">female,</span> 
@@ -94,7 +94,7 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                 
                 # Explanation legend HTML
                 """
-                <div class="highlight-explanation" style="margin-top: 15px; line-height: 1.6; font-size: 16px;">
+                <div class="highlight-explanation" style="margin-top: 15px; line-height: 1.6; font-size: 18px;">
                     <span class="highlight-legend-red" style="color: rgb(220, 53, 69); font-weight: 600;">Red highlights</span> show the words with the highest impact on the model's answer. They boost its confidence the most.<br><br>
                     <span class="highlight-legend-blue" style="color: rgb(0, 123, 255); font-weight: 600;">Blue highlights</span> show the words with the lowest impact. They lower its confidence the most.<br><br>
                 </div>
@@ -500,102 +500,10 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                     # Special handling for group B with highlights
                     intro, clinical_note, explanation = self.TASK_DESCRIPTIONS[3]['B']
                     
-                    # More thorough sanitization to remove ALL HTML elements that could be interpreted as code blocks
-                    for content_part in [clinical_note, explanation]:
-                        # Remove heading elements with action items
-                        if '<div data-testid="stHeadingWithActionElements"' in content_part:
-                            heading_start = content_part.find('<div data-testid="stHeadingWithActionElements"')
-                            heading_end = content_part.find('</div>', heading_start) + 6
-                            if heading_start >= 0 and heading_end > 0:
-                                heading_content = content_part[heading_start:heading_end]
-                                content_part = content_part.replace(heading_content, '')
-                                
-                        # Remove all other elements that could be interpreted as code blocks
-                        problematic_elements = [
-                            '<div data-testid="stHeadingWithActionElements"',
-                            'class="st-emotion-cache-',
-                            '<span data-testid="stHeaderActionElements"',
-                            '<svg xmlns="http://www.w3.org/2000/svg"'
-                        ]
-                        
-                        # Add more problematic elements that generate code blocks
-                        problematic_elements.extend([
-                            '<div class="stCode',
-                            'class="st-emotion-cache-1nqbjoj e1rzn78k2"',
-                            'class="st-emotion-cache-v2jlfx e1rzn78k4"',
-                            'class="st-emotion-cache-chk1w8 e1rzn78k3"',
-                            'data-testid="stCode"',
-                            'data-testid="stCodeCopyButton"',
-                            '<pre class="st-emotion',
-                            '<div style="background-color: transparent;"',
-                            '<code style="white-space: pre;"',
-                            'data-clipboard-text="</div>"'
-                        ])
-                        
-                        # Enhanced element removal - more thoroughly scan and remove elements
-                        for element in problematic_elements:
-                            if element in content_part:
-                                # Try to find and remove the entire element block
-                                element_start = content_part.find(element)
-                                while element_start >= 0:
-                                    # Find the closest opening tag before the element
-                                    tag_start = content_part.rfind('<', 0, element_start)
-                                    if tag_start >= 0:
-                                        # Find the end of the element (next closing tag or end of attribute)
-                                        next_close_tag = content_part.find('>', element_start)
-                                        if next_close_tag > 0:
-                                            element_content = content_part[tag_start:next_close_tag+1]
-                                            content_part = content_part.replace(element_content, '')
-                                            # Look for next occurrence
-                                            element_start = content_part.find(element)
-                                        else:
-                                            break
-                                    else:
-                                        break
-                                        
-                        # Specific removal of </div> code blocks
-                        if '</div>' in content_part:
-                            # Find all instances of stCode blocks with </div> content
-                            code_block_start = content_part.find('<div class="stCode')
-                            while code_block_start >= 0:
-                                code_block_end = content_part.find('</div>', code_block_start)
-                                if code_block_end > 0:
-                                    # Find the actual end of the entire code block (there may be nested divs)
-                                    full_block_end = content_part.find('</div>', code_block_end + 6)
-                                    if full_block_end > 0:
-                                        full_block = content_part[code_block_start:full_block_end+6]
-                                        content_part = content_part.replace(full_block, '')
-                                        code_block_start = content_part.find('<div class="stCode')
-                                    else:
-                                        break
-                                else:
-                                    break
-                                    
-                        # Remove specific code blocks with copy buttons
-                        copy_button_pos = content_part.find('data-clipboard-text="</div>"')
-                        while copy_button_pos > 0:
-                            # Find the beginning of the containing code block
-                            code_start = content_part.rfind('<div', 0, copy_button_pos)
-                            if code_start >= 0:
-                                # Find the end of the code block (after the button)
-                                code_end = content_part.find('</div>', copy_button_pos)
-                                if code_end > 0:
-                                    # Find the actual end of the full code block structure
-                                    full_end = content_part.find('</div>', code_end + 6)
-                                    if full_end > 0:
-                                        # Remove the entire code block
-                                        code_block = content_part[code_start:full_end+6]
-                                        content_part = content_part[i].replace(code_block, '')
-                                        # Look for next instance
-                                        copy_button_pos = content_part.find('data-clipboard-text="</div>"')
-                                    else:
-                                        break
-                                else:
-                                    break
-                            else:
-                                break
+                    # Create a completely sanitized version of the HTML by rebuilding it
+                    # Extract only the essential content and rebuild with proper structure
                     
-                    # Create a complete HTML container with blue background containing the intro and clinical note
+                    # Step 1: Create the wrapper without any direct HTML from the original
                     st.markdown(
                         f"""
                         <div style="
@@ -606,31 +514,73 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
                         ">
                             <h3>Task {current_task.task_number}: {task_title}</h3>
                             <p>{intro}</p>
-                            {clinical_note}
                         </div>
                         """, 
                         unsafe_allow_html=True
                     )
                     
-                    # Sanitize explanation the same way
-                    for element in problematic_elements:
-                        explanation = explanation.replace(element, f'<!-- removed: {element} -->')
+                    # Step 2: Create a clean version of just the clinical note with properly closed tags
+                    # First, extract just the spans with highlights
+                    import re
                     
-                    # Render explanation outside the blue box
-                    st.markdown(explanation, unsafe_allow_html=True)
-                else:
-                    description = self.TASK_DESCRIPTIONS[3]['A']
-                    st.markdown(f"""
-                    <div style="
-                        padding: 1rem;
-                        border-radius: 0.5rem;
-                        background-color: rgb(231, 245, 255);
-                        margin-bottom: 1rem;
-                    ">
-                        <h3>Task {current_task.task_number}: {task_title}</h3>
-                        {description}
-                    </div>
-                    """, unsafe_allow_html=True)
+                    # Extract the main note content between the clinical-note div
+                    note_content = re.search(r'<div class="clinical-note".*?>(.*?)</div>\s*</div>', 
+                                            clinical_note, re.DOTALL)
+                    
+                    if note_content:
+                        clean_note = note_content.group(1).strip()
+                        
+                        # Remove any stray closing divs
+                        clean_note = re.sub(r'</div>\s*</div>', '', clean_note)
+                        
+                        # Create a fresh clinical note div with the extracted content
+                        st.markdown(
+                            f"""
+                            <div class="clinical-note" style="line-height: 1.8; font-size: 18px; margin: 15px 0; padding: 15px; background-color: white; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                                {clean_note}
+                            </div>
+                            """, 
+                            unsafe_allow_html=True
+                        )
+                    else:
+                        # Fallback if regex didn't match
+                        st.markdown(
+                            """
+                            <div class="clinical-note" style="line-height: 1.8; font-size: 18px; margin: 15px 0; padding: 15px; background-color: white; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                                <strong>Clinical Note:</strong><br><br>
+                                <div style="line-height: 1.6;">
+                                    The patient, a 50-year-old female, has been followed in the cardiology clinic for symptomatic hypertrophic obstructive cardiomyopathy (HOCM) for three years. Her history includes controlled hypertension and hyperlipidemia. She now presents with new onset of palpitations and shortness of breath.
+                                </div>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
+                        )
+                    
+                    # Step 3: Create a clean explanation section
+                    explanation_content = re.search(r'<div class="highlight-explanation".*?>(.*?)</div>', 
+                                                 explanation, re.DOTALL)
+                    
+                    if explanation_content:
+                        clean_explanation = explanation_content.group(1).strip()
+                        st.markdown(
+                            f"""
+                            <div class="highlight-explanation" style="margin-top: 15px; line-height: 1.6; font-size: 18px;">
+                                {clean_explanation}
+                            </div>
+                            """, 
+                            unsafe_allow_html=True
+                        )
+                    else:
+                        # Fallback for explanation
+                        st.markdown(
+                            """
+                            <div class="highlight-explanation" style="margin-top: 15px; line-height: 1.6; font-size: 18px;">
+                                <span class="highlight-legend-red" style="color: rgb(220, 53, 69); font-weight: 600;">Red highlights</span> show the words with the highest impact on the model's answer. They boost its confidence the most.<br><br>
+                                <span class="highlight-legend-blue" style="color: rgb(0, 123, 255); font-weight: 600;">Blue highlights</span> show the words with the lowest impact. They lower its confidence the most.<br><br>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
+                        )
             else:
                 # Regular tasks (1 and 2)
                 description = self.TASK_DESCRIPTIONS[current_task.task_number]

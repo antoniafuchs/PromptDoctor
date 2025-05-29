@@ -127,7 +127,8 @@ def show_logout_survey():
         If you have any further questions or would like to withdraw your data, please contact:
         
         Antonia Fuchs  
-        Chair for Fundamentals of Natural Language Processing,\n University of Bamberg\n  
+        Chair for Fundamentals of Natural Language Processing,\n
+        University of Bamberg \n
         antonia-frederieke.fuchs@stud.uni-bamberg.de
         """)
         
