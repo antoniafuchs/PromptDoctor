@@ -1,13 +1,25 @@
-from datetime import datetime  # Import the datetime class directly
+from datetime import datetime, timezone  # Updated to include timezone
 import json
 import os
 import re
 import pandas as pd
-import streamlit as st  # Replace 'from turtle import st'
+import streamlit as st
 from typing import List, Dict
 import difflib
 import uuid
+import logging
 from utils.data_storage import DataStorage
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs', 'app.log'))
+    ]
+)
+logger = logging.getLogger('promptdoctor')
 
 class EnhancedLogger:
     def __init__(self):
@@ -18,21 +30,21 @@ class EnhancedLogger:
     def _log_to_file(self, message: str) -> None:
         """Write a log message to the error log file"""
         try:
-            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            timestamp = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
             log_file = os.path.join(self.log_dir, 'error_log.txt')
             with open(log_file, 'a') as f:
                 f.write(f"[{timestamp}] {message}\n")
         except Exception as e:
             # Last resort fallback - print to console
-            print(f"Error writing to log file: {str(e)}")
-            print(f"Original message: {message}")
+            logger.error(f"Error writing to log file: {str(e)}")
+            logger.error(f"Original message: {message}")
     
     def log_user_session(self, user_id: str, group: str, survey_data: dict):
         """Log user session data including initial survey responses"""
         user_data = {
             'user_id': user_id,
             'group': group,
-            'login_time': datetime.now().isoformat(),
+            'login_time': datetime.now(timezone.utc).isoformat(),
             **survey_data
         }
         self.storage.log_user(user_data)
@@ -46,7 +58,7 @@ class EnhancedLogger:
             'event_type': 'TASK_COMPLETION',
             'user_id': user_id,
             'task_id': task_id,
-            'timestamp': datetime.now().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'survey_data': survey_data,
             'duration': duration,
             'model_type': kwargs.get('model_type', st.session_state.get('selected_model_type', 'unknown')),
@@ -70,7 +82,7 @@ class EnhancedLogger:
             )
         except Exception as e:
             self._log_to_file(f"Error logging task completion: {str(e)}")
-            print(f"Error logging task completion: {str(e)}")
+            logger.error(f"Error logging task completion: {str(e)}")
 
     def log_interaction(self, user_id, action_type, **kwargs):
         """Log a user interaction with enhanced data"""
@@ -80,7 +92,7 @@ class EnhancedLogger:
             'action': action_type,
             'user_id': user_id,
             'task_id': kwargs.get('task_id', st.session_state.get('current_task', 0)),
-            'timestamp': datetime.now().isoformat(),  # Fixed datetime usage
+            'timestamp': datetime.now(timezone.utc).isoformat(),  # Using UTC timezone
             'user_prompt': kwargs.get('user_prompt', ''),
             'model_output': kwargs.get('model_output', ''),
             'model_type': kwargs.get('model_type', st.session_state.get('selected_model_type', 'unknown')),
@@ -142,7 +154,7 @@ class EnhancedLogger:
         validation_data = {
             'user_id': user_id,
             'task_id': task_id,
-            'timestamp': datetime.now().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'action_type': action_type,
             'original_prompt': original_prompt,
             'modified_prompt': modified_prompt,
@@ -171,7 +183,7 @@ class EnhancedLogger:
     def log_final_survey(self, user_id: str, survey_data: dict):
         """Log final survey responses"""
         # Flatten nested survey data
-        flattened_data = {'user_id': user_id}
+        flattened_data = {'user_id': user_id, 'timestamp': datetime.now(timezone.utc).isoformat()}
         for section, items in survey_data.items():
             if isinstance(items, dict):
                 for key, value in items.items():
@@ -193,7 +205,7 @@ class EnhancedLogger:
             # Format feedback data
             feedback_data = {
                 'feedback_value': feedback_value,
-                'timestamp': datetime.now().isoformat()
+                'timestamp': datetime.now(timezone.utc).isoformat()
             }
             
             # Save feedback using the dedicated method
@@ -208,19 +220,19 @@ class EnhancedLogger:
                 'original_prompt': prompt,
                 'model_response': response,
                 'feedback': feedback_value,
-                'feedback_timestamp': datetime.now().isoformat(),
-                'timestamp': datetime.now().isoformat()
+                'feedback_timestamp': datetime.now(timezone.utc).isoformat(),
+                'timestamp': datetime.now(timezone.utc).isoformat()
             })
             
         except Exception as e:
             # Use the _log_to_file method to log the error
             self._log_to_file(f"Error logging feedback: {str(e)}")
-            print(f"Error logging feedback: {str(e)}")
+            logger.error(f"Error logging feedback: {str(e)}")
             
     def log_task_duration(self, user_id: str, task_id: int, duration: float) -> None:
         """Log task duration"""
         log_data = {
-            "timestamp": datetime.now().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "user_id": user_id,
             "action_type": "TASK_DURATION",
             "task_id": task_id,
@@ -254,7 +266,7 @@ def log_validation_action(user_id, action_type, original_prompt, highlighted_ter
         'action': action_type,
         'user_id': user_id,
         'task_id': task_id,
-        'timestamp': datetime.now().isoformat(),  # Using datetime class directly
+        'timestamp': datetime.now(timezone.utc).isoformat(),  # Using UTC timezone
         'original_prompt': original_prompt,
         'modified_prompt': modified_prompt,
         'highlighted_terms': highlighted_terms,
@@ -275,7 +287,7 @@ def log_validation_action(user_id, action_type, original_prompt, highlighted_ter
         # Use save_unified_prompt_data instead of save_validation_log
         storage.save_unified_prompt_data(log_data)
     except Exception as e:
-        print(f"Error logging validation action: {str(e)}")
+        logger.error(f"Error logging validation action: {str(e)}")
         
     return log_data
 
@@ -290,13 +302,6 @@ def log_feedback(*args, **kwargs):
 
 def log_task_duration(user_id: str, task_id: int, duration: float) -> None:
     """Log task duration"""
-    log_data = {
-        "timestamp": datetime.now().isoformat(),
-        "user_id": user_id,
-        "action_type": "TASK_DURATION",
-        "task_id": task_id,
-        "duration": duration
-    }
     enhanced_logger.log_task_duration(user_id, task_id, duration)
 
 def log_lime_explanation(
@@ -308,16 +313,6 @@ def log_lime_explanation(
     duration: float = None
 ) -> None:
     """Log LIME explanation results"""
-    log_data = {
-        "timestamp": datetime.now().isoformat(),
-        "user_id": user_id,
-        "action_type": "LIME_EXPLANATION",
-        "task_id": task_id,
-        "prompt": prompt,
-        "model_type": model_type,
-        "duration": duration,
-        "explanation": explanation_data
-    }
     enhanced_logger.log_interaction(
         user_id=user_id, 
         action_type="LIME_EXPLANATION",
@@ -357,13 +352,16 @@ def log_user_interaction(
     timestamp: datetime = None
 ) -> None:
     """Log generic user interaction"""
+    if timestamp is None:
+        timestamp = datetime.now(timezone.utc)
     enhanced_logger.log_interaction(
         user_id=user_id,
         action_type=action_type,
         additional_data=metadata,
-        timestamp=timestamp
+        timestamp=timestamp.isoformat() if isinstance(timestamp, datetime) else timestamp
     )
 
+# Helper functions for diff generation and analysis
 def _generate_diff(original: str, modified: str) -> str:
     """Generate a human-readable diff between two strings"""
     diff = difflib.ndiff(original.splitlines(keepends=True), 

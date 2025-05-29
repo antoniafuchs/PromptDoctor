@@ -120,6 +120,17 @@ def show_logout_survey():
     # Show only goodbye messages if logged out
     if st.session_state.logged_out:
         st.success("Thank you for your participation! You can now close this window.")
+        
+        st.markdown("""
+        ### Contact
+        
+        If you have any further questions or would like to withdraw your data, please contact:
+        
+        Antonia Fuchs  
+        Chair for Fundamentals of Natural Language Processing,\n University of Bamberg\n  
+        antonia-frederieke.fuchs@stud.uni-bamberg.de
+        """)
+        
         return
 
     # Initialize survey with multiple pages
