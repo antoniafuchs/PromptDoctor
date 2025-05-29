@@ -240,7 +240,7 @@ def save_feedback(index):
     try:
         # Ensure the index is valid
         if index >= len(st.session_state.messages):
-            print(f"[ERROR] Invalid message index for feedback: {index}")
+            logger.error(f"Invalid message index for feedback: {index}")
             return
             
         # Get the message and message ID
@@ -255,7 +255,7 @@ def save_feedback(index):
             
         # Get feedback value from session state
         if f"feedback_{index}" not in st.session_state:
-            print(f"[WARNING] No feedback value found for index {index}")
+            logger.warning(f"No feedback value found for index {index}")
             return
             
         feedback_value = st.session_state[f"feedback_{index}"]
@@ -271,21 +271,39 @@ def save_feedback(index):
         st.session_state.message_feedback[index] = feedback_value
         st.session_state[f"feedback_{index}_submitted"] = True
         
-        # Log the feedback
+        # Find the associated prompt and response
+        # We need to find the user message that preceded this assistant message
+        prompt = ""
+        if index > 0 and message["role"] == "assistant":
+            # Find the most recent user message
+            for i in range(index-1, -1, -1):
+                if st.session_state.messages[i]["role"] == "user":
+                    prompt = st.session_state.messages[i].get("raw_content", st.session_state.messages[i].get("content", ""))
+                    break
+        else:
+            # If this is not an assistant message, use the current message content as prompt
+            prompt = message.get("raw_content", message.get("content", ""))
+        
+        # Get the response if this is an assistant message
+        response = message.get("content", "") if message["role"] == "assistant" else ""
+        
+        # Log the feedback with prompt and response context
         try:
             log_feedback(
                 user_id=st.session_state.user_id,
                 task_id=st.session_state.current_task,
                 message_id=message_id,
                 feedback_value=feedback_value,
-                prompt=message.get("raw_content", message.get("content")),
-                response=message.get("content")
+                prompt=prompt,
+                response=response
             )
-            print(f"[INFO] Feedback logged successfully for message {index}: {feedback_value}")
+            logger.info(f"Feedback logged successfully for message {index}: {feedback_value}")
+            logger.debug(f"Prompt excerpt: {prompt[:50]}...")
+            logger.debug(f"Response excerpt: {response[:50]}...")
         except Exception as e:
-            print(f"Error in feedback logging: {str(e)}")
+            logger.error(f"Error in feedback logging: {str(e)}")
     except Exception as e:
-        print(f"Error in save_feedback: {str(e)}")
+        logger.error(f"Error in save_feedback: {str(e)}")
         # Continue without disrupting the app
 
 def process_prompt(prompt, response_placeholder):
@@ -970,5 +988,61 @@ def show_chatbot():
             st.session_state.stage = "user"
             st.session_state.pending_prompt = None
             st.rerun()
+
+    # Add this to the task completion handling section:
+
+    def on_task_complete():
+        """Handle task completion"""
+        try:
+            current_task = st.session_state.current_task
+            
+            # Calculate task duration if start time is available
+            task_duration = 0
+            if hasattr(st.session_state, f'task_{current_task}_start_time'):
+                start_time = getattr(st.session_state, f'task_{current_task}_start_time')
+                end_time = datetime.now()
+                task_duration = (end_time - start_time).total_seconds()
+            
+            # Complete current task
+            if 'task_manager' in st.session_state:
+                logger.info(f"Completing task {current_task} with duration {task_duration}")
+                st.session_state.task_manager.complete_task(
+                    task_id=current_task,
+                    user_id=st.session_state.user_id,
+                    duration=task_duration,
+                    group=st.session_state.get('group', None)
+                )
+            else:
+                logger.error("Task manager not found in session state")
+            
+            # Add to completed tasks list if not already there
+            if current_task not in st.session_state.task_completed:
+                st.session_state.task_completed.append(current_task)
+            
+            # Increment to next task if not already at max
+            if current_task < st.session_state.task_manager.total_tasks:
+                next_task = current_task + 1
+                st.session_state.current_task = next_task
+                
+                # Set start time for next task
+                setattr(st.session_state, f'task_{next_task}_start_time', datetime.now())
+                
+                # Start next task
+                st.session_state.task_manager.start_task(
+                    task_id=next_task,
+                    user_id=st.session_state.user_id,
+                    group=st.session_state.get('group', None)
+                )
+                logger.info(f"Started new task {next_task}")
+            else:
+                logger.info(f"All tasks completed for user {st.session_state.user_id}")
+                st.session_state.all_tasks_completed = True
+                
+            # Rerun to refresh UI
+            st.rerun()
+            
+        except Exception as e:
+            logger.error(f"Error in on_task_complete: {str(e)}")
+            # Continue without disrupting the app
 
 show_chatbot()

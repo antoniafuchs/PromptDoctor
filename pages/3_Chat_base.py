@@ -246,14 +246,30 @@ def save_feedback(index):
     st.session_state.message_feedback[index] = feedback_value
     st.session_state[f"feedback_{index}_submitted"] = True
     
-    # Log the feedback
+    # Find the associated prompt and response
+    # We need to find the user message that preceded this assistant message
+    prompt = ""
+    if index > 0 and message["role"] == "assistant":
+        # Find the most recent user message
+        for i in range(index-1, -1, -1):
+            if st.session_state.messages[i]["role"] == "user":
+                prompt = st.session_state.messages[i].get("raw_content", st.session_state.messages[i].get("content", ""))
+                break
+    else:
+        # If this is not an assistant message, use the current message content as prompt
+        prompt = message.get("raw_content", message.get("content", ""))
+    
+    # Get the response if this is an assistant message
+    response = message.get("content", "") if message["role"] == "assistant" else ""
+    
+    # Log the feedback with both prompt and response for better context
     log_feedback(
         user_id=st.session_state.user_id,
         task_id=st.session_state.current_task,
         message_id=message_id,
         feedback_value=feedback_value,
-        prompt=message.get("raw_content", message.get("content")),
-        response=message.get("content")
+        prompt=prompt,
+        response=response
     )
 
 def process_prompt(prompt, response_placeholder):

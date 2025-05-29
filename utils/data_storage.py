@@ -1004,8 +1004,13 @@ class DataStorage:
             # Ensure the feedback directory exists
             os.makedirs(self.feedback_dir, exist_ok=True)
             
+            # Create a filename that includes part of the prompt/response hash for uniqueness
+            prompt_hash = ""
+            if 'original_prompt' in feedback_data and feedback_data['original_prompt']:
+                prompt_hash = str(hash(feedback_data['original_prompt']))[-8:]
+            
             # Create a JSON file for this feedback
-            feedback_file = os.path.join(self.feedback_dir, f"{user_id}_{message_id}.json")
+            feedback_file = os.path.join(self.feedback_dir, f"{user_id}_{prompt_hash}_{message_id}.json")
             
             # Add metadata
             feedback_data.update({
@@ -1023,7 +1028,15 @@ class DataStorage:
             if not os.path.exists(feedback_log):
                 with open(feedback_log, 'w', newline='') as f:
                     writer = csv.writer(f, delimiter=';')
-                    writer.writerow(['user_id', 'message_id', 'feedback_value', 'timestamp'])
+                    writer.writerow(['user_id', 'message_id', 'feedback_value', 'timestamp', 'prompt_hash', 'prompt_excerpt', 'response_excerpt'])
+            
+            # Create prompt and response excerpts for the feedback log
+            prompt_excerpt = ""
+            response_excerpt = ""
+            if 'original_prompt' in feedback_data and feedback_data['original_prompt']:
+                prompt_excerpt = feedback_data['original_prompt'][:100].replace('\n', ' ')
+            if 'model_response' in feedback_data and feedback_data['model_response']:
+                response_excerpt = feedback_data['model_response'][:100].replace('\n', ' ')
             
             # Append to the feedback log
             with open(feedback_log, 'a', newline='') as f:
@@ -1032,10 +1045,13 @@ class DataStorage:
                     user_id,
                     message_id,
                     feedback_data.get('feedback_value', ''),
-                    feedback_data.get('timestamp', datetime.now().isoformat())
+                    feedback_data.get('timestamp', datetime.now().isoformat()),
+                    prompt_hash,
+                    prompt_excerpt,
+                    response_excerpt
                 ])
                 
-            self._log_storage_event(f"Saved feedback for user {user_id}, message {message_id}")
+            self._log_storage_event(f"Saved feedback for user {user_id}, message {message_id}, prompt hash {prompt_hash}")
             return True
         except Exception as e:
             error_msg = f"Error saving feedback: {str(e)}\n{traceback.format_exc()}"

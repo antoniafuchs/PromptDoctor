@@ -1,26 +1,13 @@
 from typing import List, Set
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
+import logging
+import re
+import Levenshtein
+from .highlight_metrics import HighlightMetrics
 
-try:
-    from Levenshtein import distance as levenshtein_distance
-except ImportError:
-    def levenshtein_distance(s1: str, s2: str) -> int:
-        """Simple Levenshtein distance implementation as fallback"""
-        if len(s1) < len(s2):
-            return levenshtein_distance(s2, s1)
-        if len(s2) == 0:
-            return len(s1)
-        previous_row = range(len(s2) + 1)
-        for i, c1 in enumerate(s1):
-            current_row = [i + 1]
-            for j, c2 in enumerate(s2):
-                insertions = previous_row[j + 1] + 1
-                deletions = current_row[j] + 1
-                substitutions = previous_row[j] + (c1 != c2)
-                current_row.append(min(insertions, deletions, substitutions))
-            previous_row = current_row
-        return previous_row[-1]
+# Configure logging
+logger = logging.getLogger(__name__)
 
 @dataclass
 class PromptMetricsData:
@@ -36,73 +23,103 @@ class PromptMetricsData:
     edit_distance: float = 0.0
     diff_type: str = None
     medical_term_count: int = 0
-    highlighted_terms: List[str] = None
+    highlighted_terms: List[str] = field(default_factory=list)
+    coverage_percentage: float = 0.0
+    highlight_type: str = None
 
 class PromptMetrics:
-    def calculate_normalized_levenshtein(self, s1: str, s2: str) -> float:
-        """Calculate normalized Levenshtein distance between two strings"""
-        if not s1 or not s2:
-            return 0.0
-        max_len = max(len(s1), len(s2))
-        if max_len == 0:
-            return 0.0
-        return levenshtein_distance(s1, s2) / max_len
-
-    def count_words(self, text: str) -> int:
-        """Count words in a text string"""
-        return len(text.split())
-
-    def analyze_prompts(self, prompts: List[str], task_id: int = None, user_id: str = None, group: str = None) -> PromptMetricsData:
-        """Analyze a list of prompts and return metrics"""
-        if not prompts:
-            return PromptMetricsData(0, "", "", 0.0, 0, datetime.now(), task_id, user_id, group)
-
-        first_prompt = prompts[0]
-        last_prompt = prompts[-1]
-        
-        # Calculate additional metrics for enhanced tracking
-        medical_terms = self._extract_medical_terms(last_prompt)
-        
-        return PromptMetricsData(
-            prompt_count=len(prompts),
-            first_prompt=first_prompt,
-            last_prompt=last_prompt,
-            levenshtein_distance=self.calculate_normalized_levenshtein(first_prompt, last_prompt),
-            word_count=self.count_words(last_prompt),
-            timestamp=datetime.now(),
-            task_id=task_id,
-            user_id=user_id,
-            group=group,
-            edit_distance=self.calculate_normalized_levenshtein(first_prompt, last_prompt),
-            diff_type=self._determine_diff_type(first_prompt, last_prompt),
-            medical_term_count=len(medical_terms),
-            highlighted_terms=list(medical_terms)
-        )
-
-    def _extract_medical_terms(self, text: str) -> Set[str]:
-        """Extract medical terms from text using the medical processor"""
-        from utils.medical_processor import MedicalTermProcessor
-        processor = MedicalTermProcessor()
-        words = text.lower().split()
-        return {word for word in words if word in processor.medical_terms}
-
-    def _determine_diff_type(self, first: str, last: str) -> str:
-        """Determine the type of difference between original and modified text"""
-        if first == last:
-            return "unchanged"
+    """Calculate and track metrics for user prompts"""
+    
+    def __init__(self):
+        self.highlight_metrics = HighlightMetrics()
+    
+    def calculate_metrics(self, prompts: List[str], task_id: int = None, 
+                         user_id: str = None, group: str = None) -> PromptMetricsData:
+        """Calculate metrics for a list of prompts"""
+        try:
+            if not prompts:
+                logger.warning("Empty prompts list provided for metrics calculation")
+                return PromptMetricsData(
+                    prompt_count=0,
+                    first_prompt="",
+                    last_prompt="",
+                    levenshtein_distance=0,
+                    word_count=0,
+                    timestamp=datetime.now(),
+                    task_id=task_id,
+                    user_id=user_id,
+                    group=group
+                )
+                
+            # Basic metrics
+            prompt_count = len(prompts)
+            first_prompt = prompts[0]
+            last_prompt = prompts[-1]
             
-        # Calculate word counts
-        first_words = set(first.lower().split())
-        last_words = set(last.lower().split())
-        
-        added = last_words - first_words
-        removed = first_words - last_words
-        
-        if added and removed:
-            return "substitution"
-        elif added:
-            return "addition"
-        elif removed:
-            return "deletion"
-        else:
-            return "reformulation"  # Same words but different structure
+            # Calculate Levenshtein distance between first and last prompts
+            if prompt_count > 1:
+                lev_distance = Levenshtein.distance(first_prompt, last_prompt)
+                # Normalize by the length of the longer string
+                max_len = max(len(first_prompt), len(last_prompt))
+                lev_distance_normalized = lev_distance / max_len if max_len > 0 else 0
+            else:
+                lev_distance_normalized = 0
+                
+            # Calculate word count of the last prompt
+            word_count = len(re.findall(r'\b\w+\b', last_prompt))
+            
+            # Calculate edit distance (relative change in length)
+            if prompt_count > 1 and len(first_prompt) > 0:
+                length_change = abs(len(last_prompt) - len(first_prompt))
+                edit_distance = length_change / len(first_prompt)
+                
+                # Determine diff type
+                if len(last_prompt) > len(first_prompt):
+                    diff_type = "expansion"
+                elif len(last_prompt) < len(first_prompt):
+                    diff_type = "reduction"
+                else:
+                    diff_type = "modification"
+            else:
+                edit_distance = 0
+                diff_type = "initial"
+                
+            # Calculate highlighted terms coverage if task_id is provided
+            highlight_data = {}
+            if task_id is not None:
+                highlight_data = self.highlight_metrics.calculate_coverage(task_id, last_prompt)
+                
+            metrics = PromptMetricsData(
+                prompt_count=prompt_count,
+                first_prompt=first_prompt,
+                last_prompt=last_prompt,
+                levenshtein_distance=lev_distance_normalized,
+                word_count=word_count,
+                timestamp=datetime.now(),
+                task_id=task_id,
+                user_id=user_id,
+                group=group,
+                edit_distance=edit_distance,
+                diff_type=diff_type,
+                medical_term_count=highlight_data.get('total_terms', 0),
+                highlighted_terms=highlight_data.get('matched_terms', []),
+                coverage_percentage=highlight_data.get('coverage_percentage', 0),
+                highlight_type=highlight_data.get('highlight_type', None)
+            )
+            
+            return metrics
+            
+        except Exception as e:
+            logger.error(f"Error calculating prompt metrics: {str(e)}")
+            # Return basic metrics data with timestamp
+            return PromptMetricsData(
+                prompt_count=len(prompts) if prompts else 0,
+                first_prompt=prompts[0] if prompts else "",
+                last_prompt=prompts[-1] if prompts else "",
+                levenshtein_distance=0,
+                word_count=0,
+                timestamp=datetime.now(),
+                task_id=task_id,
+                user_id=user_id,
+                group=group
+            )

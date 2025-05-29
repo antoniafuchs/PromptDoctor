@@ -67,7 +67,7 @@ class EnhancedLogger:
                 diagnostic_info["files_check"][file_name] = {
                     "exists": exists,
                     "size": os.path.getsize(file_path) if exists else 0,
-                    "writable": os.access(file_path, os.W_OK) if exists else False,
+                    "wable": os.access(file_path, os.W_OK) if exists else False,
                     "last_modified": datetime.fromtimestamp(os.path.getmtime(file_path)).isoformat() if exists else None
                 }
             
@@ -245,7 +245,9 @@ class EnhancedLogger:
             # Format feedback data
             feedback_data = {
                 'feedback_value': feedback_value,
-                'timestamp': datetime.now(timezone.utc).isoformat()
+                'timestamp': datetime.now(timezone.utc).isoformat(),
+                'original_prompt': prompt,  # Store the original prompt
+                'model_response': response  # Store the model response
             }
             
             # Create storage instance
@@ -257,9 +259,9 @@ class EnhancedLogger:
                 'user_id': user_id,
                 'task_id': task_id,
                 'action_type': 'FEEDBACK',
-                'message_id': message_id,
+                'message_id': message_id,  # Keep for backward compatibility
                 'original_prompt': prompt,
-                'model_response': response,
+                'model_response': response,  # Include the full model response
                 'feedback': feedback_value,
                 'feedback_timestamp': datetime.now(timezone.utc).isoformat(),
                 'timestamp': datetime.now(timezone.utc).isoformat()
@@ -287,7 +289,11 @@ class EnhancedLogger:
                 emergency_log = os.path.join(log_dir, 'emergency_feedback.log')
                 with open(emergency_log, 'a') as f:
                     f.write(f"[{datetime.now(timezone.utc).isoformat()}] FEEDBACK ERROR: {error_msg}\n")
-                    f.write(f"DATA: user_id={user_id}, task_id={task_id}, message_id={message_id}, value={feedback_value}\n\n")
+                    f.write(f"DATA: user_id={user_id}, task_id={task_id}, message_id={message_id}, value={feedback_value}\n")
+                    if prompt:
+                        f.write(f"PROMPT: {prompt[:100]}...\n")
+                    if response:
+                        f.write(f"RESPONSE: {response[:100]}...\n\n")
             except:
                 pass
             
@@ -347,6 +353,64 @@ class EnhancedLogger:
                     f.write(f"USER: {user_id}\n")
                     json.dump(survey_data, f, indent=2)
                     f.write("\n\n")
+            except:
+                pass
+
+    def log_highlighted_terms(self, user_id: str, task_id: int, 
+                         prompt: str, highlighted_terms: List[str] = None) -> None:
+        """
+        Log highlighted terms data for analytics
+        
+        Args:
+            user_id: The user's ID
+            task_id: The current task ID
+            prompt: The prompt text
+            highlighted_terms: List of highlighted terms (if already extracted)
+        """
+        try:
+            # If highlighted terms aren't provided, extract them from prompt
+            if highlighted_terms is None:
+                from utils.medical_processor import MedicalTermProcessor
+                processor = MedicalTermProcessor()
+                highlighted_terms = processor.get_medical_terms(prompt)
+            
+            # Create interaction data
+            interaction_data = {
+                'user_id': user_id,
+                'task_id': task_id,
+                'action_type': 'HIGHLIGHT_TRACKING',
+                'timestamp': datetime.now(timezone.utc).isoformat(),
+                'original_prompt': prompt,
+                'highlighted_terms': highlighted_terms,
+                'term_count': len(highlighted_terms) if highlighted_terms else 0
+            }
+            
+            # Log as interaction
+            from utils.data_storage import DataStorage
+            storage = DataStorage()
+            storage.log_interaction(interaction_data)
+            
+            # Also log to HighlightMetrics for analytics
+            from tracking.highlight_metrics import HighlightMetrics
+            metrics = HighlightMetrics()
+            metrics.track_highlighted_terms(set(highlighted_terms), task_id)
+            
+            logger.info(f"Logged {len(highlighted_terms) if highlighted_terms else 0} highlighted terms for user {user_id}, task {task_id}")
+            
+        except Exception as e:
+            error_msg = f"Error logging highlighted terms: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            
+            # Try emergency direct logging as a last resort
+            try:
+                log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
+                os.makedirs(log_dir, exist_ok=True)
+                emergency_log = os.path.join(log_dir, 'emergency_highlights.log')
+                with open(emergency_log, 'a') as f:
+                    f.write(f"[{datetime.now(timezone.utc).isoformat()}] ERROR: {error_msg}\n")
+                    f.write(f"DATA: user_id={user_id}, task_id={task_id}\n")
+                    if prompt:
+                        f.write(f"PROMPT: {prompt[:100]}...\n\n")
             except:
                 pass
 

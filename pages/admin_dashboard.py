@@ -1233,9 +1233,85 @@ def render_feedback_tab(data):
                     
                     st.pyplot(fig)
             
-            # Raw feedback data
-            st.subheader("Raw Feedback Data")
-            st.dataframe(feedback_df, use_container_width=True)
+            # Raw feedback data with improved display of prompts and responses
+            st.subheader("Feedback Details")
+            
+            # Check if we have prompt/response excerpts
+            has_prompt_excerpt = "prompt_excerpt" in feedback_df.columns
+            has_response_excerpt = "response_excerpt" in feedback_df.columns
+            has_model_response = "model_response" in feedback_df.columns
+            has_original_prompt = "original_prompt" in feedback_df.columns
+            
+            # Create a display dataframe with relevant columns
+            display_columns = ["user_id", "task_id", feedback_column, "timestamp"]
+            
+            # Add prompt and response columns if available
+            if has_prompt_excerpt:
+                display_columns.append("prompt_excerpt")
+            elif has_original_prompt:
+                display_columns.append("original_prompt")
+                
+            if has_response_excerpt:
+                display_columns.append("response_excerpt") 
+            elif has_model_response:
+                display_columns.append("model_response")
+            
+            # Create a more user-friendly display dataframe
+            if has_prompt_excerpt or has_response_excerpt or has_original_prompt or has_model_response:
+                display_df = feedback_df[display_columns].copy()
+                
+                # Truncate long text fields for better display
+                for col in ["original_prompt", "model_response"]:
+                    if col in display_df.columns:
+                        display_df[col] = display_df[col].astype(str).apply(lambda x: x[:100] + "..." if len(x) > 100 else x)
+                
+                st.dataframe(display_df, use_container_width=True)
+                
+                # Add details expander for viewing full content
+                with st.expander("View Full Feedback Details"):
+                    selected_index = st.selectbox(
+                        "Select feedback item to view details:", 
+                        range(len(feedback_df)),
+                        format_func=lambda i: f"User: {feedback_df.iloc[i]['user_id']} - Task: {feedback_df.iloc[i]['task_id']} - Rating: {feedback_df.iloc[i][feedback_column]}"
+                    )
+                    
+                    selected_item = feedback_df.iloc[selected_index]
+                    
+                    col1, col2 = st.columns(2)
+                    
+                    with col1:
+                        st.subheader("Prompt")
+                        prompt_content = ""
+                        if has_original_prompt:
+                            prompt_content = selected_item.get("original_prompt", "")
+                        elif has_prompt_excerpt:
+                            prompt_content = selected_item.get("prompt_excerpt", "")
+                            
+                        st.text_area("", prompt_content, height=200)
+                        
+                    with col2:
+                        st.subheader("Response")
+                        response_content = ""
+                        if has_model_response:
+                            response_content = selected_item.get("model_response", "")
+                        elif has_response_excerpt:
+                            response_content = selected_item.get("response_excerpt", "")
+                            
+                        st.text_area("", response_content, height=200)
+                    
+                    # Display feedback value with appropriate styling
+                    feedback_val = selected_item[feedback_column]
+                    feedback_text = "Positive" if feedback_val > 0 else ("Negative" if feedback_val < 0 else "Neutral")
+                    feedback_color = "#4CAF50" if feedback_val > 0 else ("#F44336" if feedback_val < 0 else "#FFC107")
+                    
+                    st.markdown(f"""
+                    <div style="padding: 10px; background-color: {feedback_color}; color: white; border-radius: 5px; text-align: center; margin: 10px 0;">
+                        <h3 style="margin: 0;">Feedback: {feedback_text} ({feedback_val})</h3>
+                    </div>
+                    """, unsafe_allow_html=True)
+            else:
+                # If we don't have prompt/response data, just show the basic feedback info
+                st.dataframe(feedback_df, use_container_width=True)
     else:
         st.info("No feedback data available")
 

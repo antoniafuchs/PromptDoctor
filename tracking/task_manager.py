@@ -4,10 +4,14 @@ import streamlit as st
 import streamlit_survey as ss
 import inspect
 from datetime import datetime
+import logging
 from utils.data_storage import DataStorage  # Remove SurveyStorage import
 from utils.id_manager import get_or_create_unique_id
 from tracking.prompt_metrics import PromptMetrics
 from tracking.highlight_metrics import HighlightMetrics
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 # Update custom CSS to include black text color
 st.markdown("""
