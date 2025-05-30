@@ -1,9 +1,0 @@
-{
-  "feedback_value": 1,
-  "timestamp": "2025-05-30T10:14:59.383777+00:00",
-  "original_prompt": "task2 prompt1",
-  "model_response": "It seems like you've provided a prompt, but it lacks specific details or context. To better assist you, I'll need more information about the task or question you have in mind. \n\nCould you please provide more context or clarify what you are looking for? This will help me generate a more accurate and relevant response. \n\nIf you have a clinical note or medical case data you'd like me to analyze, or if you're seeking differential diagnoses or treatment recommendations, please provide the necessary details, and I'll do my best to assist you while adhering to clinical safety and evidence-based practices.",
-  "user_id": "acb26de6-558f-4091-9165-2f37486f04c6",
-  "message_id": "msg_1",
-  "saved_at": "2025-05-30T12:14:59.400146"
-}

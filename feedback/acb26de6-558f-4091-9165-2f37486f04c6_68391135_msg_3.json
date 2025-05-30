@@ -1,9 +1,0 @@
-{
-  "feedback_value": 0,
-  "timestamp": "2025-05-30T10:16:00.566342+00:00",
-  "original_prompt": "task2 prompt2 negative feedback",
-  "model_response": "It appears you're providing feedback related to a task, but the specifics of the task and the nature of the negative feedback are not clear. To provide a constructive response or to learn from the feedback, I would need more details.\n\nCould you please elaborate on the following:\n\n1. **Task Details**: What was the task about? Was it related to analyzing clinical notes, providing differential diagnoses, or something else?\n2. **Nature of Feedback**: What specifically was negative about the feedback? Was it related to the accuracy of the information, the clarity of the response, or something else?\n3. **Expected Outcome**: What were you expecting from the task, and how did the outcome differ from your expectations?\n\nWith more information, I can better understand the issue, address any shortcomings, and strive to improve my performance in a way that enhances the quality and relevance of the responses I provide.",
-  "user_id": "acb26de6-558f-4091-9165-2f37486f04c6",
-  "message_id": "msg_3",
-  "saved_at": "2025-05-30T12:16:00.581821"
-}

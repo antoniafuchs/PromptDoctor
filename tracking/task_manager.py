@@ -333,6 +333,17 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
         
         # Store the current prompt count in the session state for validation
         st.session_state['current_prompt_count'] = st.session_state.prompt_counts[task_number]
+        
+        # Generate a consistent message ID for this prompt
+        user_id = st.session_state.get('user_id', 'unknown')
+        user_prefix = user_id[:8] if user_id else "unknown"
+        prompt_count = st.session_state.prompt_counts[task_number]
+        message_id = f"{user_prefix}_task{task_number}_prompt{prompt_count}"
+        
+        # Store in session state for validation and tracking
+        st.session_state['current_message_id'] = message_id
+        
+        logger.info(f"Tracked prompt submission for task {task_number}, count: {prompt_count}, message_id: {message_id}")
 
     
     def can_proceed_to_next(self) -> bool:

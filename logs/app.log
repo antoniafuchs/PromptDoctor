@@ -1,549 +1,7 @@
-2025-05-29 10:16:55,755 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 10:17:43,961 - promptdoctor - ERROR - Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-2025-05-29 12:44:08,290 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 12:47:19,127 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 12:48:55,873 - promptdoctor - ERROR - Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-2025-05-29 12:49:15,513 - promptdoctor - ERROR - Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-2025-05-29 13:00:24,377 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 13:00:36,104 - promptdoctor - ERROR - Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-2025-05-29 13:01:03,625 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 13:26:46,131 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 13:27:16,909 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 13:37:20,906 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 13:37:57,433 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 13:45:58,976 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 13:46:48,323 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 14:55:23,046 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 14:55:23,047 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 14:55:23,047 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T12:55:23.047131+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81111,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:54.489867"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 166611,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:48.011517"
-    }
-  }
-}
-2025-05-29 14:56:09,386 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 14:57:53,784 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 14:57:53,784 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 14:57:53,784 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T12:57:53.784290+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81111,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:54.489867"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 166923,
-      "writable": true,
-      "last_modified": "2025-05-29T14:56:08.842388"
-    }
-  }
-}
-2025-05-29 14:58:50,916 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 14:59:40,293 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 15:00:36,811 - promptdoctor - INFO - Logging feedback: user=ebc27225-a0f6-4fe6-9579-8e8a5aa6790e, task=1, message=msg_1, value=1
-2025-05-29 15:00:36,842 - promptdoctor - INFO - Successfully logged feedback: message_id=msg_1, value=1
-2025-05-29 15:16:28,981 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 15:16:28,981 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 15:16:28,981 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T13:16:28.981297+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168024,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:36.842123"
-    }
-  }
-}
-2025-05-29 15:17:10,732 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:17:10,732 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:19:01,361 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:19:01,363 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:23:15,788 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:23:15,789 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:48:46,318 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 15:48:46,318 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 15:48:46,318 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T13:48:46.318305+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-2025-05-29 15:48:59,639 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:48:59,640 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:52:59,982 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:52:59,983 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:54:49,163 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 15:54:49,163 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 15:54:49,163 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T13:54:49.163674+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-2025-05-29 15:54:49,474 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:54:49,474 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:55:06,557 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:55:06,558 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:59:26,586 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:59:26,588 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:59:31,558 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 15:59:31,559 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:11,069 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:11,070 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:13,089 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:13,090 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:14,809 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:14,810 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:17,959 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:17,959 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:19,313 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:19,313 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:24,204 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:24,206 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:27,454 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:27,454 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:31,088 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:31,089 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:33,118 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:33,118 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:58,049 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:00:58,050 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:01:10,385 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:01:10,386 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:01:19,394 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:01:19,395 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:01:49,961 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:01:49,962 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:01:53,962 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:01:53,962 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:02:22,767 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:02:22,768 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:02:48,446 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:02:48,447 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:02:55,302 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:02:55,302 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:25,754 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:25,755 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:30,619 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:30,619 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:33,227 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:33,228 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:34,151 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:34,152 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:36,240 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:36,241 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:50,782 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:50,782 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:52,348 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:03:52,349 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:33:00,386 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 16:33:00,386 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 16:33:00,386 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T14:33:00.386202+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-2025-05-29 16:33:13,923 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:33:13,924 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:42:06,865 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 16:42:06,865 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 16:42:06,865 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T14:42:06.865229+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-2025-05-29 16:42:19,873 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:42:19,873 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:42:43,358 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:42:43,359 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:42:58,460 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:42:58,461 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:01,762 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:01,763 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:06,006 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:06,007 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:23,497 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:23,499 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:28,562 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:28,563 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:37,791 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:37,792 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:50,259 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:50,260 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:54,931 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:43:54,932 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:44:18,498 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:44:18,498 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:45:09,740 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 16:45:09,740 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 16:45:09,740 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T14:45:09.740663+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-2025-05-29 16:45:34,441 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:45:34,442 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:45:48,244 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:45:48,246 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:45:51,722 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:45:51,722 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:46:13,846 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 16:46:32,205 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:46:32,206 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:46:47,610 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:46:47,610 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:47:02,561 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:47:02,562 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:47:29,116 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:47:29,117 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:47:46,208 - promptdoctor - INFO - Logging feedback: user=1c7b985d-6ce9-4f79-97dd-8ebbffbefe0a, task=1, message=msg_1, value=1
-2025-05-29 16:47:46,234 - promptdoctor - INFO - Successfully logged feedback: message_id=msg_1, value=1
-2025-05-29 16:48:05,561 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:05,562 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:15,724 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:15,725 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:33,962 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:33,963 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:45,331 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:45,331 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:47,471 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:48:47,472 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:49:30,071 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:49:30,073 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:49:32,046 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:49:32,046 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:49:52,977 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:49:52,979 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:49:57,104 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:49:57,104 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:50:06,729 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:50:06,729 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:50:56,056 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:50:56,057 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:51:05,064 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:51:05,064 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:51:22,092 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 16:51:22,093 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
-2025-05-29 17:02:57,293 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 17:02:57,294 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 17:02:57,294 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T15:02:57.294109+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 83015,
-      "writable": true,
-      "last_modified": "2025-05-29T16:51:59.568889"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 170878,
-      "writable": true,
-      "last_modified": "2025-05-29T16:51:55.100575"
-    }
-  }
-}
-2025-05-29 17:03:11,774 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 17:03:27,946 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
-2025-05-29 17:03:27,951 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
-2025-05-29 17:03:30,037 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
-2025-05-29 17:03:30,041 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
-2025-05-29 17:03:30,047 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=9ad2f27a-686d-470e-a86a-b9dc80a5dc37, task_id=1
-2025-05-29 17:04:35,068 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 17:04:35,068 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 17:04:35,068 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T15:04:35.068255+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 85367,
-      "writable": true,
-      "last_modified": "2025-05-29T17:03:49.754939"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 171742,
-      "writable": true,
-      "last_modified": "2025-05-29T17:03:48.205585"
-    }
-  }
-}
-2025-05-29 17:04:48,690 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 20:41:36,369 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 20:41:36,369 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 20:41:36,369 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T18:41:36.369278+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 87147,
-      "writable": true,
-      "last_modified": "2025-05-29T17:05:24.262365"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 173157,
-      "writable": true,
-      "last_modified": "2025-05-29T17:05:20.164133"
-    }
-  }
-}
-2025-05-29 20:42:09,231 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-29 20:42:17,471 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
-2025-05-29 20:42:17,475 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
-2025-05-29 20:42:18,943 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
-2025-05-29 20:42:18,948 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
-2025-05-29 20:42:18,953 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=1
-2025-05-29 20:42:35,368 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
-2025-05-29 20:42:35,372 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
-2025-05-29 20:42:36,527 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
-2025-05-29 20:42:36,532 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
-2025-05-29 20:42:36,539 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=2
-2025-05-29 20:42:43,475 - promptdoctor - INFO - Logging feedback: user=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task=2, message=msg_1, value=1
-2025-05-29 20:42:43,506 - promptdoctor - INFO - Successfully logged feedback: message_id=msg_1, value=1
-2025-05-29 20:42:55,759 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
-2025-05-29 20:42:55,763 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
-2025-05-29 20:42:57,080 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
-2025-05-29 20:42:57,084 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
-2025-05-29 20:42:57,089 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
-2025-05-29 20:42:58,396 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
-2025-05-29 20:42:58,400 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
-2025-05-29 20:42:58,406 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ea1f6181-6676-4dbf-ad0e-cce7561f9164, task_id=3
-2025-05-29 20:43:08,226 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 20:43:08,226 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-29 20:43:08,226 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-29T18:43:08.226426+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 88927,
-      "writable": true,
-      "last_modified": "2025-05-29T20:42:51.647564"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 175280,
-      "writable": true,
-      "last_modified": "2025-05-29T20:42:48.592029"
-    }
-  }
-}
-2025-05-29 20:43:21,753 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-30 12:06:01,944 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:06:01,945 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:06:01,945 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-30T10:06:01.944862+00:00",
+2025-05-30 21:35:44,198 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:35:44,199 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:35:44,199 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T19:35:44.199132+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -554,33 +12,35 @@
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
       "size": 246,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943238"
+      "last_modified": "2025-05-30T21:35:44.198333"
     },
     "interactions.csv": {
       "exists": true,
       "size": 231,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943341"
+      "last_modified": "2025-05-30T21:35:44.198412"
     }
   }
 }
-2025-05-30 12:07:06,158 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-30 12:07:09,093 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
-2025-05-30 12:07:09,095 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
-2025-05-30 12:07:10,395 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
-2025-05-30 12:07:10,399 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
-2025-05-30 12:08:24,479 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
-2025-05-30 12:08:24,482 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
-2025-05-30 12:10:14,376 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:10:14,377 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:10:14,377 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-30T10:10:14.376934+00:00",
+2025-05-30 21:36:06,318 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-30 21:36:08,806 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:36:08,808 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:36:10,134 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:36:10,137 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:36:25,419 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:36:25,421 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:36:26,316 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:36:26,319 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:36:48,147 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:36:48,150 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:36:48,150 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T19:36:48.150437+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -591,84 +51,35 @@
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
-      "size": 830,
+      "size": 246,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.236313"
+      "last_modified": "2025-05-30T21:35:44.198333"
     },
     "interactions.csv": {
       "exists": true,
-      "size": 1559,
+      "size": 476,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.239269"
+      "last_modified": "2025-05-30T21:36:05.993252"
     }
   }
 }
-2025-05-30 12:10:25,598 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
-2025-05-30 12:10:25,600 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
-2025-05-30 12:10:26,600 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
-2025-05-30 12:10:26,603 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
-2025-05-30 12:10:34,207 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:10:34,207 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:10:34,207 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-30T10:10:34.207778+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 830,
-      "wable": true,
-      "last_modified": "2025-05-30T12:08:23.236313"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 1559,
-      "wable": true,
-      "last_modified": "2025-05-30T12:08:23.239269"
-    }
-  }
-}
-2025-05-30 12:10:53,062 - datasets - INFO - PyTorch version 2.6.0 available.
-2025-05-30 12:10:55,457 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
-2025-05-30 12:10:55,459 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
-2025-05-30 12:10:56,369 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
-2025-05-30 12:10:56,372 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
-2025-05-30 12:11:04,853 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:04,857 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:07,193 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:07,196 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:07,200 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:19,381 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:19,384 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:21,151 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:21,154 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:21,160 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:40,919 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:40,922 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:46,190 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:46,193 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:46,197 - promptdoctor - INFO - Validation action logged: EDIT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:51,359 - promptdoctor - INFO - Validation action logged: EDIT_UPDATE for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:51,591 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:51,595 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:52,925 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:52,928 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:11:52,931 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=1
-2025-05-30 12:12:05,121 - promptdoctor - INFO - Logging feedback: user=acb26de6-558f-4091-9165-2f37486f04c6, task=1, message=msg_5, value=1
-2025-05-30 12:12:05,133 - promptdoctor - ERROR - Error logging feedback: 'action_type'
+2025-05-30 21:37:01,598 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-30 21:37:03,932 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:37:03,934 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:37:04,956 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:37:04,959 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:37:32,211 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: 44a62729_task1_prompt1
+2025-05-30 21:37:32,479 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:32,486 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:33,996 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:34,002 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:34,009 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:39,150 - promptdoctor - INFO - Logging feedback: user=44a62729-693a-449b-95c7-3fb06bbea8a8, task=1, message=44a62729_task1_prompt0_response, value=1
+2025-05-30 21:37:39,163 - promptdoctor - ERROR - Error logging feedback: 'action_type'
 Traceback (most recent call last):
   File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
     return self._engine.get_loc(casted_key)
@@ -681,9 +92,9 @@ KeyError: 'action_type'
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/Users/antonia/Documents/PromptDoctor_Streamlit/tracking/logging.py", line 270, in log_feedback
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/tracking/logging.py", line 287, in log_feedback
     storage.log_interaction(interaction_data)
-  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 394, in log_interaction
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 395, in log_interaction
     (df['action_type'] == 'FEEDBACK')
   File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/frame.py", line 4102, in __getitem__
     indexer = self.columns.get_loc(key)
@@ -691,10 +102,94 @@ Traceback (most recent call last):
     raise KeyError(key) from err
 KeyError: 'action_type'
 
-2025-05-30 12:14:15,420 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:14:15,421 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:14:15,421 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-30T10:14:15.421158+00:00",
+2025-05-30 21:37:39,164 - __main__ - INFO - Feedback logged successfully for message 1: 1
+2025-05-30 21:37:39,164 - __main__ - INFO - Message ID: 44a62729_task1_prompt0_response, Response Message ID: 44a62729_task1_prompt0_response
+2025-05-30 21:37:44,768 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 2, message_id: 44a62729_task1_prompt2
+2025-05-30 21:37:45,024 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:45,030 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:46,610 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:46,616 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:46,622 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:58,132 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 3, message_id: 44a62729_task1_prompt3
+2025-05-30 21:37:58,394 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:37:58,401 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:38:00,181 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:38:00,188 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:38:00,194 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=1
+2025-05-30 21:38:05,496 - promptdoctor - INFO - Logging feedback: user=44a62729-693a-449b-95c7-3fb06bbea8a8, task=1, message=44a62729_task1_prompt1_response, value=0
+2025-05-30 21:38:05,502 - promptdoctor - ERROR - Error logging feedback: 'action_type'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'action_type'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/tracking/logging.py", line 287, in log_feedback
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 395, in log_interaction
+    (df['action_type'] == 'FEEDBACK')
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'action_type'
+
+2025-05-30 21:38:05,503 - __main__ - INFO - Feedback logged successfully for message 3: 0
+2025-05-30 21:38:05,503 - __main__ - INFO - Message ID: 44a62729_task1_prompt1_response, Response Message ID: 44a62729_task1_prompt1_response
+2025-05-30 21:38:06,912 - promptdoctor - INFO - Logging feedback: user=44a62729-693a-449b-95c7-3fb06bbea8a8, task=1, message=44a62729_task1_prompt2_response, value=1
+2025-05-30 21:38:06,919 - promptdoctor - ERROR - Error logging feedback: 'action_type'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'action_type'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/tracking/logging.py", line 287, in log_feedback
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 395, in log_interaction
+    (df['action_type'] == 'FEEDBACK')
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'action_type'
+
+2025-05-30 21:38:06,920 - __main__ - INFO - Feedback logged successfully for message 5: 1
+2025-05-30 21:38:06,920 - __main__ - INFO - Message ID: 44a62729_task1_prompt2_response, Response Message ID: 44a62729_task1_prompt2_response
+2025-05-30 21:38:26,705 - tracking.task_manager - INFO - Tracked prompt submission for task 2, count: 1, message_id: 44a62729_task2_prompt1
+2025-05-30 21:38:27,007 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:27,015 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:28,391 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:28,399 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:28,406 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:43,558 - tracking.task_manager - INFO - Tracked prompt submission for task 2, count: 2, message_id: 44a62729_task2_prompt2
+2025-05-30 21:38:43,825 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:43,832 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:45,384 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:45,392 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:38:45,400 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=2
+2025-05-30 21:39:17,441 - tracking.task_manager - INFO - Tracked prompt submission for task 3, count: 1, message_id: 44a62729_task3_prompt1
+2025-05-30 21:39:17,708 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=3
+2025-05-30 21:39:17,716 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=3
+2025-05-30 21:39:19,254 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=3
+2025-05-30 21:39:19,262 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=3
+2025-05-30 21:39:19,271 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8, task_id=3
+2025-05-30 21:41:00,282 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:41:00,283 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:41:00,283 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T19:41:00.283272+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -705,119 +200,22 @@ KeyError: 'action_type'
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
-      "size": 938,
+      "size": 2271,
       "wable": true,
-      "last_modified": "2025-05-30T12:10:58.019753"
+      "last_modified": "2025-05-30T21:39:28.845150"
     },
     "interactions.csv": {
       "exists": true,
-      "size": 2690,
+      "size": 3633,
       "wable": true,
-      "last_modified": "2025-05-30T12:12:02.345317"
+      "last_modified": "2025-05-30T21:39:28.850173"
     }
   }
 }
-2025-05-30 12:14:31,707 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:14:31,708 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:14:31,709 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-30T10:14:31.707862+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 938,
-      "wable": true,
-      "last_modified": "2025-05-30T12:10:58.019753"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 2690,
-      "wable": true,
-      "last_modified": "2025-05-30T12:12:02.345317"
-    }
-  }
-}
-2025-05-30 12:14:44,223 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:14:44,223 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
-2025-05-30 12:14:44,223 - promptdoctor - INFO - Storage verification on startup: {
-  "timestamp": "2025-05-30T10:14:44.223268+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 1661,
-      "wable": true,
-      "last_modified": "2025-05-30T12:14:35.282455"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 3248,
-      "wable": true,
-      "last_modified": "2025-05-30T12:14:31.859787"
-    }
-  }
-}
-2025-05-30 12:14:44,459 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:14:44,463 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:14:45,913 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:14:45,917 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:14:45,921 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:14:59,383 - promptdoctor - INFO - Logging feedback: user=acb26de6-558f-4091-9165-2f37486f04c6, task=2, message=msg_1, value=1
-2025-05-30 12:14:59,400 - promptdoctor - INFO - Successfully logged feedback: message_id=msg_1, value=1
-2025-05-30 12:14:59,400 - __main__ - INFO - Feedback logged successfully for message 1: 1
-2025-05-30 12:15:12,697 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:15:12,701 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:15:15,019 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:15:15,023 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:15:15,027 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=2
-2025-05-30 12:16:00,564 - promptdoctor - INFO - Logging feedback: user=acb26de6-558f-4091-9165-2f37486f04c6, task=2, message=msg_3, value=0
-2025-05-30 12:16:00,582 - promptdoctor - INFO - Successfully logged feedback: message_id=msg_3, value=0
-2025-05-30 12:16:00,582 - __main__ - INFO - Feedback logged successfully for message 3: 0
-2025-05-30 12:16:41,891 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:41,895 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:43,350 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:43,353 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:43,357 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:55,664 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:55,668 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:57,063 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:57,066 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:16:57,070 - promptdoctor - INFO - Validation action logged: EDIT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:00,854 - promptdoctor - INFO - Validation action logged: EDIT_UPDATE for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:01,079 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:01,083 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:02,371 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:02,375 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:02,378 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:24,373 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:24,377 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:28,200 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:28,203 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:17:28,207 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb26de6-558f-4091-9165-2f37486f04c6, task_id=3
-2025-05-30 12:18:14,899 - data_storage - INFO - Logging survey for user acb26de6-558f-4091-9165-2f37486f04c6
-2025-05-30 12:18:14,900 - data_storage - INFO - Created survey backup at /Users/antonia/Documents/PromptDoctor_Streamlit/logs/survey_backup_acb26de6-558f-4091-9165-2f37486f04c6_20250530_121814.json
-2025-05-30 12:18:14,900 - data_storage - INFO - Survey data saved successfully to /Users/antonia/Documents/PromptDoctor_Streamlit/data/surveys.csv
+2025-05-30 21:41:02,757 - data_storage - INFO - Logging survey for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8 with 34 fields
+2025-05-30 21:41:02,759 - data_storage - INFO - Survey saved successfully for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8
+2025-05-30 21:41:02,822 - data_storage - INFO - Chat history saved for user 44a62729-693a-449b-95c7-3fb06bbea8a8, task 3: 2 messages

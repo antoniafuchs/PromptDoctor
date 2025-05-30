@@ -236,30 +236,47 @@ class EnhancedLogger:
         self.storage.log_validation(validation_data)
 
     def log_feedback(self, user_id: str, task_id: int, message_id: str, 
-                feedback_value: int, prompt: str = None, response: str = None) -> None:
+              feedback_value: int, prompt: str = None, response: str = None,
+              response_message_id: str = None) -> None:
         """Log user feedback on model responses"""
         try:
             # Debug info for troubleshooting
             logger.info(f"Logging feedback: user={user_id}, task={task_id}, message={message_id}, value={feedback_value}")
+            
+            # Create a structured message ID if not provided
+            if not message_id or message_id.startswith("msg_"):
+                # Extract first 8 chars of user_id for the prefix
+                user_prefix = user_id[:8] if user_id else "unknown"
+                # Use incrementing number or current timestamp if not available
+                counter = datetime.now().strftime("%H%M%S")
+                message_id = f"{user_prefix}_task{task_id}_prompt{counter}"
+                logger.info(f"Generated structured message_id: {message_id}")
+            
+            # Create a structured response_message_id if not provided
+            if not response_message_id and response:
+                # Response message ID should link to the message it's responding to
+                response_message_id = f"{message_id}_response"
+                logger.info(f"Generated structured response_message_id: {response_message_id}")
             
             # Format feedback data
             feedback_data = {
                 'feedback_value': feedback_value,
                 'timestamp': datetime.now(timezone.utc).isoformat(),
                 'original_prompt': prompt,  # Store the original prompt
-                'model_response': response  # Store the model response
+                'model_response': response,  # Store the model response
+                'response_message_id': response_message_id  # Store explicit link to the response message
             }
             
             # Create storage instance
             storage = DataStorage()
             
             # Log as interaction directly without checking for existing feedback
-            # This avoids the need for get_message_feedback
             interaction_data = {
                 'user_id': user_id,
                 'task_id': task_id,
                 'action_type': 'FEEDBACK',
-                'message_id': message_id,  # Keep for backward compatibility
+                'message_id': message_id,  # ID of the message being rated
+                'response_message_id': response_message_id,  # ID of the response this feedback is for
                 'original_prompt': prompt,
                 'model_response': response,  # Include the full model response
                 'feedback': feedback_value,
@@ -290,6 +307,7 @@ class EnhancedLogger:
                 with open(emergency_log, 'a') as f:
                     f.write(f"[{datetime.now(timezone.utc).isoformat()}] FEEDBACK ERROR: {error_msg}\n")
                     f.write(f"DATA: user_id={user_id}, task_id={task_id}, message_id={message_id}, value={feedback_value}\n")
+                    f.write(f"RESPONSE_MESSAGE_ID: {response_message_id}\n")
                     if prompt:
                         f.write(f"PROMPT: {prompt[:100]}...\n")
                     if response:
@@ -532,10 +550,10 @@ def log_validation_action(user_id, action_type, original_prompt, highlighted_ter
     
     log_data = {
         'event_type': 'VALIDATION',
-        'action': action_type,
+        'action_type': action_type,  # Use action_type for validation.csv
         'user_id': user_id,
         'task_id': task_id,
-        'timestamp': datetime.now(timezone.utc).isoformat(),  # Using UTC timezone
+        'timestamp': datetime.now().isoformat(),
         'original_prompt': original_prompt,
         'modified_prompt': modified_prompt,
         'highlighted_terms': highlighted_terms,
@@ -546,15 +564,20 @@ def log_validation_action(user_id, action_type, original_prompt, highlighted_ter
         'model_name': kwargs.get('model_name', st.session_state.get('selected_model_name', 'unknown')),
         'group': kwargs.get('group', st.session_state.get('group', 'A')),
         'edit_distance': edit_distance,
-        'diff_type': diff_type
+        'diff_type': diff_type,
+        'reason_for_change': kwargs.get('reason_for_change', '')
     }
     
     try:
         from utils.data_storage import DataStorage
         storage = DataStorage()
         
-        # Use save_unified_prompt_data instead of save_validation_log
+        # Log validation first to ensure it's saved in validation.csv
+        storage.log_validation(log_data)
+        
+        # Also log to unified_prompt_data for comprehensive analysis
         storage.save_unified_prompt_data(log_data)
+        
         logger.info(f"Validation action logged: {action_type} for user_id={user_id}, task_id={task_id}")
     except Exception as e:
         error_msg = f"Error logging validation action: {str(e)}\n{traceback.format_exc()}"

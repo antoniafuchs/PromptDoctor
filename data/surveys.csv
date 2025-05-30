@@ -1,2 +1,2 @@
-user_id,timestamp,group,US_ease,US_clarity,US_reuse,TR_model_trust,TR_understanding,TR_current_trust,TR_explanations,FB_likes,FB_improvements,FB_clinical_yn,FB_clinical,FB_other,EX_edit_helpful,EX_edit_reason,EX_self_efficacy,EX_terms_useful,EX_refinement,EX_helpful,EX_reuse,EX_trust,EX_edit_understanding,EX_clarity,EX_edit_changed,EX_understanding
-""
+user_id;timestamp;group;US_ease;US_clarity;US_reuse;TR_model_trust;TR_understanding;TR_current_trust;TR_explanations;FB_likes;FB_improvements;FB_clinical_yn;FB_clinical;FB_other;EX_edit_helpful;EX_edit_reason;EX_self_efficacy;EX_terms_useful;EX_refinement;EX_helpful;EX_reuse;EX_trust;EX_edit_understanding;EX_clarity;EX_edit_changed;EX_understanding
+"44a62729-693a-449b-95c7-3fb06bbea8a8";"2025-05-30T21:41:02.754888";"B";3;3;3;3;3;3;3;"test";"test";"Unsure";"test";"test";3;"";3;3;3;3;3;3;3;3;"Not sure";3

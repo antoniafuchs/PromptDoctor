@@ -208,7 +208,8 @@ class DataStorage:
             filepath = os.path.join(self.data_dir, filename)
             if not os.path.exists(filepath):
                 with open(filepath, 'w', newline='') as f:
-                    writer = csv.writer(f)
+                    # Use semicolon as delimiter consistently for all files
+                    writer = csv.writer(f, delimiter=';')
                     writer.writerow(headers)
 
     def _calculate_edit_distance(self, original: str, modified: str) -> float:
@@ -383,10 +384,10 @@ class DataStorage:
             'highlighted_terms', 'term_count', 'diff_type', 'feedback',
             'feedback_timestamp', 'message_id', 'model_type', 
             'duration_typing', 'duration_generation', 'duration_queue_time',
-            'model_name', 'group'
+            'model_name', 'group', 'response_message_id'  # Added response_message_id
         ])
         
-        # For feedback actions, check if already exists
+        # For feedback actions, check if already exists by message_id and user_id
         if interaction_data.get('action_type') == 'FEEDBACK' and 'message_id' in interaction_data:
             existing = df[
                 (df['user_id'] == interaction_data['user_id']) & 
@@ -394,8 +395,20 @@ class DataStorage:
                 (df['action_type'] == 'FEEDBACK')
             ]
             if not existing.empty:
+                logger.info(f"Skipping duplicate feedback for message_id={interaction_data['message_id']}")
                 return  # Skip if feedback already exists
-        
+    
+        # Ensure message_id is always present with a structured format
+        if 'message_id' not in interaction_data or not interaction_data['message_id']:
+            user_id = interaction_data.get('user_id', '')
+            task_id = interaction_data.get('task_id', 0)
+            interaction_data['message_id'] = self.generate_structured_message_id(user_id, task_id)
+    
+        # Generate response_message_id for chat messages if needed
+        if (interaction_data.get('action_type') == 'CHAT' or 
+            interaction_data.get('action_type') == 'MODEL_OUTPUT') and 'response_message_id' not in interaction_data:
+            interaction_data['response_message_id'] = f"{interaction_data['message_id']}_response"
+    
         # Calculate diff_type if modified_prompt exists but diff_type not provided
         if ('modified_prompt' in interaction_data and 
             interaction_data['modified_prompt'] and 
@@ -427,10 +440,6 @@ class DataStorage:
                 interaction_data['feedback'] = feedback_map[interaction_data['feedback']]
             interaction_data['feedback_timestamp'] = datetime.now().isoformat()
         
-        # Ensure message_id is always present
-        if 'message_id' not in interaction_data:
-            interaction_data['message_id'] = str(uuid.uuid4())
-        
         # Ensure group is included if model_type is available
         if 'model_type' in interaction_data and 'group' not in interaction_data:
             interaction_data['group'] = interaction_data['model_type']
@@ -451,7 +460,7 @@ class DataStorage:
         
         # Also save to unified prompt data if it's a validation or prompt-related action
         if interaction_data.get('action_type') in ['VALIDATION_VIEW', 'EDIT_CLICK', 'EDIT_UPDATE', 'ACCEPT_CLICK', 
-                                                 'HIGHLIGHT_METRICS', 'PROMPT_METRICS']:
+                                                 'HIGHLIGHT_METRICS', 'PROMPT_METRICS', 'FEEDBACK']:
             self.save_unified_prompt_data(interaction_data)
 
     def log_validation(self, validation_data: Dict) -> None:
@@ -806,8 +815,16 @@ class DataStorage:
             elif isinstance(value, list):
                 cleaned_data[key] = ','.join(map(str, value))
             else:
+                # For text fields that might contain multiline content, replace newlines
+                if isinstance(value, str) and ('\n' in value or '\r' in value):
+                    value = value.replace('\n', ' ').replace('\r', ' ')
+                
+                # Replace semicolons with commas to avoid delimiter issues
+                if isinstance(value, str) and ';' in value:
+                    value = value.replace(';', ',')
+                
                 cleaned_data[key] = value
-        
+    
         data = cleaned_data
         
         # Create file with headers if it doesn't exist
@@ -848,18 +865,26 @@ class DataStorage:
             # If there are headers in the file, use them for writing
             if headers:
                 # Use a custom writer to handle special characters properly
-                writer = csv.DictWriter(f, fieldnames=headers, delimiter=';',
-                                  extrasaction='ignore', quoting=csv.QUOTE_MINIMAL)
-                # Ensure all string values are properly escaped
-                for key, val in filtered_data.items():
-                    if isinstance(val, str) and (';' in val or '"' in val):
-                        # Let the CSV module handle the escaping
-                        filtered_data[key] = val
+                writer = csv.DictWriter(
+                    f, 
+                    fieldnames=headers, 
+                    delimiter=';',
+                    extrasaction='ignore', 
+                    quoting=csv.QUOTE_NONNUMERIC,  # Quote all non-numeric fields
+                    quotechar='"',                 # Use double quotes for quoting
+                    escapechar='\\'                # Use backslash as escape character
+                )
                 writer.writerow(filtered_data)
             else:
                 # Otherwise use all data keys
-                writer = csv.DictWriter(f, fieldnames=data.keys(), delimiter=';',
-                                  quoting=csv.QUOTE_MINIMAL)
+                writer = csv.DictWriter(
+                    f, 
+                    fieldnames=data.keys(), 
+                    delimiter=';',
+                    quoting=csv.QUOTE_NONNUMERIC,  # Quote all non-numeric fields
+                    quotechar='"',                 # Use double quotes for quoting
+                    escapechar='\\'                # Use backslash as escape character
+                )
                 writer.writerow(data)
     
         return data
@@ -912,6 +937,24 @@ class DataStorage:
         if 'model_type' not in data and 'group' in data:
             data['model_type'] = data['group']
         
+        # Special handling for text fields that might contain newlines, quotes, or semicolons
+        text_fields = ['original_prompt', 'modified_prompt', 'model_response', 'last_prompt']
+        for field in text_fields:
+            if field in data and data[field] is not None:
+                # Make sure it's a string
+                if not isinstance(data[field], str):
+                    data[field] = str(data[field])
+                
+                # Replace semicolons with commas to avoid delimiter issues
+                data[field] = data[field].replace(';', ',')
+                
+                # Replace newlines with spaces
+                data[field] = data[field].replace('\n', ' ').replace('\r', ' ')
+                
+                # If the text is very long, truncate it to a reasonable length
+                if len(data[field]) > 1000:
+                    data[field] = data[field][:997] + "..."
+    
         # Append new data
         new_row = pd.DataFrame([data])
         
@@ -929,7 +972,16 @@ class DataStorage:
         # Save to CSV
         try:
             prompt_data_path = os.path.join(self.data_dir, 'unified_prompts.csv')
-            self.prompt_df.to_csv(prompt_data_path, index=False, sep=';')
+            
+            # Use pandas' built-in quoting mechanism to handle fields with special characters
+            self.prompt_df.to_csv(
+                prompt_data_path, 
+                index=False, 
+                sep=';', 
+                quoting=csv.QUOTE_NONNUMERIC,  # Quote all non-numeric fields
+                quotechar='"',                 # Use double quotes for quoting
+                escapechar='\\'                # Use backslash as escape character
+            )
         except Exception as e:
             print(f"Error saving prompt data: {e}")
             
@@ -999,216 +1051,153 @@ class DataStorage:
             return None
     
     def save_feedback(self, user_id: str, message_id: str, feedback_data: Dict) -> bool:
-        """Save feedback data for a specific message"""
+        """Save feedback data for a specific message."""
         try:
+            import os
+            import json
+            import csv
+            import traceback
+            from datetime import datetime
+            import pandas as pd
+
             # Ensure the feedback directory exists
             os.makedirs(self.feedback_dir, exist_ok=True)
-            
-            # Create a filename that includes part of the prompt/response hash for uniqueness
-            prompt_hash = ""
-            if 'original_prompt' in feedback_data and feedback_data['original_prompt']:
-                prompt_hash = str(hash(feedback_data['original_prompt']))[-8:]
-            
-            # Create a JSON file for this feedback
-            feedback_file = os.path.join(self.feedback_dir, f"{user_id}_{prompt_hash}_{message_id}.json")
-            
-            # Add metadata
+
+            # Initialize placeholders
+            model_output = None
+            model_prompt = None
+            response_timestamp = None
+            interaction_filepath = os.path.join(self.data_dir, 'interactions.csv')
+
+            # Try to extract model output and prompt from interactions.csv
+            if os.path.exists(interaction_filepath):
+                try:
+                    interactions_df = pd.read_csv(interaction_filepath, sep=';')
+                    message_row = interactions_df[interactions_df['message_id'] == message_id]
+
+                    if not message_row.empty:
+                        # Found the exact message
+                        row = message_row.iloc[0]
+                        model_output = row.get('model_output')
+                        model_prompt = row.get('user_prompt')
+                        response_timestamp = row.get('timestamp')
+                        logger.info(f"Found exact message match for feedback: {message_id}")
+                    else:
+                        # Try to find the following model response
+                        user_messages = interactions_df[
+                            (interactions_df['user_id'] == user_id) & 
+                            (interactions_df['action_type'] == 'CHAT')
+                        ].sort_values('timestamp')
+
+                        for idx in range(len(user_messages) - 1):
+                            if user_messages.iloc[idx]['message_id'] == message_id:
+                                next_row = user_messages.iloc[idx + 1]
+                                model_output = next_row.get('model_output')
+                                model_prompt = next_row.get('user_prompt')
+                                response_timestamp = next_row.get('timestamp')
+                                logger.info(f"Found model response following user message: {message_id}")
+                                break
+                except Exception as df_error:
+                    logger.warning(f"Error looking up model output for feedback: {str(df_error)}")
+
+            # Attach extra metadata to feedback
+            if pd.notna(model_output):
+                feedback_data['model_response'] = model_output
+            if pd.notna(model_prompt):
+                feedback_data['original_prompt'] = model_prompt
+            if pd.notna(response_timestamp):
+                feedback_data['response_timestamp'] = response_timestamp
+
+            # Compute a hash from the prompt for file uniqueness
+            prompt_hash = str(hash(feedback_data.get('original_prompt', '')))[-8:]
+
+            feedback_file = os.path.join(
+                self.feedback_dir, f"{user_id}_{prompt_hash}_{message_id}.json"
+            )
+
             feedback_data.update({
                 'user_id': user_id,
                 'message_id': message_id,
                 'saved_at': datetime.now().isoformat()
             })
-            
-            # Save the feedback data
+
             with open(feedback_file, 'w') as f:
                 json.dump(feedback_data, f, indent=2)
-                
-            # Also save to a consolidated feedback log
+
+            # Feedback log CSV
             feedback_log = os.path.join(self.data_dir, 'feedback.csv')
             if not os.path.exists(feedback_log):
                 with open(feedback_log, 'w', newline='') as f:
                     writer = csv.writer(f, delimiter=';')
-                    writer.writerow(['user_id', 'message_id', 'feedback_value', 'timestamp', 'prompt_hash', 'prompt_excerpt', 'response_excerpt'])
-            
-            # Create prompt and response excerpts for the feedback log
-            prompt_excerpt = ""
-            response_excerpt = ""
-            if 'original_prompt' in feedback_data and feedback_data['original_prompt']:
-                prompt_excerpt = feedback_data['original_prompt'][:100].replace('\n', ' ')
-            if 'model_response' in feedback_data and feedback_data['model_response']:
-                response_excerpt = feedback_data['model_response'][:100].replace('\n', ' ')
-            
-            # Append to the feedback log
+                    writer.writerow([
+                        'user_id', 'message_id', 'response_message_id', 'feedback_value',
+                        'timestamp', 'prompt_hash', 'prompt_excerpt', 'response_excerpt',
+                        'response_timestamp'
+                    ])
+
+            prompt_excerpt = (feedback_data.get('original_prompt') or '')[:100].replace('\n', ' ')
+            response_excerpt = (feedback_data.get('model_response') or '')[:100].replace('\n', ' ')
+
             with open(feedback_log, 'a', newline='') as f:
                 writer = csv.writer(f, delimiter=';')
                 writer.writerow([
                     user_id,
                     message_id,
+                    feedback_data.get('response_message_id', message_id),
                     feedback_data.get('feedback_value', ''),
                     feedback_data.get('timestamp', datetime.now().isoformat()),
                     prompt_hash,
                     prompt_excerpt,
-                    response_excerpt
+                    response_excerpt,
+                    feedback_data.get('response_timestamp', '')
                 ])
-                
+
+            # Log interaction for feedback
+            interaction_data = {
+                'user_id': user_id,
+                'action_type': 'FEEDBACK',
+                'message_id': message_id,
+                'original_prompt': feedback_data.get('original_prompt', ''),
+                'model_response': feedback_data.get('model_response', ''),
+                'feedback': feedback_data.get('feedback_value', ''),
+                'feedback_timestamp': datetime.now().isoformat(),
+                'timestamp': datetime.now().isoformat(),
+                'response_message_id': feedback_data.get('response_message_id', message_id),
+                'task_id': self._extract_task_id_from_message_id(message_id)
+            }
+
+            self.log_interaction(interaction_data)
             self._log_storage_event(f"Saved feedback for user {user_id}, message {message_id}, prompt hash {prompt_hash}")
             return True
+
         except Exception as e:
             error_msg = f"Error saving feedback: {str(e)}\n{traceback.format_exc()}"
             logger.error(error_msg)
             self._log_storage_event(error_msg, "ERROR")
             return False
 
-    def log_survey(self, survey_data: Dict) -> None:
-        """Log survey responses with improved error handling and data validation"""
-        # Debug incoming survey data
-        logger.info(f"Logging survey for user {survey_data.get('user_id', 'unknown')}")
-        self._log_storage_event(f"Logging survey for user {survey_data.get('user_id', 'unknown')}")
-        
-        # Track survey fields for debugging
-        text_fields = ['FB_likes', 'FB_improvements', 'FB_clinical', 'FB_other', 'EX_edit_reason', 'EX_comment']
-        for field in text_fields:
-            if field in survey_data:
-                logger.debug(f"Survey field {field}: '{survey_data[field]}'")
-    
-        filepath = os.path.join(self.data_dir, 'surveys.csv')
-        
-        # Ensure file exists with headers
-        if not os.path.exists(filepath):
-            with open(filepath, 'w', newline='') as f:
-                writer = csv.writer(f, delimiter=';')
-                writer.writerow([
-                    'user_id', 'timestamp', 'group',
-                    # Usability Questions
-                    'US_ease', 'US_clarity', 'US_reuse', 
-                    # Trust Questions
-                    'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations',
-                    # Feedback Questions
-                    'FB_likes', 'FB_improvements', 'FB_clinical_yn', 'FB_clinical', 'FB_other',
-                    # Explainability Questions (Group B)
-                    'EX_edit_helpful', 'EX_edit_reason', 'EX_self_efficacy', 'EX_terms_useful',
-                    'EX_refinement', 'EX_helpful', 'EX_reuse', 'EX_trust', 'EX_edit_understanding',
-                    'EX_clarity', 'EX_edit_changed', 'EX_understanding'
-                ])
-        
-        # Convert likert scales to numeric
-        likert_columns = ['US_ease', 'US_clarity', 'US_reuse', 'TR_model_trust',
-                         'TR_understanding', 'TR_explanations', 'TR_current_trust', 'EX_helpful',
-                         'EX_terms_useful', 'EX_edit_helpful', 'EX_edit_understanding',
-                         'EX_self_efficacy', 'EX_clarity', 'EX_reuse', 'EX_trust']
-        
-        for col in likert_columns:
-            if col in survey_data and isinstance(survey_data[col], str) and ' - ' in survey_data[col]:
-                try:
-                    survey_data[col] = int(survey_data[col].split(' - ')[0])
-                    logger.debug(f"Converted {col} to {survey_data[col]}")
-                except (ValueError, IndexError):
-                    logger.warning(f"Could not convert {col} value '{survey_data[col]}' to integer")
-                    survey_data[col] = None
 
-        # Ensure timestamp is present
-        if 'timestamp' not in survey_data:
-            survey_data['timestamp'] = datetime.now().isoformat()
-            
-        # Ensure all text fields are at least empty strings, not None
-        for field in text_fields:
-            if field in survey_data:
-                if survey_data[field] is None:
-                    survey_data[field] = ''
-                # Make sure text fields are stored as strings, not as other types
-                if not isinstance(survey_data[field], str):
-                    survey_data[field] = str(survey_data[field])
-
-        # Create backup of survey data in JSON
-        backup_file = os.path.join(self.log_dir, f"survey_backup_{survey_data.get('user_id', 'unknown')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+    def _extract_task_id_from_message_id(self, message_id: str) -> int:
+        """Extract task ID from a structured message ID"""
         try:
-            with open(backup_file, 'w') as f:
-                json.dump(survey_data, f, indent=2)
-            logger.info(f"Created survey backup at {backup_file}")
-        except Exception as e:
-            logger.error(f"Failed to create survey backup: {str(e)}")
-
-        # Try to directly save to CSV to avoid dataframe issues
-        try:
-            # Check if file exists
-            file_exists = os.path.exists(filepath)
-            
-            # Get headers either from existing file or survey_data
-            if file_exists:
-                with open(filepath, 'r', newline='') as f:
-                    reader = csv.reader(f, delimiter=';')
-                    headers = next(reader, list(survey_data.keys()))
-            else:
-                headers = list(survey_data.keys())
-                
-            # Append to CSV file
-            with open(filepath, 'a', newline='') as f:
-                writer = csv.DictWriter(f, fieldnames=headers, delimiter=';', 
-                                       extrasaction='ignore')
-                
-                # Write header if file is new
-                if not file_exists:
-                    writer.writeheader()
-                    
-                # Write the row
-                writer.writerow(survey_data)
-                
-            logger.info(f"Survey data saved successfully to {filepath}")
-            self._log_storage_event(f"Successfully logged survey for user {survey_data.get('user_id', 'unknown')}")
-            return
-        except Exception as e:
-            error_msg = f"Error with direct CSV write: {str(e)}\n{traceback.format_exc()}"
-            logger.error(error_msg)
-            self._log_storage_event(error_msg, "ERROR")
-            
-        # Fallback to manual CSV append if all else fails
-        try:
-            with open(filepath, 'a', newline='') as f:
-                line_parts = []
-                
-                # Get headers from file
-                headers = []
-                if os.path.exists(filepath) and os.path.getsize(filepath) > 0:
-                    with open(filepath, 'r', newline='') as read_f:
-                        reader = csv.reader(read_f, delimiter=';')
-                        headers = next(reader, [])
-                else:
-                    headers = list(survey_data.keys())
-                
-                # Build row with values in correct order
-                for h in headers:
-                    value = ''
-                    if h in survey_data:
-                        value = survey_data[h]
-                        if value is None:
-                            value = ''
-                        elif not isinstance(value, str):
-                            value = str(value)
-                        
-                        # Properly quote values with semicolons
-                        if ';' in value:
-                            value = f'"{value}"'
-                    
-                    line_parts.append(value)
-                
-                # Write the CSV line
-                f.write(';'.join(line_parts) + '\n')
-                logger.info("Successfully saved survey using manual CSV write")
-                self._log_storage_event("Successfully saved survey using manual fallback method")
-        except Exception as e2:
-            error_msg = f"Critical error saving survey: {str(e2)}\n{traceback.format_exc()}"
-            logger.critical(error_msg)
-            self._log_storage_event(error_msg, "CRITICAL")
-            
-            # Last resort: direct file write
-            try:
-                emergency_file = os.path.join(self.log_dir, 'emergency_surveys.json')
-                with open(emergency_file, 'a') as f:
-                    f.write(f"\n--- EMERGENCY SAVE {datetime.now().isoformat()} ---\n")
-                    json.dump(survey_data, f, indent=2)
-                    f.write("\n\n")
-            except:
-                pass
+            # Try to extract task ID from structured message ID like 'abc123_task2_prompt1'
+            if '_task' in message_id:
+                task_part = message_id.split('_task')[1]
+                if '_' in task_part:
+                    task_id = int(task_part.split('_')[0])
+                    return task_id
+            # Try other formats like 'task_2_prompt_1_abc123'
+            elif 'task_' in message_id:
+                parts = message_id.split('_')
+                for i, part in enumerate(parts):
+                    if part == 'task' and i+1 < len(parts):
+                        try:
+                            return int(parts[i+1])
+                        except ValueError:
+                            pass
+        except Exception:
+            pass
+        return 0  # Default task ID if extraction fails
 
     def get_storage_status(self) -> Dict:
         """Get storage system status for diagnostics"""
@@ -1283,3 +1272,244 @@ class DataStorage:
         self._log_storage_event(f"Storage status check completed: {json.dumps(status, indent=2)}")
         
         return status
+    
+    def generate_structured_message_id(self, user_id: str, task_id: int, prompt_count: int = None) -> str:
+        """Generate a structured and consistent message ID"""
+        # Extract the first 8 characters of the user ID as a prefix
+        user_prefix = user_id[:8] if user_id else "unknown"
+        
+        # Use provided prompt count or get the current count
+        if prompt_count is None:
+            # Try to look up from tasks.csv
+            try:
+                tasks_file = os.path.join(self.data_dir, "tasks.csv")
+                if os.path.exists(tasks_file):
+                    df = pd.read_csv(tasks_file, sep=';')
+                    matching_tasks = df[(df['user_id'] == user_id) & (df['task_id'] == task_id)]
+                    if not matching_tasks.empty:
+                        prompt_count = matching_tasks.iloc[-1].get('prompt_count', 0)
+                    else:
+                        prompt_count = 0
+                else:
+                    prompt_count = 0
+            except Exception as e:
+                logger.error(f"Error getting prompt count: {str(e)}")
+                prompt_count = int(datetime.now().strftime("%H%M%S"))  # Use time as fallback
+    
+        # Construct the message ID
+        message_id = f"{user_prefix}_task{task_id}_prompt{prompt_count}"
+        return message_id
+
+    def log_survey(self, survey_data: Dict) -> None:
+        """Log final survey data with improved error handling"""
+        try:
+            # Make sure directory exists
+            os.makedirs(self.data_dir, exist_ok=True)
+            
+            # Save to surveys.csv
+            filepath = os.path.join(self.data_dir, 'surveys.csv')
+            
+            # Debug survey data
+            logger.info(f"Logging survey for user_id={survey_data.get('user_id')} with {len(survey_data)} fields")
+            
+            # Handle text fields with special care
+            text_fields = ['FB_likes', 'FB_improvements', 'FB_clinical', 'FB_other', 
+                          'EX_edit_reason', 'EX_comment', 'EX_edit_changed',
+                          'EX_highlight_meaning', 'EX_highlight_missed_terms', 'TR_trust_other']
+            
+            for field in text_fields:
+                if field in survey_data:
+                    # Ensure text fields are strings
+                    if survey_data[field] is None:
+                        survey_data[field] = ''
+                    elif not isinstance(survey_data[field], str):
+                        survey_data[field] = str(survey_data[field])
+                    
+                    # Clean newlines and semicolons for CSV compatibility
+                    if isinstance(survey_data[field], str):
+                        survey_data[field] = survey_data[field].replace('\n', ' ').replace('\r', ' ')
+                        # Replace semicolons with commas to avoid CSV delimiter issues
+                        survey_data[field] = survey_data[field].replace(';', ',')
+            
+            # Check if file exists, and if not, create with headers
+            if not os.path.exists(filepath):
+                with open(filepath, 'w', newline='') as f:
+                    headers = ['user_id', 'timestamp', 'group', 
+                              'US_ease', 'US_clarity', 'US_reuse',
+                              'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations', 
+                              'TR_trust_factors', 'TR_trust_other',
+                              'FB_likes', 'FB_improvements', 'FB_clinical_yn', 'FB_clinical', 'FB_other',
+                              'EX_edit_helpful', 'EX_edit_reason', 'EX_self_efficacy', 'EX_terms_useful',
+                              'EX_refinement', 'EX_helpful', 'EX_reuse', 'EX_trust', 'EX_edit_understanding',
+                              'EX_clarity', 'EX_edit_changed', 'EX_understanding', 'EX_highlight_meaning',
+                              'EX_highlight_missed_terms']
+                    writer = csv.writer(f, delimiter=';')
+                    writer.writerow(headers)
+            
+            # Append data directly to file rather than using _append_to_csv
+            with open(filepath, 'a', newline='') as f:
+                # Get existing headers
+                with open(filepath, 'r', newline='') as read_file:
+                    reader = csv.reader(read_file, delimiter=';')
+                    headers = next(reader, [])
+                
+                # Prepare data row with only fields that match headers
+                row_data = {}
+                for header in headers:
+                    if header in survey_data:
+                        value = survey_data[header]
+                        # Ensure proper escaping for text fields
+                        if isinstance(value, str) and (';' in value or '"' in value):
+                            # Let CSV module handle escaping
+                            row_data[header] = value
+                        else:
+                            row_data[header] = value
+                    else:
+                        row_data[header] = ''  # Use empty string for missing fields
+                
+                # Write data with proper quoting and escaping
+                writer = csv.DictWriter(
+                    f, 
+                    fieldnames=headers, 
+                    delimiter=';',
+                    quoting=csv.QUOTE_NONNUMERIC,  # Quote all non-numeric fields
+                    quotechar='"',                 # Use double quotes for quoting
+                    escapechar='\\'                # Use backslash as escape character
+                )
+                writer.writerow(row_data)
+                
+            # Also save as JSON for redundancy
+            user_id = survey_data.get('user_id', 'unknown')
+            backup_dir = os.path.join(self.log_dir, 'survey_backups')
+            os.makedirs(backup_dir, exist_ok=True)
+            
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            backup_file = os.path.join(backup_dir, f"survey_{user_id}_{timestamp}.json")
+            
+            with open(backup_file, 'w') as f:
+                json.dump(survey_data, f, indent=2)
+                
+            logger.info(f"Survey saved successfully for user_id={user_id}")
+            self._log_storage_event(f"Survey saved for user {user_id}")
+            
+        except Exception as e:
+            error_msg = f"Error saving survey: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")
+            
+            # Emergency backup - try to save directly
+            try:
+                user_id = survey_data.get('user_id', 'unknown')
+                emergency_file = os.path.join(self.log_dir, 'emergency_surveys.json')
+                with open(emergency_file, 'a') as f:
+                    f.write(f"\n--- ERROR {datetime.now().isoformat()} ---\n")
+                    f.write(f"USER: {user_id}\n")
+                    json.dump(survey_data, f, indent=2)
+                    f.write("\n\n")
+            except Exception as backup_error:
+                print(f"Critical error during emergency survey backup: {str(backup_error)}")
+
+    def save_chat_history(self, user_id: str, task_id: int, messages: List[Dict]) -> None:
+        """Save chat history for a user and task to both CSV and JSON formats"""
+        try:
+            # Ensure directories exist
+            chat_dir = os.path.join(self.data_dir, 'chat_history')
+            merged_dir = os.path.join(os.path.dirname(self.data_dir), 'merged_data')
+            os.makedirs(chat_dir, exist_ok=True)
+            os.makedirs(merged_dir, exist_ok=True)
+            
+            # Create a filename based on user_id and task_id
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            filename_base = f"{user_id}_task{task_id}_{timestamp}"
+            
+            # Save as JSON file in chat_history directory
+            json_file = os.path.join(chat_dir, f"{filename_base}.json")
+            with open(json_file, 'w') as f:
+                chat_data = {
+                    "user_id": user_id,
+                    "task_id": task_id,
+                    "timestamp": datetime.now().isoformat(),
+                    "messages": messages
+                }
+                json.dump(chat_data, f, indent=2)
+            
+            # Also log to interactions.csv for analysis
+            for i, message in enumerate(messages):
+                # Skip system messages
+                if message.get("role") == "system":
+                    continue
+                    
+                interaction_data = {
+                    'user_id': user_id,
+                    'task_id': task_id,
+                    'action_type': 'CHAT_MESSAGE',
+                    'timestamp': message.get('timestamp', datetime.now().isoformat()),
+                    'original_prompt': message.get('content', '') if message.get('role') == 'user' else '',
+                    'model_response': message.get('content', '') if message.get('role') == 'assistant' else '',
+                    'message_id': message.get('message_id', f"{user_id}_task{task_id}_msg{i}"),
+                    'iteration': message.get('iteration', i),
+                    'message_index': i
+                }
+                
+                # Log the interaction
+                self.log_interaction(interaction_data)
+            
+            # Update the merged chat history JSON file
+            self._update_merged_chat_history(user_id, task_id, messages)
+            
+            logger.info(f"Chat history saved for user {user_id}, task {task_id}: {len(messages)} messages")
+            return json_file
+            
+        except Exception as e:
+            error_msg = f"Error saving chat history: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")
+            return None
+    
+    def _update_merged_chat_history(self, user_id: str, task_id: int, messages: List[Dict]) -> None:
+        """Update the merged chat history JSON file with new messages"""
+        try:
+            merged_file = os.path.join(os.path.dirname(self.data_dir), 'merged_data', 'chat_history.json')
+            
+            # Create base structure if file doesn't exist
+            if not os.path.exists(merged_file):
+                merged_data = []
+            else:
+                # Load existing data
+                try:
+                    with open(merged_file, 'r') as f:
+                        merged_data = json.load(f)
+                        if not isinstance(merged_data, list):
+                            merged_data = []
+                except (json.JSONDecodeError, ValueError):
+                    # Reset if invalid JSON
+                    merged_data = []
+            
+            # Find if there's an existing entry for this user and task
+            found = False
+            for i, entry in enumerate(merged_data):
+                if entry.get('user_id') == user_id and entry.get('task_id') == task_id:
+                    # Update existing entry
+                    merged_data[i]['messages'] = messages
+                    merged_data[i]['updated_at'] = datetime.now().isoformat()
+                    found = True
+                    break
+            
+            # If not found, add a new entry
+            if not found:
+                merged_data.append({
+                    'user_id': user_id,
+                    'task_id': task_id,
+                    'messages': messages,
+                    'created_at': datetime.now().isoformat(),
+                    'updated_at': datetime.now().isoformat()
+                })
+            
+            # Save the updated file with proper formatting
+            with open(merged_file, 'w') as f:
+                json.dump(merged_data, f, indent=2)
+                
+        except Exception as e:
+            error_msg = f"Error updating merged chat history: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")

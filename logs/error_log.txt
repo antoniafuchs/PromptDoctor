@@ -1,755 +1,5 @@
-[2025-05-26 09:01:15] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 09:01:18] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 09:05:49] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 09:06:25] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 10:38:07] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 10:38:38] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 11:14:02] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 11:14:36] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 12:48:44] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 12:56:46] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 13:52:59] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 14:01:37] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 14:06:58] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 14:36:31] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 14:36:48] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 15:07:14] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 16:01:05] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 16:04:02] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 16:18:45] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 16:35:29] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 16:53:04] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 17:02:44] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 17:08:06] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 17:39:23] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 17:45:20] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 18:00:37] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 18:18:32] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 18:36:46] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 18:39:20] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 19:36:06] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 19:50:02] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 19:55:52] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 19:57:05] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 19:59:08] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 20:17:36] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 20:19:39] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 20:35:22] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 20:54:41] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 20:56:46] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 21:02:56] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 21:05:21] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-26 21:17:14] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-27 09:09:53] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-27 09:15:58] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-28 17:47:38] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-29 08:17:43 UTC] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-29 10:48:55 UTC] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-29 10:49:15 UTC] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-29 11:00:36 UTC] Error logging feedback: 'DataStorage' object has no attribute 'get_message_feedback'
-[2025-05-29 12:55:23 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T12:55:23.046498+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81111,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:54.489867"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 166611,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:48.011517"
-    }
-  }
-}
-[2025-05-29 12:55:23 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T12:55:23.047131+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81111,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:54.489867"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 166611,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:48.011517"
-    }
-  }
-}
-[2025-05-29 12:57:53 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T12:57:53.783776+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81111,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:54.489867"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 166923,
-      "writable": true,
-      "last_modified": "2025-05-29T14:56:08.842388"
-    }
-  }
-}
-[2025-05-29 12:57:53 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T12:57:53.784290+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81111,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:54.489867"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 166923,
-      "writable": true,
-      "last_modified": "2025-05-29T14:56:08.842388"
-    }
-  }
-}
-[2025-05-29 12:58:50 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T12:58:50.915465+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81111,
-      "writable": true,
-      "last_modified": "2025-05-29T13:46:54.489867"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 166923,
-      "writable": true,
-      "last_modified": "2025-05-29T14:56:08.842388"
-    }
-  }
-}
-[2025-05-29 13:00:36 UTC] Attempting to log feedback for message_id=msg_1, value=1
-[2025-05-29 13:16:28 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T13:16:28.980899+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168024,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:36.842123"
-    }
-  }
-}
-[2025-05-29 13:16:28 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T13:16:28.981297+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168024,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:36.842123"
-    }
-  }
-}
-[2025-05-29 13:48:46 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T13:48:46.317880+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 13:48:46 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T13:48:46.318305+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 13:54:49 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T13:54:49.162590+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 13:54:49 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T13:54:49.163674+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 14:33:00 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T14:33:00.385524+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 14:33:00 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T14:33:00.386202+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 14:42:06 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T14:42:06.864770+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 14:42:06 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T14:42:06.865229+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 14:45:09 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T14:45:09.739957+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 14:45:09 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T14:45:09.740663+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 81233,
-      "writable": true,
-      "last_modified": "2025-05-29T15:00:29.810309"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 168157,
-      "writable": true,
-      "last_modified": "2025-05-29T15:16:41.151984"
-    }
-  }
-}
-[2025-05-29 15:02:57 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T15:02:57.293556+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 83015,
-      "writable": true,
-      "last_modified": "2025-05-29T16:51:59.568889"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 170878,
-      "writable": true,
-      "last_modified": "2025-05-29T16:51:55.100575"
-    }
-  }
-}
-[2025-05-29 15:02:57 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T15:02:57.294109+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 83015,
-      "writable": true,
-      "last_modified": "2025-05-29T16:51:59.568889"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 170878,
-      "writable": true,
-      "last_modified": "2025-05-29T16:51:55.100575"
-    }
-  }
-}
-[2025-05-29 15:04:35 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T15:04:35.067866+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 85367,
-      "writable": true,
-      "last_modified": "2025-05-29T17:03:49.754939"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 171742,
-      "writable": true,
-      "last_modified": "2025-05-29T17:03:48.205585"
-    }
-  }
-}
-[2025-05-29 15:04:35 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T15:04:35.068255+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 85367,
-      "writable": true,
-      "last_modified": "2025-05-29T17:03:49.754939"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 171742,
-      "writable": true,
-      "last_modified": "2025-05-29T17:03:48.205585"
-    }
-  }
-}
-[2025-05-29 18:41:36 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T18:41:36.368739+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 87147,
-      "writable": true,
-      "last_modified": "2025-05-29T17:05:24.262365"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 173157,
-      "writable": true,
-      "last_modified": "2025-05-29T17:05:20.164133"
-    }
-  }
-}
-[2025-05-29 18:41:36 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T18:41:36.369278+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 87147,
-      "writable": true,
-      "last_modified": "2025-05-29T17:05:24.262365"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 173157,
-      "writable": true,
-      "last_modified": "2025-05-29T17:05:20.164133"
-    }
-  }
-}
-[2025-05-29 18:43:08 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T18:43:08.225770+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 88927,
-      "writable": true,
-      "last_modified": "2025-05-29T20:42:51.647564"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 175280,
-      "writable": true,
-      "last_modified": "2025-05-29T20:42:48.592029"
-    }
-  }
-}
-[2025-05-29 18:43:08 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-29T18:43:08.226426+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 4413,
-      "writable": true,
-      "last_modified": "2025-05-29T13:42:44.675992"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 88927,
-      "writable": true,
-      "last_modified": "2025-05-29T20:42:51.647564"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 175280,
-      "writable": true,
-      "last_modified": "2025-05-29T20:42:48.592029"
-    }
-  }
-}
-[2025-05-30 10:06:01 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:06:01.944008+00:00",
+[2025-05-30 19:35:44 UTC] Storage diagnostic results: {
+  "timestamp": "2025-05-30T19:35:44.198785+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -760,24 +10,24 @@
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
       "size": 246,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943238"
+      "last_modified": "2025-05-30T21:35:44.198333"
     },
     "interactions.csv": {
       "exists": true,
       "size": 231,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943341"
+      "last_modified": "2025-05-30T21:35:44.198412"
     }
   }
 }
-[2025-05-30 10:06:01 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:06:01.944862+00:00",
+[2025-05-30 19:35:44 UTC] Storage diagnostic results: {
+  "timestamp": "2025-05-30T19:35:44.199132+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -788,24 +38,24 @@
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
       "size": 246,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943238"
+      "last_modified": "2025-05-30T21:35:44.198333"
     },
     "interactions.csv": {
       "exists": true,
       "size": 231,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943341"
+      "last_modified": "2025-05-30T21:35:44.198412"
     }
   }
 }
-[2025-05-30 10:10:14 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:10:14.376046+00:00",
+[2025-05-30 19:36:48 UTC] Storage diagnostic results: {
+  "timestamp": "2025-05-30T19:36:48.147121+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -816,24 +66,24 @@
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
-      "size": 830,
+      "size": 246,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.236313"
+      "last_modified": "2025-05-30T21:35:44.198333"
     },
     "interactions.csv": {
       "exists": true,
-      "size": 1559,
+      "size": 476,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.239269"
+      "last_modified": "2025-05-30T21:36:05.993252"
     }
   }
 }
-[2025-05-30 10:10:14 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:10:14.376934+00:00",
+[2025-05-30 19:36:48 UTC] Storage diagnostic results: {
+  "timestamp": "2025-05-30T19:36:48.150437+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -844,24 +94,24 @@
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
-      "size": 830,
+      "size": 246,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.236313"
+      "last_modified": "2025-05-30T21:35:44.198333"
     },
     "interactions.csv": {
       "exists": true,
-      "size": 1559,
+      "size": 476,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.239269"
+      "last_modified": "2025-05-30T21:36:05.993252"
     }
   }
 }
-[2025-05-30 10:10:34 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:10:34.207419+00:00",
+[2025-05-30 19:41:00 UTC] Storage diagnostic results: {
+  "timestamp": "2025-05-30T19:41:00.282454+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -872,24 +122,24 @@
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
-      "size": 830,
+      "size": 2271,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.236313"
+      "last_modified": "2025-05-30T21:39:28.845150"
     },
     "interactions.csv": {
       "exists": true,
-      "size": 1559,
+      "size": 3633,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.239269"
+      "last_modified": "2025-05-30T21:39:28.850173"
     }
   }
 }
-[2025-05-30 10:10:34 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:10:34.207778+00:00",
+[2025-05-30 19:41:00 UTC] Storage diagnostic results: {
+  "timestamp": "2025-05-30T19:41:00.283272+00:00",
   "log_dir_exists": true,
   "log_dir_writable": true,
   "data_dir_exists": true,
@@ -900,187 +150,19 @@
       "exists": true,
       "size": 352,
       "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
+      "last_modified": "2025-05-30T21:35:44.198546"
     },
     "tasks.csv": {
       "exists": true,
-      "size": 830,
+      "size": 2271,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.236313"
+      "last_modified": "2025-05-30T21:39:28.845150"
     },
     "interactions.csv": {
       "exists": true,
-      "size": 1559,
+      "size": 3633,
       "wable": true,
-      "last_modified": "2025-05-30T12:08:23.239269"
-    }
-  }
-}
-[2025-05-30 10:14:15 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:14:15.420037+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 938,
-      "wable": true,
-      "last_modified": "2025-05-30T12:10:58.019753"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 2690,
-      "wable": true,
-      "last_modified": "2025-05-30T12:12:02.345317"
-    }
-  }
-}
-[2025-05-30 10:14:15 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:14:15.421158+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 938,
-      "wable": true,
-      "last_modified": "2025-05-30T12:10:58.019753"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 2690,
-      "wable": true,
-      "last_modified": "2025-05-30T12:12:02.345317"
-    }
-  }
-}
-[2025-05-30 10:14:31 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:14:31.707297+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 938,
-      "wable": true,
-      "last_modified": "2025-05-30T12:10:58.019753"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 2690,
-      "wable": true,
-      "last_modified": "2025-05-30T12:12:02.345317"
-    }
-  }
-}
-[2025-05-30 10:14:31 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:14:31.707862+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 938,
-      "wable": true,
-      "last_modified": "2025-05-30T12:10:58.019753"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 2690,
-      "wable": true,
-      "last_modified": "2025-05-30T12:12:02.345317"
-    }
-  }
-}
-[2025-05-30 10:14:44 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:14:44.222791+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 1661,
-      "wable": true,
-      "last_modified": "2025-05-30T12:14:35.282455"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 3248,
-      "wable": true,
-      "last_modified": "2025-05-30T12:14:31.859787"
-    }
-  }
-}
-[2025-05-30 10:14:44 UTC] Storage diagnostic results: {
-  "timestamp": "2025-05-30T10:14:44.223268+00:00",
-  "log_dir_exists": true,
-  "log_dir_writable": true,
-  "data_dir_exists": true,
-  "data_dir_writable": true,
-  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
-  "files_check": {
-    "surveys.csv": {
-      "exists": true,
-      "size": 352,
-      "wable": true,
-      "last_modified": "2025-05-30T12:06:01.943493"
-    },
-    "tasks.csv": {
-      "exists": true,
-      "size": 1661,
-      "wable": true,
-      "last_modified": "2025-05-30T12:14:35.282455"
-    },
-    "interactions.csv": {
-      "exists": true,
-      "size": 3248,
-      "wable": true,
-      "last_modified": "2025-05-30T12:14:31.859787"
+      "last_modified": "2025-05-30T21:39:28.850173"
     }
   }
 }

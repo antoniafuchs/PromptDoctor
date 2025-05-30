@@ -1,15 +1,30 @@
+import pandas as pd
 import streamlit as st
 import streamlit_survey as ss
-from tracking.logging import log_chat_interaction
+from tracking.logging import log_chat_interaction, log_final_survey
 from streamlit_extras.switch_page_button import switch_page
 import pyperclip
 import time
 import datetime
-from utils.data_merger import DataMerger
+from utils.data_storage import DataStorage  # This import is already correct
 from utils.session_manager import SessionManager
-from utils.data_storage import DataStorage  # Update import
 from utils.style_loader import load_styles
 
+# Add explicit import with try/except to handle potential import errors
+try:
+    from utils.data_merger import DataMerger
+except ImportError:
+    # Create a fallback class if the import fails
+    class DataMerger:
+        def __init__(self):
+            st.warning("DataMerger module could not be imported. Some data processing functionality may be limited.")
+            
+        def merge_all_data(self):
+            st.warning("Data merging skipped due to missing module.")
+            return None
+            
+        def generate_summary_stats(self, data):
+            return {"error": "DataMerger functionality unavailable"}
 
 def safe_int(value):
     """Safely convert a value to integer, returning None if conversion fails."""
@@ -607,20 +622,91 @@ def show_logout_survey():
                         if survey_data[key] is not None and not isinstance(survey_data[key], (str, int, float)):
                             survey_data[key] = str(survey_data[key])
                     
-                    # Save survey data using only DataStorage
+                    # Fix the UnboundLocalError by using the imported DataStorage directly
+                    # Save survey data using DataStorage imported at the module level
+                    from utils.data_storage import DataStorage  # Re-import inside the function to avoid the UnboundLocalError
                     data_storage = DataStorage()
-                    data_storage.log_survey(survey_data)
                     
-                    # Merge data files
-                    data_merger = DataMerger()
-                    merged_file = data_merger.merge_all_data()
+                    # Try to use log_survey method directly
+                    try:
+                        # First, try to log the survey using the data_storage object
+                        data_storage.log_survey(survey_data)
+                        st.success("Survey data saved successfully!")
+                    except Exception as e:
+                        st.error(f"Error saving survey data: {str(e)}")
+                        # Try alternative logging method
+                        try:
+                            log_final_survey(st.session_state.user_id, survey_data)
+                            st.info("Survey data saved using alternative method.")
+                        except Exception as alt_e:
+                            st.error(f"Alternative saving method also failed: {str(alt_e)}")
                     
-                    if merged_file:
-                        stats = data_merger.generate_summary_stats(merged_file)
-                        print(f"[INFO] Data merged successfully. Stats: {stats}")
+                    # Safely try to merge data files with proper error handling
+                    try:
+                        # Create the data merger instance
+                        data_merger = DataMerger()
+                        merged_file = data_merger.merge_all_data()
+                        
+                        # Check the result with safe type checking
+                        if merged_file is not None:
+                            if isinstance(merged_file, pd.DataFrame):
+                                if not merged_file.empty:
+                                    stats = data_merger.generate_summary_stats(merged_file)
+                                    print(f"[INFO] Data merged successfully. Stats: {stats}")
+                                else:
+                                    print("[INFO] Data merged successfully but resulted in empty DataFrame.")
+                            elif isinstance(merged_file, str):
+                                print(f"[INFO] Data merged successfully. Output path: {merged_file}")
+                                stats = data_merger.generate_summary_stats(merged_file)
+                                print(f"[INFO] Stats: {stats}")
+                            else:
+                                print(f"[INFO] Data merged with unknown return type: {type(merged_file)}")
+                    except Exception as merge_error:
+                        print(f"[ERROR] Data merging failed: {str(merge_error)}")
+                        # Continue with logout process even if merging fails
                     
+                    # Save chat history before logging out
+                    if 'messages' in st.session_state and st.session_state.messages:
+                        try:
+                            from utils.data_storage import DataStorage
+                            storage = DataStorage()
+                            
+                            # Get user ID and task ID
+                            user_id = st.session_state.get('user_id', 'unknown')
+                            task_id = st.session_state.get('current_task', 0)
+                            
+                            # Save chat history
+                            storage.save_chat_history(user_id, task_id, st.session_state.messages)
+                            print(f"[INFO] Saved chat history for user {user_id} during logout")
+                        except Exception as e:
+                            print(f"[ERROR] Failed to save chat history during logout: {str(e)}")
+                    
+                    # Set logout state and clear session
                     st.session_state.logged_out = True
                     st.rerun()
                     SessionManager.clear_session()
 
+    # At the end of the survey, merge all data for analysis
+    if st.session_state.get("survey_completed", False):
+        try:
+            # Make sure the DataMerger class is imported
+            merger = DataMerger()
+            result = merger.merge_all_data()
+            
+            # Safely handle the result with proper type checking
+            if result is not None:
+                if isinstance(result, str):
+                    st.session_state.merged_file_path = result
+                    st.success("Study data has been successfully consolidated for analysis.")
+                elif isinstance(result, pd.DataFrame):
+                    st.session_state.merged_dataframe = result
+                    st.success("Study data has been successfully processed for analysis.")
+                else:
+                    st.info(f"Data processing completed with result type: {type(result)}")
+            else:
+                st.warning("Note: Data consolidation was not completed. This is informational only.")
+        except Exception as e:
+            st.error(f"Error during data consolidation: {str(e)}")
+            # Continue with the survey despite the error
+    
 show_logout_survey()

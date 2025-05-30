@@ -251,14 +251,14 @@ def save_feedback(index):
             logger.error(f"Invalid message index for feedback: {index}")
             return
             
-        # Get the message and message ID
+        # Get the message
         message = st.session_state.messages[index]
-        message_id = f"msg_{index}"  # Fixed: using index instead of i
         
         # Check if feedback already exists for this message
         if (index in st.session_state.message_feedback or 
             st.session_state.get(f"feedback_{index}_submitted", False)):
             # Feedback already recorded, nothing to do
+            logger.debug(f"Feedback already exists for message index {index}")
             return
             
         # Get feedback value from session state
@@ -279,35 +279,80 @@ def save_feedback(index):
         st.session_state.message_feedback[index] = feedback_value
         st.session_state[f"feedback_{index}_submitted"] = True
         
+        # Get current task and user ID
+        user_id = st.session_state.get('user_id', 'unknown')
+        task_id = st.session_state.get('current_task', 0)
+        
+        # Create structured message ID
+        user_prefix = user_id[:8] if user_id else "unknown"
+        prompt_counter = index // 2  # Each exchange has 2 messages (user + assistant)
+        
         # Find the associated prompt and response
-        # We need to find the user message that preceded this assistant message
         prompt = ""
-        if index > 0 and message["role"] == "assistant":
+        response = ""
+        user_message_id = None
+        response_message_id = None
+        
+        # This is an assistant message - find the preceding user message
+        if message["role"] == "assistant":
             # Find the most recent user message
             for i in range(index-1, -1, -1):
+                if i < 0:
+                    break
+                    
                 if st.session_state.messages[i]["role"] == "user":
                     prompt = st.session_state.messages[i].get("raw_content", st.session_state.messages[i].get("content", ""))
+                    response = message.get("content", "")
+                    
+                    # Create structured message IDs for both messages
+                    user_message_id = f"{user_prefix}_task{task_id}_prompt{prompt_counter}"
+                    response_message_id = f"{user_message_id}_response"
+                    
+                    # Store IDs in the message objects for future reference
+                    st.session_state.messages[i]["message_id"] = user_message_id
+                    message["message_id"] = response_message_id
                     break
         else:
-            # If this is not an assistant message, use the current message content as prompt
-            prompt = message.get("raw_content", message.get("content", ""))
+            # This is a user message - look for the next assistant message
+            for i in range(index+1, len(st.session_state.messages)):
+                if i >= len(st.session_state.messages):
+                    break
+                    
+                if st.session_state.messages[i]["role"] == "assistant":
+                    prompt = message.get("raw_content", message.get("content", ""))
+                    response = st.session_state.messages[i].get("content", "")
+                    
+                    # Create structured message IDs for both messages
+                    user_message_id = f"{user_prefix}_task{task_id}_prompt{prompt_counter}"
+                    response_message_id = f"{user_message_id}_response"
+                    
+                    # Store IDs in the message objects for future reference
+                    message["message_id"] = user_message_id
+                    st.session_state.messages[i]["message_id"] = response_message_id
+                    break
         
-        # Get the response if this is an assistant message
-        response = message.get("content", "") if message["role"] == "assistant" else ""
+        # Use message ID from the message being rated
+        message_id_to_log = message.get("message_id")
+        if not message_id_to_log:
+            # Fallback if no message ID was created
+            message_id_to_log = f"{user_prefix}_task{task_id}_msg{index}"
+            message["message_id"] = message_id_to_log
         
         # Log the feedback with prompt and response context
         try:
             log_feedback(
-                user_id=st.session_state.user_id,
-                task_id=st.session_state.current_task,
-                message_id=message_id,
+                user_id=user_id,
+                task_id=task_id,
+                message_id=message_id_to_log,
                 feedback_value=feedback_value,
                 prompt=prompt,
-                response=response
+                response=response,
+                response_message_id=response_message_id
             )
             logger.info(f"Feedback logged successfully for message {index}: {feedback_value}")
-            logger.debug(f"Prompt excerpt: {prompt[:50]}...")
-            logger.debug(f"Response excerpt: {response[:50]}...")
+            logger.info(f"Message ID: {message_id_to_log}, Response Message ID: {response_message_id}")
+            logger.debug(f"Prompt excerpt: {prompt[:50] if prompt else 'None'}...")
+            logger.debug(f"Response excerpt: {response[:50] if response else 'None'}...")
         except Exception as e:
             logger.error(f"Error in feedback logging: {str(e)}")
     except Exception as e:
@@ -331,7 +376,8 @@ def process_prompt(prompt, response_placeholder):
         "raw_content": prompt,
         "user_id": st.session_state.user_id,
         "timestamp": datetime.datetime.now().isoformat(),
-        "iteration": st.session_state.iteration_count
+        "iteration": st.session_state.iteration_count,
+        "message_id": f"{st.session_state.user_id[:8]}_task{st.session_state.current_task}_prompt{st.session_state.iteration_count}"
     }
     st.session_state.messages.append(message)
     
@@ -391,7 +437,8 @@ def process_prompt(prompt, response_placeholder):
             "content": final_response,
             "user_id": st.session_state.user_id,
             "timestamp": datetime.datetime.now().isoformat(),
-            "iteration": st.session_state.iteration_count
+            "iteration": st.session_state.iteration_count,
+            "message_id": f"{st.session_state.user_id[:8]}_task{st.session_state.current_task}_prompt{st.session_state.iteration_count}_response"
         }
         st.session_state.messages.append(assistant_message)
         
@@ -1051,6 +1098,50 @@ def show_chatbot():
             
         except Exception as e:
             logger.error(f"Error in on_task_complete: {str(e)}")
+            # Continue without disrupting the app
+
+    def save_current_chat_history():
+        """Save the current chat history to files"""
+        try:
+            if not hasattr(st.session_state, 'messages') or not st.session_state.messages:
+                logger.info("No chat messages to save")
+                return
+                
+            # Get required data
+            user_id = st.session_state.get('user_id', 'unknown')
+            task_id = st.session_state.get('current_task', 0)
+            
+            # Filter out system messages and ensure all messages have required fields
+            filtered_messages = []
+            for idx, msg in enumerate(st.session_state.messages):
+                # Skip system messages
+                if msg.get('role') == 'system':
+                    continue
+                    
+                # Ensure message has timestamp
+                if 'timestamp' not in msg:
+                    msg['timestamp'] = datetime.datetime.now().isoformat()
+                    
+                # Ensure message has message_id
+                if 'message_id' not in msg:
+                    # Generate structured message ID
+                    user_prefix = user_id[:8] if user_id else "unknown"
+                    prompt_counter = idx // 2  # Each exchange has 2 messages (user + assistant)
+                    msg['message_id'] = f"{user_prefix}_task{task_id}_prompt{prompt_counter}"
+                
+                filtered_messages.append(msg)
+                
+            # Save using DataStorage
+            storage = DataStorage()
+            json_file = storage.save_chat_history(user_id, task_id, filtered_messages)
+            
+            if json_file:
+                logger.info(f"Saved {len(filtered_messages)} chat messages to {json_file}")
+            else:
+                logger.warning("Failed to save chat history")
+                
+        except Exception as e:
+            logger.error(f"Error saving chat history: {str(e)}")
             # Continue without disrupting the app
 
 show_chatbot()
