@@ -70,7 +70,7 @@ def main():
     # Also load prompt_data.csv which may contain additional/consolidated information
     if os.path.exists(prompt_data_file):
         try:
-            prompt_data_df = pd.read_csv(prompt_data_file, sep=',')  # Note: this file uses comma separator
+            prompt_data_df = pd.read_csv(prompt_data_file, sep=';')  # Note: this file uses comma separator
             prompt_data_df['data_source'] = 'prompt_data'
             dfs.append(prompt_data_df)
         except Exception as e:

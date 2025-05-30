@@ -1,4 +1,4 @@
-from typing import List, Set
+from typing import List, Any
 from dataclasses import dataclass, field
 from datetime import datetime
 import logging
@@ -32,6 +32,15 @@ class PromptMetrics:
     
     def __init__(self):
         self.highlight_metrics = HighlightMetrics()
+        self.medical_terms = [
+            # Common medical terms to detect (can be expanded)
+            "diagnosis", "treatment", "symptoms", "patient", "clinical", "disease", 
+            "medication", "therapy", "prognosis", "assessment", "hypertension",
+            "diabetes", "pneumonia", "cardiac", "respiratory", "neurological",
+            "antibiotics", "surgery", "dosage", "prescription", "follow-up",
+            "consultation", "referral", "laboratory", "imaging", "radiology",
+            "pathology", "chronic", "acute", "preventive", "palliative"
+        ]
     
     def calculate_metrics(self, prompts: List[str], task_id: int = None, 
                          user_id: str = None, group: str = None) -> PromptMetricsData:
@@ -51,25 +60,20 @@ class PromptMetrics:
                     group=group
                 )
                 
-            # Basic metrics
-            prompt_count = len(prompts)
             first_prompt = prompts[0]
             last_prompt = prompts[-1]
             
             # Calculate Levenshtein distance between first and last prompts
-            if prompt_count > 1:
-                lev_distance = Levenshtein.distance(first_prompt, last_prompt)
-                # Normalize by the length of the longer string
-                max_len = max(len(first_prompt), len(last_prompt))
-                lev_distance_normalized = lev_distance / max_len if max_len > 0 else 0
-            else:
-                lev_distance_normalized = 0
+            lev_distance = Levenshtein.distance(first_prompt, last_prompt)
+            # Normalize by the length of the longer string
+            max_len = max(len(first_prompt), len(last_prompt))
+            lev_distance_normalized = lev_distance / max_len if max_len > 0 else 0
                 
             # Calculate word count of the last prompt
             word_count = len(re.findall(r'\b\w+\b', last_prompt))
             
             # Calculate edit distance (relative change in length)
-            if prompt_count > 1 and len(first_prompt) > 0:
+            if len(first_prompt) > 0:
                 length_change = abs(len(last_prompt) - len(first_prompt))
                 edit_distance = length_change / len(first_prompt)
                 
@@ -84,13 +88,28 @@ class PromptMetrics:
                 edit_distance = 0
                 diff_type = "initial"
                 
+            # Count medical terms in the last prompt
+            medical_term_count = 0
+            highlighted_terms = []
+            
+            for term in self.medical_terms:
+                # Case insensitive search
+                matches = re.finditer(r'\b' + re.escape(term) + r'\b', last_prompt, re.IGNORECASE)
+                for match in matches:
+                    medical_term_count += 1
+                    highlighted_terms.append({
+                        'term': match.group(0),
+                        'position': match.start(),
+                        'length': len(match.group(0))
+                    })
+            
             # Calculate highlighted terms coverage if task_id is provided
             highlight_data = {}
             if task_id is not None:
                 highlight_data = self.highlight_metrics.calculate_coverage(task_id, last_prompt)
                 
             metrics = PromptMetricsData(
-                prompt_count=prompt_count,
+                prompt_count=len(prompts),
                 first_prompt=first_prompt,
                 last_prompt=last_prompt,
                 levenshtein_distance=lev_distance_normalized,
@@ -101,8 +120,8 @@ class PromptMetrics:
                 group=group,
                 edit_distance=edit_distance,
                 diff_type=diff_type,
-                medical_term_count=highlight_data.get('total_terms', 0),
-                highlighted_terms=highlight_data.get('matched_terms', []),
+                medical_term_count=highlight_data.get('total_terms', medical_term_count),
+                highlighted_terms=highlight_data.get('matched_terms', highlighted_terms),
                 coverage_percentage=highlight_data.get('coverage_percentage', 0),
                 highlight_type=highlight_data.get('highlight_type', None)
             )

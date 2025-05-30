@@ -1,4 +1,3 @@
-user_id;message_id;feedback_value;timestamp
-ebc27225-a0f6-4fe6-9579-8e8a5aa6790e;msg_1;1;2025-05-29T13:00:36.821316+00:00
-1c7b985d-6ce9-4f79-97dd-8ebbffbefe0a;msg_1;1;2025-05-29T14:47:46.208951+00:00
-ea1f6181-6676-4dbf-ad0e-cce7561f9164;msg_1;1;2025-05-29T18:42:43.476033+00:00
+user_id;message_id;feedback_value;timestamp;prompt_hash;prompt_excerpt;response_excerpt
+acb26de6-558f-4091-9165-2f37486f04c6;msg_1;1;2025-05-30T10:14:59.383777+00:00;02697087;task2 prompt1;It seems like you've provided a prompt, but it lacks specific details or context. To better assist y
+acb26de6-558f-4091-9165-2f37486f04c6;msg_3;0;2025-05-30T10:16:00.566342+00:00;68391135;task2 prompt2 negative feedback;It appears you're providing feedback related to a task, but the specifics of the task and the nature

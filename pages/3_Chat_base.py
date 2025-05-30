@@ -10,6 +10,14 @@ import pyperclip
 import requests
 import pandas as pd
 from typing import List
+import logging
+
+# Configure logging
+logger = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
 # Set event loop policy for thread safety
 try:
@@ -227,50 +235,63 @@ def on_input_focus():
 
 def save_feedback(index):
     """Save feedback for a specific message"""
-    # Check if feedback already exists for this message
-    if (index in st.session_state.message_feedback or 
-        st.session_state.get(f"feedback_{index}_submitted", False)):
-        return
+    try:
+        # Check if feedback already exists for this message
+        if (index in st.session_state.message_feedback or 
+            st.session_state.get(f"feedback_{index}_submitted", False)):
+            return
+            
+        # Ensure the index is valid
+        if index >= len(st.session_state.messages):
+            logger.error(f"Invalid message index for feedback: {index}")
+            return
+            
+        feedback_value = st.session_state[f"feedback_{index}"]
+        message = st.session_state.messages[index]
+        message_id = f"msg_{index}"
         
-    feedback_value = st.session_state[f"feedback_{index}"]
-    message = st.session_state.messages[index]
-    message_id = f"msg_{index}"
-    
-    # Map thumbs to feedback values (1 for thumbs up, -1 for thumbs down)
-    feedback_text = {
-        1: "positive",
-        -1: "negative",
-        0: "neutral"
-    }.get(feedback_value, "neutral")
-    
-    st.session_state.message_feedback[index] = feedback_value
-    st.session_state[f"feedback_{index}_submitted"] = True
-    
-    # Find the associated prompt and response
-    # We need to find the user message that preceded this assistant message
-    prompt = ""
-    if index > 0 and message["role"] == "assistant":
-        # Find the most recent user message
-        for i in range(index-1, -1, -1):
-            if st.session_state.messages[i]["role"] == "user":
-                prompt = st.session_state.messages[i].get("raw_content", st.session_state.messages[i].get("content", ""))
-                break
-    else:
-        # If this is not an assistant message, use the current message content as prompt
-        prompt = message.get("raw_content", message.get("content", ""))
-    
-    # Get the response if this is an assistant message
-    response = message.get("content", "") if message["role"] == "assistant" else ""
-    
-    # Log the feedback with both prompt and response for better context
-    log_feedback(
-        user_id=st.session_state.user_id,
-        task_id=st.session_state.current_task,
-        message_id=message_id,
-        feedback_value=feedback_value,
-        prompt=prompt,
-        response=response
-    )
+        # Map thumbs to feedback values (1 for thumbs up, -1 for thumbs down)
+        feedback_text = {
+            1: "positive",
+            -1: "negative",
+            0: "neutral"
+        }.get(feedback_value, "neutral")
+        
+        st.session_state.message_feedback[index] = feedback_value
+        st.session_state[f"feedback_{index}_submitted"] = True
+        
+        # Find the associated prompt and response
+        # We need to find the user message that preceded this assistant message
+        prompt = ""
+        if index > 0 and message["role"] == "assistant":
+            # Find the most recent user message
+            for i in range(index-1, -1, -1):
+                if st.session_state.messages[i]["role"] == "user":
+                    prompt = st.session_state.messages[i].get("raw_content", st.session_state.messages[i].get("content", ""))
+                    break
+        else:
+            # If this is not an assistant message, use the current message content as prompt
+            prompt = message.get("raw_content", message.get("content", ""))
+        
+        # Get the response if this is an assistant message
+        response = message.get("content", "") if message["role"] == "assistant" else ""
+        
+        # Log the feedback with both prompt and response for better context
+        try:
+            log_feedback(
+                user_id=st.session_state.user_id,
+                task_id=st.session_state.current_task,
+                message_id=message_id,
+                feedback_value=feedback_value,
+                prompt=prompt,
+                response=response
+            )
+            logger.info(f"Feedback logged successfully for message {index}: {feedback_value}")
+        except Exception as e:
+            logger.error(f"Error in feedback logging: {str(e)}")
+    except Exception as e:
+        logger.error(f"Error in save_feedback: {str(e)}")
+        # Continue without disrupting the app
 
 def process_prompt(prompt, response_placeholder):
     """Process the accepted prompt and send to model"""

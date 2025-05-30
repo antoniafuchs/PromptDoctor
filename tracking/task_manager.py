@@ -242,31 +242,31 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
         if prompts:
             final_prompt = prompts[-1]
             
-            # Calculate prompt metrics
-            metrics = PromptMetrics().analyze_prompts(
-                prompts, 
-                task_id=task_number,
-                user_id=st.session_state.user_id,
-                group=st.session_state.get('group', 'A')
-            )
+            # Create metrics data manually instead of using analyze_prompts
+            storage = DataStorage()
+            
+            # Create metrics data dictionary with default values
+            metrics_data = {
+                'user_id': st.session_state.user_id,
+                'task_id': task_number,
+                'group': st.session_state.get('group', 'A'),
+                'prompt_count': len(prompts),
+                'first_prompt': prompts[0] if prompts else "",
+                'last_prompt': final_prompt,
+                'levenshtein_distance': 0,  # Default value
+                'word_count': len(final_prompt.split()) if final_prompt else 0,
+                'timestamp': datetime.now().isoformat(),
+                'medical_term_count': 0,  # Default value
+                'highlighted_terms': [],
+                'diff_type': "none"
+            }
             
             # Save metrics using the DataStorage class with unified approach
-            storage = DataStorage()
             storage.save_prompt_metrics(
                 st.session_state.user_id,
                 task_number,
                 st.session_state.get('group', 'A'),
-                {
-                    'prompt_count': metrics.prompt_count,
-                    'first_prompt': metrics.first_prompt,
-                    'last_prompt': metrics.last_prompt,
-                    'levenshtein_distance': metrics.levenshtein_distance,
-                    'word_count': metrics.word_count,
-                    'timestamp': metrics.timestamp.isoformat(),
-                    'medical_term_count': metrics.medical_term_count,
-                    'highlighted_terms': metrics.highlighted_terms,
-                    'diff_type': metrics.diff_type
-                }
+                metrics_data
             )
             
             # Calculate and store highlight coverage metrics

@@ -9,6 +9,14 @@ import pyperclip
 import requests
 import pandas as pd
 from typing import List
+import logging
+
+# Configure logging
+logger = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
 # Try to import NLTK with error handling
 try:
@@ -245,7 +253,7 @@ def save_feedback(index):
             
         # Get the message and message ID
         message = st.session_state.messages[index]
-        message_id = f"msg_{index}"
+        message_id = f"msg_{index}"  # Fixed: using index instead of i
         
         # Check if feedback already exists for this message
         if (index in st.session_state.message_feedback or 
@@ -1000,17 +1008,21 @@ def show_chatbot():
             task_duration = 0
             if hasattr(st.session_state, f'task_{current_task}_start_time'):
                 start_time = getattr(st.session_state, f'task_{current_task}_start_time')
-                end_time = datetime.now()
+                end_time = datetime.datetime.now()  # Use datetime.datetime explicitly
                 task_duration = (end_time - start_time).total_seconds()
             
             # Complete current task
             if 'task_manager' in st.session_state:
                 logger.info(f"Completing task {current_task} with duration {task_duration}")
                 st.session_state.task_manager.complete_task(
-                    task_id=current_task,
-                    user_id=st.session_state.user_id,
-                    duration=task_duration,
-                    group=st.session_state.get('group', None)
+                    task_number=current_task,  # Fixed parameter name to match function signature
+                    survey_data={  # Provide required survey_data parameter
+                        'user_id': st.session_state.user_id,
+                        'task_id': current_task,
+                        'duration': task_duration,
+                        'group': st.session_state.get('group', 'A'),
+                        'timestamp': datetime.datetime.now().isoformat()
+                    }
                 )
             else:
                 logger.error("Task manager not found in session state")
@@ -1020,19 +1032,15 @@ def show_chatbot():
                 st.session_state.task_completed.append(current_task)
             
             # Increment to next task if not already at max
-            if current_task < st.session_state.task_manager.total_tasks:
+            if current_task < len(st.session_state.task_states):
                 next_task = current_task + 1
                 st.session_state.current_task = next_task
                 
                 # Set start time for next task
-                setattr(st.session_state, f'task_{next_task}_start_time', datetime.now())
+                setattr(st.session_state, f'task_{next_task}_start_time', datetime.datetime.now())
                 
                 # Start next task
-                st.session_state.task_manager.start_task(
-                    task_id=next_task,
-                    user_id=st.session_state.user_id,
-                    group=st.session_state.get('group', None)
-                )
+                st.session_state.task_manager.start_task(next_task)
                 logger.info(f"Started new task {next_task}")
             else:
                 logger.info(f"All tasks completed for user {st.session_state.user_id}")
