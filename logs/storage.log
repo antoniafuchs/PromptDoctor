@@ -48,3 +48,125 @@
 [2025-05-30T21:41:02.756756] [INFO] DataStorage initialized
 [2025-05-30T21:41:02.760310] [INFO] Survey saved for user 44a62729-693a-449b-95c7-3fb06bbea8a8
 [2025-05-30T21:41:02.811087] [INFO] DataStorage initialized
+[2025-05-30T21:54:09.720922] [INFO] DataStorage initialized
+[2025-05-30T21:54:24.233004] [INFO] DataStorage initialized
+[2025-05-30T21:54:53.279245] [INFO] DataStorage initialized
+[2025-05-30T21:55:06.502090] [INFO] DataStorage initialized
+[2025-05-30T21:55:12.485683] [INFO] DataStorage initialized
+[2025-05-30T21:55:15.100930] [INFO] DataStorage initialized
+[2025-05-30T21:55:15.111052] [INFO] DataStorage initialized
+[2025-05-30T21:55:16.580228] [INFO] DataStorage initialized
+[2025-05-30T21:55:16.586947] [INFO] DataStorage initialized
+[2025-05-30T21:55:16.593370] [INFO] DataStorage initialized
+[2025-05-30T22:00:58.754385] [INFO] DataStorage initialized
+[2025-05-30T22:01:12.153950] [INFO] DataStorage initialized
+[2025-05-30T22:01:45.829666] [INFO] DataStorage initialized
+[2025-05-30T22:01:47.806811] [INFO] DataStorage initialized
+[2025-05-30T22:01:53.854744] [INFO] DataStorage initialized
+[2025-05-30T22:01:58.240652] [INFO] DataStorage initialized
+[2025-05-30T22:01:58.261238] [INFO] DataStorage initialized
+[2025-05-30T22:03:06.977881] [INFO] DataStorage initialized
+[2025-05-30T22:03:19.851917] [INFO] DataStorage initialized
+[2025-05-30T22:03:19.872654] [INFO] DataStorage initialized
+[2025-05-30T22:03:35.619475] [INFO] DataStorage initialized
+[2025-05-30T22:03:45.435909] [INFO] DataStorage initialized
+[2025-05-30T22:03:45.455177] [INFO] DataStorage initialized
+[2025-05-30T22:03:49.497137] [INFO] DataStorage initialized
+[2025-05-30T22:03:49.501597] [INFO] Survey saved for user 37d2e7ca-0332-4565-880f-b695174c5fba
+[2025-05-30T22:03:49.539434] [INFO] DataStorage initialized
+[2025-05-30T22:11:16.120010] [INFO] DataStorage initialized
+[2025-05-30T22:14:42.224278] [INFO] DataStorage initialized
+[2025-05-30T22:14:52.627287] [INFO] DataStorage initialized
+[2025-05-30T22:14:58.007791] [INFO] DataStorage initialized
+[2025-05-30T22:15:00.312327] [INFO] DataStorage initialized
+[2025-05-30T22:15:00.321358] [INFO] DataStorage initialized
+[2025-05-30T22:15:01.884098] [INFO] DataStorage initialized
+[2025-05-30T22:15:01.891097] [INFO] DataStorage initialized
+[2025-05-30T22:15:01.899189] [INFO] DataStorage initialized
+[2025-05-30T22:15:04.594124] [INFO] DataStorage initialized
+[2025-05-30T22:15:04.619050] [ERROR] Error saving feedback: 'DataStorage' object has no attribute '_extract_task_id_from_message_id'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 1108, in save_feedback
+    task_id = self._extract_task_id_from_message_id(message_id)
+AttributeError: 'DataStorage' object has no attribute '_extract_task_id_from_message_id'
+
+[2025-05-30T22:15:08.926885] [INFO] DataStorage initialized
+[2025-05-30T22:15:08.937035] [INFO] DataStorage initialized
+[2025-05-30T22:15:10.303906] [INFO] DataStorage initialized
+[2025-05-30T22:15:10.312296] [INFO] DataStorage initialized
+[2025-05-30T22:15:10.321639] [INFO] DataStorage initialized
+[2025-05-30T22:15:18.773964] [INFO] DataStorage initialized
+[2025-05-30T22:15:18.790232] [ERROR] Error saving feedback: 'DataStorage' object has no attribute '_extract_task_id_from_message_id'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 1108, in save_feedback
+    task_id = self._extract_task_id_from_message_id(message_id)
+AttributeError: 'DataStorage' object has no attribute '_extract_task_id_from_message_id'
+
+[2025-05-30T22:15:22.797762] [INFO] DataStorage initialized
+[2025-05-30T22:15:22.819765] [INFO] DataStorage initialized
+[2025-05-30T22:15:24.634883] [INFO] DataStorage initialized
+[2025-05-30T22:15:27.123178] [INFO] DataStorage initialized
+[2025-05-30T22:15:27.133067] [INFO] DataStorage initialized
+[2025-05-30T22:15:28.541603] [INFO] DataStorage initialized
+[2025-05-30T22:15:28.551418] [INFO] DataStorage initialized
+[2025-05-30T22:15:28.561565] [INFO] DataStorage initialized
+[2025-05-30T22:15:39.208186] [INFO] DataStorage initialized
+[2025-05-30T22:15:39.231819] [INFO] DataStorage initialized
+[2025-05-30T22:15:42.913281] [INFO] DataStorage initialized
+[2025-05-30T22:15:42.922397] [INFO] DataStorage initialized
+[2025-05-30T22:15:43.914292] [INFO] DataStorage initialized
+[2025-05-30T22:15:44.170290] [INFO] DataStorage initialized
+[2025-05-30T22:15:44.179015] [INFO] DataStorage initialized
+[2025-05-30T22:15:45.371974] [INFO] DataStorage initialized
+[2025-05-30T22:15:45.381023] [INFO] DataStorage initialized
+[2025-05-30T22:15:45.391139] [INFO] DataStorage initialized
+[2025-05-30T22:15:53.728093] [INFO] DataStorage initialized
+[2025-05-30T22:15:53.746917] [INFO] DataStorage initialized
+[2025-05-30T22:16:00.292277] [INFO] DataStorage initialized
+[2025-05-30T22:16:00.318117] [INFO] DataStorage initialized
+[2025-05-30T22:26:19.722502] [INFO] DataStorage initialized
+[2025-05-30T22:35:15.313801] [INFO] DataStorage initialized
+[2025-05-30T22:35:21.462340] [INFO] DataStorage initialized
+[2025-05-30T22:35:26.627101] [INFO] DataStorage initialized
+[2025-05-30T22:35:27.586687] [INFO] DataStorage initialized
+[2025-05-30T22:35:27.605471] [INFO] Saved feedback for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, message 40dbf9a5_task1_prompt0, prompt hash 29031454
+[2025-05-30T22:35:27.605761] [INFO] DataStorage initialized
+[2025-05-30T22:35:41.690231] [INFO] DataStorage initialized
+[2025-05-30T22:35:42.884245] [INFO] DataStorage initialized
+[2025-05-30T22:35:42.903855] [INFO] Saved feedback for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, message 40dbf9a5_task1_prompt1, prompt hash 29031454
+[2025-05-30T22:35:42.904203] [INFO] DataStorage initialized
+[2025-05-30T22:35:47.225069] [INFO] DataStorage initialized
+[2025-05-30T22:35:47.240644] [INFO] DataStorage initialized
+[2025-05-30T22:35:48.909729] [INFO] DataStorage initialized
+[2025-05-30T22:35:55.336575] [INFO] DataStorage initialized
+[2025-05-30T22:36:00.727988] [INFO] DataStorage initialized
+[2025-05-30T22:36:00.744739] [INFO] DataStorage initialized
+[2025-05-30T22:36:02.397897] [INFO] DataStorage initialized
+[2025-05-30T22:36:10.968656] [INFO] DataStorage initialized
+[2025-05-30T22:36:15.663220] [INFO] DataStorage initialized
+[2025-05-30T22:36:15.680487] [INFO] DataStorage initialized
+[2025-05-30T22:36:19.873132] [INFO] DataStorage initialized
+[2025-05-30T22:36:19.898835] [INFO] DataStorage initialized
+[2025-05-30T22:37:15.152939] [INFO] DataStorage initialized
+[2025-05-30T22:37:28.420779] [INFO] DataStorage initialized
+[2025-05-30T22:37:34.165247] [INFO] DataStorage initialized
+[2025-05-30T22:37:37.093718] [INFO] DataStorage initialized
+[2025-05-30T22:37:37.105312] [INFO] DataStorage initialized
+[2025-05-30T22:37:38.299213] [INFO] DataStorage initialized
+[2025-05-30T22:37:38.310283] [INFO] DataStorage initialized
+[2025-05-30T22:37:38.319958] [INFO] DataStorage initialized
+[2025-05-30T22:37:46.258173] [INFO] DataStorage initialized
+[2025-05-30T22:37:46.276685] [INFO] Saved feedback for user ed4b64c8-5bb9-4289-a430-92a8fcf1f146, message ed4b64c8_task1_prompt0_response, prompt hash 75213034
+[2025-05-30T22:37:50.137266] [INFO] DataStorage initialized
+[2025-05-30T22:37:50.163647] [INFO] DataStorage initialized
+[2025-05-30T22:37:52.666605] [INFO] DataStorage initialized
+[2025-05-30T22:37:54.923574] [INFO] DataStorage initialized
+[2025-05-30T22:37:54.933127] [INFO] DataStorage initialized
+[2025-05-30T22:37:56.664141] [INFO] DataStorage initialized
+[2025-05-30T22:37:56.675954] [INFO] DataStorage initialized
+[2025-05-30T22:37:56.686106] [INFO] DataStorage initialized
+[2025-05-30T22:38:07.292094] [INFO] DataStorage initialized
+[2025-05-30T22:38:07.312127] [INFO] DataStorage initialized
+[2025-05-30T22:38:09.742987] [INFO] DataStorage initialized
+[2025-05-30T22:49:58.510472] [INFO] DataStorage initialized
+[2025-05-30T22:56:04.705161] [INFO] DataStorage initialized

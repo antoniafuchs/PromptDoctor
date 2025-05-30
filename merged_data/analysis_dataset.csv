@@ -1,3 +1,6 @@
 user_id;group;age;gender;training_level;gen_ai_familiarity;prompt_eng_familiarity;cds_familiarity;completed_tasks;avg_task_duration;avg_prompts_per_task;avg_word_count;avg_edit_distance;avg_prompt_count_metrics;US_ease;US_clarity;US_reuse;TR_model_trust;TR_understanding;TR_current_trust;TR_explanations;prompt_efficiency
-44a62729-693a-449b-95c7-3fb06bbea8a8;B;Prefer not to say;Prefer not to say;Medical Student (Pre-clinical);3;3;3;6.0;39.466808;1.8;1.0;0.0;2.0;3.0;3.0;3.0;3.0;3.0;3.0;3.0;0.014076526167395029
-e802fcc2-92e1-423e-ad1b-ef33a2411002;A;Prefer not to say;Prefer not to say;Medical Student (Pre-clinical);3;3;3;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+37d2e7ca-0332-4565-880f-b695174c5fba;A;Prefer not to say;Prefer not to say;Medical Student (Pre-clinical);3;3;3;6.0;11.039845999999999;1.0;1.3333333333333333;0.0;1.0;3.0;3.0;3.0;3.0;3.0;3.0;0.0;0.09058097368387205
+40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;A;Prefer not to say;Prefer not to say;Medical Student (Pre-clinical);3;3;3;6.0;16.948901;1.3333333333333333;1.0;0.0;1.3333333333333333;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.044250656723996445
+456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0;B;Prefer not to say;Prefer not to say;Medical Student (Pre-clinical);3;3;3;1.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+acb64018-04f0-4f2b-839a-08a1bcad2ba8;B;Prefer not to say;Prefer not to say;Medical Student (Pre-clinical);3;3;3;6.0;16.391771333333335;1.3333333333333333;1.0;0.0;1.3333333333333333;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.04575466462705251
+b85547ea-f053-43f1-8e76-6c118f5c30e3;A;Prefer not to say;Prefer not to say;Medical Student (Pre-clinical);3;3;3;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0

@@ -608,12 +608,14 @@ def render_prompts_tab(data):
                 
                 with col1:
                     st.subheader("First Prompt")
-                    st.text_area("", selected_row["first_prompt"], height=200)
+                    # Add a unique key to this text_area
+                    st.text_area("", selected_row["first_prompt"], height=200, key=f"first_prompt_{selected_row_idx}")
                     st.info(f"Word count: {len(str(selected_row['first_prompt']).split())}")
                 
                 with col2:
                     st.subheader("Last Prompt")
-                    st.text_area("", selected_row["last_prompt"], height=200)
+                    # Add a unique key to this text_area
+                    st.text_area("", selected_row["last_prompt"], height=200, key=f"last_prompt_{selected_row_idx}")
                     st.info(f"Word count: {len(str(selected_row['last_prompt']).split())}")
                 
                 # Show diff if prompts are different
@@ -768,7 +770,8 @@ def render_prompts_tab(data):
                         break
                 
                 if prompt_col_name:
-                    st.text_area("Prompt Content", selected_row[prompt_col_name], height=200)
+                    # Add a unique key to this text_area
+                    st.text_area("Prompt Content", selected_row[prompt_col_name], height=200, key=f"prompt_detail_{selected_row_idx}")
                     
                     # Show highlighted terms if available
                     if "highlighted_terms" in selected_row and pd.notna(selected_row["highlighted_terms"]) and selected_row["highlighted_terms"]:
@@ -789,8 +792,6 @@ def render_prompts_tab(data):
                 st.dataframe(metadata_df, use_container_width=True)
             else:
                 st.info("No prompt records match your filter criteria.")
-        else:
-            st.warning("Prompt data file exists but contains no valid prompt records.")
     
     # If we have prompt_counts.csv but not the others, use that
     elif prompt_sources["prompt_counts.csv"] is not None:
@@ -1287,7 +1288,8 @@ def render_feedback_tab(data):
                         elif has_prompt_excerpt:
                             prompt_content = selected_item.get("prompt_excerpt", "")
                             
-                        st.text_area("", prompt_content, height=200)
+                        # Add a unique key to this text_area
+                        st.text_area("", prompt_content, height=200, key=f"feedback_prompt_{selected_index}")
                         
                     with col2:
                         st.subheader("Response")
@@ -1297,7 +1299,8 @@ def render_feedback_tab(data):
                         elif has_response_excerpt:
                             response_content = selected_item.get("response_excerpt", "")
                             
-                        st.text_area("", response_content, height=200)
+                        # Add a unique key to this text_area
+                        st.text_area("", response_content, height=200, key=f"feedback_response_{selected_index}")
                     
                     # Display feedback value with appropriate styling
                     feedback_val = selected_item[feedback_column]

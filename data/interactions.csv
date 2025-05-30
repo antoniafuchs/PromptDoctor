@@ -1,19 +1,76 @@
-event_type;action;user_id;task_id;timestamp;user_prompt;model_output;model_type;model_name;group;duration;additional_data;message_id;term_count;duration_generation;duration_typing;duration_total;diff_type;modified_prompt;action_type;duration_queue_time;original_prompt;iteration;model_response;message_index
-INTERACTION;CONSENT_GIVEN;e802fcc2-92e1-423e-ad1b-ef33a2411002;0;2025-05-30T21:35:54.014223;;;unknown;unknown;A;{};{};e802fcc2_task0_prompt0;0;;;;;;;;;;;
-INTERACTION;SURVEY_COMPLETE;e802fcc2-92e1-423e-ad1b-ef33a2411002;0;2025-05-30T19:36:05.985944+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{};{};e802fcc2_task0_prompt0;0;;;;;;;;;;;
-INTERACTION;CONSENT_GIVEN;44a62729-693a-449b-95c7-3fb06bbea8a8;0;2025-05-30T21:36:51.859017;;;unknown;unknown;A;{};{};44a62729_task0_prompt0;0;;;;;;;;;;;
-INTERACTION;SURVEY_COMPLETE;44a62729-693a-449b-95c7-3fb06bbea8a8;0;2025-05-30T19:37:01.001873+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{};{};44a62729_task0_prompt0;0;;;;;;;;;;;
-INTERACTION;CHAT;44a62729-693a-449b-95c7-3fb06bbea8a8;1;2025-05-30T19:37:35.604034+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 31.959302, 'generation': 1.463987};{};44a62729_task1_prompt0;0;1.463987;31.959302;;;;;;;;;
-INTERACTION;CHAT;44a62729-693a-449b-95c7-3fb06bbea8a8;1;2025-05-30T19:37:53.295890+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 12.613332, 'generation': 6.54239};{};44a62729_task1_prompt0;0;6.54239;12.613332;;;;;;;;;
-INTERACTION;CHAT;44a62729-693a-449b-95c7-3fb06bbea8a8;1;2025-05-30T19:38:03.792078+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 13.571957, 'generation': 3.464222};{};44a62729_task1_prompt0;0;3.464222;13.571957;;;;;;;;;
-INTERACTION;TASK_COMPLETION;44a62729-693a-449b-95c7-3fb06bbea8a8;1;2025-05-30T19:38:20.970659+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'total': 55.80595};{};44a62729_task1_prompt0;0;;;55.80595;;;;;;;;
-;;44a62729-693a-449b-95c7-3fb06bbea8a8;1;2025-05-30T21:38:20.974523;;;B;;B;;;a273f00c-0687-4cba-8902-ce3021b3fdcb;0;1.0;0.0;;analysis;prompt1.3;PROMPT_METRICS;3.0;prompt11;;;
-INTERACTION;CHAT;44a62729-693a-449b-95c7-3fb06bbea8a8;2;2025-05-30T19:38:33.664618+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 28.21164, 'generation': 5.126738};{};44a62729_task2_promptnan;0;5.126738;28.21164;;;;;;;;;
-INTERACTION;CHAT;44a62729-693a-449b-95c7-3fb06bbea8a8;2;2025-05-30T19:38:49.740885+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 16.994439, 'generation': 4.210455};{};44a62729_task2_promptnan;0;4.210455;16.994439;;;;;;;;;
-INTERACTION;TASK_COMPLETION;44a62729-693a-449b-95c7-3fb06bbea8a8;2;2025-05-30T19:39:02.326889+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'total': 39.494284};{};44a62729_task2_promptnan;0;;;39.494284;;;;;;;;
-;;44a62729-693a-449b-95c7-3fb06bbea8a8;2;2025-05-30T21:39:02.331653;;;B;;B;;;e5b286d9-560e-42b0-ad23-f874d9e60832;0;1.0;0.0;;analysis;prompt2.2;PROMPT_METRICS;2.0;prompt2.1;;;
-INTERACTION;CHAT;44a62729-693a-449b-95c7-3fb06bbea8a8;3;2025-05-30T19:39:21.484359+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 33.870971, 'generation': 2.082512};{};44a62729_task3_promptnan;0;2.082512;33.870971;;;;;;;;;
-INTERACTION;TASK_COMPLETION;44a62729-693a-449b-95c7-3fb06bbea8a8;3;2025-05-30T19:39:28.834133+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'total': 23.11487};{};44a62729_task3_promptnan;0;;;23.11487;;;;;;;;
-;;44a62729-693a-449b-95c7-3fb06bbea8a8;3;2025-05-30T21:39:28.842751;;;B;;B;;;d0194155-d8d9-4ee7-9d12-efabd1da4a07;0;1.0;0.0;;analysis;prompt3.1;PROMPT_METRICS;1.0;prompt3.1;;;
-;;44a62729-693a-449b-95c7-3fb06bbea8a8;3;2025-05-30T21:39:21.484234;;;;;;;;44a62729-693a-449b-95c7-3fb06bbea8a8_task3_msg0;0;;;;;;CHAT_MESSAGE;;prompt3.:red[:red-background[1]];6.0;;0.0
-;;44a62729-693a-449b-95c7-3fb06bbea8a8;3;2025-05-30T21:39:21.484276;;;;;;;;44a62729-693a-449b-95c7-3fb06bbea8a8_task3_msg1;0;;;;;;CHAT_MESSAGE;;;6.0;;1.0
+event_type;action;user_id;task_id;timestamp;user_prompt;model_output;model_type;model_name;group;duration;additional_data;message_id;term_count;duration_generation;duration_typing;duration_total;original_prompt;diff_type;duration_queue_time;action_type;modified_prompt;model_response;iteration;message_index;feedback_timestamp;feedback;response_message_id
+INTERACTION;CONSENT_GIVEN;b85547ea-f053-43f1-8e76-6c118f5c30e3;0;2025-05-30T21:54:13.626433;;;unknown;unknown;A;{};{};b85547ea_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;SURVEY_COMPLETE;b85547ea-f053-43f1-8e76-6c118f5c30e3;0;2025-05-30T19:54:24.247102+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{};{};b85547ea_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;CONSENT_GIVEN;456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0;0;2025-05-30T21:54:57.648548;;;unknown;unknown;A;{};{};456e1acb_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;SURVEY_COMPLETE;456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0;0;2025-05-30T19:55:06.516752+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{};{};456e1acb_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;CHAT;456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0;1;2025-05-30T19:55:20.964518+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 9.114467, 'generation': 4.233127};{};456e1acb_task1_prompt0;0;4.233127;9.114467;;;;;;;;;;;;
+INTERACTION;CONSENT_GIVEN;37d2e7ca-0332-4565-880f-b695174c5fba;0;2025-05-30T22:01:02.973631;;;unknown;unknown;A;{};{};37d2e7ca_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;SURVEY_COMPLETE;37d2e7ca-0332-4565-880f-b695174c5fba;0;2025-05-30T20:01:12.166251+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{};{};37d2e7ca_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;CHAT;37d2e7ca-0332-4565-880f-b695174c5fba;1;2025-05-30T20:01:52.817719+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'typing': 37.865133, 'generation': 1.97358};{};37d2e7ca_task1_prompt0;0;1.97358;37.865133;;;;;;;;;;;;
+INTERACTION;TASK_COMPLETION;37d2e7ca-0332-4565-880f-b695174c5fba;1;2025-05-30T20:01:58.255430+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'total': 10.440209};{};37d2e7ca_task1_prompt0;0;;;10.440209;;;;;;;;;;;
+;;37d2e7ca-0332-4565-880f-b695174c5fba;1;2025-05-30T22:01:58.261323;;;A;;A;;;caa2f217-4634-4fd4-bded-e004ad5c0cc7;0;1.0;0.0;;hi;analysis;1.0;PROMPT_METRICS;hi;;;;;;
+INTERACTION;CHAT;37d2e7ca-0332-4565-880f-b695174c5fba;2;2025-05-30T20:03:13.779837+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'typing': 81.733348, 'generation': 1.222977};{};37d2e7ca_task2_promptnan;0;1.222977;81.733348;;;;;;;;;;;;
+INTERACTION;TASK_COMPLETION;37d2e7ca-0332-4565-880f-b695174c5fba;2;2025-05-30T20:03:19.864925+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'total': 12.882299};{};37d2e7ca_task2_promptnan;0;;;12.882299;;;;;;;;;;;
+;;37d2e7ca-0332-4565-880f-b695174c5fba;2;2025-05-30T22:03:19.872731;;;A;;A;;;c98cda4f-19a5-4a3b-8888-206ab875d108;0;2.0;0.0;;whats up;analysis;1.0;PROMPT_METRICS;whats up;;;;;;
+INTERACTION;CHAT;37d2e7ca-0332-4565-880f-b695174c5fba;3;2025-05-30T20:03:41.988041+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'typing': 27.281604, 'generation': 2.115375};{};37d2e7ca_task3_promptnan;0;2.115375;27.281604;;;;;;;;;;;;
+INTERACTION;TASK_COMPLETION;37d2e7ca-0332-4565-880f-b695174c5fba;3;2025-05-30T20:03:45.448406+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'total': 9.822828};{};37d2e7ca_task3_promptnan;0;;;9.822828;;;;;;;;;;;
+;;37d2e7ca-0332-4565-880f-b695174c5fba;3;2025-05-30T22:03:45.455265;;;A;;A;;;8c80950d-4acc-458a-a0f0-812251d19f37;0;1.0;0.0;;hello;analysis;1.0;PROMPT_METRICS;hello;;;;;;
+;;37d2e7ca-0332-4565-880f-b695174c5fba;3;2025-05-30T22:03:41.950704;;;;;;;;37d2e7ca-0332-4565-880f-b695174c5fba_task3_msg0;0;;;;hello;;;CHAT_MESSAGE;;;3.0;0.0;;;
+;;37d2e7ca-0332-4565-880f-b695174c5fba;3;2025-05-30T22:03:41.987993;;;;;;;;37d2e7ca-0332-4565-880f-b695174c5fba_task3_msg1;0;;;;;;;CHAT_MESSAGE;;;3.0;1.0;;;
+INTERACTION;CONSENT_GIVEN;acb64018-04f0-4f2b-839a-08a1bcad2ba8;0;2025-05-30T22:14:42.229291;;;unknown;unknown;A;{};{};acb64018_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;SURVEY_COMPLETE;acb64018-04f0-4f2b-839a-08a1bcad2ba8;0;2025-05-30T20:14:52.640496+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{};{};acb64018_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;CHAT;acb64018-04f0-4f2b-839a-08a1bcad2ba8;1;2025-05-30T20:15:03.147759+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 8.386294, 'generation': 1.110739};{};acb64018_task1_promptnan;0;1.110739;8.386294;;;;;;;;;;;;
+;;acb64018-04f0-4f2b-839a-08a1bcad2ba8;1;2025-05-30T20:15:04.594532+00:00;;;;;;;;acb64018_task1_prompt0_response;0;;;;hi;;;FEEDBACK;;;;;2025-05-30T22:15:04.598573;1.0;acb64018_task1_prompt0_response
+INTERACTION;CHAT;acb64018-04f0-4f2b-839a-08a1bcad2ba8;1;2025-05-30T20:15:17.452152+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 8.424771, 'generation': 6.989463};{};acb64018_task1_promptnan;0;6.989463;8.424771;;;;;;;;;;;;
+;;acb64018-04f0-4f2b-839a-08a1bcad2ba8;1;2025-05-30T20:15:18.774948+00:00;;;;;;;;acb64018_task1_prompt1_response;0;;;;hi;;;FEEDBACK;;;;;2025-05-30T22:15:18.777639;0.0;acb64018_task1_prompt1_response
+INTERACTION;TASK_COMPLETION;acb64018-04f0-4f2b-839a-08a1bcad2ba8;1;2025-05-30T20:15:22.811402+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'total': 24.797926};{};acb64018_task1_promptnan;0;;;24.797926;;;;;;;;;;;
+;;acb64018-04f0-4f2b-839a-08a1bcad2ba8;1;2025-05-30T22:15:22.819912;;;B;;B;;;33f77e0a-0b49-452b-a2a4-083b13db1381;0;1.0;0.0;;hi;analysis;2.0;PROMPT_METRICS;hi;;;;;;
+INTERACTION;CHAT;acb64018-04f0-4f2b-839a-08a1bcad2ba8;2;2025-05-30T20:15:30.355852+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 18.240471, 'generation': 1.655456};{};acb64018_task2_promptnan;0;1.655456;18.240471;;;;;;;;;;;;
+INTERACTION;TASK_COMPLETION;acb64018-04f0-4f2b-839a-08a1bcad2ba8;2;2025-05-30T20:15:39.221196+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'total': 14.581246};{};acb64018_task2_promptnan;0;;;14.581246;;;;;;;;;;;
+;;acb64018-04f0-4f2b-839a-08a1bcad2ba8;2;2025-05-30T22:15:39.231931;;;B;;B;;;d65c14e3-766f-46e3-9f50-bf28634749a9;0;1.0;0.0;;hi;analysis;1.0;PROMPT_METRICS;hi;;;;;;
+INTERACTION;CHAT;acb64018-04f0-4f2b-839a-08a1bcad2ba8;3;2025-05-30T20:15:47.763974+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 16.829444, 'generation': 2.232476};{};acb64018_task3_promptnan;0;2.232476;16.829444;;;;;;;;;;;;
+INTERACTION;TASK_COMPLETION;acb64018-04f0-4f2b-839a-08a1bcad2ba8;3;2025-05-30T20:15:53.737286+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'total': 9.819646};{};acb64018_task3_promptnan;0;;;9.819646;;;;;;;;;;;
+;;acb64018-04f0-4f2b-839a-08a1bcad2ba8;3;2025-05-30T22:15:53.747101;;;B;;B;;;3426b174-1f2a-4a9a-843b-c9321b5b0fad;0;1.0;0.0;;hi;analysis;1.0;PROMPT_METRICS;hi;;;;;;
+;;acb64018-04f0-4f2b-839a-08a1bcad2ba8;3;2025-05-30T22:15:47.763674;;;;;;;;acb64018-04f0-4f2b-839a-08a1bcad2ba8_task3_msg0;0;;;;hi;;;CHAT_MESSAGE;;;4.0;0.0;2025-05-30T22:16:00.319245;;
+;;acb64018-04f0-4f2b-839a-08a1bcad2ba8;3;2025-05-30T22:15:47.763732;;;;;;;;acb64018-04f0-4f2b-839a-08a1bcad2ba8_task3_msg1;0;;;;;;;CHAT_MESSAGE;;;4.0;1.0;2025-05-30T22:16:00.324885;;
+INTERACTION;CONSENT_GIVEN;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;0;2025-05-30T22:35:05.312126;;;unknown;unknown;A;{};{};40dbf9a5_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;SURVEY_COMPLETE;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;0;2025-05-30T20:35:15.321223+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{};{};40dbf9a5_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;CHAT;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T20:35:26.617362+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'typing': 7.465219, 'generation': 2.981407};{};40dbf9a5_task1_promptnan;0;2.981407;7.465219;;;;;;;;;;;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:26.595704;;;;;;;;40dbf9a5_task1_prompt0;0;;;;hi;;;CHAT_MESSAGE;;;1.0;0.0;2025-05-30T22:35:26.629368;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:26.617314;;;;;;;;40dbf9a5_task1_prompt0;0;;;;;;;CHAT_MESSAGE;;;1.0;1.0;2025-05-30T22:35:26.635803;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T20:35:27.586953+00:00;;;;;;;;40dbf9a5_task1_prompt0;0;;;;hi;;;FEEDBACK;;;;;2025-05-30T22:35:27.590460;1.0;40dbf9a5_task1_prompt0
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:26.595704;;;;;;;;40dbf9a5_task1_prompt0;0;;;;hi;;;CHAT_MESSAGE;;;1.0;0.0;2025-05-30T22:35:27.606777;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:26.617314;;;;;;;;40dbf9a5_task1_prompt0;0;;;;;;;CHAT_MESSAGE;;;1.0;1.0;2025-05-30T22:35:27.611840;1.0;
+INTERACTION;CHAT;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T20:35:41.678834+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'typing': 6.500306, 'generation': 11.532975};{};40dbf9a5_task1_promptnan;0;11.532975;6.500306;;;;;;;;;;;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:26.595704;;;;;;;;40dbf9a5_task1_prompt0;0;;;;hi;;;CHAT_MESSAGE;;;1.0;0.0;2025-05-30T22:35:41.691807;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:26.617314;;;;;;;;40dbf9a5_task1_prompt0;0;;;;;;;CHAT_MESSAGE;;;1.0;1.0;2025-05-30T22:35:41.697442;1.0;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:41.650682;;;;;;;;40dbf9a5_task1_prompt1;0;;;;hi;;;CHAT_MESSAGE;;;2.0;2.0;2025-05-30T22:35:41.702903;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:41.678798;;;;;;;;40dbf9a5_task1_prompt1;0;;;;;;;CHAT_MESSAGE;;;2.0;3.0;2025-05-30T22:35:41.707754;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T20:35:42.884528+00:00;;;;;;;;40dbf9a5_task1_prompt1;0;;;;hi;;;FEEDBACK;;;;;2025-05-30T22:35:42.889045;0.0;40dbf9a5_task1_prompt1
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:26.595704;;;;;;;;40dbf9a5_task1_prompt0;0;;;;hi;;;CHAT_MESSAGE;;;1.0;0.0;2025-05-30T22:35:42.905203;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:26.617314;;;;;;;;40dbf9a5_task1_prompt0;0;;;;;;;CHAT_MESSAGE;;;1.0;1.0;2025-05-30T22:35:42.910719;1.0;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:41.650682;;;;;;;;40dbf9a5_task1_prompt1;0;;;;hi;;;CHAT_MESSAGE;;;2.0;2.0;2025-05-30T22:35:42.915933;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:41.678798;;;;;;;;40dbf9a5_task1_prompt1;0;;;;;;;CHAT_MESSAGE;;;2.0;3.0;2025-05-30T22:35:42.920678;0.0;
+INTERACTION;TASK_COMPLETION;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T20:35:47.230899+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'total': 25.766443};{};40dbf9a5_task1_promptnan;0;;;25.766443;;;;;;;;;;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;1;2025-05-30T22:35:47.240964;;;A;;A;;;7c74b97c-76f2-463e-96b1-187947d701c9;0;1.0;0.0;;hi;analysis;2.0;PROMPT_METRICS;hi;;;;;;
+INTERACTION;CHAT;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;2;2025-05-30T20:35:55.326500+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'typing': 21.062184, 'generation': 4.14537};{};40dbf9a5_task2_promptnan;0;4.14537;21.062184;;;;;;;;;;;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;2;2025-05-30T22:35:55.305489;;;;;;;;40dbf9a5_task2_prompt0;0;;;;hi;;;CHAT_MESSAGE;;;3.0;0.0;2025-05-30T22:35:55.338332;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;2;2025-05-30T22:35:55.326441;;;;;;;;40dbf9a5_task2_prompt0;0;;;;;;;CHAT_MESSAGE;;;3.0;1.0;2025-05-30T22:35:55.344365;;
+INTERACTION;TASK_COMPLETION;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;2;2025-05-30T20:36:00.735891+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'total': 11.823911};{};40dbf9a5_task2_promptnan;0;;;11.823911;;;;;;;;;;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;2;2025-05-30T22:36:00.744936;;;A;;A;;;9a25ffee-30f3-453f-bbaf-7d3d797d04e7;0;1.0;0.0;;hi;analysis;1.0;PROMPT_METRICS;hi;;;;;;
+INTERACTION;CHAT;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;3;2025-05-30T20:36:10.959197+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'typing': 13.613254, 'generation': 6.156745};{};40dbf9a5_task3_promptnan;0;6.156745;13.613254;;;;;;;;;;;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;3;2025-05-30T22:36:10.934773;;;;;;;;40dbf9a5_task3_prompt0;0;;;;hi;;;CHAT_MESSAGE;;;4.0;0.0;2025-05-30T22:36:10.969708;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;3;2025-05-30T22:36:10.959147;;;;;;;;40dbf9a5_task3_prompt0;0;;;;;;;CHAT_MESSAGE;;;4.0;1.0;2025-05-30T22:36:10.977350;;
+INTERACTION;TASK_COMPLETION;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;3;2025-05-30T20:36:15.672145+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;{'total': 13.269836};{};40dbf9a5_task3_promptnan;0;;;13.269836;;;;;;;;;;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;3;2025-05-30T22:36:15.680620;;;A;;A;;;4c30a935-612c-45e7-a0eb-2ddffb0d7439;0;1.0;0.0;;hi;analysis;1.0;PROMPT_METRICS;hi;;;;;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;3;2025-05-30T22:36:10.934773;;;;;;;;40dbf9a5_task3_prompt0;0;;;;hi;;;CHAT_MESSAGE;;;4.0;0.0;2025-05-30T22:36:19.899889;;
+;;40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;3;2025-05-30T22:36:10.959147;;;;;;;;40dbf9a5_task3_prompt0;0;;;;;;;CHAT_MESSAGE;;;4.0;1.0;2025-05-30T22:36:19.905847;;
+INTERACTION;CONSENT_GIVEN;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;0;2025-05-30T22:37:19.701317;;;unknown;unknown;A;{};{};ed4b64c8_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;SURVEY_COMPLETE;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;0;2025-05-30T20:37:28.426818+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{};{};ed4b64c8_task0_prompt0;0;;;;;;;;;;;;;;
+INTERACTION;CHAT;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;1;2025-05-30T20:37:44.859544+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 8.904195, 'generation': 6.394673};{};ed4b64c8_task1_promptnan;0;6.394673;8.904195;;;;;;;;;;;;
+;;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;1;2025-05-30T20:37:46.258620+00:00;;;;;;;;ed4b64c8_task1_prompt0_response;0;;;;hi;;;FEEDBACK;;;;;2025-05-30T22:37:46.261923;1.0;ed4b64c8_task1_prompt0_response
+INTERACTION;TASK_COMPLETION;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;1;2025-05-30T20:37:50.150135+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'total': 15.979095};{};ed4b64c8_task1_promptnan;0;;;15.979095;;;;;;;;;;;
+;;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;1;2025-05-30T22:37:50.163732;;;B;;B;;;e8b7563c-b0de-4f89-8484-6ad1de8a2e08;0;1.0;0.0;;hi;analysis;1.0;PROMPT_METRICS;hi;;;;;;
+INTERACTION;CHAT;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;2;2025-05-30T20:38:01.935252+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'typing': 18.368618, 'generation': 5.104181};{};ed4b64c8_task2_promptnan;0;5.104181;18.368618;;;;;;;;;;;;
+INTERACTION;TASK_COMPLETION;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;2;2025-05-30T20:38:07.300793+00:00;;;Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;{'total': 14.630225};{};ed4b64c8_task2_promptnan;0;;;14.630225;;;;;;;;;;;
+;;ed4b64c8-5bb9-4289-a430-92a8fcf1f146;2;2025-05-30T22:38:07.312345;;;B;;B;;;9e8c05f7-0c4f-4001-b909-3cf90589858d;0;1.0;0.0;;hi;analysis;1.0;PROMPT_METRICS;hi;;;;;;

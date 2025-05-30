@@ -1,0 +1,21 @@
+{
+  "user_id": "37d2e7ca-0332-4565-880f-b695174c5fba",
+  "timestamp": "2025-05-30T22:03:49.495960",
+  "group": "A",
+  "login_time": "2025-05-30T22:01:02.973399",
+  "logout_time": "2025-05-30T22:03:49.495993",
+  "US_ease": 3,
+  "US_clarity": 3,
+  "US_reuse": 3,
+  "TR_model_trust": 3,
+  "TR_understanding": 3,
+  "TR_current_trust": 3,
+  "TR_trust_factors": "Output accuracy",
+  "TR_trust_other": "",
+  "TR_explanations": null,
+  "FB_likes": "",
+  "FB_improvements": "",
+  "FB_clinical_yn": "Unsure",
+  "FB_clinical": "",
+  "FB_other": ""
+}

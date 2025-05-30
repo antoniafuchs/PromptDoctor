@@ -1,0 +1,10 @@
+{
+  "feedback_value": 1,
+  "timestamp": "2025-05-30T20:35:27.586044+00:00",
+  "original_prompt": "hi",
+  "model_response": "Hello. I'm PromptDoctor, a clinical AI assistant. How can I assist you today? Do you have a medical question, a clinical case to discuss, or would you like help with something else? Please provide more context or details so I can provide a more accurate and helpful response.",
+  "response_message_id": "40dbf9a5_task1_prompt0",
+  "user_id": "40dbf9a5-cf0f-442d-ab57-e1d8f81a131b",
+  "message_id": "40dbf9a5_task1_prompt0",
+  "saved_at": "2025-05-30T22:35:27.603410"
+}

@@ -219,3 +219,503 @@ KeyError: 'action_type'
 2025-05-30 21:41:02,757 - data_storage - INFO - Logging survey for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8 with 34 fields
 2025-05-30 21:41:02,759 - data_storage - INFO - Survey saved successfully for user_id=44a62729-693a-449b-95c7-3fb06bbea8a8
 2025-05-30 21:41:02,822 - data_storage - INFO - Chat history saved for user 44a62729-693a-449b-95c7-3fb06bbea8a8, task 3: 2 messages
+2025-05-30 21:54:09,721 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:54:09,721 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:54:09,721 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T19:54:09.721643+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-05-30T21:54:09.720853"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-05-30T21:54:09.720656"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 231,
+      "wable": true,
+      "last_modified": "2025-05-30T21:54:09.720722"
+    }
+  }
+}
+2025-05-30 21:54:24,575 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-30 21:54:26,963 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:54:26,965 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:54:27,938 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:54:27,940 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:54:44,064 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:54:44,066 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:54:45,033 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:54:45,035 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:54:53,280 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:54:53,280 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 21:54:53,280 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T19:54:53.280102+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-05-30T21:54:09.720853"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-05-30T21:54:09.720656"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 476,
+      "wable": true,
+      "last_modified": "2025-05-30T21:54:24.255117"
+    }
+  }
+}
+2025-05-30 21:55:07,040 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-30 21:55:09,218 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:55:09,220 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:55:10,732 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 21:55:10,735 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 21:55:14,841 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: 456e1acb_task1_prompt1
+2025-05-30 21:55:15,110 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0, task_id=1
+2025-05-30 21:55:15,117 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0, task_id=1
+2025-05-30 21:55:16,586 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0, task_id=1
+2025-05-30 21:55:16,592 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0, task_id=1
+2025-05-30 21:55:16,598 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=456e1acb-fb5c-4c0d-a6c1-3ee43627b6d0, task_id=1
+2025-05-30 22:00:58,755 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:00:58,755 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:00:58,755 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T20:00:58.755236+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-05-30T21:54:09.720853"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-05-30T21:55:12.495256"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 1090,
+      "wable": true,
+      "last_modified": "2025-05-30T21:55:20.979892"
+    }
+  }
+}
+2025-05-30 22:01:12,487 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-30 22:01:15,276 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 22:01:15,278 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 22:01:16,203 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 22:01:16,206 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 22:01:45,830 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:01:45,831 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:01:45,831 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T20:01:45.830872+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-05-30T21:54:09.720853"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-05-30T21:55:12.495256"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 1426,
+      "wable": true,
+      "last_modified": "2025-05-30T22:01:12.174596"
+    }
+  }
+}
+2025-05-30 22:01:50,662 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: 37d2e7ca_task1_prompt1
+2025-05-30 22:01:53,853 - promptdoctor - INFO - Logging feedback: user=37d2e7ca-0332-4565-880f-b695174c5fba, task=1, message=37d2e7ca_task1_prompt0_response, value=1
+2025-05-30 22:01:53,866 - promptdoctor - ERROR - Error logging feedback: 'action_type'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'action_type'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/tracking/logging.py", line 287, in log_feedback
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 395, in log_interaction
+    (df['action_type'] == 'FEEDBACK')
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'action_type'
+
+2025-05-30 22:01:53,867 - __main__ - INFO - Feedback logged successfully for message 1: 1
+2025-05-30 22:03:12,395 - tracking.task_manager - INFO - Tracked prompt submission for task 2, count: 1, message_id: 37d2e7ca_task2_prompt1
+2025-05-30 22:03:39,675 - tracking.task_manager - INFO - Tracked prompt submission for task 3, count: 1, message_id: 37d2e7ca_task3_prompt1
+2025-05-30 22:03:49,497 - data_storage - INFO - Logging survey for user_id=37d2e7ca-0332-4565-880f-b695174c5fba with 19 fields
+2025-05-30 22:03:49,501 - data_storage - INFO - Survey saved successfully for user_id=37d2e7ca-0332-4565-880f-b695174c5fba
+2025-05-30 22:03:49,551 - data_storage - INFO - Chat history saved for user 37d2e7ca-0332-4565-880f-b695174c5fba, task 3: 2 messages
+2025-05-30 22:11:16,120 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:11:16,121 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:11:16,121 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T20:11:16.120851+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 497,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:49.500067"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 2357,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:45.456756"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 3866,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:49.550920"
+    }
+  }
+}
+2025-05-30 22:14:42,225 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:14:42,226 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:14:42,226 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T20:14:42.226101+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 497,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:49.500067"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 2357,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:45.456756"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 3866,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:49.550920"
+    }
+  }
+}
+2025-05-30 22:14:53,150 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-30 22:14:55,630 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 22:14:55,632 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 22:14:56,521 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 22:14:56,522 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 22:15:00,091 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: acb64018_task1_prompt1
+2025-05-30 22:15:00,320 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:00,330 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:01,890 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:01,898 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:01,905 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:04,592 - promptdoctor - INFO - Logging feedback: user=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task=1, message=acb64018_task1_prompt0_response, value=1
+2025-05-30 22:15:04,618 - data_storage - ERROR - Error saving feedback: 'DataStorage' object has no attribute '_extract_task_id_from_message_id'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 1108, in save_feedback
+    task_id = self._extract_task_id_from_message_id(message_id)
+AttributeError: 'DataStorage' object has no attribute '_extract_task_id_from_message_id'
+
+2025-05-30 22:15:04,619 - promptdoctor - INFO - Successfully logged feedback: message_id=acb64018_task1_prompt0_response, value=1
+2025-05-30 22:15:04,619 - __main__ - INFO - Feedback logged successfully for message 1: 1
+2025-05-30 22:15:04,619 - __main__ - INFO - Message ID: acb64018_task1_prompt0_response, Response Message ID: acb64018_task1_prompt0_response
+2025-05-30 22:15:08,691 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 2, message_id: acb64018_task1_prompt2
+2025-05-30 22:15:08,936 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:08,945 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:10,311 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:10,320 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:10,330 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=1
+2025-05-30 22:15:18,773 - promptdoctor - INFO - Logging feedback: user=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task=1, message=acb64018_task1_prompt1_response, value=0
+2025-05-30 22:15:18,790 - data_storage - ERROR - Error saving feedback: 'DataStorage' object has no attribute '_extract_task_id_from_message_id'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/utils/data_storage.py", line 1108, in save_feedback
+    task_id = self._extract_task_id_from_message_id(message_id)
+AttributeError: 'DataStorage' object has no attribute '_extract_task_id_from_message_id'
+
+2025-05-30 22:15:18,790 - promptdoctor - INFO - Successfully logged feedback: message_id=acb64018_task1_prompt1_response, value=0
+2025-05-30 22:15:18,790 - __main__ - INFO - Feedback logged successfully for message 3: 0
+2025-05-30 22:15:18,790 - __main__ - INFO - Message ID: acb64018_task1_prompt1_response, Response Message ID: acb64018_task1_prompt1_response
+2025-05-30 22:15:26,895 - tracking.task_manager - INFO - Tracked prompt submission for task 2, count: 1, message_id: acb64018_task2_prompt1
+2025-05-30 22:15:27,132 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=2
+2025-05-30 22:15:27,141 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=2
+2025-05-30 22:15:28,550 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=2
+2025-05-30 22:15:28,560 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=2
+2025-05-30 22:15:28,570 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=2
+2025-05-30 22:15:42,652 - tracking.task_manager - INFO - Tracked prompt submission for task 3, count: 1, message_id: acb64018_task3_prompt1
+2025-05-30 22:15:42,921 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=3
+2025-05-30 22:15:42,931 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=3
+2025-05-30 22:15:44,178 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=3
+2025-05-30 22:15:44,187 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=3
+2025-05-30 22:15:45,380 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=3
+2025-05-30 22:15:45,390 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=3
+2025-05-30 22:15:45,400 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8, task_id=3
+2025-05-30 22:16:00,292 - promptdoctor - INFO - Logging final survey for user_id=acb64018-04f0-4f2b-839a-08a1bcad2ba8 with 34 sections
+2025-05-30 22:16:00,293 - promptdoctor - WARNING - Missing expected survey field: q1b_clarity
+2025-05-30 22:16:00,293 - promptdoctor - WARNING - Missing expected survey field: q2a_trust
+2025-05-30 22:16:00,293 - promptdoctor - ERROR - Error logging final survey: 'DataStorage' object has no attribute 'log_survey'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/pages/4_Logout.py", line 633, in show_logout_survey
+    data_storage.log_survey(survey_data)
+AttributeError: 'DataStorage' object has no attribute 'log_survey'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/tracking/logging.py", line 349, in log_final_survey
+    self.storage.log_survey(flattened_data)
+AttributeError: 'DataStorage' object has no attribute 'log_survey'
+
+2025-05-30 22:16:00,329 - data_storage - INFO - Chat history saved for user acb64018-04f0-4f2b-839a-08a1bcad2ba8, task 3: 2 messages
+2025-05-30 22:26:19,723 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:26:19,723 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:26:19,723 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T20:26:19.723721+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 497,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:49.500067"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 4466,
+      "wable": true,
+      "last_modified": "2025-05-30T22:15:53.748727"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 7295,
+      "wable": true,
+      "last_modified": "2025-05-30T22:16:00.329025"
+    }
+  }
+}
+2025-05-30 22:35:15,660 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-30 22:35:18,807 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 22:35:18,809 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 22:35:20,022 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 22:35:20,024 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 22:35:23,456 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: 40dbf9a5_task1_prompt1
+2025-05-30 22:35:26,641 - data_storage - INFO - Chat history saved for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task 1: 2 messages
+2025-05-30 22:35:26,641 - __main__ - INFO - Saved 2 chat messages to /Users/antonia/Documents/PromptDoctor_Streamlit/data/chat_history/40dbf9a5-cf0f-442d-ab57-e1d8f81a131b_task1_20250530_223526.json
+2025-05-30 22:35:27,585 - promptdoctor - INFO - Logging feedback: user=40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task=1, message=40dbf9a5_task1_prompt0, value=1
+2025-05-30 22:35:27,605 - data_storage - INFO - Skipping duplicate feedback for message_id=40dbf9a5_task1_prompt0
+2025-05-30 22:35:27,605 - promptdoctor - INFO - Successfully logged feedback: message_id=40dbf9a5_task1_prompt0, value=1
+2025-05-30 22:35:27,605 - __main__ - INFO - Feedback logged successfully for message 1: 1
+2025-05-30 22:35:27,605 - __main__ - INFO - Message ID: 40dbf9a5_task1_prompt0, Response Message ID: 40dbf9a5_task1_prompt0
+2025-05-30 22:35:27,616 - data_storage - INFO - Chat history saved for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task 1: 2 messages
+2025-05-30 22:35:27,617 - __main__ - INFO - Saved 2 chat messages to /Users/antonia/Documents/PromptDoctor_Streamlit/data/chat_history/40dbf9a5-cf0f-442d-ab57-e1d8f81a131b_task1_20250530_223527.json
+2025-05-30 22:35:29,956 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 2, message_id: 40dbf9a5_task1_prompt2
+2025-05-30 22:35:41,712 - data_storage - INFO - Chat history saved for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task 1: 4 messages
+2025-05-30 22:35:41,712 - __main__ - INFO - Saved 4 chat messages to /Users/antonia/Documents/PromptDoctor_Streamlit/data/chat_history/40dbf9a5-cf0f-442d-ab57-e1d8f81a131b_task1_20250530_223541.json
+2025-05-30 22:35:42,883 - promptdoctor - INFO - Logging feedback: user=40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task=1, message=40dbf9a5_task1_prompt1, value=0
+2025-05-30 22:35:42,903 - data_storage - INFO - Skipping duplicate feedback for message_id=40dbf9a5_task1_prompt1
+2025-05-30 22:35:42,903 - promptdoctor - INFO - Successfully logged feedback: message_id=40dbf9a5_task1_prompt1, value=0
+2025-05-30 22:35:42,904 - __main__ - INFO - Feedback logged successfully for message 3: 0
+2025-05-30 22:35:42,904 - __main__ - INFO - Message ID: 40dbf9a5_task1_prompt1, Response Message ID: 40dbf9a5_task1_prompt1
+2025-05-30 22:35:42,924 - data_storage - INFO - Chat history saved for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task 1: 4 messages
+2025-05-30 22:35:42,925 - __main__ - INFO - Saved 4 chat messages to /Users/antonia/Documents/PromptDoctor_Streamlit/data/chat_history/40dbf9a5-cf0f-442d-ab57-e1d8f81a131b_task1_20250530_223542.json
+2025-05-30 22:35:51,019 - tracking.task_manager - INFO - Tracked prompt submission for task 2, count: 1, message_id: 40dbf9a5_task2_prompt1
+2025-05-30 22:35:55,348 - data_storage - INFO - Chat history saved for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task 2: 2 messages
+2025-05-30 22:35:55,348 - __main__ - INFO - Saved 2 chat messages to /Users/antonia/Documents/PromptDoctor_Streamlit/data/chat_history/40dbf9a5-cf0f-442d-ab57-e1d8f81a131b_task2_20250530_223555.json
+2025-05-30 22:36:04,631 - tracking.task_manager - INFO - Tracked prompt submission for task 3, count: 1, message_id: 40dbf9a5_task3_prompt1
+2025-05-30 22:36:10,983 - data_storage - INFO - Chat history saved for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task 3: 2 messages
+2025-05-30 22:36:10,983 - __main__ - INFO - Saved 2 chat messages to /Users/antonia/Documents/PromptDoctor_Streamlit/data/chat_history/40dbf9a5-cf0f-442d-ab57-e1d8f81a131b_task3_20250530_223610.json
+2025-05-30 22:36:19,874 - promptdoctor - INFO - Logging final survey for user_id=40dbf9a5-cf0f-442d-ab57-e1d8f81a131b with 19 sections
+2025-05-30 22:36:19,875 - promptdoctor - WARNING - Missing expected survey field: q1b_clarity
+2025-05-30 22:36:19,876 - promptdoctor - WARNING - Missing expected survey field: q2a_trust
+2025-05-30 22:36:19,877 - promptdoctor - ERROR - Error logging final survey: 'DataStorage' object has no attribute 'log_survey'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/pages/4_Logout.py", line 633, in show_logout_survey
+    data_storage.log_survey(survey_data)
+AttributeError: 'DataStorage' object has no attribute 'log_survey'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_Streamlit/tracking/logging.py", line 349, in log_final_survey
+    self.storage.log_survey(flattened_data)
+AttributeError: 'DataStorage' object has no attribute 'log_survey'
+
+2025-05-30 22:36:19,910 - data_storage - INFO - Chat history saved for user 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b, task 3: 2 messages
+2025-05-30 22:37:15,153 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:37:15,153 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:37:15,153 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T20:37:15.153679+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 497,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:49.500067"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 6578,
+      "wable": true,
+      "last_modified": "2025-05-30T22:36:15.681832"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 13094,
+      "wable": true,
+      "last_modified": "2025-05-30T22:36:19.910161"
+    }
+  }
+}
+2025-05-30 22:37:28,963 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-05-30 22:37:31,890 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 22:37:31,892 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 22:37:32,850 - utils.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-05-30 22:37:32,851 - utils.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_Streamlit/data/medical_terms/dataset_info.json
+2025-05-30 22:37:36,862 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: ed4b64c8_task1_prompt1
+2025-05-30 22:37:37,104 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=1
+2025-05-30 22:37:37,114 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=1
+2025-05-30 22:37:38,309 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=1
+2025-05-30 22:37:38,318 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=1
+2025-05-30 22:37:38,329 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=1
+2025-05-30 22:37:46,255 - promptdoctor - INFO - Logging feedback: user=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task=1, message=ed4b64c8_task1_prompt0_response, value=1
+2025-05-30 22:37:46,276 - data_storage - INFO - Skipping duplicate feedback for message_id=ed4b64c8_task1_prompt0_response
+2025-05-30 22:37:46,276 - promptdoctor - INFO - Successfully logged feedback: message_id=ed4b64c8_task1_prompt0_response, value=1
+2025-05-30 22:37:46,276 - __main__ - INFO - Feedback logged successfully for message 1: 1
+2025-05-30 22:37:46,276 - __main__ - INFO - Message ID: ed4b64c8_task1_prompt0_response, Response Message ID: ed4b64c8_task1_prompt0_response
+2025-05-30 22:37:54,684 - tracking.task_manager - INFO - Tracked prompt submission for task 2, count: 1, message_id: ed4b64c8_task2_prompt1
+2025-05-30 22:37:54,932 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=2
+2025-05-30 22:37:54,943 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=2
+2025-05-30 22:37:56,675 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=2
+2025-05-30 22:37:56,685 - promptdoctor - INFO - Validation action logged: VALIDATION_VIEW for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=2
+2025-05-30 22:37:56,698 - promptdoctor - INFO - Validation action logged: ACCEPT_CLICK for user_id=ed4b64c8-5bb9-4289-a430-92a8fcf1f146, task_id=2
+2025-05-30 22:49:58,511 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:49:58,511 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:49:58,511 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T20:49:58.511452+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 497,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:49.500067"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 8095,
+      "wable": true,
+      "last_modified": "2025-05-30T22:38:09.753090"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 14953,
+      "wable": true,
+      "last_modified": "2025-05-30T22:38:07.320231"
+    }
+  }
+}
+2025-05-30 22:50:18,958 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-30 22:50:18,959 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-30 22:56:04,705 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:56:04,706 - promptdoctor - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_Streamlit/logs, Data dir: /Users/antonia/Documents/PromptDoctor_Streamlit/data
+2025-05-30 22:56:04,706 - promptdoctor - INFO - Storage verification on startup: {
+  "timestamp": "2025-05-30T20:56:04.706035+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 497,
+      "wable": true,
+      "last_modified": "2025-05-30T22:03:49.500067"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 8095,
+      "wable": true,
+      "last_modified": "2025-05-30T22:38:09.753090"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 14953,
+      "wable": true,
+      "last_modified": "2025-05-30T22:38:07.320231"
+    }
+  }
+}
+2025-05-30 22:56:15,973 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-30 22:56:15,974 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-30 22:56:16,337 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-05-30 22:56:16,337 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.

@@ -1,0 +1,22 @@
+{
+  "user_id": "40dbf9a5-cf0f-442d-ab57-e1d8f81a131b",
+  "task_id": 3,
+  "timestamp": "2025-05-30T22:36:19.899023",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "raw_content": "hi",
+      "timestamp": "2025-05-30T22:36:10.934773",
+      "iteration": 4,
+      "message_id": "40dbf9a5_task3_prompt0"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello. I'm PromptDoctor, a clinical AI assistant. How can I assist you today? Do you have a medical question, a clinical case to discuss, or need help with analyzing medical data? Please provide more context or information so I can provide a relevant and accurate response.",
+      "timestamp": "2025-05-30T22:36:10.959147",
+      "iteration": 4,
+      "message_id": "40dbf9a5_task3_prompt0"
+    }
+  ]
+}

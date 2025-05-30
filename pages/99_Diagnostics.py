@@ -423,3 +423,193 @@ if __name__ == "__main__":
     except Exception as e:
         st.error(f"Error running diagnostics: {str(e)}")
         st.code(traceback.format_exc())
+def render_feedback_analysis_tab():
+    """Render a dedicated feedback analysis tab in the diagnostics page"""
+    st.header("Feedback Analysis")
+    
+    # Import the feedback collector
+    try:
+        from utils.feedback_collector import FeedbackCollector
+        collector = FeedbackCollector()
+    except ImportError:
+        st.error("FeedbackCollector module not found. Please create it first.")
+        return
+    
+    # Get feedback summary
+    summary = collector.generate_feedback_summary()
+    
+    if "error" in summary:
+        st.error(f"Error loading feedback data: {summary['error']}")
+        return
+    
+    # Display overall metrics
+    st.subheader("Overall Feedback Metrics")
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.metric("Total Entries", summary["total_entries"])
+    
+    with col2:
+        positive_text = f"{summary['positive_feedback']} ({summary['positive_percentage']}%)"
+        st.metric("Positive Feedback", positive_text)
+    
+    with col3:
+        negative_text = f"{summary['negative_feedback']} ({summary['negative_percentage']}%)"
+        st.metric("Negative Feedback", negative_text)
+    
+    with col4:
+        neutral_text = f"{summary['neutral_feedback']} ({summary['neutral_percentage']}%)"
+        st.metric("Neutral Feedback", neutral_text)
+    
+    # Display feedback by task
+    if "feedback_by_task" in summary and summary["feedback_by_task"]:
+        st.subheader("Feedback by Task")
+        
+        # Convert to DataFrame for better display
+        task_data = []
+        for task_id, stats in summary["feedback_by_task"].items():
+            task_data.append({
+                "Task": task_id,
+                "Count": stats["count"],
+                "Average Rating": stats["average_rating"]
+            })
+        
+        task_df = pd.DataFrame(task_data)
+        
+        col1, col2 = st.columns([1, 2])
+        
+        with col1:
+            st.dataframe(task_df, use_container_width=True)
+        
+        with col2:
+            if len(task_data) > 0:
+                # Create bar chart
+                fig, ax = plt.subplots(figsize=(10, 6))
+                bars = ax.bar(task_df["Task"].astype(str), task_df["Average Rating"])
+                
+                # Color bars based on values
+                for i, bar in enumerate(bars):
+                    value = task_df["Average Rating"].iloc[i]
+                    if value > 0:
+                        bar.set_color('green')
+                    elif value < 0:
+                        bar.set_color('red')
+                    else:
+                        bar.set_color('gray')
+                
+                ax.set_xlabel('Task')
+                ax.set_ylabel('Average Rating')
+                ax.set_title('Average Feedback by Task')
+                
+                # Add value labels
+                for bar in bars:
+                    height = bar.get_height()
+                    ax.text(
+                        bar.get_x() + bar.get_width() / 2,
+                        height,
+                        f'{height:.2f}',
+                        ha='center',
+                        va='bottom'
+                    )
+                
+                st.pyplot(fig)
+    
+    # Option to export feedback data
+    st.subheader("Export Feedback Data")
+    
+    col1, col2 = st.columns([1, 3])
+    
+    with col1:
+        export_format = st.selectbox(
+            "Export Format",
+            options=["CSV", "JSON", "Excel"],
+            index=0
+        )
+    
+    with col2:
+        if st.button("Export Feedback Data", type="primary"):
+            export_path = collector.export_feedback_report(format=export_format.lower())
+            if export_path:
+                st.success(f"Feedback data exported to: {export_path}")
+                
+                # If the file is small enough, offer download
+                if os.path.getsize(export_path) < 200 * 1024 * 1024:  # 200MB limit
+                    with open(export_path, "rb") as file:
+                        file_data = file.read()
+                    
+                    st.download_button(
+                        label="Download File",
+                        data=file_data,
+                        file_name=os.path.basename(export_path),
+                        mime="application/octet-stream"
+                    )
+            else:
+                st.error("Failed to export feedback data.")
+    
+    # Raw feedback data
+    st.subheader("Raw Feedback Data")
+    
+    # Get all feedback data
+    feedback_df = collector.collect_all_feedback()
+    
+    if not feedback_df.empty:
+        # Determine which column contains feedback values
+        feedback_col = None
+        for col in ['feedback_value', 'feedback']:
+            if col in feedback_df.columns:
+                feedback_col = col
+                break
+        
+        # Show the raw data
+        st.dataframe(feedback_df, use_container_width=True)
+        
+        # Interactive analysis tools
+        st.subheader("Analysis Tools")
+        
+        # Filter by task_id if available
+        if 'task_id' in feedback_df.columns:
+            task_ids = ['All'] + sorted(feedback_df['task_id'].unique().tolist())
+            selected_task = st.selectbox("Filter by Task ID", options=task_ids)
+            
+            if selected_task != 'All':
+                feedback_df = feedback_df[feedback_df['task_id'] == selected_task]
+        
+        # Show stats for filtered data
+        if feedback_col and not feedback_df.empty:
+            try:
+                feedback_df[feedback_col] = pd.to_numeric(feedback_df[feedback_col], errors='coerce')
+                
+                st.write("#### Feedback Distribution")
+                
+                # Calculate feedback distribution
+                positive = len(feedback_df[feedback_df[feedback_col] > 0])
+                negative = len(feedback_df[feedback_df[feedback_col] < 0])
+                neutral = len(feedback_df[feedback_df[feedback_col] == 0])
+                
+                # Create a pie chart
+                fig, ax = plt.subplots()
+                sizes = [positive, neutral, negative]
+                labels = ['Positive', 'Neutral', 'Negative']
+                colors = ['green', 'gray', 'red']
+                
+                ax.pie(
+                    sizes, 
+                    labels=labels, 
+                    colors=colors,
+                    autopct='%1.1f%%',
+                    startangle=90
+                )
+                ax.axis('equal')
+                
+                st.pyplot(fig)
+            except Exception as e:
+                st.error(f"Error analyzing feedback data: {str(e)}")
+    else:
+        st.info("No feedback data available.")
+
+# Add this to the main function where tabs are defined
+# tabs = st.tabs(["System Status", "User Progress", "Task Metrics", "Feedback Analysis"])
+# tab1, tab2, tab3, tab4 = tabs
+# with tab4:
+#     render_feedback_analysis_tab()

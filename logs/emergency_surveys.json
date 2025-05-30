@@ -1,0 +1,68 @@
+[
+  {
+    "timestamp": "2025-05-30T20:16:00.293961+00:00",
+    "user_id": "acb64018-04f0-4f2b-839a-08a1bcad2ba8",
+    "data": {
+      "user_id": "acb64018-04f0-4f2b-839a-08a1bcad2ba8",
+      "timestamp": "2025-05-30T22:16:00.291441",
+      "group": "B",
+      "login_time": "2025-05-30T22:11:19.619652",
+      "logout_time": "2025-05-30T22:16:00.291457",
+      "US_ease": 3,
+      "US_clarity": 3,
+      "US_reuse": 3,
+      "TR_model_trust": 3,
+      "TR_understanding": 3,
+      "TR_current_trust": 3,
+      "TR_trust_factors": "Output accuracy",
+      "TR_trust_other": "",
+      "TR_explanations": 3,
+      "FB_likes": "",
+      "FB_improvements": "",
+      "FB_clinical_yn": "Unsure",
+      "FB_clinical": "",
+      "FB_other": "",
+      "EX_helpful": 3,
+      "EX_refinement": 3,
+      "EX_understanding": 3,
+      "EX_trust": 3,
+      "EX_terms_useful": 3,
+      "EX_edit_helpful": 3,
+      "EX_edit_understanding": 3,
+      "EX_self_efficacy": 3,
+      "EX_clarity": 3,
+      "EX_edit_changed": "Not sure",
+      "EX_highlight_meaning": "",
+      "EX_highlight_missed_terms": "",
+      "EX_edit_reason": "",
+      "EX_reuse": 3,
+      "EX_comment": ""
+    }
+  }
+]
+
+
+--- ERROR 2025-05-30T20:36:19.877426+00:00 ---
+USER: 40dbf9a5-cf0f-442d-ab57-e1d8f81a131b
+{
+  "user_id": "40dbf9a5-cf0f-442d-ab57-e1d8f81a131b",
+  "timestamp": "2025-05-30T22:36:19.872500",
+  "group": "A",
+  "login_time": "2025-05-30T22:35:05.311941",
+  "logout_time": "2025-05-30T22:36:19.872512",
+  "US_ease": 3,
+  "US_clarity": 3,
+  "US_reuse": 3,
+  "TR_model_trust": 3,
+  "TR_understanding": 3,
+  "TR_current_trust": 3,
+  "TR_trust_factors": "Output accuracy",
+  "TR_trust_other": "",
+  "TR_explanations": null,
+  "FB_likes": "",
+  "FB_improvements": "",
+  "FB_clinical_yn": "Unsure",
+  "FB_clinical": "",
+  "FB_other": ""
+}
+

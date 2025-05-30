@@ -131,6 +131,30 @@ def print_task_stats(data_dir):
                 print(group_duration.unstack())
         except Exception as e:
             print(f"Error analyzing task duration: {str(e)}")
+    
+    # Prompt counts
+    prompt_counts_file = os.path.join(data_dir, 'prompt_counts.csv')
+    if os.path.exists(prompt_counts_file):
+        try:
+            prompt_counts_df = pd.read_csv(prompt_counts_file, sep=';')
+            print("\nPrompt count statistics:")
+            
+            # Convert to numeric if needed
+            prompt_counts_df['prompt_count'] = pd.to_numeric(prompt_counts_df['prompt_count'], errors='coerce')
+            
+            # Calculate average prompts per task
+            avg_prompts = prompt_counts_df.groupby('task_id')['prompt_count'].mean()
+            for task_id, avg in avg_prompts.items():
+                print(f"  Task {task_id}: {avg:.2f} average prompts")
+            
+            # Prompt counts by group
+            if 'group' in prompt_counts_df.columns:
+                print("\nAverage prompts by group:")
+                group_prompts = prompt_counts_df.groupby('group')['prompt_count'].mean()
+                for group, avg in group_prompts.items():
+                    print(f"  Group {group}: {avg:.2f} average prompts")
+        except Exception as e:
+            print(f"Error analyzing prompt counts: {str(e)}")
 
 def print_feedback_stats(data_dir):
     """Print feedback statistics"""
@@ -196,6 +220,86 @@ def print_feedback_stats(data_dir):
             print(f"Error analyzing feedback data: {str(e)}")
     else:
         print("No feedback data found.")
+
+def print_validation_stats(data_dir):
+    """Print validation statistics"""
+    print_header("VALIDATION STATISTICS")
+    
+    validation_file = os.path.join(data_dir, 'validation.csv')
+    if not os.path.exists(validation_file):
+        print("No validation data found.")
+        return
+    
+    try:
+        validation_df = pd.read_csv(validation_file, sep=';')
+        print(f"Total validation records: {len(validation_df)}")
+        
+        # Count by action type
+        if 'action_type' in validation_df.columns:
+            print("\nValidation actions:")
+            action_counts = validation_df['action_type'].value_counts()
+            for action, count in action_counts.items():
+                print(f"  {action}: {count} ({count/len(validation_df)*100:.1f}%)")
+        
+        # Medical terms statistics
+        if 'medical_term_count' in validation_df.columns:
+            try:
+                validation_df['medical_term_count'] = pd.to_numeric(validation_df['medical_term_count'], errors='coerce')
+                avg_terms = validation_df['medical_term_count'].mean()
+                max_terms = validation_df['medical_term_count'].max()
+                print(f"\nMedical terms:")
+                print(f"  Average per prompt: {avg_terms:.2f}")
+                print(f"  Maximum in a prompt: {max_terms:.0f}")
+            except Exception as e:
+                print(f"Error analyzing medical terms: {str(e)}")
+        
+        # Edit distance statistics
+        if 'edit_distance' in validation_df.columns:
+            try:
+                validation_df['edit_distance'] = pd.to_numeric(validation_df['edit_distance'], errors='coerce')
+                avg_distance = validation_df['edit_distance'].mean()
+                print(f"\nEdit distance:")
+                print(f"  Average: {avg_distance:.4f}")
+            except Exception as e:
+                print(f"Error analyzing edit distance: {str(e)}")
+        
+        # Statistics by group
+        if 'group' in validation_df.columns:
+            print("\nValidation metrics by group:")
+            for group in validation_df['group'].unique():
+                group_df = validation_df[validation_df['group'] == group]
+                print(f"  Group {group}:")
+                print(f"    Records: {len(group_df)}")
+                
+                if 'medical_term_count' in group_df.columns:
+                    avg_terms = group_df['medical_term_count'].mean()
+                    print(f"    Average medical terms: {avg_terms:.2f}")
+                
+                if 'edit_distance' in group_df.columns:
+                    avg_distance = group_df['edit_distance'].mean()
+                    print(f"    Average edit distance: {avg_distance:.4f}")
+        
+        # Top highlighted terms
+        if 'highlighted_terms' in validation_df.columns:
+            print("\nTop highlighted medical terms:")
+            all_terms = []
+            for terms_str in validation_df['highlighted_terms'].dropna():
+                if isinstance(terms_str, str) and terms_str.strip():
+                    terms = [term.strip() for term in terms_str.split(',')]
+                    all_terms.extend([term for term in terms if term])
+            
+            # Count frequencies
+            term_counts = {}
+            for term in all_terms:
+                term_counts[term] = term_counts.get(term, 0) + 1
+            
+            # Show top 10
+            top_terms = sorted(term_counts.items(), key=lambda x: x[1], reverse=True)[:10]
+            for term, count in top_terms:
+                print(f"  {term}: {count}")
+        
+    except Exception as e:
+        print(f"Error analyzing validation data: {str(e)}")
 
 def print_survey_stats(data_dir):
     """Print survey statistics"""
@@ -263,8 +367,53 @@ def print_prompt_analysis(data_dir):
     prompt_metrics_file = os.path.join(data_dir, 'prompt_metrics.csv')
     unified_prompts_file = os.path.join(data_dir, 'unified_prompts.csv')
     prompt_data_file = os.path.join(data_dir, 'prompt_data.csv')
+    validation_file = os.path.join(data_dir, 'validation.csv')
     
-    # First try unified_prompts which should have the most comprehensive data
+    # First try validation.csv for prompt data
+    if os.path.exists(validation_file):
+        try:
+            validation_df = pd.read_csv(validation_file, sep=';')
+            
+            if 'original_prompt' in validation_df.columns:
+                print(f"Prompt data from validation.csv - {len(validation_df)} records")
+                
+                # Count prompts by task
+                if 'task_id' in validation_df.columns:
+                    print("\nValidations by task:")
+                    task_counts = validation_df['task_id'].value_counts().sort_index()
+                    for task_id, count in task_counts.items():
+                        print(f"  Task {task_id}: {count} validations")
+                
+                # Medical term metrics
+                if 'medical_term_count' in validation_df.columns:
+                    validation_df['medical_term_count'] = pd.to_numeric(validation_df['medical_term_count'], errors='coerce')
+                    print("\nMedical terms by task:")
+                    term_stats = validation_df.groupby('task_id')['medical_term_count'].mean()
+                    for task_id, avg in term_stats.items():
+                        print(f"  Task {task_id}: {avg:.2f} average terms")
+                
+                # Sample prompts
+                print("\nSample recent prompts:")
+                if 'timestamp' in validation_df.columns:
+                    validation_df['timestamp'] = pd.to_datetime(validation_df['timestamp'], errors='coerce')
+                    recent_validations = validation_df.sort_values('timestamp', ascending=False).head(5)
+                    
+                    for i, (_, row) in enumerate(recent_validations.iterrows()):
+                        task_id = row.get('task_id', 'unknown')
+                        user_id = row.get('user_id', 'unknown')
+                        timestamp = row.get('timestamp', 'unknown')
+                        prompt = row.get('original_prompt', '')
+                        
+                        if isinstance(prompt, str) and prompt:
+                            prompt_preview = textwrap.shorten(prompt, width=70, placeholder="...")
+                            print(f"\n  Sample {i+1} - User {user_id}, Task {task_id}, {timestamp}")
+                            print(f"  {prompt_preview}")
+                
+                return
+        except Exception as e:
+            print(f"Error reading validation data: {str(e)}")
+    
+    # Then try unified_prompts which should have the most comprehensive data
     if os.path.exists(unified_prompts_file):
         try:
             prompts_df = pd.read_csv(unified_prompts_file, sep=';')
@@ -334,15 +483,19 @@ def print_prompt_analysis(data_dir):
                     user_id = row.get('user_id', 'unknown')
                     timestamp = row.get('timestamp', 'unknown')
                     last_prompt = row.get('last_prompt', '')
-                    if isinstance(last_prompt, str) and last_prompt:
+                    original_prompt = row.get('original_prompt', '')
+                    
+                    prompt_text = last_prompt if last_prompt else original_prompt
+                    
+                    if isinstance(prompt_text, str) and prompt_text:
                         # Truncate and format the prompt
-                        prompt_preview = textwrap.shorten(last_prompt, width=70, placeholder="...")
+                        prompt_preview = textwrap.shorten(prompt_text, width=70, placeholder="...")
                         print(f"\n  Sample {i+1} - User {user_id}, Task {task_id}, {timestamp}")
                         print(f"  {prompt_preview}")
             
             return
         except Exception as e:
-            print(f"Error reading unified prompts data: {str(e)}")
+            print(f"Error reading unified_prompts data: {str(e)}")
     
     # Fall back to prompt_metrics.csv
     if os.path.exists(prompt_metrics_file):
@@ -435,6 +588,7 @@ def main():
     parser.add_argument('--feedback', action='store_true', help='Show only feedback statistics')
     parser.add_argument('--surveys', action='store_true', help='Show only survey statistics')
     parser.add_argument('--prompts', action='store_true', help='Show only prompt analysis')
+    parser.add_argument('--validation', action='store_true', help='Show only validation statistics')
     args = parser.parse_args()
     
     # Check for data directory
@@ -444,7 +598,7 @@ def main():
     print(f"Generated at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     # If no specific reports requested, show all
-    show_all = not (args.users or args.tasks or args.feedback or args.surveys or args.prompts)
+    show_all = not (args.users or args.tasks or args.feedback or args.surveys or args.prompts or args.validation)
     
     if show_all or args.users:
         print_user_stats(data_dir)
@@ -460,6 +614,9 @@ def main():
     
     if show_all or args.prompts:
         print_prompt_analysis(data_dir)
+        
+    if show_all or args.validation:
+        print_validation_stats(data_dir)
     
     print("\n" + "=" * 60)
     print(" Dashboard Complete ".center(60, "="))
