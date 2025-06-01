@@ -1330,3 +1330,128 @@ class DataStorage:
         except Exception as e:
             logger.error(f"Error extracting task ID from message ID '{message_id}': {str(e)}")
             return 0
+
+    def log_survey(self, survey_data: Dict) -> bool:
+        """
+        Save final survey responses to surveys.csv
+        
+        Args:
+            survey_data (Dict): Survey response data with all fields
+            
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        try:
+            # Log debug information
+            logger.info(f"Saving survey data for user: {survey_data.get('user_id', 'unknown')}")
+            
+            # Ensure directory exists
+            os.makedirs(self.data_dir, exist_ok=True)
+            
+            # Define filepath for surveys
+            filepath = os.path.join(self.data_dir, 'surveys.csv')
+            
+            # Create backup of survey data in JSON format for redundancy
+            backup_dir = os.path.join(self.data_dir, 'survey_backups')
+            os.makedirs(backup_dir, exist_ok=True)
+            backup_file = os.path.join(
+                backup_dir, 
+                f"{survey_data.get('user_id', 'unknown')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            )
+            
+            # Save backup
+            with open(backup_file, 'w') as f:
+                json.dump(survey_data, f, indent=2)
+            
+            # Pre-process text fields to avoid CSV issues
+            text_fields = ['FB_likes', 'FB_improvements', 'FB_clinical', 'FB_other', 
+                          'EX_highlight_meaning', 'EX_highlight_missed_terms', 
+                          'EX_edit_reason', 'EX_comment', 'TR_trust_other']
+            
+            for field in text_fields:
+                if field in survey_data and survey_data[field] is not None:
+                    # Convert to string if not already
+                    if not isinstance(survey_data[field], str):
+                        survey_data[field] = str(survey_data[field])
+                    
+                    # Clean text data to avoid CSV formatting issues
+                    survey_data[field] = (survey_data[field]
+                        .replace('\n', ' ')
+                        .replace('\r', ' ')
+                        .replace(';', ','))  # Replace semicolons with commas
+                    
+                    # Log text field lengths for debugging
+                    logger.debug(f"Field {field} length: {len(survey_data[field])}")
+                    
+                    # Truncate extremely long fields
+                    if len(survey_data[field]) > 1000:
+                        survey_data[field] = survey_data[field][:997] + "..."
+            
+            # Ensure numeric fields are properly formatted
+            numeric_fields = [
+                'US_ease', 'US_clarity', 'US_reuse', 
+                'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations',
+                'EX_edit_helpful', 'EX_self_efficacy', 'EX_terms_useful',
+                'EX_refinement', 'EX_helpful', 'EX_reuse', 'EX_trust', 'EX_edit_understanding',
+                'EX_clarity', 'EX_understanding'
+            ]
+            
+            for field in numeric_fields:
+                if field in survey_data:
+                    # Convert string values with format "1 - Text" to just "1"
+                    if isinstance(survey_data[field], str) and ' - ' in survey_data[field]:
+                        survey_data[field] = survey_data[field].split(' - ')[0]
+                    
+                    # Ensure it's a valid number or empty
+                    try:
+                        if survey_data[field] is not None and survey_data[field] != '':
+                            survey_data[field] = int(survey_data[field])
+                    except (ValueError, TypeError):
+                        logger.warning(f"Could not convert {field} value to integer: {survey_data[field]}")
+                        survey_data[field] = None
+            
+            # Add timestamp if not provided
+            if 'timestamp' not in survey_data:
+                survey_data['timestamp'] = datetime.now().isoformat()
+                
+            # Use the _append_to_csv helper function to save to CSV
+            self._append_to_csv(filepath, survey_data)
+            
+            # Write to emergency backup in case normal CSV write fails
+            emergency_backup = os.path.join(self.data_dir, 'emergency_surveys.json')
+            try:
+                existing_data = []
+                if os.path.exists(emergency_backup):
+                    with open(emergency_backup, 'r') as f:
+                        existing_data = json.load(f)
+                        if not isinstance(existing_data, list):
+                            existing_data = []
+                
+                existing_data.append(survey_data)
+                
+                with open(emergency_backup, 'w') as f:
+                    json.dump(existing_data, f, indent=2)
+            except Exception as backup_err:
+                logger.error(f"Failed to write emergency backup: {str(backup_err)}")
+            
+            logger.info(f"Successfully saved survey data for user: {survey_data.get('user_id', 'unknown')}")
+            return True
+            
+        except Exception as e:
+            error_msg = f"Error saving survey: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")
+            
+            # Try emergency direct write
+            try:
+                emergency_file = os.path.join(
+                    self.data_dir, 
+                    f"emergency_survey_{survey_data.get('user_id', 'unknown')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+                )
+                with open(emergency_file, 'w') as f:
+                    json.dump(survey_data, f, indent=2)
+                logger.info(f"Emergency survey backup saved to {emergency_file}")
+            except Exception as emergency_err:
+                logger.critical(f"Failed even emergency survey backup: {str(emergency_err)}")
+            
+            return False
