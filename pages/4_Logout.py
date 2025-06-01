@@ -10,6 +10,12 @@ from utils.data_storage import DataStorage  # This import is already correct
 from utils.session_manager import SessionManager
 from utils.style_loader import load_styles
 
+# Set page config at the very beginning before any other Streamlit commands
+st.set_page_config(
+    page_title="PromptDoctor",
+    initial_sidebar_state="collapsed"
+)
+
 # Add explicit import with try/except to handle potential import errors
 try:
     from utils.data_merger import DataMerger
@@ -51,11 +57,6 @@ def show_logout_survey():
     if not SessionManager.get_session_id():
         st.switch_page("Home.py")
         return
-
-    st.set_page_config(
-        page_title="PromptDoctor",
-        initial_sidebar_state="collapsed"
-    )
 
      # Add custom CSS for larger survey text
     st.markdown("""
