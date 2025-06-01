@@ -616,65 +616,87 @@ def show_logout_survey():
                         print(f"  EX_comment: '{explainability_data['EX_comment']}'")
                         
                         survey_data.update(explainability_data)
-                
-                # Ensure all fields are strings or None before saving
-                for key in survey_data:
-                    if survey_data[key] is not None and not isinstance(survey_data[key], (str, int, float)):
-                        survey_data[key] = str(survey_data[key])
-                
-                # Fix the UnboundLocalError by using the imported DataStorage directly
-                # Save survey data using DataStorage imported at the module level
-                data_storage = DataStorage()
-                
-                # Modified error handling to avoid circular reference
-                try:
-                    # First try to save using the new log_survey method
-                    success = data_storage.log_survey(survey_data)
-                    if success:
-                        st.success("Survey data saved successfully!")
-                    else:
-                        st.warning("Survey was saved to backup storage.")
-                except Exception as e:
-                    error_msg = f"Error saving survey data: {str(e)}"
-                    st.error(error_msg)
                     
-                    # Try an emergency direct JSON save as a last resort
+                    # Ensure all fields are strings or None before saving
+                    for key in survey_data:
+                        if survey_data[key] is not None and not isinstance(survey_data[key], (str, int, float)):
+                            survey_data[key] = str(survey_data[key])
+                    
+                    # Fix the UnboundLocalError by using the imported DataStorage directly
+                    # Save survey data using DataStorage imported at the module level
+                    data_storage = DataStorage()
+                    
+                    # Modified error handling to avoid circular reference
                     try:
-                        emergency_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'emergency')
-                        os.makedirs(emergency_dir, exist_ok=True)
-                        emergency_file = os.path.join(
-                            emergency_dir, 
-                            f"emergency_survey_{survey_data.get('user_id')}_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-                        )
-                        with open(emergency_file, 'w') as f:
-                            json.dump(survey_data, f, indent=2)
-                        st.info(f"Survey saved to emergency backup file.")
-                    except Exception as backup_e:
-                        st.error(f"All save attempts failed. Please contact support and provide this error: {str(backup_e)}")
-
-                # Safely try to merge data files with proper error handling
-                try:
-                    # Create the data merger instance
-                    data_merger = DataMerger()
-                    merged_file = data_merger.merge_all_data()
-                    
-                    # Check the result with safe type checking
-                    if merged_file is not None:
-                        if isinstance(merged_file, pd.DataFrame):
-                            if not merged_file.empty:
-                                stats = data_merger.generate_summary_stats(merged_file)
-                                print(f"[INFO] Data merged successfully. Stats: {stats}")
-                            else:
-                                print("[INFO] Data merged successfully but resulted in empty DataFrame.")
-                        elif isinstance(merged_file, str):
-                            print(f"[INFO] Data merged successfully. Output path: {merged_file}")
-                            stats = data_merger.generate_summary_stats(merged_file)
-                            print(f"[INFO] Stats: {stats}")
+                        # First try to save using the new log_survey method
+                        success = data_storage.log_survey(survey_data)
+                        if success:
+                            st.success("Survey data saved successfully!")
                         else:
-                            print(f"[INFO] Data merged with unknown return type: {type(merged_file)}")
-                except Exception as merge_error:
-                    print(f"[ERROR] Data merging failed: {str(merge_error)}")
-                    # Continue with logout process even if merging fails
+                            st.warning("Survey was saved to backup storage.")
+                    except Exception as e:
+                        error_msg = f"Error saving survey data: {str(e)}"
+                        st.error(error_msg)
+                        
+                        # Try an emergency direct JSON save as a last resort
+                        try:
+                            emergency_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'emergency')
+                            os.makedirs(emergency_dir, exist_ok=True)
+                            emergency_file = os.path.join(
+                                emergency_dir, 
+                                f"emergency_survey_{survey_data.get('user_id')}_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+                            )
+                            with open(emergency_file, 'w') as f:
+                                json.dump(survey_data, f, indent=2)
+                            st.info(f"Survey saved to emergency backup file.")
+                        except Exception as backup_e:
+                            st.error(f"All save attempts failed. Please contact support and provide this error: {str(backup_e)}")
+
+                    # Set flag that the survey is completed
+                    st.session_state.survey_completed = True
+                    st.session_state.logged_out = True
+                    
+                    # Safely try to merge data files with proper error handling
+                    try:
+                        # Create the data merger instance
+                        data_merger = DataMerger()
+                        merged_file = data_merger.merge_all_data()
+                        
+                        # Check the result with safe type checking
+                        if merged_file is not None:
+                            if isinstance(merged_file, pd.DataFrame):
+                                if not merged_file.empty:
+                                    stats = data_merger.generate_summary_stats(merged_file)
+                                    print(f"[INFO] Data merged successfully. Stats: {stats}")
+                                else:
+                                    print("[INFO] Data merged successfully but resulted in empty DataFrame.")
+                            elif isinstance(merged_file, str):
+                                print(f"[INFO] Data merged successfully. Output path: {merged_file}")
+                                stats = data_merger.generate_summary_stats(merged_file)
+                                print(f"[INFO] Stats: {stats}")
+                            else:
+                                print(f"[INFO] Data merged with unknown return type: {type(merged_file)}")
+                    except Exception as merge_error:
+                        print(f"[ERROR] Data merging failed: {str(merge_error)}")
+                        # Continue with logout process even if merging fails
+                    
+                    # Save chat history before logging out
+                    if 'messages' in st.session_state and st.session_state.messages:
+                        try:
+                            storage = DataStorage()
+                            
+                            # Get user ID and task ID
+                            user_id = st.session_state.get('user_id', 'unknown')
+                            task_id = st.session_state.get('current_task', 0)
+                            
+                            # Save chat history
+                            storage.save_chat_history(user_id, task_id, st.session_state.messages)
+                            print(f"[INFO] Saved chat history for user {user_id} during logout")
+                        except Exception as e:
+                            print(f"[ERROR] Failed to save chat history during logout: {str(e)}")
+                    
+                    # Trigger a rerun to show the thank you message
+                    st.rerun()
 
 # At the end of the survey, merge all data for analysis
 if st.session_state.get("survey_completed", False):
