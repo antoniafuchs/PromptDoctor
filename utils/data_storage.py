@@ -67,7 +67,7 @@ def safe_concat_dataframe(existing_df: pd.DataFrame, new_data: dict) -> pd.DataF
         if existing_df[col].dtype != new_df[col].dtype:
             if pd.api.types.is_numeric_dtype(existing_df[col]):
                 new_df[col] = pd.to_numeric(new_df[col], errors='coerce')
-            elif pd.api.types.is_datetime64_any_dtype(existing_df[col]):
+            elif pd.api.types.is_datetime64_any_dtype(existingDf[col]):
                 new_df[col] = pd.to_datetime(new_df[col], errors='coerce')
             else:
                 new_df[col] = new_df[col].astype(str)
@@ -551,7 +551,7 @@ class DataStorage:
                                    'PE_difficulty', 'PE_satisfaction', 'PE_understanding',
                                    'CL_mental', 'CL_temporal', 'CL_effort', 'CL_performance', 'CL_frustration',
                                    'MQ_accuracy', 'MQ_professional', 'MQ_usefulness', 'MQ_inaccuracies',
-                                   'CL_performance', 'prompt_count', 'start_time', 'end_time'])
+                                   'prompt_count', 'start_time', 'end_time', 'model_type', 'model_name', 'group'])
             
             # Only save to tasks.csv now - we no longer save to task_surveys.csv
             # Add timestamp if not exists
@@ -573,6 +573,10 @@ class DataStorage:
             print(f"  frustration: '{survey_data.get('frustration', 'MISSING')}'")
             print(f"  accuracy: '{survey_data.get('accuracy', 'MISSING')}'")
             
+            # Handle task_number field which might be present instead of task_id
+            if 'task_number' in survey_data and not task_id:
+                task_id = survey_data['task_number']
+            
             # Ensure all expected fields have values, even if empty
             # This is the critical part - map ALL survey fields correctly
             mapped_data = {
@@ -583,7 +587,7 @@ class DataStorage:
                 'timestamp': survey_data.get('timestamp', datetime.now().isoformat()),
                 'task_start': survey_data.get('start_time', ''),  # Make sure we record when task started
                 'task_end': survey_data.get('end_time', ''),
-                # Ensure all survey fields are properly mapped - convert to strings to prevent nulls
+                # Add all standard fields expected in the CSV
                 'PE_difficulty': str(survey_data.get('difficulty', '')),
                 'PE_understanding': str(survey_data.get('expectation_match', '')), 
                 'CL_mental': str(survey_data.get('mental_demand', '')),
@@ -594,8 +598,21 @@ class DataStorage:
                 'CL_performance': str(survey_data.get('task_accomplishment', '')),
                 'prompt_count': survey_data.get('prompt_count', 0),
                 'start_time': survey_data.get('start_time', ''),  # Duplicate to match existing schema
-                'end_time': survey_data.get('end_time', '')      # Duplicate to match existing schema
+                'end_time': survey_data.get('end_time', ''),      # Duplicate to match existing schema
+                'model_type': survey_data.get('model_type', ''),
+                'model_name': survey_data.get('model_name', ''),
+                'group': survey_data.get('group', '')
             }
+            
+            # If survey_data is provided as a string (JSON), store it directly
+            if 'survey_data' not in mapped_data and isinstance(survey_data, dict):
+                try:
+                    # Create a clean copy without large text fields
+                    survey_data_copy = {k: v for k, v in survey_data.items() 
+                                        if k != 'medical_inaccuracies' and not isinstance(v, (dict, list))}
+                    mapped_data['survey_data'] = json.dumps(survey_data_copy)
+                except Exception as e:
+                    logger.error(f"Error serializing survey data: {str(e)}")
             
             # Debug mapped data
             print(f"DEBUG - Mapped data field values:")
@@ -605,54 +622,67 @@ class DataStorage:
             print(f"  CL_frustration: '{mapped_data.get('CL_frustration', 'MISSING')}'")
             print(f"  MQ_accuracy: '{mapped_data.get('MQ_accuracy', 'MISSING')}'")
         
-            # Avoid duplicate entries by checking if this task entry already exists
+            # Check if the file exists and get existing headers
+            existing_headers = []
             if os.path.exists(tasks_file):
-                # Read existing CSV with field names preserved exactly as in file
-                df = pd.read_csv(tasks_file, sep=';', dtype=str)
-                
-                # Print column names for debugging
-                print(f"DEBUG - CSV columns: {list(df.columns)}")
-                
-                # Check if entry already exists for this user and task
-                mask = (df['user_id'] == str(user_id)) & (df['task_id'] == str(task_id))
-                if any(mask):
-                    # Update existing entry instead of creating a new one
-                    for key, value in mapped_data.items():
-                        if key in df.columns:
-                            df.loc[mask, key] = value
-                
-                    # Debug updated row
-                    print(f"DEBUG - Updated row values:")
-                    for key in ['PE_difficulty', 'PE_understanding', 'CL_mental', 'CL_frustration', 'MQ_accuracy']:
-                        if key in df.columns:
-                            print(f"  {key}: '{df.loc[mask, key].values[0] if any(mask) else 'NOT FOUND'}'")
-                
-                    # Save with original column order preserved
-                    df.to_csv(tasks_file, index=False, sep=';')
-                    return
-            
-            # If we get here, either the file doesn't exist or the entry doesn't exist
-            # Append the new entry
-            with open(tasks_file, 'a', newline='') as f:
-                # Get existing headers
-                existing_headers = []
                 try:
                     with open(tasks_file, 'r', newline='') as read_f:
                         reader = csv.reader(read_f, delimiter=';')
                         existing_headers = next(reader)
-                except:
-                    # If we can't read headers, use all keys from mapped_data
-                    existing_headers = list(mapped_data.keys())
+                except Exception as e:
+                    logger.error(f"Error reading task file headers: {str(e)}")
+            
+            # If we couldn't read headers, use default set
+            if not existing_headers:
+                existing_headers = [
+                    'user_id', 'task_id', 'completion_status', 'task_duration', 'timestamp',
+                    'task_start', 'task_end', 'PE_difficulty', 'PE_understanding', 
+                    'CL_mental', 'CL_frustration', 'MQ_accuracy', 'MQ_usefulness', 
+                    'MQ_inaccuracies', 'CL_performance', 'prompt_count'
+                ]
+            
+            print(f"DEBUG - CSV headers: {existing_headers}")
                 
-                print(f"DEBUG - Writing row with headers: {existing_headers}")
+            # Avoid duplicate entries by checking if this task entry already exists
+            existing_entries = []
+            if os.path.exists(tasks_file):
+                try:
+                    # Read existing data
+                    with open(tasks_file, 'r', newline='') as f:
+                        reader = csv.DictReader(f, delimiter=';', fieldnames=existing_headers)
+                        next(reader)  # Skip header
+                        for row in reader:
+                            existing_entries.append(row)
+                    
+                    # Check for existing entry
+                    for i, entry in enumerate(existing_entries):
+                        if (entry.get('user_id') == str(user_id) and 
+                            entry.get('task_id') == str(task_id)):
+                            # Update existing entry
+                            for key, value in mapped_data.items():
+                                if key in existing_headers:
+                                    existing_entries[i][key] = value
+                            
+                            # Rewrite the entire file
+                            with open(tasks_file, 'w', newline='') as f:
+                                writer = csv.DictWriter(f, fieldnames=existing_headers, delimiter=';')
+                                writer.writeheader()
+                                writer.writerows(existing_entries)
+                            return
+                except Exception as e:
+                    logger.error(f"Error checking for existing task entry: {str(e)}")
+            
+            # If no existing entry was found, append new data
+            with open(tasks_file, 'a', newline='') as f:
+                # Create a row with only fields that exist in the headers
+                row_data = {k: v for k, v in mapped_data.items() if k in existing_headers}
+                
+                # Handle missing fields by adding empty values
+                for header in existing_headers:
+                    if header not in row_data:
+                        row_data[header] = ''
                 
                 writer = csv.DictWriter(f, fieldnames=existing_headers, delimiter=';')
-                # Only write header if file is new/empty
-                if os.path.getsize(tasks_file) == 0:
-                    writer.writeheader()
-                
-                # Write only fields that match the headers
-                row_data = {k: v for k, v in mapped_data.items() if k in existing_headers}
                 writer.writerow(row_data)
                 
                 # Debug what was actually written
@@ -661,7 +691,10 @@ class DataStorage:
                     print(f"  {key}: '{row_data.get(key, 'NOT IN ROW')}'")
                 
         except Exception as e:
-            print(f"Error saving task survey: {str(e)}")
+            error_msg = f"Error saving task survey: {str(e)}\n{traceback.format_exc()}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")
+            
             # Attempt direct file writing as last resort
             try:
                 with open(tasks_file, 'a', newline='') as f:
@@ -671,6 +704,8 @@ class DataStorage:
                         user_id, task_id, 'completed', 
                         survey_data.get('task_duration', 0.0),
                         datetime.now().isoformat(),
+                        survey_data.get('start_time', ''),
+                        survey_data.get('end_time', ''),
                         # Add the missing fields explicitly
                         str(survey_data.get('difficulty', '')),
                         str(survey_data.get('expectation_match', '')),
@@ -680,12 +715,15 @@ class DataStorage:
                         str(survey_data.get('clinical_usefulness', '')),
                         survey_data.get('medical_inaccuracies', ''),
                         str(survey_data.get('task_accomplishment', '')),
+                        survey_data.get('prompt_count', 0)
                     ]
                     writer.writerow(row_values)
                     print(f"DEBUG - Emergency write completed with {len(row_values)} fields")
             except Exception as ex:
-                print(f"Critical error saving task data: {str(ex)}")
-    
+                error_msg = f"Critical error saving task data: {str(ex)}\n{traceback.format_exc()}"
+                logger.critical(error_msg)
+                self._log_storage_event(error_msg, "CRITICAL")
+
     def save_prompt_counts(self, task_data: dict) -> None:
         """Save prompt count data for hypothesis testing"""
         # Make sure directory exists
@@ -776,7 +814,7 @@ class DataStorage:
 
     def save_highlight_metrics(self, user_id, task_number, group, metrics_data):
         """
-        Save highlight metrics data to the database
+        Save highlight metrics data to a CSV file
         
         Args:
             user_id (str): The unique user identifier
@@ -785,117 +823,66 @@ class DataStorage:
             metrics_data (dict): Dictionary containing highlight metrics
         """
         try:
-            # Create a document with highlight metrics data
-            highlight_doc = {
-                "user_id": user_id,
-                "task_id": task_number,
-                "group": group,
-                "metrics": metrics_data,
-                "timestamp": datetime.now().isoformat()
-            }
+            # Create file path for highlight metrics
+            os.makedirs(self.data_dir, exist_ok=True)
+            metrics_file = os.path.join(self.data_dir, "highlight_metrics.csv")
             
-            # Store in the highlight_metrics collection
-            self.db.collection("highlight_metrics").add(highlight_doc)
+            # Create file with headers if it doesn't exist
+            if not os.path.exists(metrics_file):
+                with open(metrics_file, 'w', newline='') as f:
+                    writer = csv.writer(f, delimiter=';')
+                    writer.writerow([
+                        'user_id', 'task_id', 'group', 'timestamp', 
+                        'metric_type', 'metric_value', 'metric_count'
+                    ])
+            
+            # Format metrics data as rows for CSV
+            timestamp = datetime.now().isoformat()
+            rows = []
+            
+            # If metrics_data is a dictionary with nested values, flatten it
+            if isinstance(metrics_data, dict):
+                for metric_type, value in metrics_data.items():
+                    # Handle both scalar values and dictionaries/lists
+                    if isinstance(value, (dict, list)):
+                        # For complex types, store as JSON string
+                        row = [user_id, task_number, group, timestamp, 
+                               metric_type, json.dumps(value), 1]
+                    else:
+                        # For scalar values, store directly
+                        row = [user_id, task_number, group, timestamp, 
+                               metric_type, value, 1]
+                    rows.append(row)
+            else:
+                # If metrics_data is not a dictionary, save as a single row
+                rows.append([user_id, task_number, group, timestamp, 
+                             'raw_metrics', json.dumps(metrics_data), 1])
+            
+            # Append rows to CSV
+            with open(metrics_file, 'a', newline='') as f:
+                writer = csv.writer(f, delimiter=';')
+                writer.writerows(rows)
+            
+            # Also save complete raw data as JSON for backup
+            backup_file = os.path.join(
+                self.data_dir,
+                f"highlight_metrics_{user_id}_task{task_number}_{datetime.now().strftime('%Y%m%d%H%M%S')}.json"
+            )
+            with open(backup_file, 'w') as f:
+                json.dump({
+                    "user_id": user_id,
+                    "task_id": task_number,
+                    "group": group,
+                    "metrics": metrics_data,
+                    "timestamp": timestamp
+                }, f, indent=2)
+                
             return True
         except Exception as e:
-            print(f"Error saving highlight metrics: {str(e)}")
+            error_msg = f"Error saving highlight metrics: {str(e)}"
+            logger.error(error_msg)
+            self._log_storage_event(error_msg, "ERROR")
             return False
-
-    def _append_to_csv(self, filepath, data):
-        """Append data to a CSV file with improved handling for text fields"""
-        # Ensure the directory exists
-        os.makedirs(os.path.dirname(filepath), exist_ok=True)
-        
-        # Debug incoming data text fields
-        text_fields = ['FB_likes', 'FB_improvements', 'FB_clinical', 'FB_other', 
-                       'EX_edit_reason', 'EX_comment', 'EX_edit_changed',
-                       'clinical_reasoning_desc', 'specialization', 'expectations']
-        print(f"DEBUG _append_to_csv - Text fields in data:")
-        for field in text_fields:
-            if field in data:
-                print(f"  {field}: '{data[field]}'")
-        
-        # Clean the data: convert None to empty string, and ensure all values are strings
-        cleaned_data = {}
-        for key, value in data.items():
-            if value is None:
-                cleaned_data[key] = ''
-            elif isinstance(value, list):
-                cleaned_data[key] = ','.join(map(str, value))
-            else:
-                # For text fields that might contain multiline content, replace newlines
-                if isinstance(value, str) and ('\n' in value or '\r' in value):
-                    value = value.replace('\n', ' ').replace('\r', ' ')
-                
-                # Replace semicolons with commas to avoid delimiter issues
-                if isinstance(value, str) and ';' in value:
-                    value = value.replace(';', ',')
-                
-                cleaned_data[key] = value
-    
-        data = cleaned_data
-        
-        # Create file with headers if it doesn't exist
-        if not os.path.exists(filepath):
-            with open(filepath, 'w', newline='') as f:
-                writer = csv.DictWriter(f, fieldnames=data.keys(), delimiter=';')
-                writer.writeheader()
-        
-        # Check if the file exists but is empty
-        is_empty = False
-        if os.path.exists(filepath) and os.path.getsize(filepath) == 0:
-            is_empty = True
-        
-        # Append data
-        with open(filepath, 'a', newline='') as f:
-            # If the file was empty, write headers first
-            if is_empty:
-                writer = csv.DictWriter(f, fieldnames=data.keys(), delimiter=';')
-                writer.writeheader()
-            
-            # Get existing headers
-            with open(filepath, 'r', newline='') as read_file:
-                reader = csv.reader(read_file, delimiter=';')
-                headers = next(reader, [])
-            
-            # Debug headers
-            print(f"DEBUG _append_to_csv - CSV headers: {headers}")
-            
-            # Filter data to include only columns in the CSV
-            filtered_data = {k: v for k, v in data.items() if k in headers}
-            
-            # Debug filtered data
-            print(f"DEBUG _append_to_csv - Text fields after filtering:")
-            for field in text_fields:
-                if field in filtered_data:
-                    print(f"  {field}: '{filtered_data[field]}'")
-            
-            # If there are headers in the file, use them for writing
-            if headers:
-                # Use a custom writer to handle special characters properly
-                writer = csv.DictWriter(
-                    f, 
-                    fieldnames=headers, 
-                    delimiter=';',
-                    extrasaction='ignore', 
-                    quoting=csv.QUOTE_NONNUMERIC,  # Quote all non-numeric fields
-                    quotechar='"',                 # Use double quotes for quoting
-                    escapechar='\\'                # Use backslash as escape character
-                )
-                writer.writerow(filtered_data)
-            else:
-                # Otherwise use all data keys
-                writer = csv.DictWriter(
-                    f, 
-                    fieldnames=data.keys(), 
-                    delimiter=';',
-                    quoting=csv.QUOTE_NONNUMERIC,  # Quote all non-numeric fields
-                    quotechar='"',                 # Use double quotes for quoting
-                    escapechar='\\'                # Use backslash as escape character
-                )
-                writer.writerow(data)
-    
-        return data
 
     def save_unified_prompt_data(self, data):
         """Save unified prompt data to CSV file"""
@@ -973,9 +960,22 @@ class DataStorage:
                 self.prompt_df[col] = None
             if col not in new_row:
                 new_row[col] = None
+        
+        # Fix for FutureWarning: Fill any NA values in new_row to avoid concatenation warnings
+        for col in new_row.columns:
+            if pd.api.types.is_numeric_dtype(new_row[col]):
+                new_row[col] = new_row[col].fillna(0)  # Fill numeric NAs with 0
+            else:
+                new_row[col] = new_row[col].fillna('')  # Fill string NAs with empty string
                 
-        # Concatenate the dataframes
-        self.prompt_df = pd.concat([self.prompt_df, new_row], ignore_index=True)
+        # Concatenate the dataframes with explicit dtypes to avoid warnings
+        try:
+            self.prompt_df = pd.concat([self.prompt_df, new_row], ignore_index=True, sort=False)
+        except Exception as e:
+            logger.error(f"Error concatenating dataframes: {str(e)}")
+            # Alternative approach - append row by row
+            for _, row in new_row.iterrows():
+                self.prompt_df = self.prompt_df.append(row, ignore_index=True)
         
         # Save to CSV
         try:
@@ -1018,7 +1018,7 @@ class DataStorage:
                     writer.writerow(minimal_data)
             except Exception as e2:
                 print(f"Critical error saving prompt data: {e2}")
-        
+
     # This is an alias method to maintain compatibility
     def save_validation_log(self, data):
         """Alias for save_unified_prompt_data for backward compatibility"""
