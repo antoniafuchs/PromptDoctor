@@ -551,8 +551,11 @@ def show_logout_survey():
                         'user_id': st.session_state.user_id,
                         'timestamp': datetime.datetime.now().isoformat(),
                         'group': st.session_state.get('group', 'unknown'),
-                        'login_time': st.session_state.login_time,
+                        'login_time': st.session_state.get('login_time', ''),
                         'logout_time': datetime.datetime.now().isoformat(),
+                        
+                        # Make sure to include trust factors
+                        'TR_trust_factors': st.session_state.logout_survey_data.get('q2c_trust_factors', ''),
                         
                         # Use safe_int for numeric conversions
                         'US_ease': safe_int(st.session_state.logout_survey_data.get('q1a_ease')),
@@ -562,8 +565,7 @@ def show_logout_survey():
                         'TR_model_trust': safe_int(st.session_state.logout_survey_data.get('q2a_trust')),
                         'TR_understanding': safe_int(st.session_state.logout_survey_data.get('q2b_understanding')),
                         'TR_current_trust': safe_int(st.session_state.logout_survey_data.get('q2e_trust')),
-                        'TR_trust_factors': st.session_state.logout_survey_data.get('q2c_trust_factors', ''),
-                        'TR_trust_other': st.session_state.logout_survey_data.get('q2c_trust_other', ''),  # Add this line
+                        'TR_trust_other': st.session_state.logout_survey_data.get('q2c_trust_other', ''),
                         'TR_explanations': safe_int(st.session_state.logout_survey_data.get('q2d_explanations')) if st.session_state.get('group') == 'B' else None,
                         
                         # Get text fields directly from session state
@@ -576,10 +578,15 @@ def show_logout_survey():
                     
                     # Log survey data for debugging
                     print(f"DEBUG - Final survey values before submission:")
+                    print(f"  User ID: {survey_data['user_id']}")
+                    print(f"  Group: {survey_data['group']}")
                     print(f"  FB_likes: '{survey_data['FB_likes']}'")
                     print(f"  FB_improvements: '{survey_data['FB_improvements']}'")
                     print(f"  FB_clinical: '{survey_data['FB_clinical']}'")
                     print(f"  FB_other: '{survey_data['FB_other']}'")
+                    print(f"  Numeric values:")
+                    for key in ['US_ease', 'US_clarity', 'US_reuse', 'TR_model_trust', 'TR_understanding', 'TR_current_trust']:
+                        print(f"    {key}: {survey_data.get(key)}")
 
                     # Add explainability data for group B with safe integer conversion
                     if st.session_state.get('group') == 'B':
@@ -627,6 +634,20 @@ def show_logout_survey():
                     # Save survey data using DataStorage imported at the module level
                     data_storage = DataStorage()
                     
+                    # Force save survey data to emergency JSON as a failsafe
+                    try:
+                        emergency_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'emergency')
+                        os.makedirs(emergency_dir, exist_ok=True)
+                        emergency_file = os.path.join(
+                            emergency_dir, 
+                            f"emergency_survey_{survey_data.get('user_id')}_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+                        )
+                        with open(emergency_file, 'w') as f:
+                            json.dump(survey_data, f, indent=2)
+                        print(f"DEBUG - Saved emergency backup to {emergency_file}")
+                    except Exception as backup_e:
+                        print(f"DEBUG - Failed to save emergency backup: {str(backup_e)}")
+                    
                     # Modified error handling to avoid circular reference
                     try:
                         # First try to save using the new log_survey method
@@ -638,6 +659,7 @@ def show_logout_survey():
                     except Exception as e:
                         error_msg = f"Error saving survey data: {str(e)}"
                         st.error(error_msg)
+                        print(f"DEBUG - Error saving survey: {str(e)}")
                         
                         # Try an emergency direct JSON save as a last resort
                         try:
@@ -652,6 +674,7 @@ def show_logout_survey():
                             st.info(f"Survey saved to emergency backup file.")
                         except Exception as backup_e:
                             st.error(f"All save attempts failed. Please contact support and provide this error: {str(backup_e)}")
+                            print(f"DEBUG - All save attempts failed: {str(backup_e)}")
 
                     # Set flag that the survey is completed
                     st.session_state.survey_completed = True

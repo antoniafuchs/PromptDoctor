@@ -1331,6 +1331,144 @@ class DataStorage:
             logger.error(f"Error extracting task ID from message ID '{message_id}': {str(e)}")
             return 0
 
+    def _append_to_csv(self, filepath, data):
+        """Append data to a CSV file with improved handling for text fields"""
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+        
+        # Debug incoming data text fields
+        text_fields = ['FB_likes', 'FB_improvements', 'FB_clinical', 'FB_other', 
+                       'EX_edit_reason', 'EX_comment', 'EX_edit_changed',
+                       'clinical_reasoning_desc', 'specialization', 'expectations',
+                       'EX_highlight_meaning', 'EX_highlight_missed_terms', 'TR_trust_other']
+        
+        logger.info(f"Appending data to CSV: {filepath}")
+        logger.info(f"Data keys: {list(data.keys())}")
+        
+        # Clean the data: convert None to empty string, and ensure all values are strings
+        cleaned_data = {}
+        for key, value in data.items():
+            if value is None:
+                cleaned_data[key] = ''
+            elif isinstance(value, list):
+                cleaned_data[key] = ','.join(map(str, value))
+            else:
+                # For text fields that might contain multiline content, replace newlines
+                if isinstance(value, str) and ('\n' in value or '\r' in value):
+                    value = value.replace('\n', ' ').replace('\r', ' ')
+                
+                # Replace semicolons with commas to avoid delimiter issues
+                if isinstance(value, str) and ';' in value:
+                    value = value.replace(';', ',')
+                
+                cleaned_data[key] = value
+    
+        data = cleaned_data
+        
+        # If the file doesn't exist, create it with headers
+        headers = []
+        if not os.path.exists(filepath):
+            # For surveys.csv, ensure we include all expected columns
+            if 'surveys.csv' in filepath:
+                headers = [
+                    'user_id', 'timestamp', 'group',
+                    # Usability
+                    'US_ease', 'US_clarity', 'US_reuse', 
+                    # Trust
+                    'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations', 'TR_trust_factors', 'TR_trust_other',
+                    # Feedback
+                    'FB_likes', 'FB_improvements', 'FB_clinical_yn', 'FB_clinical', 'FB_other',
+                    # Explainability
+                    'EX_helpful', 'EX_refinement', 'EX_understanding', 'EX_trust',
+                    'EX_terms_useful', 'EX_edit_helpful', 'EX_edit_understanding',
+                    'EX_self_efficacy', 'EX_clarity', 'EX_edit_changed',
+                    'EX_highlight_meaning', 'EX_highlight_missed_terms', 'EX_edit_reason', 'EX_reuse', 'EX_comment',
+                    # Additional fields
+                    'login_time', 'logout_time'
+                ]
+            else:
+                # Use the keys from the data
+                headers = list(data.keys())
+                
+            # Create the file with headers
+            with open(filepath, 'w', newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=headers, delimiter=';',
+                                       quoting=csv.QUOTE_NONNUMERIC)
+                writer.writeheader()
+        
+        # Get existing headers if file exists
+        else:
+            try:
+                with open(filepath, 'r', newline='') as read_file:
+                    reader = csv.reader(read_file, delimiter=';')
+                    headers = next(reader, [])
+            except Exception as e:
+                logger.error(f"Error reading headers from {filepath}: {e}")
+                # Fall back to data keys
+                headers = list(data.keys())
+        
+        # Debug the headers we're working with
+        logger.info(f"CSV headers: {headers}")
+        
+        # Make sure all required headers are present for surveys.csv
+        if 'surveys.csv' in filepath and len(headers) < 10:  # Sanity check for minimal headers
+            logger.warning(f"Headers in {filepath} seem incomplete: {headers}")
+            # Use a comprehensive set of headers
+            headers = [
+                'user_id', 'timestamp', 'group',
+                # Usability
+                'US_ease', 'US_clarity', 'US_reuse', 
+                # Trust
+                'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations', 'TR_trust_factors', 'TR_trust_other',
+                # Feedback
+                'FB_likes', 'FB_improvements', 'FB_clinical_yn', 'FB_clinical', 'FB_other',
+                # Explainability
+                'EX_helpful', 'EX_refinement', 'EX_understanding', 'EX_trust',
+                'EX_terms_useful', 'EX_edit_helpful', 'EX_edit_understanding',
+                'EX_self_efficacy', 'EX_clarity', 'EX_edit_changed',
+                'EX_highlight_meaning', 'EX_highlight_missed_terms', 'EX_edit_reason', 'EX_reuse', 'EX_comment',
+                # Additional fields
+                'login_time', 'logout_time'
+            ]
+            
+            # Create a new file with the full headers
+            with open(filepath, 'w', newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=headers, delimiter=';',
+                                       quoting=csv.QUOTE_NONNUMERIC)
+                writer.writeheader()
+        
+        # Ensure data contains all headers (with empty strings for missing fields)
+        for header in headers:
+            if header not in data:
+                data[header] = ''
+        
+        # Write the row with values for all headers
+        try:
+            with open(filepath, 'a', newline='') as f:
+                writer = csv.DictWriter(
+                    f, 
+                    fieldnames=headers, 
+                    delimiter=';',
+                    quoting=csv.QUOTE_NONNUMERIC,  # Quote all non-numeric fields
+                    quotechar='"',                 # Use double quotes for quoting
+                    escapechar='\\'                # Use backslash as escape character
+                )
+                writer.writerow(data)
+                logger.info(f"Successfully wrote row to {filepath}")
+        except Exception as e:
+            logger.error(f"Error writing to {filepath}: {e}")
+            # Try one more time with a more basic approach
+            try:
+                with open(filepath, 'a', newline='') as f:
+                    row_values = [data.get(header, '') for header in headers]
+                    csv.writer(f, delimiter=';').writerow(row_values)
+                    logger.info(f"Successfully wrote row with basic writer to {filepath}")
+            except Exception as e2:
+                logger.error(f"Critical error writing to {filepath}: {e2}")
+                raise
+    
+        return data
+
     def log_survey(self, survey_data: Dict) -> bool:
         """
         Save final survey responses to surveys.csv
@@ -1413,8 +1551,66 @@ class DataStorage:
             # Add timestamp if not provided
             if 'timestamp' not in survey_data:
                 survey_data['timestamp'] = datetime.now().isoformat()
+            
+            # Debug the data before saving
+            logger.info(f"Survey data fields: {list(survey_data.keys())}")
+            logger.info(f"Text fields values:")
+            for field in text_fields:
+                if field in survey_data:
+                    logger.info(f"  {field}: {survey_data.get(field, 'NOT PRESENT')}")
+                    
+            # Try direct write to CSV to ensure it works
+            try:
+                # Get existing headers
+                headers = []
+                if os.path.exists(filepath):
+                    with open(filepath, 'r', newline='') as f:
+                        reader = csv.reader(f, delimiter=';')
+                        headers = next(reader, [])
                 
-            # Use the _append_to_csv helper function to save to CSV
+                # If headers don't exist, use a predefined set
+                if not headers:
+                    headers = [
+                        'user_id', 'timestamp', 'group',
+                        # Usability
+                        'US_ease', 'US_clarity', 'US_reuse', 
+                        # Trust
+                        'TR_model_trust', 'TR_understanding', 'TR_current_trust', 'TR_explanations', 'TR_trust_factors', 'TR_trust_other',
+                        # Feedback
+                        'FB_likes', 'FB_improvements', 'FB_clinical_yn', 'FB_clinical', 'FB_other',
+                        # Explainability
+                        'EX_helpful', 'EX_refinement', 'EX_understanding', 'EX_trust',
+                        'EX_terms_useful', 'EX_edit_helpful', 'EX_edit_understanding',
+                        'EX_self_efficacy', 'EX_clarity', 'EX_edit_changed',
+                        'EX_highlight_meaning', 'EX_highlight_missed_terms', 'EX_edit_reason', 'EX_reuse', 'EX_comment',
+                        # Additional fields
+                        'login_time', 'logout_time'
+                    ]
+                    
+                    # Create file with headers
+                    with open(filepath, 'w', newline='') as f:
+                        writer = csv.writer(f, delimiter=';')
+                        writer.writerow(headers)
+                
+                # Prepare row with proper field ordering
+                row_data = []
+                for header in headers:
+                    if header in survey_data:
+                        row_data.append(survey_data[header])
+                    else:
+                        row_data.append('')
+                
+                # Append row to CSV
+                with open(filepath, 'a', newline='') as f:
+                    writer = csv.writer(f, delimiter=';')
+                    writer.writerow(row_data)
+                
+                logger.info(f"Successfully wrote survey data directly to CSV")
+            except Exception as direct_write_error:
+                logger.error(f"Error with direct CSV write: {str(direct_write_error)}")
+                # Continue with the _append_to_csv method as fallback
+                
+            # Use the _append_to_csv helper function as a secondary approach
             self._append_to_csv(filepath, survey_data)
             
             # Write to emergency backup in case normal CSV write fails
