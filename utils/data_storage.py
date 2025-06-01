@@ -1559,7 +1559,7 @@ class DataStorage:
                 if field in survey_data:
                     logger.info(f"  {field}: {survey_data.get(field, 'NOT PRESENT')}")
                     
-            # Try direct write to CSV to ensure it works
+            # Only use one method to save to CSV to avoid duplication
             try:
                 # Get existing headers
                 headers = []
@@ -1592,29 +1592,55 @@ class DataStorage:
                         writer = csv.writer(f, delimiter=';')
                         writer.writerow(headers)
                 
-                # Prepare row with proper field ordering
-                row_data = []
-                for header in headers:
-                    if header in survey_data:
-                        row_data.append(survey_data[header])
-                    else:
-                        row_data.append('')
+                # Check if this user already has a survey entry and update it instead of adding a duplicate
+                existing_entries = []
+                user_entry_index = -1
                 
-                # Append row to CSV
-                with open(filepath, 'a', newline='') as f:
-                    writer = csv.writer(f, delimiter=';')
-                    writer.writerow(row_data)
+                if os.path.exists(filepath):
+                    try:
+                        with open(filepath, 'r', newline='') as f:
+                            reader = csv.DictReader(f, delimiter=';', fieldnames=headers)
+                            next(reader)  # Skip header
+                            
+                            for i, row in enumerate(reader):
+                                existing_entries.append(row)
+                                if row.get('user_id') == survey_data.get('user_id'):
+                                    user_entry_index = i
+                    except Exception as e:
+                        logger.error(f"Error reading existing survey entries: {str(e)}")
                 
-                logger.info(f"Successfully wrote survey data directly to CSV")
-            except Exception as direct_write_error:
-                logger.error(f"Error with direct CSV write: {str(direct_write_error)}")
-                # Continue with the _append_to_csv method as fallback
+                if user_entry_index >= 0:
+                    # Update existing entry instead of adding a new one
+                    logger.info(f"Updating existing survey entry for user {survey_data.get('user_id')}")
+                    for key, value in survey_data.items():
+                        if key in headers:
+                            existing_entries[user_entry_index][key] = value
+                    
+                    # Rewrite the entire file
+                    with open(filepath, 'w', newline='') as f:
+                        writer = csv.DictWriter(f, fieldnames=headers, delimiter=';')
+                        writer.writeheader()
+                        writer.writerows(existing_entries)
+                else:
+                    # Prepare row with proper field ordering for a new entry
+                    row_data = {}
+                    for header in headers:
+                        row_data[header] = survey_data.get(header, '')
+                    
+                    # Append row to CSV
+                    with open(filepath, 'a', newline='') as f:
+                        writer = csv.DictWriter(f, fieldnames=headers, delimiter=';')
+                        writer.writerow(row_data)
                 
-            # Use the _append_to_csv helper function as a secondary approach
-            self._append_to_csv(filepath, survey_data)
+                logger.info(f"Successfully wrote survey data to CSV")
+            except Exception as e:
+                logger.error(f"Error writing to CSV: {str(e)}")
+                # Use the _append_to_csv helper function as a fallback
+                self._append_to_csv(filepath, survey_data)
             
             # Write to emergency backup in case normal CSV write fails
             emergency_backup = os.path.join(self.data_dir, 'emergency_surveys.json')
+           
             try:
                 existing_data = []
                 if os.path.exists(emergency_backup):
