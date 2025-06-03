@@ -1055,28 +1055,53 @@ def render_tasks_tab(data):
                 
             st.dataframe(duration_stats, use_container_width=True)
             
-            # Box plot of task durations
-            fig, ax = plt.subplots(figsize=(10, 6))
-            # Convert to minutes for the plot
-            completed_tasks["duration_minutes"] = completed_tasks["task_duration"] / 60
-            
-            # Create boxplot
-            boxplot = ax.boxplot(
-                [group["duration_minutes"] for _, group in completed_tasks.groupby("task_id")],
-                labels=sorted(completed_tasks["task_id"].unique()),
-                patch_artist=True
-            )
-            
-            # Customize boxplot colors
-            colors = ['lightblue', 'lightgreen', 'lightpink']
-            for patch, color in zip(boxplot['boxes'], colors * 10):  # Repeat colors if needed
-                patch.set_facecolor(color)
-            
-            ax.set_title("Task Duration Distribution (minutes)")
-            ax.set_xlabel("Task ID")
-            ax.set_ylabel("Duration (minutes)")
-            ax.grid(True, linestyle='--', alpha=0.7)
-            st.pyplot(fig)
+            # Fix for boxplot - ensure we have valid data for each task
+            if completion_col and not completed_tasks.empty:
+                try:
+                    # Convert to minutes for the plot
+                    completed_tasks["duration_minutes"] = completed_tasks["task_duration"] / 60
+                    
+                    # Get task groups and ensure they have data
+                    task_groups = []
+                    task_labels = []
+                    
+                    # For each task ID, collect non-empty data groups
+                    for task_id, group in completed_tasks.groupby("task_id"):
+                        if not group.empty and 'duration_minutes' in group.columns:
+                            # Drop NaN values to avoid errors
+                            task_data = group["duration_minutes"].dropna().tolist()
+                            if task_data:  # Only add if we have data
+                                task_groups.append(task_data)
+                                task_labels.append(str(task_id))
+                    
+                    # Only create boxplot if we have valid data
+                    if task_groups and task_labels:
+                        fig, ax = plt.subplots(figsize=(10, 6))
+                        
+                        # Create boxplot with the filtered data
+                        boxplot = ax.boxplot(
+                            task_groups,
+                            labels=task_labels,
+                            patch_artist=True
+                        )
+                        
+                        # Customize boxplot colors
+                        colors = ['lightblue', 'lightgreen', 'lightpink']
+                        for patch, color in zip(boxplot['boxes'], colors * (len(task_groups) // 3 + 1)):
+                            patch.set_facecolor(color)
+                        
+                        ax.set_title("Task Duration Distribution (minutes)")
+                        ax.set_xlabel("Task ID")
+                        ax.set_ylabel("Duration (minutes)")
+                        ax.grid(True, linestyle='--', alpha=0.7)
+                        st.pyplot(fig)
+                    else:
+                        st.info("Not enough valid task duration data to create a boxplot.")
+                except Exception as e:
+                    st.error(f"Error creating task duration boxplot: {str(e)}")
+                    st.info("Unable to create boxplot due to data format issues.")
+            else:
+                st.info("No completed tasks with duration data available for visualization.")
         
         # Individual task data
         st.subheader("Individual Task Data")
