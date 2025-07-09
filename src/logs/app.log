@@ -1,0 +1,951 @@
+2025-06-05 16:48:02,608 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-06-05 16:48:02,608 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-06-05 16:48:02,608 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-06-05T14:48:02.608560+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 231,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607542"
+    }
+  }
+}
+2025-06-05 17:09:36,293 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-06-05 17:09:36,293 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-06-05 17:09:36,293 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-06-05T15:09:36.293767+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 231,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607542"
+    }
+  }
+}
+2025-06-05 17:10:45,726 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-06-05 17:10:45,726 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-06-05 17:10:45,726 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-06-05T15:10:45.726374+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 287,
+      "wable": true,
+      "last_modified": "2025-06-05T17:09:46.713775"
+    }
+  }
+}
+2025-07-08 12:34:13,136 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:34:13,136 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:34:13,136 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T10:34:13.136437+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 12:35:24,856 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:35:24,856 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:35:24,856 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T10:35:24.856273+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 12:35:25,478 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 12:40:20,505 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:40:20,505 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:40:20,505 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T10:40:20.505633+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 12:40:20,712 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 12:42:41,321 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:42:41,322 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:42:41,322 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T10:42:41.321946+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 12:42:41,533 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 12:45:09,813 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:45:09,813 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:45:09,813 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T10:45:09.813332+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 12:45:09,989 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 12:45:15,963 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 12:45:15,965 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 12:46:58,292 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:46:58,293 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 12:46:58,293 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T10:46:58.292917+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 12:46:58,469 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 12:47:03,415 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 12:47:03,417 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 13:05:53,810 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 13:05:53,811 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 13:05:53,811 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T11:05:53.810891+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 13:05:54,021 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 13:05:59,458 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 13:05:59,460 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 14:51:52,027 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 14:51:52,028 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 14:51:52,028 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T12:51:52.028231+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 14:51:52,237 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 14:51:58,719 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 14:51:58,722 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 14:52:04,793 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:04,794 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:14,087 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:14,089 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:14,090 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:20,782 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:20,984 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:20,985 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:22,829 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:22,830 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:52:22,832 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:53:47,782 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 14:53:47,782 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 14:53:47,782 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T12:53:47.782306+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 14:53:47,981 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 14:53:53,101 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 14:53:53,103 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 14:53:58,874 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:53:58,875 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:54:01,431 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:54:01,432 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 14:54:01,433 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:11:00,397 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:11:00,398 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:11:00,398 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T13:11:00.397926+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 430,
+      "wable": true,
+      "last_modified": "2025-06-05T17:10:50.789474"
+    }
+  }
+}
+2025-07-08 15:11:00,595 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 15:11:05,862 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 15:11:05,864 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 15:11:09,822 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:11:09,823 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:11:11,494 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:11:11,495 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:11:11,496 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:12:37,168 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:12:37,168 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:12:37,168 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T13:12:37.168298+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 679,
+      "wable": true,
+      "last_modified": "2025-07-08T15:11:11.639426"
+    }
+  }
+}
+2025-07-08 15:12:37,332 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 15:12:42,436 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 15:12:42,438 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 15:12:47,033 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:12:47,033 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:12:48,544 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:12:48,545 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:12:48,547 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:24:47,702 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:24:47,703 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:24:47,703 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T13:24:47.702843+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 888,
+      "wable": true,
+      "last_modified": "2025-07-08T15:12:48.684296"
+    }
+  }
+}
+2025-07-08 15:24:47,954 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 15:24:54,491 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 15:24:54,493 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 15:24:58,138 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:24:58,139 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:24:59,409 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:24:59,410 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:24:59,411 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:33:39,786 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:33:39,786 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:33:39,786 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T13:33:39.786268+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 1097,
+      "wable": true,
+      "last_modified": "2025-07-08T15:24:59.551430"
+    }
+  }
+}
+2025-07-08 15:33:39,974 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 15:33:46,727 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 15:33:46,730 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 15:37:19,289 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:37:19,291 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:37:20,424 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:37:20,425 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:37:20,426 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:39:28,750 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:39:28,751 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:39:28,751 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T13:39:28.751002+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 1312,
+      "wable": true,
+      "last_modified": "2025-07-08T15:37:21.750933"
+    }
+  }
+}
+2025-07-08 15:39:28,959 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 15:39:34,638 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 15:39:34,640 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 15:39:42,331 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:39:42,331 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:39:45,078 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:39:45,079 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:39:45,080 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:40:04,645 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:40:04,646 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-08 15:40:04,646 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-08T13:40:04.645968+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 1525,
+      "wable": true,
+      "last_modified": "2025-07-08T15:39:54.808102"
+    }
+  }
+}
+2025-07-08 15:40:04,813 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-08 15:40:10,228 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-08 15:40:10,230 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-08 15:41:16,438 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:16,439 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:37,131 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:37,132 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:37,133 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:40,967 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:41,454 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:41,455 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:44,497 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:44,497 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-08 15:41:44,499 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-09 10:04:42,145 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 10:04:42,146 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 10:04:42,146 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T08:04:42.146030+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 1525,
+      "wable": true,
+      "last_modified": "2025-07-08T15:39:54.808102"
+    }
+  }
+}
+2025-07-09 10:04:42,711 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-09 10:04:51,933 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-09 10:04:51,936 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-09 10:05:30,673 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-09 10:05:30,674 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-09 10:05:32,614 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-09 10:05:32,615 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+
+2025-07-09 10:05:32,616 - tracking.logging - ERROR - Error logging validation action: No module named 'src'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 577, in log_validation_action
+    from src.core.data_storage import DataStorage
+ModuleNotFoundError: No module named 'src'
+

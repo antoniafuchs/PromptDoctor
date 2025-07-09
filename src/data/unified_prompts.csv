@@ -1,0 +1,4 @@
+"user_id";"task_id";"group";"event_type";"action";"timestamp";"original_prompt";"modified_prompt";"highlighted_terms";"medical_term_count";"prompt_count";"message_id";"model_type";"model_name";"edit_distance";"diff_type";"action_type";"last_prompt";"term_count"
+"lime_user";"";"";"VALIDATION";"VALIDATION_VIEW";"2025-07-09T11:37:51.550109";"hi";"";"";0;"";"lime_use_task0_prompt0";"";"";"";"";"VALIDATION_VIEW";"";0
+"lime_user";"";"";"VALIDATION";"VALIDATION_VIEW";"2025-07-09T11:37:52.768314";"hi";"";"";0;"";"lime_use_task0_prompt0";"";"";"";"";"VALIDATION_VIEW";"";0
+"lime_user";"";"";"VALIDATION";"ACCEPT_CLICK";"2025-07-09T11:37:52.783261";"hi";"";"";"";"";"lime_use_task0_prompt0";"";"";"";"";"ACCEPT_CLICK";"";0

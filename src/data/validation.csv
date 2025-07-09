@@ -1,0 +1,1 @@
+user_id;task_id;timestamp;action_type;original_prompt;modified_prompt;changed_terms;reason_for_change;edit_distance;highlighted_terms;medical_term_count

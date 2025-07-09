@@ -1,4 +1,0 @@
-user_id;message_id;response_message_id;feedback_value;timestamp;prompt_hash;prompt_excerpt;response_excerpt;response_timestamp;task_id;group
-40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;40dbf9a5_task1_prompt0;40dbf9a5_task1_prompt0;1;2025-05-30T20:35:27.586044+00:00;29031454;hi;Hello. I'm PromptDoctor, a clinical AI assistant. How can I assist you today? Do you have a medical ;;0;A
-40dbf9a5-cf0f-442d-ab57-e1d8f81a131b;40dbf9a5_task1_prompt1;40dbf9a5_task1_prompt1;0;2025-05-30T20:35:42.883531+00:00;29031454;hi;Hello again. I'm here to help with any medical-related questions or topics you'd like to discuss. If;;0;A
-ed4b64c8-5bb9-4289-a430-92a8fcf1f146;ed4b64c8_task1_prompt0_response;ed4b64c8_task1_prompt0_response;1;2025-05-30T20:37:46.257963+00:00;75213034;hi;Hello. I'm PromptDoctor, a clinical AI assistant. How can I assist you today? Do you have a medical ;;0;B
