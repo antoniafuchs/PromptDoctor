@@ -1,0 +1,2 @@
+user_id;message_id;response_message_id;feedback_value;timestamp;prompt_hash;prompt_excerpt;response_excerpt;response_timestamp;task_id;group
+75de81fa-9a5d-4f16-9614-0354e5176406;75de81fa_task1_prompt1_response;75de81fa_task1_prompt1_response;1;2025-07-29T22:16:00.413152+00:00;90515106;hi;Hello again. Is there something specific you'd like to discuss or ask about? I can help with:  * Ana;;0;B
