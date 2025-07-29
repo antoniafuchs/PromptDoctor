@@ -27,7 +27,7 @@ The platform collects comprehensive interaction data, including prompts, respons
 
 The PromptDoctor system is built with a modular architecture consisting of several key components:
 
-![Architecture Diagram](../src/assets/architecture_diagram.png)
+![Architecture Diagram](./src/assets/architecture_diagram.png)
 
 ### Core Components
 
