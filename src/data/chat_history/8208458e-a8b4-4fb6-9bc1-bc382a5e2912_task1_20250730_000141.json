@@ -1,0 +1,22 @@
+{
+  "user_id": "8208458e-a8b4-4fb6-9bc1-bc382a5e2912",
+  "task_id": 1,
+  "timestamp": "2025-07-30T00:01:41.672859",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "raw_content": "hi",
+      "timestamp": "2025-07-30T00:01:41.632401",
+      "iteration": 1,
+      "message_id": "8208458e_task1_prompt0"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello. I'm PromptDoctor, a clinical AI assistant. How can I assist you today? Do you have a medical question, a case you'd like to discuss, or perhaps some clinical notes you'd like me to analyze? I'm here to provide helpful and accurate information while prioritizing clinical safety and evidence-based practices.",
+      "timestamp": "2025-07-30T00:01:41.660105",
+      "iteration": 1,
+      "message_id": "8208458e_task1_prompt0"
+    }
+  ]
+}

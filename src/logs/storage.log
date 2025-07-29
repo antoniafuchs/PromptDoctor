@@ -205,3 +205,19 @@
 [2025-07-29T11:44:25.497959] [INFO] DataStorage initialized
 [2025-07-29T11:44:31.262550] [INFO] DataStorage initialized
 [2025-07-29T11:44:48.886896] [INFO] DataStorage initialized
+[2025-07-29T23:57:24.703031] [INFO] DataStorage initialized
+[2025-07-29T23:57:32.583517] [INFO] DataStorage initialized
+[2025-07-29T23:58:00.668513] [INFO] DataStorage initialized
+[2025-07-29T23:58:07.774726] [INFO] DataStorage initialized
+[2025-07-30T00:00:48.999262] [INFO] DataStorage initialized
+[2025-07-30T00:00:55.070435] [INFO] DataStorage initialized
+[2025-07-30T00:01:15.456686] [INFO] DataStorage initialized
+[2025-07-30T00:01:21.409978] [INFO] DataStorage initialized
+[2025-07-30T00:01:33.530420] [INFO] DataStorage initialized
+[2025-07-30T00:01:41.672628] [INFO] DataStorage initialized
+[2025-07-30T00:01:41.689243] [ERROR] Error updating merged chat history: [Errno 2] No such file or directory: '/Users/antonia/Documents/PromptDoctor_MA/src/merged_data/chat_history.json'
+Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 1492, in _update_merged_chat_history
+    with open(merged_file, 'w') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/antonia/Documents/PromptDoctor_MA/src/merged_data/chat_history.json'
+

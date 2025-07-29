@@ -21,7 +21,8 @@ dependencies = [
     "langchain (>=0.3.25,<0.4.0)",
     "levenshtein (>=0.27.1,<0.28.0)",
     "nltk (>=3.9.1,<4.0.0)",
-    "together (>=1.5.8,<2.0.0)"
+    "together (>=1.5.8,<2.0.0)",
+    "pypdf2 (>=3.0.1,<4.0.0)"
 ]
 
 [build-system]

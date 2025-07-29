@@ -194,9 +194,9 @@ elif pages.current == 2:
                 st.session_state.selected_model_type = "Together"
                 st.session_state.selected_model_name = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
                 
-                # Set Together API key and environment variable
-                st.session_state.together_api_key = "your-token-here"
-                os.environ["TOGETHER_API_KEY"] = "your-token-here"
+                # Load Hugging Face token from environment variable
+                st.session_state.together_api_key = HF_TOKEN
+                os.environ["TOGETHER_API_KEY"] = HF_TOKEN
 
                 st.session_state.login_complete = True
                 # Add model configuration for controlling token generation
