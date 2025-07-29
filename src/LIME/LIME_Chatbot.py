@@ -1,3 +1,8 @@
+"""
+LIME_Chatbot.py
+This file implements the LIME Chatbot for PromptDoctor, providing model interpretability and explanation features via a chatbot interface.
+"""
+
 import sys
 import os
 import argparse
@@ -134,6 +139,28 @@ if "xai_results" not in st.session_state:
 if "xai_processor" not in st.session_state:
     st.session_state.xai_processor = XAIProcessor()
 
+SYSTEM_PROMPT = """You are PromptDoctor, a specialized AI assistant for clinical and medical use.
+Your core function is to assist healthcare professionals, medical students, and clinical researchers by analyzing clinical notes and medical case data, and generating medically accurate, relevant, and concise responses.
+
+Key capabilities:
+
+– Identify and extract key medical information (e.g., symptoms, diagnoses, treatments, lab values) from clinical notes.
+– Provide differential diagnoses, treatment recommendations, or summaries based on structured and unstructured input.
+– Support medical prompt optimization by highlighting which input elements significantly affect model output.
+– Justify answers using medically valid reasoning and highlight any uncertainties or assumptions.
+
+Your Responsibilities & Safety
+– Always prioritize clinical safety and evidence-based practices.
+– Avoid overconfidence: if information is missing or ambiguous, clearly state limitations or uncertainties.
+– Do not fabricate clinical facts or suggest experimental treatments unless explicitly requested and labeled as such.
+– Respect data privacy and do not request identifiable patient information.
+
+Your Tone and Style:
+– Be concise, clear, and professional.
+– Tailor your explanations to the level of medical knowledge (e.g., differentiate between student-level and expert-level users if prompted).
+– Use structured formats (e.g., bullet points, labeled sections) when possible to improve readability.
+You have been fine-tuned for real-world clinical and educational contexts. Respond only to medically relevant tasks, and escalate or abstain when a question is beyond your scope or safety constraints."""
+
 # Remove JavaScript section and replace with input focus handler
 def on_input_focus():
     if st.session_state.input_start_time is None:
@@ -166,28 +193,8 @@ def save_feedback(index):
 
 def process_prompt(prompt, response_placeholder):
     """Process the accepted prompt and send to model"""
-    # Define system prompt at the beginning of the function
-    system_prompt = """You are PromptDoctor, a specialized AI assistant for clinical and medical use.
-Your core function is to assist healthcare professionals, medical students, and clinical researchers by analyzing clinical notes and medical case data, and generating medically accurate, relevant, and concise responses.
-
-Key capabilities:
-
-– Identify and extract key medical information (e.g., symptoms, diagnoses, treatments, lab values) from clinical notes.
-– Provide differential diagnoses, treatment recommendations, or summaries based on structured and unstructured input.
-– Support medical prompt optimization by highlighting which input elements significantly affect model output.
-– Justify answers using medically valid reasoning and highlight any uncertainties or assumptions.
-
-Your Responsibilities & Safety
-– Always prioritize clinical safety and evidence-based practices.
-– Avoid overconfidence: if information is missing or ambiguous, clearly state limitations or uncertainties.
-– Do not fabricate clinical facts or suggest experimental treatments unless explicitly requested and labeled as such.
-– Respect data privacy and do not request identifiable patient information.
-
-Your Tone and Style:
-– Be concise, clear, and professional.
-– Tailor your explanations to the level of medical knowledge (e.g., differentiate between student-level and expert-level users if prompted).
-– Use structured formats (e.g., bullet points, labeled sections) when possible to improve readability.
-You have been fine-tuned for real-world clinical and educational contexts. Respond only to medically relevant tasks, and escalate or abstain when a question is beyond your scope or safety constraints."""
+    # Use the global system prompt instead of redefining it
+    global SYSTEM_PROMPT
     
     current_time = datetime.datetime.now()
     typing_duration = (current_time - st.session_state.last_input_time).total_seconds()
@@ -219,7 +226,7 @@ You have been fine-tuned for real-world clinical and educational contexts. Respo
                 payload = {
                     "model": "llama3-med42-8b",
                     "messages": [
-                        {"role": "system", "content": system_prompt}
+                        {"role": "system", "content": SYSTEM_PROMPT}
                     ] + [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
                 }
                 response = requests.post("http://localhost:11434/api/chat", json=payload, stream=True)
@@ -262,7 +269,7 @@ You have been fine-tuned for real-world clinical and educational contexts. Respo
                 model_handler = st.session_state.model_handler
                 messages = [{"role": m["role"], "content": m.get("raw_content", m.get("content"))} for m in st.session_state.messages]
                 final_response = model_handler.generate_response(
-                    messages, system_prompt
+                    messages, SYSTEM_PROMPT
                 )
                 response_placeholder.markdown(final_response)
             except Exception as e:
@@ -318,8 +325,8 @@ You have been fine-tuned for real-world clinical and educational contexts. Respo
 
 def process_prompt_and_get_response(prompt):
     """Process prompt and get model response without creating chat messages"""
-    # Define system prompt at the beginning of the function
-    system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
+    # Use the global system prompt instead of redefining it
+    global SYSTEM_PROMPT
     
     current_time = datetime.datetime.now()
     typing_duration = (current_time - st.session_state.last_input_time).total_seconds()
@@ -334,7 +341,7 @@ def process_prompt_and_get_response(prompt):
         st.session_state.model_timer.start()
         if st.session_state.selected_model_type == "Ollama":
             # Combine all messages including system prompt and new user prompt
-            all_messages = [{"role": "system", "content": system_prompt}]
+            all_messages = [{"role": "system", "content": SYSTEM_PROMPT}]
             for m in st.session_state.messages:
                 all_messages.append({
                     "role": m["role"],
@@ -407,7 +414,7 @@ def process_prompt_and_get_response(prompt):
                         st.session_state.hf_tokenizer = tokenizer
                 
                 # Prepare prompt
-                prompt_text = f"{system_prompt}\n\n"
+                prompt_text = f"{SYSTEM_PROMPT}\n\n"
                 for msg in st.session_state.messages[-5:]:  # Limit context window
                     content = msg.get("raw_content", msg.get("content", ""))
                     prompt_text += f"{msg['role']}: {content}\n"
@@ -448,7 +455,7 @@ def process_prompt_and_get_response(prompt):
                 messages = [{"role": m["role"], "content": m.get("raw_content", m.get("content"))} for m in st.session_state.messages]
                 messages.append({"role": "user", "content": prompt})
                 final_response = model_handler.generate_response(
-                    messages, system_prompt
+                    messages, SYSTEM_PROMPT
                 )
             except Exception as e:
                 final_response = f"Error with Together API: {str(e)}"
@@ -573,31 +580,27 @@ def show_chatbot():
         # Add XAI results section
         st.markdown("### Analysis Queue")
         if st.session_state.xai_processing:
-            st.info("🔄 Processing explanation...")
+            st.info("Processing explanation...")
             st.session_state.xai_processor.process_queue()
         
         if st.session_state.xai_results:
             st.markdown("### Latest Analyses")
             for prompt, result in list(st.session_state.xai_results.items())[-3:]:
                 with st.expander(f"Analysis for: {prompt[:30]}..."):
-                    st.text(f"Timestamp: {result['timestamp']}")
-                    st.markdown("#### Word Impact Analysis")
+                    #st.text(f"Timestamp: {result['timestamp']}")
                     # Use iframe to properly render HTML with styles
                     st.components.v1.html(
                         result["html"],
                         height=180,
                         scrolling=True
                     )
-                    st.markdown("#### Response")
-                    st.write(result["response"])
                     
                     # Add explanation of colors
                     st.markdown("""
-                        <small>
-                        🔴 Red: Higher positive impact<br>
-                        🔵 Blue: Higher negative impact<br>
-                        Hover over words to see exact values
-                        </small>
+                        <div class="highlight-explanation" style="margin-top: 15px; line-height: 1.6; font-size: 12px;">
+                            <span class="highlight-legend-red" style="color: rgb(220, 53, 69); font-weight: 600;">Red highlights</span> show the words with the highest impact on the model's answer. They boost its confidence the most.<br>
+                            <span class="highlight-legend-blue" style="color: rgb(0, 123, 255); font-weight: 600;">Blue highlights</span> show the words with the lowest impact. They lower its confidence the most.<br>
+                        </div>
                     """, unsafe_allow_html=True)
 
                     if st.button("Remove", key=f"remove_{prompt[:10]}", type="tertiary"):
@@ -605,7 +608,7 @@ def show_chatbot():
                         st.rerun()
 
     # System prompt
-    system_prompt = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
+    SYSTEM_PROMPT = "You are PromptDoctor, an AI-powered medical assistant designed to help healthcare professionals analyze clinical notes and provide medically relevant insights based on extracted information. Be concise, clear, and informative."
 
     # Display chat history with proper feedback handling
     for i, message in enumerate(st.session_state.messages):
@@ -778,6 +781,11 @@ def show_chatbot():
                 st.markdown("### Prompt Impact Analysis")
                 st.components.v1.html(result['html'], height=350, scrolling=True)
                 
+                # Display saved HTML file path if available
+                if 'html_path' in result and result['html_path']:
+                    html_path = result['html_path']
+                    st.success(f"Analysis saved to: {os.path.basename(html_path)}")
+                
                 # Log LIME explanation
                 log_lime_explanation(
                     st.session_state.user_id, 
@@ -848,5 +856,31 @@ def show_chatbot():
             st.session_state.stage = "user"
             st.session_state.pending_prompt = None
             st.rerun()
+
+    # Add section in sidebar to show saved HTML files
+    with st.sidebar:
+        # ...existing code...
+        
+        # Show HTML results directory
+        if "xai_processor" in st.session_state and hasattr(st.session_state.xai_processor, "get_html_results_dir"):
+            html_dir = st.session_state.xai_processor.get_html_results_dir()
+            if os.path.exists(html_dir):
+                st.markdown("### Saved Analyses")
+                html_files = [f for f in os.listdir(html_dir) if f.endswith('.html')]
+                if html_files:
+                    st.text(f"{len(html_files)} saved analyses")
+                    if st.button("Open Results Folder"):
+                        # Try to open the folder in file explorer
+                        try:
+                            import subprocess
+                            if os.name == 'nt':  # Windows
+                                os.startfile(html_dir)
+                            elif os.name == 'posix':  # macOS/Linux
+                                subprocess.call(['open', html_dir])
+                            st.success("Opened results folder")
+                        except Exception as e:
+                            st.error(f"Couldn't open folder: {e}")
+                else:
+                    st.text("No saved analyses yet")
 
 show_chatbot()

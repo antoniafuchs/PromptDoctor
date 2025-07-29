@@ -1,8 +1,14 @@
+"""
+model_registry.py
+This file manages the registry of models available in PromptDoctor, including model metadata and access logic.
+"""
+
 from typing import Dict, Type
 from .model_providers.base import ModelProvider
 from .model_providers.ollama_provider import OllamaProvider
 from .model_providers.huggingface_provider import HuggingFaceProvider
 from .model_providers.together_provider import TogetherProvider
+import os
 
 class ModelRegistry:
     _providers: Dict[str, Type[ModelProvider]] = {

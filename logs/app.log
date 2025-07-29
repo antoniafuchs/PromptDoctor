@@ -1548,3 +1548,3222 @@ AttributeError: 'list' object has no attribute 'lower'
     modified_words = set(modified.lower().split())
 AttributeError: 'list' object has no attribute 'lower'
 
+2025-07-09 14:29:52,129 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:29:52,129 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:29:52,129 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:29:52.129351+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:29:52,129 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:29:52,129 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:29:52.129595+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:29:52,339 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-09 14:29:53,478 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:29:53,478 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:29:53,478 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:29:53.478238+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:29:53,478 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:29:53,478 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:29:53.478665+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:29:58,568 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-09 14:29:58,570 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-09 14:30:48,791 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-09 14:30:48,793 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-09 14:34:53,689 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:34:53,690 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:34:53,690 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:34:53.690000+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:34:53,690 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:34:53,690 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:34:53.690208+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:34:53,917 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-09 14:34:55,079 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:34:55,079 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:34:55,079 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:34:55.079676+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:34:55,080 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:34:55,080 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:34:55.079908+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:35:00,033 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-09 14:35:00,035 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-09 14:35:32,437 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-09 14:35:32,439 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-09 14:37:44,318 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:37:44,318 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:37:44,318 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:37:44.318268+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:37:44,318 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:37:44,318 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:37:44.318481+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:37:44,492 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-09 14:37:45,519 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:37:45,519 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:37:45,519 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:37:45.519738+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:37:45,520 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:37:45,520 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:37:45.519970+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:37:50,100 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-09 14:37:50,102 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-09 14:37:55,403 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-09 14:37:55,405 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-09 14:41:16,327 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:41:16,327 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:41:16,327 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:41:16.327521+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:41:16,327 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:41:16,327 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:41:16.327728+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:41:16,492 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-09 14:41:17,443 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:41:17,444 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:41:17,444 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:41:17.443980+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:41:17,444 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:41:17,444 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:41:17.444211+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:41:22,035 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-09 14:41:22,037 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-09 14:41:25,943 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-09 14:41:25,944 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-09 14:45:26,134 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:45:26,134 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:45:26,134 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:45:26.134677+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:45:26,134 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:45:26,135 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:45:26.134893+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:45:26,314 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-09 14:45:27,319 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:45:27,319 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:45:27,319 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:45:27.319483+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:45:27,320 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:45:27,320 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:45:27.319892+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:45:31,503 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-09 14:45:31,505 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-09 14:45:36,528 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-09 14:45:36,530 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-09 14:47:32,769 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:47:32,769 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:47:32,769 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:47:32.769729+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:47:32,770 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:47:32,770 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:47:32.769945+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:49:09,716 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:49:09,717 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:49:09,717 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:49:09.716995+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:49:09,717 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:49:09,717 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:49:09.717202+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:49:09,895 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-09 14:49:11,016 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:49:11,016 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:49:11,016 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:49:11.016813+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:49:11,017 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-09 14:49:11,017 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-09T12:49:11.017045+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 27888,
+      "wable": true,
+      "last_modified": "2025-07-09T14:21:39.548473"
+    }
+  }
+}
+2025-07-09 14:49:15,569 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-09 14:49:15,572 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-09 14:49:23,186 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-09 14:49:23,187 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-09 14:49:33,509 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-09 14:49:33,509 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-09 17:28:17,534 - tracking.logging - INFO - LIME explanation logged for user_id=lime_user, task_id=0
+2025-07-10 09:35:33,607 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:35:33,607 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:35:33,607 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:35:33.607232+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40199,
+      "wable": true,
+      "last_modified": "2025-07-09T17:28:17.534150"
+    }
+  }
+}
+2025-07-10 09:35:33,607 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:35:33,607 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:35:33.607454+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40199,
+      "wable": true,
+      "last_modified": "2025-07-09T17:28:17.534150"
+    }
+  }
+}
+2025-07-10 09:35:33,831 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-10 09:35:34,933 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:35:34,933 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:35:34,934 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:35:34.933853+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40199,
+      "wable": true,
+      "last_modified": "2025-07-09T17:28:17.534150"
+    }
+  }
+}
+2025-07-10 09:35:34,934 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:35:34,934 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:35:34.934080+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40199,
+      "wable": true,
+      "last_modified": "2025-07-09T17:28:17.534150"
+    }
+  }
+}
+2025-07-10 09:35:39,835 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-10 09:35:39,837 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-10 09:35:58,451 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 09:35:58,453 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 09:36:00,234 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 09:36:00,234 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 09:36:35,603 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 09:36:35,603 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 09:36:46,699 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:36:46,700 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:36:46,700 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:36:46.699953+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40301,
+      "wable": true,
+      "last_modified": "2025-07-10T09:36:00.250127"
+    }
+  }
+}
+2025-07-10 09:36:46,700 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:36:46,700 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:36:46.700171+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40301,
+      "wable": true,
+      "last_modified": "2025-07-10T09:36:00.250127"
+    }
+  }
+}
+2025-07-10 09:36:46,857 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-10 09:36:47,801 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:36:47,801 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:36:47,801 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:36:47.801420+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40301,
+      "wable": true,
+      "last_modified": "2025-07-10T09:36:00.250127"
+    }
+  }
+}
+2025-07-10 09:36:47,801 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:36:47,801 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:36:47.801697+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40301,
+      "wable": true,
+      "last_modified": "2025-07-10T09:36:00.250127"
+    }
+  }
+}
+2025-07-10 09:36:51,743 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-10 09:36:51,745 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-10 09:37:33,615 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 09:37:33,618 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 09:37:57,815 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 09:37:57,815 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 09:41:26,089 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:41:26,089 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:41:26,089 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:41:26.089430+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40403,
+      "wable": true,
+      "last_modified": "2025-07-10T09:37:57.827322"
+    }
+  }
+}
+2025-07-10 09:41:26,089 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:41:26,089 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:41:26.089727+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40403,
+      "wable": true,
+      "last_modified": "2025-07-10T09:37:57.827322"
+    }
+  }
+}
+2025-07-10 09:41:26,282 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-10 09:41:27,364 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:41:27,364 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:41:27,364 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:41:27.364343+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40403,
+      "wable": true,
+      "last_modified": "2025-07-10T09:37:57.827322"
+    }
+  }
+}
+2025-07-10 09:41:27,364 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 09:41:27,364 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T07:41:27.364570+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 40403,
+      "wable": true,
+      "last_modified": "2025-07-10T09:37:57.827322"
+    }
+  }
+}
+2025-07-10 09:41:31,959 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-10 09:41:31,961 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-10 09:41:53,443 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 09:41:53,446 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 09:41:55,573 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 09:41:55,574 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 09:56:54,299 - tracking.logging - INFO - LIME explanation logged for user_id=lime_user, task_id=0
+2025-07-10 10:10:49,708 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 10:10:49,708 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 10:10:49,708 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T08:10:49.708248+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 54294,
+      "wable": true,
+      "last_modified": "2025-07-10T09:56:54.299111"
+    }
+  }
+}
+2025-07-10 10:10:49,708 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 10:10:49,708 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T08:10:49.708491+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 54294,
+      "wable": true,
+      "last_modified": "2025-07-10T09:56:54.299111"
+    }
+  }
+}
+2025-07-10 10:10:49,922 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-10 10:10:51,026 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 10:10:51,026 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 10:10:51,026 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T08:10:51.026337+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 54294,
+      "wable": true,
+      "last_modified": "2025-07-10T09:56:54.299111"
+    }
+  }
+}
+2025-07-10 10:10:51,026 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 10:10:51,026 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T08:10:51.026575+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 54294,
+      "wable": true,
+      "last_modified": "2025-07-10T09:56:54.299111"
+    }
+  }
+}
+2025-07-10 10:11:03,803 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-10 10:11:03,805 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-10 10:11:23,684 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 10:11:23,686 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 10:11:26,863 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 10:11:26,863 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 10:26:49,174 - tracking.logging - INFO - LIME explanation logged for user_id=lime_user, task_id=0
+2025-07-10 11:33:54,435 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 11:33:54,435 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 11:33:54,435 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T09:33:54.435280+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 66922,
+      "wable": true,
+      "last_modified": "2025-07-10T10:26:49.174009"
+    }
+  }
+}
+2025-07-10 11:33:54,435 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 11:33:54,435 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T09:33:54.435497+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 66922,
+      "wable": true,
+      "last_modified": "2025-07-10T10:26:49.174009"
+    }
+  }
+}
+2025-07-10 11:33:54,664 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-10 11:33:55,768 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 11:33:55,768 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 11:33:55,768 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T09:33:55.768215+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 66922,
+      "wable": true,
+      "last_modified": "2025-07-10T10:26:49.174009"
+    }
+  }
+}
+2025-07-10 11:33:55,768 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-10 11:33:55,768 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-10T09:33:55.768441+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 66922,
+      "wable": true,
+      "last_modified": "2025-07-10T10:26:49.174009"
+    }
+  }
+}
+2025-07-10 11:34:00,189 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-10 11:34:00,191 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-10 11:34:05,048 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 11:34:05,050 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 11:34:06,486 - root - ERROR - Error logging validation action: 'list' object has no attribute 'lower'
+2025-07-10 11:34:06,486 - root - ERROR - Traceback (most recent call last):
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/tracking/logging.py", line 588, in log_validation_action
+    storage.log_interaction(interaction_data)
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 618, in log_interaction
+    interaction_data['diff_type'] = self._calculate_diff_type(
+  File "/Users/antonia/Documents/PromptDoctor_MA/src/core/data_storage.py", line 231, in _calculate_diff_type
+    modified_words = set(modified.lower().split())
+AttributeError: 'list' object has no attribute 'lower'
+
+2025-07-10 11:48:32,280 - tracking.logging - INFO - LIME explanation logged for user_id=lime_user, task_id=0
+2025-07-14 15:13:18,131 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-14 15:13:18,134 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-16 18:49:21,950 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-16 18:49:21,954 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-20 08:54:31,338 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 08:54:31,338 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 08:54:31,339 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T06:54:31.338751+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79686,
+      "wable": true,
+      "last_modified": "2025-07-10T11:48:32.280560"
+    }
+  }
+}
+2025-07-20 08:54:31,339 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 08:54:31,339 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T06:54:31.339102+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79686,
+      "wable": true,
+      "last_modified": "2025-07-10T11:48:32.280560"
+    }
+  }
+}
+2025-07-20 09:05:18,358 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:05:18,359 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:05:18,360 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:05:18.359284+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79686,
+      "wable": true,
+      "last_modified": "2025-07-10T11:48:32.280560"
+    }
+  }
+}
+2025-07-20 09:05:18,361 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:05:18,362 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:05:18.361116+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79686,
+      "wable": true,
+      "last_modified": "2025-07-10T11:48:32.280560"
+    }
+  }
+}
+2025-07-20 09:07:59,896 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:07:59,896 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:07:59,897 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:07:59.896777+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79838,
+      "wable": true,
+      "last_modified": "2025-07-20T09:05:22.166914"
+    }
+  }
+}
+2025-07-20 09:07:59,897 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:07:59,897 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:07:59.897136+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79838,
+      "wable": true,
+      "last_modified": "2025-07-20T09:05:22.166914"
+    }
+  }
+}
+2025-07-20 09:08:14,158 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:08:14,158 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:08:14,158 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:08:14.158241+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79838,
+      "wable": true,
+      "last_modified": "2025-07-20T09:05:22.166914"
+    }
+  }
+}
+2025-07-20 09:08:14,158 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:08:14,158 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:08:14.158462+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79838,
+      "wable": true,
+      "last_modified": "2025-07-20T09:05:22.166914"
+    }
+  }
+}
+2025-07-20 09:12:49,345 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:12:49,345 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:12:49,345 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:12:49.345218+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79990,
+      "wable": true,
+      "last_modified": "2025-07-20T09:08:18.442330"
+    }
+  }
+}
+2025-07-20 09:12:49,345 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:12:49,345 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:12:49.345480+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 79990,
+      "wable": true,
+      "last_modified": "2025-07-20T09:08:18.442330"
+    }
+  }
+}
+2025-07-20 09:13:05,913 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:13:05,913 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:13:05,913 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:13:05.913098+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 80340,
+      "wable": true,
+      "last_modified": "2025-07-20T09:13:05.603076"
+    }
+  }
+}
+2025-07-20 09:13:05,913 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:13:05,913 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:13:05.913455+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 80340,
+      "wable": true,
+      "last_modified": "2025-07-20T09:13:05.603076"
+    }
+  }
+}
+2025-07-20 09:13:06,118 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-20 09:14:32,477 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:14:32,478 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:14:32,478 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:14:32.477892+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 80340,
+      "wable": true,
+      "last_modified": "2025-07-20T09:13:05.603076"
+    }
+  }
+}
+2025-07-20 09:14:32,478 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:14:32,478 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:14:32.478139+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 80340,
+      "wable": true,
+      "last_modified": "2025-07-20T09:13:05.603076"
+    }
+  }
+}
+2025-07-20 09:14:49,766 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-20 09:14:50,324 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:14:50,324 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:14:50,324 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:14:50.324170+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 80690,
+      "wable": true,
+      "last_modified": "2025-07-20T09:14:48.834608"
+    }
+  }
+}
+2025-07-20 09:14:50,324 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:14:50,324 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:14:50.324521+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 80690,
+      "wable": true,
+      "last_modified": "2025-07-20T09:14:48.834608"
+    }
+  }
+}
+2025-07-20 09:16:03,560 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:16:03,560 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:16:03,560 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:16:03.560711+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 80690,
+      "wable": true,
+      "last_modified": "2025-07-20T09:14:48.834608"
+    }
+  }
+}
+2025-07-20 09:16:03,561 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:16:03,561 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:16:03.560931+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 80690,
+      "wable": true,
+      "last_modified": "2025-07-20T09:14:48.834608"
+    }
+  }
+}
+2025-07-20 09:16:19,742 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:16:19,743 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:16:19,743 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:16:19.742825+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 81040,
+      "wable": true,
+      "last_modified": "2025-07-20T09:16:19.451877"
+    }
+  }
+}
+2025-07-20 09:16:19,743 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:16:19,743 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:16:19.743171+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 81040,
+      "wable": true,
+      "last_modified": "2025-07-20T09:16:19.451877"
+    }
+  }
+}
+2025-07-20 09:16:19,805 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-20 09:17:45,794 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:17:45,794 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:17:45,794 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:17:45.794407+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 81040,
+      "wable": true,
+      "last_modified": "2025-07-20T09:16:19.451877"
+    }
+  }
+}
+2025-07-20 09:17:45,794 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:17:45,795 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:17:45.794757+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 81040,
+      "wable": true,
+      "last_modified": "2025-07-20T09:16:19.451877"
+    }
+  }
+}
+2025-07-20 09:19:21,702 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-20 09:19:21,935 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:19:21,935 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:19:21,935 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:19:21.935184+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 81390,
+      "wable": true,
+      "last_modified": "2025-07-20T09:19:21.184904"
+    }
+  }
+}
+2025-07-20 09:19:21,935 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:19:21,935 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:19:21.935459+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 246,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607456"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 81390,
+      "wable": true,
+      "last_modified": "2025-07-20T09:19:21.184904"
+    }
+  }
+}
+2025-07-20 09:19:24,132 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-20 09:19:24,135 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-20 09:19:25,012 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-20 09:19:25,013 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-20 09:20:13,074 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: 9848fe99_task1_prompt1
+2025-07-20 09:21:51,255 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:21:51,256 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:21:51,256 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:21:51.255956+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:00.349105"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 81658,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:18.025012"
+    }
+  }
+}
+2025-07-20 09:21:51,256 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:21:51,256 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:21:51.256288+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:00.349105"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 81658,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:18.025012"
+    }
+  }
+}
+2025-07-20 09:23:53,314 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:23:53,315 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:23:53,315 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:23:53.315208+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:00.349105"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 82699,
+      "wable": true,
+      "last_modified": "2025-07-20T09:22:11.248625"
+    }
+  }
+}
+2025-07-20 09:23:53,315 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:23:53,315 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:23:53.315519+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:00.349105"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 82699,
+      "wable": true,
+      "last_modified": "2025-07-20T09:22:11.248625"
+    }
+  }
+}
+2025-07-20 09:23:53,325 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 2, message_id: 9848fe99_task1_prompt2
+2025-07-20 09:24:12,056 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-20 09:24:12,058 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-20 09:24:13,226 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-20 09:24:13,228 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-20 09:24:59,171 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:24:59,172 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:24:59,172 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:24:59.172120+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:00.349105"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 83443,
+      "wable": true,
+      "last_modified": "2025-07-20T09:24:18.073362"
+    }
+  }
+}
+2025-07-20 09:24:59,172 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:24:59,172 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:24:59.172535+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:00.349105"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 83443,
+      "wable": true,
+      "last_modified": "2025-07-20T09:24:18.073362"
+    }
+  }
+}
+2025-07-20 09:25:14,608 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-20 09:25:14,846 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:25:14,847 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:25:14,847 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:25:14.846842+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:00.349105"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 83793,
+      "wable": true,
+      "last_modified": "2025-07-20T09:25:14.072153"
+    }
+  }
+}
+2025-07-20 09:25:14,847 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 09:25:14,847 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T07:25:14.847187+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 175,
+      "wable": true,
+      "last_modified": "2025-07-20T09:20:00.349105"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 83793,
+      "wable": true,
+      "last_modified": "2025-07-20T09:25:14.072153"
+    }
+  }
+}
+2025-07-20 09:25:16,739 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-20 09:25:16,741 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-20 09:25:17,597 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-20 09:25:17,599 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-20 09:25:32,424 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: fb85aa37_task1_prompt1
+2025-07-20 14:46:33,405 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 2, message_id: fb85aa37_task1_prompt2
+2025-07-20 15:33:08,505 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 15:33:08,506 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 15:33:08,506 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T13:33:08.505984+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 86586,
+      "wable": true,
+      "last_modified": "2025-07-20T14:47:55.970861"
+    }
+  }
+}
+2025-07-20 15:33:08,506 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 15:33:08,506 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T13:33:08.506314+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 86586,
+      "wable": true,
+      "last_modified": "2025-07-20T14:47:55.970861"
+    }
+  }
+}
+2025-07-20 15:33:25,319 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 15:33:25,319 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 15:33:25,319 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T13:33:25.319290+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 86942,
+      "wable": true,
+      "last_modified": "2025-07-20T15:33:25.000813"
+    }
+  }
+}
+2025-07-20 15:33:25,319 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-20 15:33:25,319 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-20T13:33:25.319555+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 86942,
+      "wable": true,
+      "last_modified": "2025-07-20T15:33:25.000813"
+    }
+  }
+}
+2025-07-20 15:33:25,386 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-20 15:33:27,580 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-20 15:33:27,582 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-20 15:33:28,445 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-20 15:33:28,446 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-22 09:49:44,130 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-22 09:49:44,133 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-22 09:49:45,011 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-22 09:49:45,013 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-23 21:15:06,696 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-23 21:15:06,696 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-23 21:15:06,696 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-23T19:15:06.696386+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 86942,
+      "wable": true,
+      "last_modified": "2025-07-20T15:33:25.000813"
+    }
+  }
+}
+2025-07-23 21:15:06,696 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-23 21:15:06,696 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-23T19:15:06.696671+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 86942,
+      "wable": true,
+      "last_modified": "2025-07-20T15:33:25.000813"
+    }
+  }
+}
+2025-07-23 21:15:13,831 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-23 21:15:13,832 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-23 21:15:13,832 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-23T19:15:13.832148+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 87097,
+      "wable": true,
+      "last_modified": "2025-07-23T21:15:12.879601"
+    }
+  }
+}
+2025-07-23 21:15:13,832 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-23 21:15:13,832 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-23T19:15:13.832616+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 87097,
+      "wable": true,
+      "last_modified": "2025-07-23T21:15:12.879601"
+    }
+  }
+}
+2025-07-23 21:15:34,037 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-23 21:15:37,346 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-23 21:15:37,348 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-23 21:15:38,391 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-23 21:15:38,392 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-23 21:15:41,873 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: 8adf02f8_task1_prompt1
+2025-07-28 11:03:43,255 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:03:43,255 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:03:43,255 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:03:43.255695+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 87861,
+      "wable": true,
+      "last_modified": "2025-07-23T21:15:43.914024"
+    }
+  }
+}
+2025-07-28 11:03:43,256 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:03:43,256 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:03:43.255914+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 87861,
+      "wable": true,
+      "last_modified": "2025-07-23T21:15:43.914024"
+    }
+  }
+}
+2025-07-28 11:03:52,768 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:03:52,768 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:03:52,768 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:03:52.768606+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 88016,
+      "wable": true,
+      "last_modified": "2025-07-28T11:03:51.466313"
+    }
+  }
+}
+2025-07-28 11:03:52,769 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:03:52,769 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:03:52.768986+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 88016,
+      "wable": true,
+      "last_modified": "2025-07-28T11:03:51.466313"
+    }
+  }
+}
+2025-07-28 11:05:53,814 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:05:53,814 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:05:53,814 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:05:53.814279+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 88016,
+      "wable": true,
+      "last_modified": "2025-07-28T11:03:51.466313"
+    }
+  }
+}
+2025-07-28 11:05:53,814 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:05:53,814 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:05:53.814496+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 88016,
+      "wable": true,
+      "last_modified": "2025-07-28T11:03:51.466313"
+    }
+  }
+}
+2025-07-28 11:06:11,703 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:06:11,703 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:06:11,703 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:06:11.703676+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 88016,
+      "wable": true,
+      "last_modified": "2025-07-28T11:03:51.466313"
+    }
+  }
+}
+2025-07-28 11:06:11,704 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:06:11,704 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:06:11.703915+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 88016,
+      "wable": true,
+      "last_modified": "2025-07-28T11:03:51.466313"
+    }
+  }
+}
+2025-07-28 11:06:16,483 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:06:16,484 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:06:16,484 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:06:16.483928+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 88171,
+      "wable": true,
+      "last_modified": "2025-07-28T11:06:15.638632"
+    }
+  }
+}
+2025-07-28 11:06:16,484 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-28 11:06:16,484 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-28T09:06:16.484439+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1142,
+      "wable": true,
+      "last_modified": "2025-07-20T15:20:07.636391"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 88171,
+      "wable": true,
+      "last_modified": "2025-07-28T11:06:15.638632"
+    }
+  }
+}
+2025-07-28 11:06:47,703 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-28 11:06:50,596 - medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-28 11:06:50,598 - medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-28 11:06:51,735 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-28 11:06:51,737 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-28 11:06:56,338 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 1, message_id: 4837b0cd_task1_prompt1
+2025-07-28 11:07:47,901 - tracking.task_manager - INFO - Tracked prompt submission for task 1, count: 2, message_id: 4837b0cd_task1_prompt2
+2025-07-29 11:44:15,124 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-29 11:44:15,124 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-29 11:44:15,124 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-29T09:44:15.124317+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1261,
+      "wable": true,
+      "last_modified": "2025-07-28T11:06:53.593603"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 89589,
+      "wable": true,
+      "last_modified": "2025-07-28T11:08:09.479341"
+    }
+  }
+}
+2025-07-29 11:44:15,124 - tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-29 11:44:15,124 - tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-29T09:44:15.124525+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1261,
+      "wable": true,
+      "last_modified": "2025-07-28T11:06:53.593603"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 89589,
+      "wable": true,
+      "last_modified": "2025-07-28T11:08:09.479341"
+    }
+  }
+}
+2025-07-29 11:44:20,505 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-29 11:44:20,505 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-29 11:44:20,505 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-29T09:44:20.505230+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1261,
+      "wable": true,
+      "last_modified": "2025-07-28T11:06:53.593603"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 89744,
+      "wable": true,
+      "last_modified": "2025-07-29T11:44:19.631032"
+    }
+  }
+}
+2025-07-29 11:44:20,505 - src.tracking.logging - INFO - Storage diagnostic complete. Log dir: /Users/antonia/Documents/PromptDoctor_MA/src/logs, Data dir: /Users/antonia/Documents/PromptDoctor_MA/src/data
+2025-07-29 11:44:20,506 - src.tracking.logging - INFO - Storage verification on startup: {
+  "timestamp": "2025-07-29T09:44:20.505844+00:00",
+  "log_dir_exists": true,
+  "log_dir_writable": true,
+  "data_dir_exists": true,
+  "data_dir_writable": true,
+  "python_version": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "files_check": {
+    "surveys.csv": {
+      "exists": true,
+      "size": 352,
+      "wable": true,
+      "last_modified": "2025-06-05T16:48:02.607958"
+    },
+    "tasks.csv": {
+      "exists": true,
+      "size": 1261,
+      "wable": true,
+      "last_modified": "2025-07-28T11:06:53.593603"
+    },
+    "interactions.csv": {
+      "exists": true,
+      "size": 89744,
+      "wable": true,
+      "last_modified": "2025-07-29T11:44:19.631032"
+    }
+  }
+}
+2025-07-29 11:44:31,701 - datasets - INFO - PyTorch version 2.6.0 available.
+2025-07-29 11:44:44,353 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-29 11:44:44,355 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json
+2025-07-29 11:44:45,383 - src.medical.medical_processor - INFO - Loaded 6762 medical terms from gamino/wiki_medical_terms
+2025-07-29 11:44:45,386 - src.medical.medical_processor - INFO - Saved dataset info to /Users/antonia/Documents/PromptDoctor_MA/src/data/medical_terms/dataset_info.json

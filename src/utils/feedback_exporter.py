@@ -1,3 +1,8 @@
+"""
+feedback_exporter.py
+This file exports user feedback data from the PromptDoctor application, providing utilities for formatting and saving feedback for analysis.
+"""
+
 import os
 import pandas as pd
 import json

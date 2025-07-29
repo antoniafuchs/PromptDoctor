@@ -1,3 +1,8 @@
+"""
+3_Chat_base.py
+This file provides base functionality for the chat interface in PromptDoctor. It may include shared logic, utility functions, or components used by chat-related pages.
+"""
+
 from multiprocessing.connection import Client
 import streamlit as st
 import asyncio
@@ -73,16 +78,20 @@ import os
 import glob
 from threading import Thread
 import pandas as pd
-from utils.ml_utils import init_torch, get_device
+from utils.ml_utils import init_torch
 from src.models.model_handler import ModelHandler
 from streamlit_extras.switch_page_button import switch_page
 import streamlit_survey as ss 
 
 # Initialize PyTorch with basic settings - safer initialization
 try:
-    from utils.ml_utils import init_torch, get_device
+    from utils.ml_utils import init_torch
     # Initialize PyTorch in a way that avoids event loop errors
     init_torch()
+    # Define get_device locally since it's not available in the module
+    def get_device():
+        """Fallback get_device function that always returns 'cpu'"""
+        return "cpu"
 except ImportError as e:
     print(f"[WARNING] Error importing PyTorch utilities: {str(e)}")
     # Create fallback functions if import fails
@@ -93,6 +102,8 @@ except ImportError as e:
     init_torch()
 except Exception as e:
     print(f"[WARNING] Error during PyTorch initialization: {str(e)}")
+    def get_device():
+        return "cpu"
 
 # Load shared styles
 load_styles()
@@ -798,6 +809,19 @@ def show_chatbot():
     if "first_login" not in st.session_state:
         st.session_state.first_login = True
         st.session_state.show_task_intro = True
+
+    # Clear chat messages when starting a new task
+    # Track the previous task to detect task changes
+    if "previous_task" not in st.session_state:
+        st.session_state.previous_task = st.session_state.current_task
+    
+    # Check if the task has changed
+    if st.session_state.previous_task != st.session_state.current_task:
+        # Task has changed, clear the chat messages
+        st.session_state.messages = []
+        st.session_state.message_feedback = {}
+        st.session_state.previous_task = st.session_state.current_task
+        logger.info(f"Task changed to {st.session_state.current_task}. Cleared chat messages.")
 
     st.header("PromptDoctor")
     

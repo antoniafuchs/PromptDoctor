@@ -1,0 +1,159 @@
+
+        <div style="
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        ">
+            <div style="
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #333;
+                font-size: 14px;
+            ">Prompt Impact Analysis</div>
+            
+            <!-- Highlighted text section -->
+            <div style="
+                line-height: 1.6;
+                font-size: 14px;
+                margin-bottom: 15px;
+                padding: 10px;
+                background-color: white;
+                border-radius: 4px;
+            "><span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.18039403620872715);color: black;font-weight: 500;" title="Impact: +0.060">The</span> patient, a <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.2700765091567253);color: black;font-weight: 500;" title="Impact: -0.090">45-year-old</span> male, presents with chief complaints <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.20829492765043392);color: black;font-weight: 500;" title="Impact: -0.069">of</span> <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.1374595926217124);color: black;font-weight: 500;" title="Impact: -0.046">right-sided</span> <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.15459463878533486);color: black;font-weight: 500;" title="Impact: -0.052">chest</span> pain and shortness <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.20829492765043392);color: black;font-weight: 500;" title="Impact: -0.069">of</span> <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.16199498065797735);color: black;font-weight: 500;" title="Impact: -0.054">breath.</span> He describes <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.18039403620872715);color: black;font-weight: 500;" title="Impact: +0.060">the</span> pain as sharp and intermittent, exacerbated by movement or <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.07969789089526005);color: black;font-weight: 500;" title="Impact: +0.027">deep</span> inspiration. <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.18039403620872715);color: black;font-weight: 500;" title="Impact: +0.060">The</span> <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.06562799633508926);color: black;font-weight: 500;" title="Impact: -0.022">patient</span> also reports experiencing fatigue for two weeks but denies fever, cough, or <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.19759820485971955);color: black;font-weight: 500;" title="Impact: -0.066">any</span> <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.12714848830916342);color: black;font-weight: 500;" title="Impact: -0.042">recent</span> travel.</div>
+            
+            <!-- Stats section -->
+            <div style="
+                display: flex;
+                justify-content: space-between;
+                margin: 15px 0;
+                gap: 10px;
+            ">
+                
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Average Impact</div>
+                <div style="font-size: 14px; font-weight: 500;">0.053</div>
+            </div>
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Positive Impact %</div>
+                <div style="font-size: 14px; font-weight: 500;">20.0%</div>
+            </div>
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Max Impact</div>
+                <div style="font-size: 14px; font-weight: 500;">0.090</div>
+            </div>
+        
+            </div>
+            
+            <!-- Table section -->
+            <div style="
+                margin-top: 15px;
+                background-color: white;
+                border-radius: 4px;
+                overflow: hidden;
+            ">
+                
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                <thead>
+                    <tr style="background-color: #f8f9fa;">
+                        <th style="padding: 8px; text-align: left;">Word</th>
+                        <th style="padding: 8px; text-align: right;">Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">45-year-old</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.090
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">of</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.069
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">any</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.066
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">the</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.060
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">breath.</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.054
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">chest</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.052
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">right-sided</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.046
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">recent</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.042
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">deep</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.027
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">patient</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.022
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        
+            </div>
+        </div>
+        

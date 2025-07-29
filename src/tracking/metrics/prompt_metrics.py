@@ -1,9 +1,15 @@
+"""
+prompt_metrics.py
+This file defines metrics and evaluation logic for prompts used in PromptDoctor, supporting analysis and reporting of prompt performance.
+"""
+
 from typing import List, Any
 from dataclasses import dataclass, field
 from datetime import datetime
 import logging
 import re
 import Levenshtein
+import os
 from .highlight_metrics import HighlightMetrics
 
 # Configure logging

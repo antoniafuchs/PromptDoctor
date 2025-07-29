@@ -1,3 +1,8 @@
+"""
+data_storage.py
+This file provides data storage and retrieval utilities for PromptDoctor, supporting persistent storage of user and application data.
+"""
+
 import pandas as pd
 import os
 import csv
@@ -837,7 +842,7 @@ class DataStorage:
                 try:
                     with open(tasks_file, 'r', newline='') as read_f:
                         reader = csv.reader(read_f, delimiter=';')
-                        existing_headers = next(reader)
+                        existing_headers = next(reader)  # Get headers
                 except Exception as e:
                     logger.error(f"Error reading task file headers: {str(e)}")
             
@@ -1887,144 +1892,3 @@ class DataStorage:
                 logger.critical(f"Failed even emergency survey backup: {str(emergency_err)}")
             
             return False
-
-    def update_chat_with_response(self, chat_data: Dict) -> None:
-        """Update an existing CHAT entry with a model response"""
-        try:
-            # Find and update the corresponding CHAT entry in interactions.csv
-            interactions_file = os.path.join(self.data_dir, 'interactions.csv')
-            if not os.path.exists(interactions_file):
-                logger.warning(f"Cannot update chat with response: {interactions_file} does not exist")
-                return
-                
-            # Sanitize the model response to avoid CSV formatting issues
-            if 'model_response' in chat_data and chat_data['model_response'] is not None:
-                # Convert to string if not already
-                if not isinstance(chat_data['model_response'], str):
-                    chat_data['model_response'] = str(chat_data['model_response'])
-                
-                # Replace semicolons with commas to avoid delimiter issues
-                chat_data['model_response'] = chat_data['model_response'].replace(';', ',')
-                
-                # Replace newlines with space + pipe + space for better readability
-                chat_data['model_response'] = chat_data['model_response'].replace('\n', ' | ')
-                
-                # Replace quotes with single quotes to avoid CSV quoting issues
-                chat_data['model_response'] = chat_data['model_response'].replace('"', "'")
-                
-                # Handle markdown formatting symbols
-                chat_data['model_response'] = chat_data['model_response'].replace('**', '*')
-            
-            # Load interactions CSV with pandas for more robust handling
-            try:
-                df = pd.read_csv(interactions_file, sep=';', quoting=csv.QUOTE_MINIMAL, 
-                                 escapechar='\\', encoding='utf-8')
-                
-                # Find matching rows
-                mask = ((df['message_id'] == chat_data.get('message_id')) & 
-                        (df['user_id'] == chat_data.get('user_id')) &
-                        (df['task_id'].astype(str) == str(chat_data.get('task_id'))))
-                
-                if mask.any():
-                    # Update model_response field for matching rows
-                    df.loc[mask, 'model_response'] = chat_data.get('model_response', '')
-                    
-                    # Save back to CSV with proper escaping
-                    df.to_csv(interactions_file, sep=';', index=False, quoting=csv.QUOTE_MINIMAL,
-                             escapechar='\\', encoding='utf-8')
-                    logger.info(f"Updated chat entry with model response for message_id={chat_data.get('message_id')}")
-                    
-                    # Also save a backup of the response in JSON format for reliable retrieval
-                    self._save_response_backup(chat_data)
-                    return
-                
-                # If no matching row found, log a new entry
-                self.log_interaction({
-                    'user_id': chat_data.get('user_id', 'unknown'),
-                    'task_id': chat_data.get('task_id', 0),
-                    'action_type': 'CHAT_RESPONSE',
-                    'event_type': 'INTERACTION',
-                    'timestamp': chat_data.get('timestamp', datetime.now().isoformat()),
-                    'message_id': chat_data.get('message_id', ''),
-                    'model_response': chat_data.get('model_response', ''),
-                    'model_type': chat_data.get('model_type', ''),
-                    'model_name': chat_data.get('model_name', ''),
-                    'group': chat_data.get('group', '')
-                })
-                
-                # Also save a backup of the response in JSON format
-                self._save_response_backup(chat_data)
-                
-            except Exception as e:
-                logger.error(f"Error updating chat with pandas: {str(e)}")
-                
-                # Fallback to CSV reader/writer approach
-                updated = False
-                rows = []
-                headers = []
-                
-                with open(interactions_file, 'r', newline='', encoding='utf-8') as f:
-                    reader = csv.reader(f, delimiter=';')
-                    headers = next(reader)  # Get headers
-                    
-                    # Make sure 'model_response' is in headers
-                    if 'model_response' not in headers:
-                        headers.append('model_response')
-                    
-                    for row in reader:
-                        row_data = dict(zip(headers, row + [''] * (len(headers) - len(row))))
-                        
-                        # Check if this is the CHAT entry we want to update
-                        if (row_data.get('action_type') == 'CHAT' and 
-                            row_data.get('message_id') == chat_data.get('message_id') and
-                            row_data.get('user_id') == chat_data.get('user_id') and
-                            str(row_data.get('task_id')) == str(chat_data.get('task_id'))):
-                            
-                            # Update the model_response field
-                            row_data['model_response'] = chat_data.get('model_response', '')
-                            updated = True
-                        
-                        # Convert back to list in the right order
-                        row_list = [row_data.get(h, '') for h in headers]
-                        rows.append(row_list)
-                
-                # If we found and updated a row, write the file back
-                if updated:
-                    with open(interactions_file, 'w', newline='', encoding='utf-8') as f:
-                        writer = csv.writer(f, delimiter=';', quoting=csv.QUOTE_MINIMAL, 
-                                          escapechar='\\')
-                        writer.writerow(headers)
-                        writer.writerows(rows)
-                    logger.info(f"Updated chat entry with model response for message_id={chat_data.get('message_id')}")
-                    
-                    # Also save a backup of the response in JSON format
-                    self._save_response_backup(chat_data)
-                else:
-                    # If we couldn't find the chat to update, log a new entry
-                    self.log_interaction({
-                        'user_id': chat_data.get('user_id', 'unknown'),
-                        'task_id': chat_data.get('task_id', 0),
-                        'action_type': 'CHAT_RESPONSE',
-                        'event_type': 'INTERACTION',
-                        'timestamp': chat_data.get('timestamp', datetime.now().isoformat()),
-                        'message_id': chat_data.get('message_id', ''),
-                        'model_response': chat_data.get('model_response', ''),
-                        'model_type': chat_data.get('model_type', ''),
-                        'model_name': chat_data.get('model_name', ''),
-                        'group': chat_data.get('group', '')
-                    })
-                    logger.info(f"Added new chat response entry for message_id={chat_data.get('message_id')}")
-                    
-                    # Also save a backup of the response in JSON format
-                    self._save_response_backup(chat_data)
-                    
-        except Exception as e:
-            error_msg = f"Error updating chat with response: {str(e)}\n{traceback.format_exc()}"
-            logger.error(error_msg)
-            self._log_storage_event(error_msg, "ERROR")
-            
-            # Even in case of error, try to save a backup of the response
-            try:
-                self._save_response_backup(chat_data)
-            except Exception as backup_err:
-                logger.error(f"Failed to save response backup: {str(backup_err)}")

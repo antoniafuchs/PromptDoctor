@@ -1,3 +1,8 @@
+"""
+nltk_utils.py
+This file provides utilities for working with the Natural Language Toolkit (NLTK) in PromptDoctor, supporting text processing and analysis.
+"""
+
 import nltk
 import os
 import streamlit as st

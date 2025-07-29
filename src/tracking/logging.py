@@ -1,3 +1,8 @@
+"""
+logging.py
+This file provides logging functionality for PromptDoctor, including tracking user interactions and system events.
+"""
+
 import os
 import sys
 import json

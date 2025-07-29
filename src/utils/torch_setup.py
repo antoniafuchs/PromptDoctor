@@ -1,3 +1,8 @@
+"""
+torch_setup.py
+This file provides utilities for setting up and configuring PyTorch in PromptDoctor, supporting model training and inference.
+"""
+
 import torch
 import asyncio
 from contextlib import contextmanager

@@ -1,5 +1,12 @@
+"""
+processing.py
+This file provides data processing utilities for LIME explanations in PromptDoctor, supporting model interpretability and visualization.
+"""
+
 import streamlit as st
 import datetime
+import os
+import numpy as np
 from typing import Dict, Any, Tuple
 from LIME.lime_processor import LIMEProcessor
 
@@ -56,10 +63,11 @@ class XAIProcessor:
                     "scores": explanation["scores"]
                 },
                 "html": explanation["html"],
+                "html_path": explanation.get("html_path"),
                 "status": "success"
             }
             
-            print("[XAI] LIME analysis complete")
+            print(f"[XAI] LIME analysis complete. HTML saved to: {explanation.get('html_path')}")
             return result
             
         except Exception as e:
@@ -80,8 +88,8 @@ class XAIProcessor:
             
         formatted = "Key words and their impact:\n\n"
         for word, score in zip(explanation["words"], explanation["scores"]):
-            impact = "🔴" if score > 0 else "🔵"
-            formatted += f"{impact} {word}: {abs(score):.3f}\n"
+            impact = "POSITIVE" if score > 0 else "NEGATIVE"
+            formatted += f"{word}: {impact} impact ({abs(score):.3f})\n"
         
         return formatted
 
@@ -138,3 +146,7 @@ class XAIProcessor:
                 "explanation": f"Analysis failed: {str(e)}",
                 "html": "<p>Error processing explanation</p>"
             }
+
+    def get_html_results_dir(self) -> str:
+        """Return the path to the HTML results directory"""
+        return self.lime_processor.html_dir

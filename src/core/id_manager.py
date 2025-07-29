@@ -1,4 +1,10 @@
+"""
+id_manager.py
+This file manages unique identifiers for users, sessions, and data entries in PromptDoctor.
+"""
+
 import streamlit as st
+import uuid
 
 def get_or_create_unique_id():
     """Get existing or create new user ID"""

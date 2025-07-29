@@ -1,3 +1,10 @@
+"""
+huggingface_handler.py
+This file provides integration with Hugging Face models for PromptDoctor, including loading, inference, and management of Hugging Face models.
+"""
+
+import os
+
 class HuggingFaceHandler:
     def __init__(self):
         self.model = None

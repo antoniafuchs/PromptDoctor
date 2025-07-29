@@ -56,3 +56,70 @@
 {"timestamp": "2025-07-09T14:23:26.316684", "terms": ["patient", "community-acquired pneumonia", "pneumonia", "disease"], "count": 4, "dataset_source": "gamino/wiki_medical_terms"}
 {"timestamp": "2025-07-09T14:23:26.450667", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
 {"timestamp": "2025-07-09T14:23:26.576531", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:30:48.401268", "terms": ["patient", "community-acquired pneumonia", "pneumonia", "disease"], "count": 4, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:30:48.591051", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:30:48.781924", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:35:32.050047", "terms": ["patient", "community-acquired pneumonia", "pneumonia", "disease"], "count": 4, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:35:32.241047", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:35:32.426955", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:37:55.025429", "terms": ["patient", "community-acquired pneumonia", "pneumonia", "disease"], "count": 4, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:37:55.211688", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:37:55.399417", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:41:25.563860", "terms": ["patient", "community-acquired pneumonia", "pneumonia", "disease"], "count": 4, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:41:25.754083", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:41:25.939096", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:45:36.155655", "terms": ["patient", "community-acquired pneumonia", "pneumonia", "disease"], "count": 4, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:45:36.342786", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:45:36.524607", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:49:23.164834", "terms": ["patient", "community-acquired pneumonia", "disease"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:49:23.174095", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:49:23.181801", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:49:33.479383", "terms": ["patient", "community-acquired pneumonia", "disease"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:49:33.492210", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:49:33.504532", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-09T14:49:33.542928", "terms": ["patient", "community-acquired pneumonia", "disease", "fever", "tract", "patient", "therapy"], "count": 7, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:35:58.440803", "terms": ["headache"], "count": 1, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:36:00.228004", "terms": ["headache"], "count": 1, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:36:00.257746", "terms": ["headache"], "count": 1, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:36:35.598150", "terms": ["headache"], "count": 1, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:37:33.590002", "terms": ["patient", "chest pain", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:37:33.599378", "terms": ["pain", "or"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:37:33.607910", "terms": ["patient", "fatigue", "fever", "cough", "or"], "count": 5, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:37:57.785791", "terms": ["patient", "chest pain", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:37:57.798283", "terms": ["pain", "or"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:37:57.810401", "terms": ["patient", "fatigue", "fever", "cough", "or"], "count": 5, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:37:57.845964", "terms": ["patient", "chest pain", "shortness of breath", "pain", "or", "patient", "fatigue", "fever", "cough", "or"], "count": 10, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:41:53.415282", "terms": ["patient", "chest pain", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:41:53.424257", "terms": ["pain", "or"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:41:53.432973", "terms": ["patient", "fatigue", "fever", "cough", "or"], "count": 5, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:41:55.547383", "terms": ["patient", "chest pain", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:41:55.557688", "terms": ["pain", "or"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:41:55.568872", "terms": ["patient", "fatigue", "fever", "cough", "or"], "count": 5, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T09:41:55.607093", "terms": ["patient", "chest pain", "shortness of breath", "pain", "or", "patient", "fatigue", "fever", "cough", "or"], "count": 10, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T10:11:23.655480", "terms": ["patient", "community-acquired pneumonia", "disease"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T10:11:23.664085", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T10:11:23.672986", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T10:11:26.834967", "terms": ["patient", "community-acquired pneumonia", "disease"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T10:11:26.848272", "terms": ["fever", "tract"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T10:11:26.859077", "terms": ["patient", "therapy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T10:11:26.896670", "terms": ["patient", "community-acquired pneumonia", "disease", "fever", "tract", "patient", "therapy"], "count": 7, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T11:34:05.023545", "terms": ["patient", "cardiomyopathy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T11:34:05.030721", "terms": ["hypertension", "hyperlipidemia"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T11:34:05.038186", "terms": ["onset", "palpitations", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T11:34:06.459771", "terms": ["patient", "cardiomyopathy"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T11:34:06.470500", "terms": ["hypertension", "hyperlipidemia"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T11:34:06.481308", "terms": ["onset", "palpitations", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-10T11:34:06.518034", "terms": ["patient", "cardiomyopathy", "hypertension", "hyperlipidemia", "onset", "palpitations", "shortness of breath"], "count": 7, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:46:33.946315", "terms": ["patient", "chest pain", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:46:33.957544", "terms": ["pain", "or"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:46:33.967626", "terms": ["patient", "fatigue", "fever", "cough", "or"], "count": 5, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:01.941055", "terms": ["patient", "chest pain", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:01.958693", "terms": ["pain", "or"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:01.968821", "terms": ["patient", "fatigue", "fever", "cough", "or"], "count": 5, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:10.386644", "terms": ["patient", "chest pain", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:10.396124", "terms": ["pain", "or"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:10.406832", "terms": ["patient", "fatigue", "fever", "cough", "or"], "count": 5, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:26.870354", "terms": ["patient", "chest pain", "shortness of breath"], "count": 3, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:26.880134", "terms": ["pain", "or"], "count": 2, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:26.895910", "terms": ["patient", "fatigue", "fever", "cough", "or"], "count": 5, "dataset_source": "gamino/wiki_medical_terms"}
+{"timestamp": "2025-07-20T14:47:26.949191", "terms": ["patient", "chest pain", "shortness of breath", "pain", "or", "patient", "fatigue", "fever", "cough", "or"], "count": 10, "dataset_source": "gamino/wiki_medical_terms"}

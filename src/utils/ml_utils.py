@@ -1,8 +1,14 @@
+"""
+ml_utils.py
+This file provides machine learning utility functions PromptDoctor, supporting model training, evaluation, and data processing.
+"""
+
 import streamlit as st
 import sys
 import os
 import logging
 import traceback
+import numpy as np
 
 def init_torch():
     """

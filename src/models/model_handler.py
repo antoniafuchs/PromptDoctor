@@ -1,3 +1,9 @@
+"""
+model_handler.py
+
+This file handles model loading, inference, and management for PromptDoctor, providing an interface to interact with different models.
+"""
+
 import requests
 import json
 from .model_config import ModelConfig

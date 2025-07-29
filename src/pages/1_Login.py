@@ -1,3 +1,8 @@
+"""
+1_Login.py
+This file implements the login page for PromptDoctor using Streamlit. It manages user authentication, session initialization, and UI elements for the login process.
+"""
+
 import streamlit as st
 import uuid
 import sys
@@ -6,7 +11,8 @@ import datetime
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import glob
 import json
-from tracking.logging import log_chat_interaction
+from src.tracking.logging import log_chat_interaction
+from tracking.logging import EnhancedLogger
 from src.models.model_config import ModelConfig
 from src.core.id_manager import get_or_create_unique_id
 from src.core.db_utils import DBManager

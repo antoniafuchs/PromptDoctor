@@ -1,0 +1,145 @@
+
+        <div style="
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        ">
+            <div style="
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #333;
+                font-size: 14px;
+            ">Prompt Impact Analysis</div>
+            
+            <!-- Highlighted text section -->
+            <div style="
+                line-height: 1.6;
+                font-size: 14px;
+                margin-bottom: 15px;
+                padding: 10px;
+                background-color: white;
+                border-radius: 4px;
+            "><span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.18195914687968137);color: black;font-weight: 500;" title="Impact: +0.061">The</span> patient, an <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.05899863763143458);color: black;font-weight: 500;" title="Impact: -0.020">82-year-old</span> male, presents <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.05886209133772909);color: black;font-weight: 500;" title="Impact: +0.020">with</span> community-acquired pneumonia <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.08465256386565732);color: black;font-weight: 500;" title="Impact: +0.028">(CAP)</span> complicated <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.0912644219324198);color: black;font-weight: 500;" title="Impact: -0.030">by</span> a history of chronic obstructive pulmonary disease (COPD). He reports moderate dyspnea, <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.11257329315691558);color: black;font-weight: 500;" title="Impact: +0.038">no</span> fever, and <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.11257329315691558);color: black;font-weight: 500;" title="Impact: +0.038">no</span> recent upper respiratory tract <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(0, 123, 255, 0.06766569934726574);color: black;font-weight: 500;" title="Impact: -0.023">infections.</span> <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.18195914687968137);color: black;font-weight: 500;" title="Impact: +0.061">The</span> patient has previously been <span style="display: inline-block;padding: 2px 4px;margin: 0 2px;border-radius: 3px;background-color: rgba(220, 53, 69, 0.12205911658089666);color: black;font-weight: 500;" title="Impact: +0.041">hospitalized</span> for CAP and is on long-term oxygen therapy.</div>
+            
+            <!-- Stats section -->
+            <div style="
+                display: flex;
+                justify-content: space-between;
+                margin: 15px 0;
+                gap: 10px;
+            ">
+                
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Average Impact</div>
+                <div style="font-size: 14px; font-weight: 500;">0.026</div>
+            </div>
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Positive Impact %</div>
+                <div style="font-size: 14px; font-weight: 500;">50.0%</div>
+            </div>
+            <div style="
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        ">
+                <div style="font-size: 10px; color: #666;">Max Impact</div>
+                <div style="font-size: 14px; font-weight: 500;">0.061</div>
+            </div>
+        
+            </div>
+            
+            <!-- Table section -->
+            <div style="
+                margin-top: 15px;
+                background-color: white;
+                border-radius: 4px;
+                overflow: hidden;
+            ">
+                
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                <thead>
+                    <tr style="background-color: #f8f9fa;">
+                        <th style="padding: 8px; text-align: left;">Word</th>
+                        <th style="padding: 8px; text-align: right;">Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">The</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.061
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">hospitalized</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.041
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">no</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.038
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">by</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.030
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">(CAP)</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.028
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">infections.</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.023
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">82-year-old</td>
+                    <td style="padding: 8px; text-align: right; color: #0d6efd; font-weight: 500;">
+                        -0.020
+                    </td>
+                </tr>
+            
+                <tr style="border-bottom: 1px solid #dee2e6;">
+                    <td style="padding: 8px; text-align: left;">with</td>
+                    <td style="padding: 8px; text-align: right; color: #dc3545; font-weight: 500;">
+                        +0.020
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        
+            </div>
+        </div>
+        

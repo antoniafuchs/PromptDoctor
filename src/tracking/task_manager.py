@@ -1,3 +1,9 @@
+"""
+task_manager.py
+
+This file manages tasks and their states PromptDoctor. It may handle task creation, assignment, tracking, and related logic.
+"""
+
 from dataclasses import dataclass
 from typing import Dict, List, Optional
 import streamlit as st
@@ -408,16 +414,20 @@ The patient, a 50-year-old female, has been followed in the cardiology clinic fo
         if task_number < len(st.session_state.task_states):
             st.session_state.current_task = task_number + 1
             # Reset states for next task
-            st.session_state.stage = "user"  # Add this line
-            st.session_state.messages = []
-            st.session_state.message_feedback = {}
+            st.session_state.stage = "user"
+            st.session_state.messages = []  # Clear messages for the new task
+            st.session_state.message_feedback = {}  # Clear feedback for the new task
             st.session_state.show_task_intro = True
             st.session_state.show_feedback = False
-            st.session_state.feedback_submitted = {}  # Add this line
+            st.session_state.feedback_submitted = {}
             if "task_complete_clicked" in st.session_state:
                 del st.session_state.task_complete_clicked
             if "task_ready_for_completion" not in st.session_state:
                 st.session_state.task_ready_for_completion = True
+                
+            # Update previous_task to current task to prevent double-clearing
+            st.session_state.previous_task = st.session_state.current_task
+            logger.info(f"Moved to task {st.session_state.current_task}. Cleared chat messages.")
         else:
             st.switch_page("pages/4_Logout.py")
 

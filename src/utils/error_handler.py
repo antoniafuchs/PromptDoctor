@@ -1,3 +1,11 @@
+"""
+error_handler.py
+
+This file provides error handling utilities PromptDoctor, including logging and reporting of errors.
+"""
+
+import os
+
 def format_api_error(error_message):
     """Format API error messages to be more user-friendly"""
     

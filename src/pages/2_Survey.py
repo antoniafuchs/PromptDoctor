@@ -1,6 +1,11 @@
+"""
+2_Survey.py
+This file implements the survey page for PromptDoctor using Streamlit. It presents survey questions, collects user responses, and manages survey-related data and UI elements.
+"""
+
 import streamlit as st
 import streamlit_survey as ss
-from tracking.logging import log_chat_interaction
+from tracking.logging import log_chat_interaction, enhanced_logger
 from src.models.model_handler import ModelHandler
 from utils.style_loader import load_styles
 from datetime import datetime
@@ -397,9 +402,8 @@ def show_login_survey():
                 })
                 storage.log_user(survey_data)
 
-                # Log survey responses
-                logger = EnhancedLogger()
-                logger.log_interaction(
+                # Log survey responses - using the existing enhanced_logger instance
+                log_chat_interaction(
                     user_id=st.session_state.user_id,
                     action_type="SURVEY_COMPLETE",
                     task_id=0,

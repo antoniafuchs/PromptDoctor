@@ -1,4 +1,10 @@
+"""
+timer.py
+This file provides timing utilities for measuring durations and performance of operations in PromptDoctor.
+"""
+
 from datetime import datetime
+import time
 
 class Timer:
     def __init__(self):

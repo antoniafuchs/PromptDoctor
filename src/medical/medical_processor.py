@@ -1,3 +1,8 @@
+"""
+medical_processor.py
+This file processes medical data and terms PromptDoctor, including extraction, validation, and transformation of medical information.
+"""
+
 import pandas as pd
 import datasets
 import re
@@ -38,50 +43,44 @@ class MedicalTermProcessor:
             self.dataset_source = "fallback"
 
     def _escape_special_chars(self, text: str) -> str:
-        """Escape special characters used in Streamlit markdown"""
-        special_chars = '[]:-'
+        special_chars = ['\\', '`', '*', '_']  # Leave [ and ] untouched
         for char in special_chars:
             text = text.replace(char, '\\' + char)
         return text
 
+
+
     def highlight_medical_terms(self, text: str) -> str:
-        """Highlights medical terms in the text using Streamlit color syntax"""
+        """Highlights medical terms in the text using :red[:red-background[...]] syntax"""
+
         if not text:
             return text
 
-        # Convert text to lowercase for matching
-        text_lower = text.lower()
-        result = text
-        matches = []
+        def replace_term(match):
+            original_term = match.group(0)
+            lower_term = original_term.lower()
 
-        # Sort terms by length (longest first)
-        sorted_terms = sorted(self.medical_terms, key=len, reverse=True)
-
-        for term in sorted_terms:
-            # Create pattern with word boundaries
-            pattern = r'\b' + re.escape(term) + r'\b'
-            for match in re.finditer(pattern, text_lower):
-                start, end = match.span()
-                original_term = text[start:end]
+            if lower_term in self.medical_terms:
+                self.track_term_usage(lower_term)
                 escaped_term = self._escape_special_chars(original_term)
-                matches.append((start, end, escaped_term, term.lower()))
-                
-                # Track usage of this term
-                self.track_term_usage(term.lower())
+                return f":red[:red-background[{escaped_term}]]"
+            else:
+                return original_term
 
-        # Sort matches by position
-        matches.sort(key=lambda x: x[0])
-        
-        # Track all highlighted terms in this session
-        highlighted_terms = [match[3] for match in matches]
+        # Create a regex pattern with all terms, sorted longest first
+        sorted_terms = sorted(self.medical_terms, key=len, reverse=True)
+        pattern = r'\b(' + '|'.join(re.escape(term) for term in sorted_terms) + r')\b'
+
+        # Use re.sub with a function to ensure clean replacements
+        highlighted_text = re.sub(pattern, replace_term, text, flags=re.IGNORECASE)
+
+        # Track which terms were found in this session
+        highlighted_terms = re.findall(pattern, text, flags=re.IGNORECASE)
         if highlighted_terms:
-            self.track_highlighted_terms(highlighted_terms)
-        
-        # Apply highlighting in reverse to preserve positions
-        for start, end, escaped_term, _ in reversed(matches):
-            result = result[:start] + f":red[:red-background[{escaped_term}]]" + result[end:]
+            self.track_highlighted_terms([term.lower() for term in highlighted_terms])
 
-        return result
+        return highlighted_text
+
 
     def track_term_usage(self, term: str) -> None:
         """Track usage of a specific medical term"""

@@ -1,3 +1,8 @@
+"""
+feedback_collector.py
+This file collects user feedback in PromptDoctor, providing utilities for gathering and storing feedback data.
+"""
+
 import os
 import pandas as pd
 import json

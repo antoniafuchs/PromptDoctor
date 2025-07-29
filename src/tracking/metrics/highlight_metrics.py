@@ -1,3 +1,8 @@
+"""
+highlight_metrics.py
+This file defines metrics and evaluation logic for highlighted terms in PromptDoctor, supporting analysis and reporting of term highlighting performance.
+"""
+
 from typing import Dict, List, Set
 from src.medical.medical_processor import MedicalTermProcessor
 import re

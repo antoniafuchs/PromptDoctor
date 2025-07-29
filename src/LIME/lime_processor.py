@@ -1,9 +1,16 @@
+"""
+lime_processor.py
+This file implements processing logic for LIME explanations in PromptDoctor, including generation and handling of model interpretability results.
+"""
+
 import numpy as np
 from lime.lime_text import LimeTextExplainer
 from typing import List, Callable, Dict, Any
 import streamlit as st
 import html
 import os
+import uuid
+from datetime import datetime
 
 class LIMEProcessor:
     def __init__(self):
@@ -28,6 +35,11 @@ class LIMEProcessor:
                 "condition", "medication", "medical", "clinical", "health"
             ])
             print(f"[LIME] Using fallback medical terms: {len(self.med_terms)} terms")
+        
+        # Create directory for HTML results
+        self.html_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'html_results')
+        os.makedirs(self.html_dir, exist_ok=True)
+        print(f"[LIME] HTML results directory: {self.html_dir}")
         
         print("[LIME] Processor initialized")
 
@@ -332,6 +344,35 @@ class LIMEProcessor:
         
         return " ".join(highlighted_words)
 
+    def save_html_result(self, html_content: str, user_id: str = None, prompt: str = None) -> str:
+        """Save HTML visualization to a file and return the filepath"""
+        try:
+            # Create a unique filename with timestamp and user info
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            user_str = user_id if user_id else "anonymous"
+            
+            # Create a short hash of the prompt to include in filename
+            prompt_hash = ""
+            if prompt:
+                # Take first 20 chars of prompt and remove non-alphanumeric chars
+                clean_prompt = ''.join(c for c in prompt[:20] if c.isalnum() or c.isspace())
+                prompt_hash = f"_{clean_prompt.replace(' ', '_')}"
+            
+            # Create unique filename
+            filename = f"lime_{timestamp}_{user_str}{prompt_hash}.html"
+            filepath = os.path.join(self.html_dir, filename)
+            
+            # Save HTML content to file
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(html_content)
+                
+            print(f"[LIME] Saved HTML visualization to: {filepath}")
+            return filepath
+            
+        except Exception as e:
+            print(f"[LIME] Error saving HTML result: {str(e)}")
+            return None
+
     def explain_text(self, text: str, model_type: str) -> Dict[str, Any]:
         """Generate LIME explanation with improved error handling"""
         if len(text.split()) < 2:
@@ -343,17 +384,28 @@ class LIMEProcessor:
                 text,
                 predictor,
                 num_features=min(10, len(text.split())),
-                num_samples=10
+                num_samples=100
             )
             
             print("[LIME] Debug info:")
             print(f"Original text words: {text.split()}")
             print(f"LIME features: {explanation.as_list()}")
             
+            # Generate HTML visualization
+            html_content = self._create_visualization_html(explanation, text)
+            
+            # Save HTML to file
+            html_path = self.save_html_result(
+                html_content, 
+                st.session_state.get("user_id", "user"),
+                text
+            )
+            
             return {
                 "words": [word for word, _ in explanation.as_list()],
                 "scores": [score for _, score in explanation.as_list()],
-                "html": self._create_visualization_html(explanation, text),
+                "html": html_content,
+                "html_path": html_path,
                 "raw_explanation": explanation
             }
             

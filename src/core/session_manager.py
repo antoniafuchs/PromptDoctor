@@ -1,5 +1,11 @@
+"""
+session_manager.py
+This file manages user sessions for PromptDoctor, including session creation, validation, and termination.
+"""
+
 import streamlit as st
 from typing import Optional
+import uuid
 
 class SessionManager:
     @staticmethod

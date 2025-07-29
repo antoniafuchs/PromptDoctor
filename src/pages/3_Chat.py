@@ -1,3 +1,8 @@
+"""
+3_Chat.py
+This file implements the main chat interface for PromptDoctor using Streamlit. It handles user interactions, chat history, and communication with backend models or services.
+"""
+
 import streamlit as st
 import asyncio
 import os
@@ -87,16 +92,20 @@ import os
 import glob
 from threading import Thread
 import pandas as pd
-from utils.ml_utils import init_torch, get_device
+from utils.ml_utils import init_torch
 from models.model_handler import ModelHandler
 from streamlit_extras.switch_page_button import switch_page
 import streamlit_survey as ss 
 
 # Initialize PyTorch with basic settings - safer initialization
 try:
-    from utils.ml_utils import init_torch, get_device
+    from utils.ml_utils import init_torch
     # Initialize PyTorch in a way that avoids event loop errors
     init_torch()
+    # Define get_device locally since it's not available in the module
+    def get_device():
+        """Fallback get_device function that always returns 'cpu'"""
+        return "cpu"
 except ImportError as e:
     print(f"[WARNING] Error importing PyTorch utilities: {str(e)}")
     # Create fallback functions if import fails
@@ -107,6 +116,8 @@ except ImportError as e:
     init_torch()
 except Exception as e:
     print(f"[WARNING] Error during PyTorch initialization: {str(e)}")
+    def get_device():
+        return "cpu"
 
 # Load shared styles
 load_styles()
@@ -761,6 +772,19 @@ def show_chatbot():
         st.session_state.first_login = True
         st.session_state.show_task_intro = True
 
+    # Clear chat messages when starting a new task
+    # Track the previous task to detect task changes
+    if "previous_task" not in st.session_state:
+        st.session_state.previous_task = st.session_state.current_task
+    
+    # Check if the task has changed
+    if st.session_state.previous_task != st.session_state.current_task:
+        # Task has changed, clear the chat messages
+        st.session_state.messages = []
+        st.session_state.message_feedback = {}
+        st.session_state.previous_task = st.session_state.current_task
+        logger.info(f"Task changed to {st.session_state.current_task}. Cleared chat messages.")
+
     st.header("PromptDoctor")
     
     # Add custom CSS
@@ -869,10 +893,10 @@ def show_chatbot():
         # Log validation display
         medical_terms = st.session_state.medical_processor.get_medical_terms(st.session_state.pending_prompt)
         log_validation_action(
-            st.session_state.user_id,
-            "VALIDATION_VIEW",
-            st.session_state.pending_prompt,
-            medical_terms,
+            user_id=st.session_state.user_id,
+            action_type="VALIDATION_VIEW",
+            prompt=st.session_state.pending_prompt,
+            highlighted_terms=medical_terms,
             medical_term_count=len(medical_terms)
         )
         
@@ -889,11 +913,9 @@ def show_chatbot():
             
             log_validation_action(
                 user_id=user_id,
-                task_id=task_id,
                 action_type="EDIT_CLICK",
-                original_prompt=st.session_state.pending_prompt,
-                prompt_count=current_prompt_count,
-                message_id=message_id
+                prompt=st.session_state.pending_prompt,
+                highlighted_terms=get_medical_terms(st.session_state.pending_prompt, st.session_state.medical_processor)
             )
             st.session_state.validation = {
                 "sentences": sentences,
@@ -915,11 +937,9 @@ def show_chatbot():
             
             log_validation_action(
                 user_id=user_id,
-                task_id=task_id,
                 action_type="ACCEPT_CLICK",
-                original_prompt=st.session_state.pending_prompt,
-                prompt_count=current_prompt_count,
-                message_id=message_id
+                prompt=st.session_state.pending_prompt,
+                highlighted_terms=get_medical_terms(st.session_state.pending_prompt, st.session_state.medical_processor)
             )
             # Hide task intro
             st.session_state.show_task_intro = False
@@ -996,15 +1016,10 @@ def show_chatbot():
                 # Log with enhanced data
                 log_validation_action(
                     user_id=user_id,
-                    task_id=task_id,
                     action_type="EDIT_UPDATE",
-                    original_prompt=st.session_state.pending_prompt,
+                    prompt=st.session_state.pending_prompt,
                     modified_prompt=new_prompt,
-                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor),
-                    prompt_count=current_prompt_count,
-                    message_id=message_id,
-                    edit_distance=edit_distance,
-                    diff_type=diff_type
+                    highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor)
                 )
                 st.session_state.pending_prompt = new_prompt
                 st.session_state.stage = "validate"
@@ -1023,9 +1038,9 @@ def show_chatbot():
             
             if st.button("Update", type="primary"):
                 log_validation_action(
-                    st.session_state.user_id,
-                    "REWRITE_UPDATE",
-                    st.session_state.pending_prompt,
+                    user_id=st.session_state.user_id,
+                    action_type="REWRITE_UPDATE",
+                    prompt=st.session_state.pending_prompt,
                     modified_prompt=new_prompt,
                     highlighted_terms=get_medical_terms(new_prompt, st.session_state.medical_processor)
                 )

@@ -1,3 +1,8 @@
+"""
+data_merger.py
+This file provides utilities for merging data from different sources in PromptDoctor, supporting unified data analysis and reporting.
+"""
+
 import pandas as pd
 import os
 from datetime import datetime

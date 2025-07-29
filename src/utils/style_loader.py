@@ -1,3 +1,9 @@
+"""
+style_loader.py
+
+This file provides utilities for loading and applying styles in PromptDoctor, supporting UI customization and theming.
+"""
+
 import streamlit as st
 import os
 

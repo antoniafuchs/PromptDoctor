@@ -1,3 +1,8 @@
+"""
+Home.py
+This file implements the home page for PromptDoctor using Streamlit. It provides the main landing interface and navigation for users.
+"""
+
 import streamlit as st
 from utils.style_loader import load_styles
 import streamlit_survey as ss
@@ -136,7 +141,7 @@ elif pages.current == 1:
     """)
     
     # Display checkbox image with better formatting
-    st.image("assets/checkbox.png", width=270)
+    st.image("src/assets/checkbox.png", width=270)
 
 # Last page (page 2) with consent
 elif pages.current == 2:
@@ -190,10 +195,10 @@ elif pages.current == 2:
                 st.session_state.selected_model_name = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
                 
                 # Set Together API key and environment variable
-                st.session_state.together_api_key = "tgp_v1_qMVnwAdRKPrsy0ASdwt2bMowEWAkz6q5X4XmUbGdRr8"
-                os.environ["TOGETHER_API_KEY"] = "tgp_v1_qMVnwAdRKPrsy0ASdwt2bMowEWAkz6q5X4XmUbGdRr8"
-                
-                st.session_state.login_complete = True                
+                st.session_state.together_api_key = "your-token-here"
+                os.environ["TOGETHER_API_KEY"] = "your-token-here"
+
+                st.session_state.login_complete = True
                 # Add model configuration for controlling token generation
                 st.session_state.model_config = {
                     "max_new_tokens": 350,

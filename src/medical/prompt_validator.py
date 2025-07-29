@@ -1,3 +1,8 @@
+"""
+prompt_validator.py
+This file validates prompts for correctness, completeness, and compliance with medical standards in PromptDoctor.
+"""
+
 import re
 import nltk
 import streamlit as st

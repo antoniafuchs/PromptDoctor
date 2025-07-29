@@ -1,3 +1,8 @@
+"""
+db_utils.py
+This file provides utilities for interacting with the database in PromptDoctor, including connection management and query execution.
+"""
+
 import sqlite3
 import uuid
 from datetime import datetime

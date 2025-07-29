@@ -1,8 +1,15 @@
+"""
+pdf_handler.py
+
+This file provides utilities for handling PDF files in PromptDoctor, including reading, parsing, and extracting data from PDFs.
+"""
+
 import base64
 import streamlit as st
 import fitz
 from datetime import datetime
 import io
+import PyPDF2
 
 def displayPDF(upl_file, width):
     bytes_data = upl_file.getvalue()

@@ -1,1 +1,17 @@
-timestamp;user_id;group;model_type;model_name
+model_type;model_name;group;timestamp;user_id;model_display_name
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;2025-07-20T09:05:37.340031;9c20c58e-db83-417c-9072-a7021068d3a7;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;2025-07-20T09:08:03.626317;9c20c58e-db83-417c-9072-a7021068d3a7;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;2025-07-20T09:08:29.815315;d9d97c2a-5f00-4985-be68-d6c39566793e;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;2025-07-20T09:13:05.591108;a96ae1bb-dca6-41a2-9d01-ef8b31a2f61c;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;2025-07-20T09:14:48.821603;d06f79d0-91d9-40c0-b170-bd83cdcd0c81;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;2025-07-20T09:16:19.435495;1de9d16f-f01f-4929-804b-4ff5bf9530a6;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;2025-07-20T09:19:21.173922;9848fe99-33b0-406d-ad1f-a97cc0367211;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;B;2025-07-20T09:25:14.061007;fb85aa37-8bf8-4b9c-bd9b-7e5fcc0a2044;
+Together;meta-llama/Llama-3.3-70B-Instruct-Turbo-Free;A;2025-07-20T15:33:24.973875;d063f454-21ef-4470-8a44-e1a846288a51;
+GPT;gpt-4;B;2025-07-23T21:15:27.776644;8adf02f8-3952-43d3-a700-3b97e97ce31f;GPT-4
+GPT;gpt-4;B;2025-07-23T21:15:32.983896;8adf02f8-3952-43d3-a700-3b97e97ce31f;
+HuggingFace;starmpcc/Asclepius-7B;A;2025-07-28T11:04:25.558064;5a3de799-8ee9-4015-83b0-2d3dea585f2d;starmpcc/Asclepius-7B
+Ollama;llama3-med42-8b;B;2025-07-28T11:06:41.266501;4837b0cd-c3b1-46ba-afa4-84a3ccf9a088;Med42 8B
+Ollama;llama3-med42-8b;B;2025-07-28T11:06:47.022696;4837b0cd-c3b1-46ba-afa4-84a3ccf9a088;
+Ollama;llama3-med42-8b;A;2025-07-29T11:44:25.501059;9ef54427-960a-4bd7-b76e-9b6c1ba1d3a2;Med42 8B
+Ollama;llama3-med42-8b;A;2025-07-29T11:44:31.265448;9ef54427-960a-4bd7-b76e-9b6c1ba1d3a2;

@@ -1,5 +1,11 @@
+"""
+base.py
+This file defines the base class for model providers in PromptDoctor, specifying the interface and shared logic for model integration.
+"""
+
 from typing import Dict, List, Optional
 from abc import ABC, abstractmethod
+import os
 
 class ModelProvider(ABC):
     @abstractmethod

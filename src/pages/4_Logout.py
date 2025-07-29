@@ -1,3 +1,8 @@
+"""
+4_Logout.py
+This file implements the logout page for PromptDoctor using Streamlit. It handles user session termination, data merging, and summary statistics display after logout. It also manages UI elements and logging for the logout process.
+"""
+
 import pandas as pd
 import streamlit as st
 import streamlit_survey as ss
